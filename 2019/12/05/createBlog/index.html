@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="基于Hexo+Github 搭建个人博客node.js">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-05T10:57:13.749Z">
+<meta property="og:updated_time" content="2019-12-06T02:31:22.031Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
@@ -192,6 +192,16 @@
     </h1>
   
 
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" target="_blank" rel="noopener" style="color:gray;font-size:14px;">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
         
         <a href="/zbcn.github.io/2019/12/05/createBlog/" class="archive-article-date">
   	<time datetime="2019-12-05T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
@@ -254,7 +264,7 @@
 </li>
 </ul>
 </li>
-<li><p>添加 访问量统计</p>
+<li><p><del>添加 访问量统计1</del>(效果不是很好)</p>
 <ul>
 <li><p>添加本站总访问量(引入不蒜子):(pv的方式，单个用户连续点击n篇文章，记录n次访问量。)<br>在 <code>themes/yilia/layout/_partial/footer.ejs</code> 的末尾 添加</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    本站总访问量&lt;span id=<span class="string">"busuanzi_value_site_pv"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>次</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/span&gt;</span></span></pre></td></tr></table></figure>
@@ -265,10 +275,24 @@
 </li>
 </ul>
 <p>在 <code>themes/yilia/layout/_partial/article.ejs</code>下添加</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index)&#123; %&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  &lt;span id=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    ⋉(●本文总阅读量 &lt;span id=<span class="string">"busuanzi_value_page_pv"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> 次●)⋊</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  &lt;<span class="regexp">/span&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">&lt;% &#125; %&gt;</span></span></pre></td></tr></table></figure>
-
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index)&#123; %&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  &lt;span id=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    ⋉(●本文总阅读量 &lt;span id=<span class="string">"busuanzi_value_page_pv"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> 次●)⋊</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  &lt;<span class="regexp">/span&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">&lt;% &#125; %&gt;</span></span></pre></td></tr></table></figure></li>
+<li><p>访问量统计2:</p>
 </li>
 </ol>
+<p><strong>网站访问量显示：</strong></p>
+<ul>
+<li>我使用了不蒜子第三方的统计插件，网址：<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">http://ibruce.info/2015/04/04/busuanzi/</a></li>
+<li>在<code>themes\yilia\layout\_partial</code>下的footer.ejs中加入如下代码即可<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/script&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">&lt;span id="busuanzi_container_site_pv"&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">  本站总访问量&lt;span id="busuanzi_value_site_pv"&gt;&lt;/</span>span&gt;次</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/span&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">&lt;span id="busuanzi_container_site_uv"&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">总访客数&lt;span id="busuanzi_value_site_uv"&gt;&lt;/</span>span&gt;人次</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/span&gt;</span></span></pre></td></tr></table></figure>
+<strong>实现单篇文章浏览统计和评论统计</strong></li>
+<li>评论数的统计是<strong>网易云跟帖</strong>中获取的，下面给出</li>
+<li>修改<code>themes\yilia\layout\_partial</code>文件夹下的article.ejs文件</li>
+<li>在<code>&lt;%- partial(&#39;post/title&#39;, {class_name: &#39;article-title&#39;}) %&gt;</code>节点下加入：<ul>
+<li>注意这里网易云跟帖还没设置，而评论数中使用到了，这里运行会有问题，下面给出<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;!-- 显示阅读和评论数 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  &lt;% <span class="keyword">if</span> (!index &amp;&amp; post.comments &amp;&amp; config.wangYi)&#123; %&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  &lt;br/&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"cloud-tie-join-count"</span> href=<span class="string">"javascript:void(0);"</span>target=<span class="string">"_parent"</span> style=<span class="string">"color:gray;font-size:14px;"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-sort"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  &lt;span id=<span class="string">"busuanzi_container_page_pv"</span> style=<span class="string">"color:#ef7522;font-size:14px;"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            阅读数: <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>次 &amp;nbsp;&amp;nbsp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  &lt;<span class="regexp">/span&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">  &lt;/</span>a&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"cloud-tie-join-count"</span> href=<span class="string">"javascript:void(0);"</span> target=<span class="string">"_parent"</span> style=<span class="string">"color:#ef7522;font-size:14px;"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  	&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-comment"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  	&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"join-text"</span> style=<span class="string">"color:#ef7522;font-size:14px;"</span>&gt;评论数:<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  	&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"join-count"</span>&gt;<span class="number">0</span>&lt;<span class="regexp">/span&gt;次</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">  &lt;/</span>a&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  &lt;% &#125; %&gt;</span></pre></td></tr></table></figure>
+<h4 id="实现网易云跟帖评论"><a href="#实现网易云跟帖评论" class="headerlink" title="实现网易云跟帖评论"></a>实现网易云跟帖评论</h4></li>
+<li>注册账号：<a href="https://gentie.163.com/info.html" target="_blank" rel="noopener">https://gentie.163.com/info.html</a></li>
+</ul>
+</li>
+</ul>
 <h4 id="配置置顶文章"><a href="#配置置顶文章" class="headerlink" title="配置置顶文章"></a>配置置顶文章</h4><ul>
 <li>安装插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top --save</span></pre></td></tr></table></figure></li>
 <li>配置置顶标准<ul>
@@ -372,11 +396,6 @@
       
     </div>
     <div class="article-info article-info-index">
-	  
-        <span id="busuanzi_container_page_pv">
-        ⋉(●本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次●)⋊
-        </span>
-	  
       
         <div class="article-pop-out tagcloud">
           <i class="icon-tuding"></i>
@@ -511,7 +530,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于Hexo-Github-搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">基于Hexo+Github 搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#node-js"><span class="toc-number">1.1.</span> <span class="toc-text">node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#环境安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">环境安装</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-yilia-主题的坑"><span class="toc-number">1.2.</span> <span class="toc-text">安装 yilia 主题的坑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置置顶文章"><span class="toc-number">1.3.</span> <span class="toc-text">配置置顶文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hexo-实现私密文章加密"><span class="toc-number">1.4.</span> <span class="toc-text">Hexo 实现私密文章加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加版权声明"><span class="toc-number">1.5.</span> <span class="toc-text">增加版权声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在左侧显示总文章数"><span class="toc-number">1.6.</span> <span class="toc-text">在左侧显示总文章数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章顶部转载说明"><span class="toc-number">1.7.</span> <span class="toc-text">文章顶部转载说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类的构建"><span class="toc-number">1.8.</span> <span class="toc-text">分类的构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加相册"><span class="toc-number">1.9.</span> <span class="toc-text">添加相册</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于Hexo-Github-搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">基于Hexo+Github 搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#node-js"><span class="toc-number">1.1.</span> <span class="toc-text">node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#环境安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">环境安装</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-yilia-主题的坑"><span class="toc-number">1.2.</span> <span class="toc-text">安装 yilia 主题的坑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现网易云跟帖评论"><span class="toc-number">1.3.</span> <span class="toc-text">实现网易云跟帖评论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置置顶文章"><span class="toc-number">1.4.</span> <span class="toc-text">配置置顶文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hexo-实现私密文章加密"><span class="toc-number">1.5.</span> <span class="toc-text">Hexo 实现私密文章加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加版权声明"><span class="toc-number">1.6.</span> <span class="toc-text">增加版权声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在左侧显示总文章数"><span class="toc-number">1.7.</span> <span class="toc-text">在左侧显示总文章数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章顶部转载说明"><span class="toc-number">1.8.</span> <span class="toc-text">文章顶部转载说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类的构建"><span class="toc-number">1.9.</span> <span class="toc-text">分类的构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加相册"><span class="toc-number">1.10.</span> <span class="toc-text">添加相册</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -543,9 +562,13 @@
     		&copy; 2019 执笔成念
     	</div>
 		  
-		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+		</script>
 		<span id="busuanzi_container_site_pv">
-			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+		<span id="busuanzi_container_site_uv">
+		总访客数<span id="busuanzi_value_site_uv"></span>人次
 		</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -629,10 +652,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Hexo</a>
               </li>
              
@@ -646,6 +665,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
