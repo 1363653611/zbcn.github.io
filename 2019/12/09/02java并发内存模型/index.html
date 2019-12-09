@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>Tag: yilia | zbcn</title>
+  <title>java并发内存模型 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="QQ是一杯毒药，谋杀的是时间。时间是一把匕首，刺伤的是思想。思想是一座监狱，囚禁的是心灵。心灵是一碗面条，吃掉的是寂寞。寂寞是一方屏幕，显示的是QQ。就象我不用MSN,微博，因为那是时间的小偷；结果发现，我现在却喝下的毒药.">
-<meta name="keywords" content="前端,js,jquery,java,sql,springBoot,springCloud,spring,docker,uml,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zbcn">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;tags&#x2F;yilia&#x2F;index.html">
+  <meta name="description" content="java 内存模型java 内存模型的基础 并发编程的两个问题：    线程间的通讯机制模型： 共享内存 ,消息传递  线程之间如何通讯    共享内存(隐式通讯)： 在共享内存的并发模型里，线程之间共享程序的公共状态，通过读-写 内存中的公共状态进行通讯 消息传递（显示通讯）：线程之间没用公共状态， 只能通过显式发布消息。">
+<meta name="keywords" content="concurrency,并发,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java并发内存模型">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;02java%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="QQ是一杯毒药，谋杀的是时间。时间是一把匕首，刺伤的是思想。思想是一座监狱，囚禁的是心灵。心灵是一碗面条，吃掉的是寂寞。寂寞是一方屏幕，显示的是QQ。就象我不用MSN,微博，因为那是时间的小偷；结果发现，我现在却喝下的毒药.">
+<meta property="og:description" content="java 内存模型java 内存模型的基础 并发编程的两个问题：    线程间的通讯机制模型： 共享内存 ,消息传递  线程之间如何通讯    共享内存(隐式通讯)： 在共享内存的并发模型里，线程之间共享程序的公共状态，通过读-写 内存中的公共状态进行通讯 消息传递（显示通讯）：线程之间没用公共状态， 只能通过显式发布消息。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-09T08:04:16.911Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
@@ -176,127 +177,607 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-02java并发内存模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/zbcn.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zbcn.github.io/2019/12/06/yilia-photos/" class="archive-article-date">
-  	<time datetime="2019-12-06T01:41:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zbcn.github.io/2019/12/06/yilia-photos/">yilia 实现相册功能</a>
+    <h1 class="article-title" itemprop="name">
+      java并发内存模型
     </h1>
   
 
-        <div class="article-info info-on-right">
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/02java%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare">
+           <hr>
+          <strong>如需转载，请根据</strong>
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+          许可，附上本文作者及链接。
+          <br>
+          <strong>本文作者：</strong>
           
+            执笔成念
+          
+          <br>
+          <strong>作者昵称：</strong>
+          
+            zbcn
+          
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/09/02java%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">https://1363653611.github.io/zbcn.github.io/2019/12/09/02java%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</a>
+          <br>
+          <hr>
+        </div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="java-内存模型"><a href="#java-内存模型" class="headerlink" title="java 内存模型"></a>java 内存模型</h3><h4 id="java-内存模型的基础"><a href="#java-内存模型的基础" class="headerlink" title="java 内存模型的基础"></a>java 内存模型的基础</h4><ol>
+<li><p>并发编程的两个问题：  </p>
+<ul>
+<li><p>线程间的通讯机制模型： <strong>共享内存</strong> ,<strong>消息传递</strong></p>
+</li>
+<li><p>线程之间如何通讯  </p>
+<ul>
+<li>共享内存(隐式通讯)： 在共享内存的并发模型里，线程之间共享程序的公共状态，通过读-写 内存中的公共状态进行通讯</li>
+<li>消息传递（显示通讯）：线程之间没用公共状态， 只能通过显式发布消息。<a id="more"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>线程之间如何同步：<ul>
+<li>同步：程序中用于控制不同线程间操作发生相对顺序的机制。</li>
+<li>共享内存（显式同步）：必须显式指定某个方法或者某段代码必须要在线程间互斥执行</li>
+<li>消息传递（隐式）：消息的发送必须在消息的接受之前，因此是隐式的</li>
+<li>JAVA 的并发采用的是 <strong>共享内存</strong> 模型.所以通讯是隐式的，</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>java 内存模型的抽象结构</p>
+<ul>
+<li><p>共享变量（堆内存中）：实例域、静态域、数组元素</p>
+</li>
+<li><p>私有变量： 局部变量、方法定义参数、异常处理参数</p>
+</li>
+<li><p>java的内存模型（JMM）结构  </p>
+<blockquote>
+<p>内存说明： 在主内存（Main memory）： 线程之间共享变量的存储内存<br>本地内存（Local Memory：JMM 的一个抽象概念，本身不存在）：每个线程都有一个私有的memory，本地内存中存储了该线程读-写 共享变量的副本 。 涵盖：缓存，缓冲区、寄存器、其他的硬件和编译器优化</p>
+</blockquote>
+</li>
+<li><p>JMM通过控制主内存 和 每个线程的本地内存的交互，来提供内存可见性</p>
+</li>
+</ul>
+</li>
+<li><p>重排序：为了提高性能，编译器和处理器常常会对指令做重排序。分为三种</p>
+<ul>
+<li>编译器优化的重排序</li>
+<li>指令并行执行的重排序</li>
+<li>内存系统的重排序</li>
+<li>_重排序_：<ul>
+<li>数据依赖性：两个操作中，有一个为写操作，则存在数据依赖性</li>
+<li>as-if-serial 语义：不管怎么重排序，单线程程序的执行结果不能改变。<br><strong>注：</strong> 编译器、runtime、处理器 都必须遵守 as-if-serial 规则不能被改变</li>
+<li>程序顺序规则：在不改变程序结果的，尽可能提高并行度</li>
+</ul>
+</li>
+<li>重排序对多线程的影响：存在控制依赖性的重排序会影响程序的执行结果</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>java：<br> 源代码 –&gt; 编译器优化重排序 -&gt; 指令级并行重排序 -&gt; 内存系统重排序 -&gt; 最终待执行序列</p>
+</li>
+<li><p>重排序可能导致许多内存可见性问题。</p>
+</li>
+<li><p>JMM 通过禁止特定类型的编译器重排序和处理器重排序来提供一致的内存可见性保证</p>
+</li>
+<li><p>并发编程的模型的分类</p>
+<ul>
+<li>StoreLoad Barriers</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>happens-before 简介<br>如果一个操作执行结果要对另一个操作可见，那么这两个操作之间存在着happens-before 规则（同一个线程或者不同线程 都适用）。<ul>
+<li><strong>规则:</strong></li>
+</ul>
+<ol>
+<li>程序顺序规则：一个线程中的每个操作，happens-pefore 该线程的后续任意操作</li>
+<li>监视器规则：一个锁的解锁，happens-before 对于后续堆这个锁的加锁</li>
+<li>volatile 变量规则：对于任意一个volatile域的写，happens-before 对于任意后续对这个volatile变量的读。</li>
+<li>传递性：如果A happens- before B 且B happens-before C， 则A happens- before code。</li>
+</ol>
+</li>
+</ol>
+<h4 id="顺序一致性"><a href="#顺序一致性" class="headerlink" title="顺序一致性"></a>顺序一致性</h4><ol>
+<li>数据竞争与顺序一致性<ul>
+<li>程序未正确同步时，就可能存在数据竞争。</li>
+<li>JMM 对正确同步的多线程程序做了如下保证：<ol>
+<li>正确同步的程序，程序的执行将具有顺序一致性。</li>
+<li>正确同步包括synhronized、vilatile、final 的正确使用</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>顺序一致性内存模型<br> 顺序一致性模型的特性：<ol>
+<li>一个线程中的所有操作必须按照程序的顺序来执行</li>
+<li>不管程序同步与否，所有的线程只能看到一个单一的执行顺序</li>
+<li>每个操作都必须原子执行，且立刻对所有线程可见</li>
+</ol>
+</li>
+</ol>
+<h4 id="volatile-的内存语义"><a href="#volatile-的内存语义" class="headerlink" title="volatile 的内存语义"></a>volatile 的内存语义</h4><ol>
+<li><p>volatile 特性： 可见性、原子性</p>
+<ul>
+<li>可见性：对于一个volatile变量的读，总是能看到任意线程读第这个volatile变量的最后写入。</li>
+<li>原子性：对任意单个volatile变量的读写都具有原子性。但volatile++ 操作不具有原子性。</li>
+</ul>
+</li>
+<li><p>volatile 写-读 建立的appens-before关系（（volatile）写-（锁）释放 ；(volatile) 读- （锁） 获取）</p>
+<ul>
+<li><p>volatile 的写和锁的释放有相同语义。</p>
+</li>
+<li><p>volatile 的读和锁的获取有相同语义。</p>
+</li>
+<li><p>volatile 写- 读 <em><strong>内存语义</strong></em>  </p>
+<blockquote>
+<p>当写入一个volatile变量时，JMM 会把该线程对应的本地内存中的共享变量值（所有的值）刷新到主内存<br>当读取volatile变量时，JMM 会把该线程对应的本地内存设置未无效。线程接下来会从主内存中获取共享变量<br>线程A 写一个volatile变量，实质上是线程A通过主内存向线程B发送消息。</p>
+</blockquote>
+</li>
+<li><p>内存语义的实现<br>volatile 重排序规则</p>
+<table>
+<thead>
+<tr>
+<th>是否能重排序</th>
+<th>第二个操作</th>
+<th>~</th>
+<th>~</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一个操作</td>
+<td>普通度/写</td>
+<td>volatile 读</td>
+<td>volatile 写</td>
+</tr>
+<tr>
+<td>普通读写</td>
+<td></td>
+<td></td>
+<td>NO</td>
+</tr>
+<tr>
+<td>volatile 读</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>volatile写</td>
+<td></td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+</tbody></table>
+<ul>
+<li>说明:<ol>
+<li>第三行的最后一个意思是:在程序中,当第一个操作为普通变量的读写时,第二个操作为volatile 的写,则编译器不能重排序这两个操作.</li>
+</ol>
+</li>
+<li>为了实现volatile 内存语义,编译器在生成字节码时,会在指令序列中插入内存屏障,来禁止特定类型的处理器重排序.</li>
+<li>volatile 内存屏障(保守):<ol>
+<li>在每个volatile写操作的前面插入一个storeStore 屏障</li>
+<li>在每个volatile的写操作后面插入一个storeLoad 屏障</li>
+<li>在每个 volatile 的读操作后面插入一个loadLoad 屏障</li>
+<li>在每个volatile 的读后面会插入一个loadStore 屏障</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>JSR-133 增强了volatile 的内存语义<br>严格限制编译器和处理器对volatile 变量与普通变量的重排序,确保volatile的写-读 和 锁的 释放- 获取有相同的语义.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="锁的内存语义"><a href="#锁的内存语义" class="headerlink" title="锁的内存语义"></a>锁的内存语义</h4><ol>
+<li><p>锁的释放-获取 建立的happens-before 关系</p>
+</li>
+<li><p>锁的释放和获取的内存语义<br>锁的 释放 和 volatile 的写有相同内存语义,锁的 获取和volatile 的读有相同的内存语义:</p>
+<ul>
+<li>线程A释放一个锁,实质上时线程A向获取这个锁的某个线程发出的（线程A对共享变量修改的）信息.</li>
+<li>线程B 获取一个锁，实质上是线程B 接受到了之前某个线程发出的（在释放这个锁之前对共享变量作出修改的）消息。</li>
+<li>线程A 释放锁，随后线程B获取这个锁，这个过程实质上是线程A通过主内存向线程B发送消息。</li>
+</ul>
+</li>
+<li><p>ReentrantLock 的实现依赖于Java 同步器框架AbstractQueueSynchronizer （AQS），AQS 内部使用一个整形的volatile 变量（state）来维护状态。</p>
+</li>
+<li><p>公平锁和非公平锁的内存语义：</p>
+<ul>
+<li>公平锁和非公平锁释放时，最后都要写一个volatile 变量state；</li>
+<li>公平锁获取时，会首先读volatile变量</li>
+<li>非公平锁获取时，首先会用CAS 更新volatile变量，这个操作同时具有volatile读和写的内存语义。</li>
+</ul>
+</li>
+<li><p>内存语义的实现：</p>
+<ul>
+<li>利用volatile变量的写-读所具有的内存语义。</li>
+<li>利用CAS 所附带的volatile读和volatile写的内存语义</li>
+</ul>
+</li>
+<li><p>concurrent 包的实现：</p>
+<ul>
+<li>java CAS同时具有volatile读和volatile 写的内存语义。</li>
+<li>线程通讯方式：<ol>
+<li>A 线程写volatile变量，随后B线程读这个Volatile变量</li>
+<li>A 线程volatile变量，随后B线程用CAS更新这个volatile变量。</li>
+<li>A线程用CAS更新一个volatile变量，随后B线程用CAS更新这个Volatile变量。</li>
+<li>A线程用CAS 更新一个volatile变量,随后B线程读这个volatile变量。</li>
+</ol>
+</li>
+<li>volatile 变量的读写 和 CAS 操作是 concurrent 包实现的基石。</li>
+<li>通用实现：<ol>
+<li>声明变量为volatile</li>
+<li>使用CAS原子条件根新来实现线程之间的同步。</li>
+<li>配合volatile 的读/写和CAS 所具有volatile读和写的内存语义来实现线程之间的通信。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="final-的内存语义"><a href="#final-的内存语义" class="headerlink" title="final 的内存语义####"></a>final 的内存语义####</h4><ol>
+<li><p>final 域的重排序规则.</p>
+<ul>
+<li>在构造函数内,对一个final域的写入,与随后把这个被构造对象的引用赋值给一个引用变量,这两个操作之间不能重排序.</li>
+<li>初次读一个包含final 域对象的引用,与随后初次读这个final域,两个操作之间不能重排序.</li>
+</ul>
+</li>
+<li><p>final 域的重排序规则2.</p>
+<ul>
+<li>JMM 禁止编译器把final域的写重排序到构造函数之外.</li>
+<li>编译器会在final域的写入之后,构造函数return 之前,插入一个StoreStore屏障.这个屏障禁止处理器把final域的写重排序到构造函数之外.   </li>
+<li>编译器会在读final域操作的前面插入一个LoadLoad屏障。（JMM处理器会禁止这两个操作的重排序。）</li>
+</ul>
+<p><strong>注:</strong> 写final 域的重排序规则可以保证:在对象引用为任意线程可见之前,对象的final 域已经被初始化过了.而普通域没有这个保障.</p>
+</li>
+<li><p>读final域的重排序规则.<br> 在读对象的final 域之前，一定会限度包含这个final域的引用。即：如果对象的引用读取对象不为null，这这个对象的final域已经被初始化了。</p>
+</li>
+<li><p>final 域为引用类型</p>
+<ul>
+<li>对于引用类型，写final域写fin域的重排序规则对处理器和编译器做了如下约束：在构造器内对final 对象 成员域的写入，与随后在构造函数外把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序。</li>
+</ul>
+</li>
+<li><p>为什么final引用不能从构造函数“溢出”：</p>
+<ul>
+<li>对象引用不能在构造函数中 “溢出”：在构造函数的内部，不能让这个被构造对象的引用为奇台线程所见。（对象在构造过程中（构造函数返回之前）不能对外可见。）</li>
+</ul>
+</li>
+<li><p>final 语义在处理器中的实现：</p>
+<ul>
+<li>略（说明了x86 处理器的特殊之处）</li>
+</ul>
+</li>
+<li><p>JSR-133 为什么要增强final 的语义：</p>
+<ul>
+<li>为开发人员提供初始化安全保证：只要对象是正确构造（对象没有在构造过程中溢出），那么不需要使用同步，就可以保证任意线程都能看到这个final域在对象构造函数中被初始化的值。</li>
+</ul>
+</li>
+</ol>
+<h4 id="happens-before-as-if-serial"><a href="#happens-before-as-if-serial" class="headerlink" title="happens-before (as-if-serial)"></a>happens-before (as-if-serial)</h4><ul>
+<li><p>JSR-33 定义 happens-before:</p>
+<ol>
+<li>如果一个操作happens-before 另一个操作,那么第一个操作的结果对第二个操作可见.且第一个的操作顺序排在第二个操作之前.(<strong>JMM 对程序员的承诺</strong>)</li>
+<li>两个操作之间存在happens-before 关系,并不意味着java平台的具体操作按照happens-before 关系来指定顺序执行.如果重排序后的执行结果与按照happens-before 关系来执行的结果一致.那么这种重排序是合法的.(JVM 允许 happens-before 规则重排序)(<strong>JMM对编译器和处理期重排序规则的约束</strong>)</li>
+</ol>
+</li>
+<li><p>happens-before 规则(JSR-33):</p>
+<ol>
+<li>程序顺序规则:一个线程中的每个操作,happens-before 于该线程的任意后续操作.</li>
+<li>监视器锁规则: 对一个锁的解锁,happens-before 于对该线程的加锁.</li>
+<li>volatile 变量规则:对任意一个volatile变量的写,happens-before 对该变量的读.</li>
+<li>传递性:如果 A happens-before B,且 B happens-before C , 则 A happens-before C.</li>
+<li>start() 规则: 如果 线程 A 执行操作 ThreadB.start()(启动线程B),那么A线程的ThreadB.start() happens-before B线程的任意操作.</li>
+<li>join 规则: 如果A 线程执行 操作 ThreadB.join()并成功返回.那么B线程的任意操作happens-before 于线程 A 从 ThreadB.jion() 操作成功返回.</li>
+</ol>
+</li>
+</ul>
+<h4 id="双重检查锁定于延迟初始化"><a href="#双重检查锁定于延迟初始化" class="headerlink" title="双重检查锁定于延迟初始化:"></a>双重检查锁定于延迟初始化:</h4><p>双重检查锁定是常见的延迟初始化技术.</p>
+<ol>
+<li><p>典型示例: 单例模式</p>
+<ul>
+<li><p>可能错误: 单例对象的操作非原子性.多线程操作是,虽然判断对象不为空.但是对象并未初始化完成.</p>
+</li>
+<li><p>错误原因:对象的创建分为三步:</p>
+<blockquote>
+<ol>
+<li>分配对象内存空间 memory = allocate()</li>
+<li>初始化对象 ctorInstance(memory)</li>
+<li>设置instance 指向刚分配的内存</li>
+</ol>
+</blockquote>
+<p>  <strong>2 和 3 可以重排序.导致问题出现.</strong></p>
+</li>
+<li><p>解决方案:</p>
+<ol>
+<li>(基于Volatile 的解决方案)将单例对象设置为 volatile 域</li>
+<li>基于类初始化的解决方案.<blockquote>
+<p>JVM 在类的初始化阶段(在class 被加载后,且被线程使用之前),回执行类的初始化. 在执行类的初始化期间,JVM 会获取一个锁.这个锁可以同步 多个线程对一个类的初始化.</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>类的初始化（JVM 保证线程安全）<br>(遇到 new、getstatic、putstatic或invokestatic这 4 条字节码指令时，如果类未进行过初始化，那么需首先触发类的初始化)<br>JVM 在类的初始化阶段(在class 被加载后,且被线程使用之前),回执行类的初始化. 在执行类的初始化期间,JVM 会获取一个锁.这个锁可以同步 多个线程对一个类的初始化.<br>Java 编译器把所有的类变量初始化语句和类型的静态初始化器通通收集到 <clinit> 方法内，该方法只能被 Jvm 调用，专门承担初始化工作</p>
+</li>
+</ol>
+<ul>
+<li><p>触发类初始化的条件:</p>
+<ul>
+<li>T 是一个类,而且T声明的静态方法被调用.(<em>调用一个类的静态方法时</em>)</li>
+<li>T 是一个类,而且一个T类型的实例被创建.(<em>使用 new 关键字实例化对象时</em>)</li>
+<li>T 中申明的一个静态字段被赋值(<em>设置类的静态变量时</em>)</li>
+<li>T 中声明的一个静态字段被使用,而且这个字段不是一个常量字段(<em>读取类的静态变量时（被 final修饰，已在编译期把结果放入常量池的静态字段除外）</em>)</li>
+<li>T 是一个顶级类(Top Level Class),而且而且一个断言语句嵌套在T内部执行.</li>
+</ul>
+</li>
+<li><p>类不会初始化（clinit）的条件</p>
+<ul>
+<li>该类没有声明任何变量，也没有初始化语句</li>
+<li>该类声明了类变量，但没有明确使用变量初始化语句或者静态初始化语句</li>
+<li>该类仅包含静态 final 变量的类变量初始化语句，并且类变量初始化语句是编译时常量表达式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="java-内存模型综述"><a href="#java-内存模型综述" class="headerlink" title="java 内存模型综述"></a>java 内存模型综述</h4><ol>
+<li><p>处理器的内存模型<br><strong>分类</strong>:</p>
+<ol>
+<li>放松程序中写-读操作顺序.(Total Store Ordering (TSO 内存模型))</li>
+<li>在1 的基础上继续放松写-写 和读-读操作顺序.(Partial Store Order(PSO) 内存模型)</li>
+<li>在 1,2 的基础上继续放松 读-写 和读-读的操作顺序.(Relaxed Memory serial(RMO) 内存模型 和 PowerPC 内存模型)</li>
+</ol>
+</li>
+<li><p>各种内存模型之间的关系(由弱到强/由难到易)<br>处理器内存模型  \ 语言内存模型 \  顺序一致性内存模型</p>
+</li>
+<li><p>JMM 内存可见性保证</p>
+<ul>
+<li>单线程</li>
+<li>正确同步的多线程程序</li>
+<li>未同步\ 未正确同步的多线程程序  </li>
+</ul>
+<p><strong>注意</strong>: 最小安全性保障 和 64 位数据的非原子性同步</p>
+<ul>
+<li>最小安全性发生在被对象的任意线程使用之前.</li>
+<li>64 位数据的非原子性写 发生在对象被多个线程使用的过程中(写共享变量).</li>
+<li>最小安全性读到的值要么是之前某个线程写入的值,要么是默认值(0,null, false ..),才会被线程使用</li>
+<li>64 位数据非原子性的写入 是某个线程读取到了另一个线程未完全写入的值(写了一半).</li>
+</ul>
+</li>
+</ol>
+
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_parent" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/zbcn.github.io/assets/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/zbcn.github.io/assets/img/wechat_2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">concurrency</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/zbcn.github.io/2019/12/05/createBlog/" class="archive-article-date">
-  	<time datetime="2019-12-05T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/zbcn.github.io/2019/12/05/createBlog/">Hexo博客新建文章并发布</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1363653611.github.io/zbcn.github.io/2019/12/09/02java%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/zbcn.github.io/2019/12/19/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hello world
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/zbcn.github.io/2019/12/09/01Java%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java 并发机制底层实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-内存模型"><span class="toc-number">1.</span> <span class="toc-text">java 内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#java-内存模型的基础"><span class="toc-number">1.1.</span> <span class="toc-text">java 内存模型的基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#顺序一致性"><span class="toc-number">1.2.</span> <span class="toc-text">顺序一致性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile-的内存语义"><span class="toc-number">1.3.</span> <span class="toc-text">volatile 的内存语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#锁的内存语义"><span class="toc-number">1.4.</span> <span class="toc-text">锁的内存语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final-的内存语义"><span class="toc-number">1.5.</span> <span class="toc-text">final 的内存语义####</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#happens-before-as-if-serial"><span class="toc-number">1.6.</span> <span class="toc-text">happens-before (as-if-serial)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双重检查锁定于延迟初始化"><span class="toc-number">1.7.</span> <span class="toc-text">双重检查锁定于延迟初始化:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#java-内存模型综述"><span class="toc-number">1.8.</span> <span class="toc-text">java 内存模型综述</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -329,9 +810,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
