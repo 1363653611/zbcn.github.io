@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
   <title>03 垃圾收集器和内存分配策略 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法 GC roots 虚拟机栈（栈帧中本地变量表）中引用的对象 方法区中类静态属性引用的对象 方法区中常量引用的对象 本地方法栈中JNI(native方法)引用的对象      对象引用 强引用Strong reference  垃圾收集器永远不会回收   软引用 soft reference  在系">
+  <meta name="description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="03 垃圾收集器和内存分配策略">
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;10&#x2F;JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法 GC roots 虚拟机栈（栈帧中本地变量表）中引用的对象 方法区中类静态属性引用的对象 方法区中常量引用的对象 本地方法栈中JNI(native方法)引用的对象      对象引用 强引用Strong reference  垃圾收集器永远不会回收   软引用 soft reference  在系">
+<meta property="og:description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法">
 <meta property="article:published_time" content="2019-12-10T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-10T10:31:06.327Z">
+<meta property="article:modified_time" content="2019-12-10T10:37:28.908Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="java">
@@ -242,7 +242,8 @@
 <li>问题：无法解决循环引用问题</li>
 </ul>
 </li>
-<li>可达性分析算法<ul>
+<li>可达性分析算法<a id="more"></a>
+<ul>
 <li>GC roots<ol>
 <li>虚拟机栈（栈帧中本地变量表）中引用的对象</li>
 <li>方法区中类静态属性引用的对象</li>
@@ -655,7 +656,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/JVM/jav//" class="article-tag-list-link color4">jav</a>
+        			<a href="/zbcn.github.io/categories/JVM/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
