@@ -376,11 +376,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -537,6 +537,355 @@
 
 
   
+    <article id="post-JVM_07字节码执行引擎" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/11/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">07 字节码执行引擎</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/11/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="archive-article-date">
+  	<time datetime="2019-12-11T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h4 id="字节码执行引擎"><a href="#字节码执行引擎" class="headerlink" title="字节码执行引擎"></a>字节码执行引擎</h4><ul>
+<li><p>概述</p>
+<ul>
+<li><p>区别</p>
+<ul>
+<li>物理机<ul>
+<li>建立在处理器、硬件、指令集、操作系统上</li>
+</ul>
+</li>
+<li>虚拟机<ul>
+<li>自己实现的，可以自行制定指令集，与执行引擎的结构体系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字节码执行引擎的执行方式</p>
+<ul>
+<li>解释执行</li>
+<li>编译执行</li>
+<li>两者兼备</li>
+</ul>
+</li>
+<li><p>输入的是字节码文件，处理过程是字节码解析的等效过程，输出的是执行结果</p>
+</li>
+</ul>
+</li>
+<li><p>运行时栈帧结构</p>
+<ul>
+<li><p>用于支持虚拟机进行方法调用和方法执行的数据结构</p>
+</li>
+<li><p>属于虚拟机栈的元素</p>
+</li>
+<li><p>栈帧</p>
+<ol>
+<li><p>局部变量表 local variable table</p>
+<ul>
+<li>概述<ul>
+<li>用于存放方法参数和方法内定义的局部变量</li>
+<li>一组变量的存储空间</li>
+</ul>
+</li>
+<li>容量<ul>
+<li>以变量曹为最小单位（variable slot）</li>
+</ul>
+</li>
+<li>作用：完成参数值到参数变量列表的传递过程</li>
+<li>局部变量要手动赋值，否则会导致类加载失败</li>
+</ul>
+</li>
+<li><p>操作数栈Operand stack</p>
+<ul>
+<li>LIFO栈</li>
+<li>栈的深度在编译时已经写到Code属性的max_stacks 数据项中</li>
+<li>操作数栈中元素的数据类型必须与字节码指令的序列严格匹配</li>
+<li>java虚拟机的解释执行引擎成为基于栈的执行引擎，系统所指的栈就是值操作数栈</li>
+</ul>
+</li>
+<li><p>动态链接 Dynamic Linking</p>
+<ul>
+<li>每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用。持有的这个引用是为了支持方法调用过程中的动态连接。</li>
+<li>静态解析：一部分的符号引用在类加载阶段或者第一次使用的时候转化为直接引用</li>
+<li>动态连接：符号引用在每一次运行期间转换为直接引用</li>
+</ul>
+</li>
+<li><p>方法返回地址</p>
+<ul>
+<li>方法退出方式：<ul>
+<li>执行引擎遇到任何一个方法返回 字节码指令</li>
+<li>执行过程中遇到异常（athrow）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>附加信息</p>
+</li>
+</ol>
+</li>
+<li><p>每一次的方法调用开始至执行完成的过程，都对应这一个栈帧在虚拟机栈里面从入栈到出栈的过程</p>
+</li>
+<li><p>在编译程序代码的时候，栈帧中需要多大的局部变量表、多深的操作数栈都已完全确定了，并且写入到方法表的Code属性当中</p>
+</li>
+<li><p>当前栈帧：位于栈顶的栈才是有效的</p>
+</li>
+<li><p>当前方法：当前栈帧关联的方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h4><p>目标：确定被调用方法的版本（确认调用的是哪一个方法），不涉及方法内部具体运行过程</p>
+<ul>
+<li><p>步骤</p>
+<ul>
+<li><p>解析(静态的过程)     </p>
+<ul>
+<li><p>含义</p>
+<ul>
+<li>方法在运行之前有一个确定的调用版本，并且这个方法的调用版本在运行期是不可改变的。换句话说，调用目标在程代码中写好、编译器进行编译时就必须确定下来。这来方法的调用称为解析（resolution）</li>
+<li>编译期可知，运行期不可变</li>
+<li>类加载阶段解析</li>
+<li>可以解析的方法：不能通过继承或者别的方式重写其他版本</li>
+</ul>
+</li>
+<li><p>调用方法的字节码指令</p>
+<ul>
+<li><p>invokestatic 调用静态方法</p>
+</li>
+<li><p>invokespecial  调用实例构造<init>方法、是由方法和父类方法</p>
+</li>
+<li><p>invokevirtual 调用虚方法</p>
+<blockquote>
+<p>被final修饰的方法，虽然使用invokevirtual指令来调用，但是由于它无法被覆盖，没有其他版本，所以也无需对方法接收者进行多太选择，或者选择果肯定是唯一的。final修饰的方法是非虚方法</p>
+</blockquote>
+</li>
+<li><p>invokeiniterface 调用接口方法，会在运行时再确定一个实现此接口的对象</p>
+</li>
+<li><p>invokedyname 先在运行时动态解析出调用点限定符所引用的方法，然后在执行该方法</p>
+<ul>
+<li>分派逻辑是由用户所设定的引导方法决定的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(invokestatic, invokespecial, invokevirtual, invokeiniterface),调用和分配逻辑时固化在虚拟机内部的</p>
+</li>
+<li><p>非虚方法:静态方法、实例构造方法、父类方法</p>
+<ul>
+<li>类加载的时候会把符号引用转化为直接引用(invokestatic 调用静态方法, invokespecial  调用实例构造<init>方法、是由方法和父类方法)</li>
+</ul>
+</li>
+<li><p>虚方法</p>
+<ul>
+<li>(invokevirtual, invokeiniterface, invokedyname)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分配(多态)</p>
+<ul>
+<li><p>分配类型</p>
+<ul>
+<li><p>静态分配</p>
+<ul>
+<li>重载</li>
+<li>所有依赖静态类型来定位方法执行版本的分派动作</li>
+<li>静态分派发生在编译阶段</li>
+<li>类型自动转换：char-&gt;int-&gt;long-&gt;float-&gt;double-&gt;….-&gt;变长参数</li>
+</ul>
+</li>
+<li><p>动态分配</p>
+<ul>
+<li>重写</li>
+<li>运行时根据实际类型确定方法的执行版本</li>
+<li>动态分派是运行阶段</li>
+<li>动态分派的实现</li>
+</ul>
+</li>
+<li><p>单分派与多分派</p>
+<ul>
+<li>方法的宗量<ul>
+<li>方法的接收者</li>
+<li>方法的参数</li>
+</ul>
+</li>
+<li>单分派<ul>
+<li>根据一个宗量对目标方法进行选择</li>
+</ul>
+</li>
+<li>多分派<ul>
+<li>根据多余一个宗量对方法进行选择</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>java类型时静态多分派、动态但分派的语言</p>
+</li>
+<li><p>虚方法表（vtable）</p>
+</li>
+</ul>
+</li>
+<li><p>动态类型语言支持</p>
+<ul>
+<li>动态类型语言<ul>
+<li>类型检查时在运行期间完成的而不是编译器</li>
+</ul>
+</li>
+<li>静态类型语言<ul>
+<li>编译期进行类型检查</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>语言类型</p>
+<ul>
+<li>静态类型语言<ul>
+<li>在编译器确定类型，最显著的好处时编译期可以提供严谨的类型检查。这样与类型相关的问题能在编码的时候就能及时发现，利于稳定性及代码达到更大的规模</li>
+</ul>
+</li>
+<li>动态类型语言<ul>
+<li>行期确定类型，为开发人员提供更大的灵活性。动态语言实现可能会更加清晰简洁，提升开发效率</li>
+</ul>
+</li>
+<li>java.lang.invoke包<ul>
+<li>使用MethodHandle 机制来动态调用方法</li>
+</ul>
+</li>
+<li>invokedynamic指令<ul>
+<li>动态调用点</li>
+<li>参数<ul>
+<li>CONSTANT_InvokeDynamic_info<ul>
+<li>引导方法：Bootstrap Method</li>
+<li>方法类型 MethodType</li>
+<li>名称</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基于栈的字节码解释执行引擎</p>
+<ul>
+<li>解释执行</li>
+<li>基于栈的指令集和基于寄存器的指令集</li>
+<li>基于栈的解释执行过程</li>
+</ul>
+</li>
+</ul>
+<h4 id="早期（编译期）优化"><a href="#早期（编译期）优化" class="headerlink" title="早期（编译期）优化"></a>早期（编译期）优化</h4><p><strong>略</strong></p>
+<h4 id="晚期（运行期）优化"><a href="#晚期（运行期）优化" class="headerlink" title="晚期（运行期）优化"></a>晚期（运行期）优化</h4><p><strong>略</strong></p>
+
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JVM//" class="article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JVM/jav//" class="article-tag-list-link color4">jav</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/11/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JVM_03内存收集策略和垃圾回收器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -632,6 +981,139 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2019/12/10/JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JVM_05类文件结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/10/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">05 类文件结构</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/10/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2019-12-10T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h3><h4 id="无关性的的基石"><a href="#无关性的的基石" class="headerlink" title="无关性的的基石"></a>无关性的的基石</h4><ul>
+<li><p>各种不同平台的虚拟机与所有平台都统一使用的程序存储格式—字节码（byteCode）是构成平台无关性的基石</p>
+</li>
+<li><p>JVM 只与.class 这种特殊的二进制文件格式所关联</p>
+</li>
+<li><p>class文件</p>
+<ul>
+<li>java虚拟机指令集</li>
+<li>符号表</li>
+<li>其他辅助信息</li>
+</ul>
+</li>
+</ul>
+<h4 id="Class文件的结构"><a href="#Class文件的结构" class="headerlink" title="Class文件的结构"></a>Class文件的结构</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><pre><code>- class文件是以8位字节为基础单位的二进制流。各个数据项目严格按照顺序紧凑地排列在class文件之中，中间没有任何分割符。
+- 当遇到需要占用8位字节以上空间额数据项时，则会按照高位在前的方式，分割成若干个8位字节进行存储
+- class文件格式采用类似与C语言结构的方式存储</code></pre>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/10/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JVM//" class="article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JVM/jav//" class="article-tag-list-link color4">jav</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/10/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">展开全文 >></a>
         </p>
       
 
@@ -1026,14 +1508,14 @@
 
 
   
-    <article id="post-concurrency_03对象共享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JVM_04性能监控故障处理_TODO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/">03 对象共享</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86_TODO/">04 性能监控/故障处理</a>
     </h1>
   
 
@@ -1048,7 +1530,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/" class="archive-article-date">
+        <a href="/zbcn.github.io/2019/12/09/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86_TODO/" class="archive-article-date">
   	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
         
@@ -1063,14 +1545,8 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="对象共享"><a href="#对象共享" class="headerlink" title="对象共享"></a>对象共享</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题?"></a>问题?</h4><ul>
-<li>在访问共享的可变状态时，需要进行正确的管理</li>
-<li>共享和发布对象</li>
-<li>临界区 /内存可见性</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/#more">more >></a>
-        
+        <p>性能监控/故障处理</p>
+<h3 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h3>
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1088,17 +1564,13 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -1109,11 +1581,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        			<a href="/zbcn.github.io/categories/JVM//" class="article-tag-list-link color4">JVM</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        			<a href="/zbcn.github.io/categories/JVM/jav//" class="article-tag-list-link color4">jav</a>
         		</li>
       		
 		</ul>
@@ -1122,256 +1594,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java_02并发内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">java并发内存模型</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="java-内存模型"><a href="#java-内存模型" class="headerlink" title="java 内存模型"></a>java 内存模型</h3><h4 id="java-内存模型的基础"><a href="#java-内存模型的基础" class="headerlink" title="java 内存模型的基础"></a>java 内存模型的基础</h4><ol>
-<li><p>并发编程的两个问题：  </p>
-<ul>
-<li><p>线程间的通讯机制模型： <strong>共享内存</strong> ,<strong>消息传递</strong></p>
-</li>
-<li><p>线程之间如何通讯  </p>
-<ul>
-<li>共享内存(隐式通讯)： 在共享内存的并发模型里，线程之间共享程序的公共状态，通过读-写 内存中的公共状态进行通讯</li>
-<li>消息传递（显示通讯）：线程之间没用公共状态， 只能通过显式发布消息。
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lunix_02question" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/lunix_02question/">02 Lunix 遇到问题总结</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/12/09/lunix_02question/" class="archive-article-date">
-  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="Lunix-遇到问题总结"><a href="#Lunix-遇到问题总结" class="headerlink" title="Lunix 遇到问题总结"></a>Lunix 遇到问题总结</h3><ol>
-<li><code>xxx is not in the sudoers file.This incident will be reported</code><ul>
-<li>解决方案：解决方法就是在/etc/sudoers文件里给该用户添加权限<ul>
-<li>切换root 用户：方法为直接在命令行输入：su，然后输入密码</li>
-<li><code>/etc/sudoers</code> 文件默认是只读的，对root来说也是，因此需先添加sudoers文件的写权限,命令是:即执行操作：<code>chmod u+w /etc/sudoers</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_02question/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LUNIX</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/LUNIX//" class="article-tag-list-link color1">LUNIX</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_02question/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86_TODO/">展开全文 >></a>
         </p>
       
 
@@ -1531,11 +1754,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1543,11 +1762,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
