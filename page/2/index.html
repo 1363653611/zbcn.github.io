@@ -316,14 +316,14 @@
 
 
   
-    <article id="post-JVM_02对象创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JVM_05类文件结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">02 JVM对象创建</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">05 类文件结构</a>
     </h1>
   
 
@@ -338,7 +338,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" class="archive-article-date">
+        <a href="/zbcn.github.io/2019/12/09/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="archive-article-date">
   	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
         
@@ -353,14 +353,18 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h4 id="遇到new指令后"><a href="#遇到new指令后" class="headerlink" title="遇到new指令后"></a>遇到new指令后</h4><ol>
-<li><p>在常量池中定位到一个类的符号引用</p>
+        <h3 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h3><h4 id="无关性的的基石"><a href="#无关性的的基石" class="headerlink" title="无关性的的基石"></a>无关性的的基石</h4><ul>
+<li><p>各种不同平台的虚拟机与所有平台都统一使用的程序存储格式—字节码（byteCode）是构成平台无关性的基石</p>
 </li>
-<li><p>检查符号引用代表的类是否被加载、解析、初始化。如果没有，就需要执行类的加载过程</p>
+<li><p>JVM 只与.class 这种特殊的二进制文件格式所关联</p>
 </li>
-<li><p>为新生对象分配内存空间</p>
+<li><p>class文件</p>
+<ul>
+<li>java虚拟机指令集</li>
+<li>符号表</li>
+<li>其他辅助信息
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -409,160 +413,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-database_01_sql基本命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/database_01_sql%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">01 mysql 基本命令</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/12/09/database_01_sql%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <ul>
-<li><p>sql 索引基本命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看表描述</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">desc `user`</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> <span class="keyword">user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引一经创建不能修改，如果要修改索引，只能删除重建</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">INDEX</span> name_3 <span class="keyword">on</span> <span class="string">`user`</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主键索引 PRIMARY KEY：它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 唯一索引 UNIQUE：唯一索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name (<span class="string">`name`</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通索引 INDEX：这是最基本的索引，它没有任何限制</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加普通索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">INDEX</span> index_name (<span class="keyword">name</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合索引 INDEX：即一个索引包含多个列，多用于避免回表查询。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加普通组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">index</span> index_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全文索引 FULLTEXT：也称全文检索，是目前搜索引擎使用的一种关键技术</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加全文索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> FULLTEXT index_remark (remark)</span></pre></td></tr></table></figure></li>
-<li><p>索引设计的基本原则</p>
-<ul>
-<li>适合索引的列是出现在where子句中的列。或者连接子句中的列</li>
-<li>基数小的列，索引效果差，没有必要在此列建立索引</li>
-<li>使用段索引，如果对长字符串进行索引，应该指定一个前缀长度，这样能够节省大量的索引空间。</li>
-<li>不要过度索引。索引需要额外的磁盘空间，并降低了写操作的性能。在修改内容的时候会进行索引的更新甚至是重构。索引列越多，这个时间就越长。所以只需要保持索引有利于查询即可。</li>
-</ul>
-</li>
-<li><p>索引优化实战</p>
-<ul>
-<li>索引使用情况 <code>SHOW STATUS LIKE &#39;handle_read%&#39;</code><ul>
-<li><code>Handler_read_key</code>：如果索引正在工作，<code>Handler_read_key</code>的值将很高。</li>
-<li><code>Handler_read_rnd_next</code>：数据文件中读取下一行的请求数，如果正在进行大量的表扫描，值将较高，则说明索引利用不理想。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>索引优化规则</p>
-<ul>
-<li>如果MySQL估计使用索引比全表扫描还慢，则不会使用索引。（返回数据的比例是重要的指标，比例越低越容易命中索引。记住这个范围值——30%，后面所讲的内容都是建立在返回数据的比例在30%以内的基础上。）</li>
-<li>前导模糊查询不能命中索引。<ul>
-<li>用执行计划查看查询语句<br><code>EXPLAIN select * from user where name like &#39;%s%&#39;</code></li>
-</ul>
-</li>
-<li>数据类型出现隐式转换的时候不会命中索引，特别是当列类型是字符串，一定要将 字符常量值用引号引起来。<ul>
-<li>eg： <code>EXPLAIN SELECT * FROM user WHERE name=1</code>;</li>
-</ul>
-</li>
-<li>复合索引的情况下，查询条件不包含索引列最左边部分（不满足最左原则），不会命中符合索引。</li>
-<li>union、in、or都能够命中索引，建议使用in。</li>
-<li>用or分割开的条件，如果or前的条件中列有索引，而后面的列中没有索引，那么涉及到的索引都不会被用到。</li>
-<li>负向条件查询不能使用索引，可以优化为in查询。<br>负向条件有：!=、&lt;&gt;、not in、not exists、not like等。</li>
-<li>范围条件查询可以命中索引。范围条件有：&lt;、&lt;=、&gt;、&gt;=、between等。</li>
-<li>数据库执行计算不会命中索引。</li>
-<li>利用覆盖索引进行查询，避免回表。</li>
-</ul>
-</li>
-<li><p>总结<br>  a. 更新十分频繁的字段上不宜建立索引：因为更新操作会变更B+树，重建索引。这个过程是十分消耗数据库性能的。</p>
-<p>  b. 区分度不大的字段上不宜建立索引：类似于性别这种区分度不大的字段，建立索引的意义不大。因为不能有效过滤数据，性能和全表扫描相当。另外返回数据的比例在30%以外的情况下，优化器不会选择使用索引。</p>
-<p>  c. 业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。虽然唯一索引会影响insert速度，但是对于查询的速度提升是非常明显的。另外，即使在应用层做了非常完善的校验控制，只要没有唯一索引，在并发的情况下，依然有脏数据产生。</p>
-<p>  d. 多表关联时，要保证关联字段上一定有索引。</p>
-</li>
-</ul>
-
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/sql//" class="article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_01_sql%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">展开全文 >></a>
         </p>
       
 
@@ -689,6 +540,228 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-database_02_sql索引基本命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">02 mysql 索引基本命令</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <ul>
+<li><p>sql 索引基本命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看表描述</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">desc `user`</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> <span class="keyword">user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引一经创建不能修改，如果要修改索引，只能删除重建</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">INDEX</span> name_3 <span class="keyword">on</span> <span class="string">`user`</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主键索引 PRIMARY KEY：它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 唯一索引 UNIQUE：唯一索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name (<span class="string">`name`</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通索引 INDEX：这是最基本的索引，它没有任何限制</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加普通索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">INDEX</span> index_name (<span class="keyword">name</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合索引 INDEX：即一个索引包含多个列，多用于避免回表查询。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加普通组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">index</span> index_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全文索引 FULLTEXT：也称全文检索，是目前搜索引擎使用的一种关键技术</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加全文索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> FULLTEXT index_remark (remark)</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/sql//" class="article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-database_01mysql学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/database_01mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">01 mysql 学习</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/database_01mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="windows服务"><a href="#windows服务" class="headerlink" title="windows服务"></a>windows服务</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Windows服务 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 启动MySQL</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    net <span class="keyword">start</span> mysql</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建Windows服务</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    sc <span class="keyword">create</span> mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_01mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/sql//" class="article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_01mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
@@ -1324,138 +1397,9 @@
 
 
   
-    <article id="post-concurrency_02-线程安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">02 concurrency-线程安全</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="archive-article-date">
-  	<time datetime="2019-12-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="concurrency-线程安全"><a href="#concurrency-线程安全" class="headerlink" title="concurrency-线程安全"></a>concurrency-线程安全</h3><h4 id="I-导言"><a href="#I-导言" class="headerlink" title="I . 导言"></a>I . 导言</h4><p>A . 要编写线程安全的代码，其核心在于要对状态访问操作进行管理</p>
-<ul>
-<li>A.A shared 共享的<ul>
-<li>共享意味着变量可以由多个线程同时访问<br>A.B Mutiable 可变的</li>
-</ul>
-</li>
-<li>意味着变量的值在其生命周期内可以发生变化</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="extend next" rel="next" href="/zbcn.github.io/page/3/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="page-number" href="/zbcn.github.io/page/4/">4</a><a class="extend next" rel="next" href="/zbcn.github.io/page/3/">Next</a>
     </nav>
   
 
@@ -1567,10 +1511,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
               </li>
              
@@ -1579,19 +1519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1600,6 +1532,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1615,10 +1559,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1628,6 +1568,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
               </li>
             
             <div class="clearfix"></div>
