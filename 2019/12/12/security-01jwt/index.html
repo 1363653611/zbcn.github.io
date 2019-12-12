@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>02 Lunix 遇到问题总结 | zbcn</title>
+  <title>security_01jwt | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lunix 遇到问题总结 xxx is not in the sudoers file.This incident will be reported 解决方案：解决方法就是在&#x2F;etc&#x2F;sudoers文件里给该用户添加权限 切换root 用户：方法为直接在命令行输入：su，然后输入密码 &#x2F;etc&#x2F;sudoers 文件默认是只读的，对root来说也是，因此需先添加sudoers文件的写权限,命令是:即">
+  <meta name="description" content="JWT （json web token）什么是token？ Token(令牌)通常是指Security Token(安全令牌) 分类: 可分为Hardware Token(硬件令牌) Authentication Token(授权令牌) USB Token(USB令牌) Cryptographic Token(加密令牌) Virtual Token(虚拟令牌) Key Fob(钥匙卡)   作用：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02 Lunix 遇到问题总结">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;lunix_02question&#x2F;index.html">
+<meta property="og:title" content="security_01jwt">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="Lunix 遇到问题总结 xxx is not in the sudoers file.This incident will be reported 解决方案：解决方法就是在&#x2F;etc&#x2F;sudoers文件里给该用户添加权限 切换root 用户：方法为直接在命令行输入：su，然后输入密码 &#x2F;etc&#x2F;sudoers 文件默认是只读的，对root来说也是，因此需先添加sudoers文件的写权限,命令是:即">
-<meta property="article:published_time" content="2019-12-09T07:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-10T05:47:21.233Z">
+<meta property="og:description" content="JWT （json web token）什么是token？ Token(令牌)通常是指Security Token(安全令牌) 分类: 可分为Hardware Token(硬件令牌) Authentication Token(授权令牌) USB Token(USB令牌) Cryptographic Token(加密令牌) Virtual Token(虚拟令牌) Key Fob(钥匙卡)   作用：">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;json_web_token.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+<meta property="article:published_time" content="2019-12-12T05:33:36.000Z">
+<meta property="article:modified_time" content="2019-12-12T10:51:07.411Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="LUNIX">
+<meta property="article:tag" content="jwt">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;json_web_token.jpg">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -178,14 +181,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-lunix_02question" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-security-01jwt" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      02 Lunix 遇到问题总结
+      security_01jwt
     </h1>
   
 
@@ -200,8 +203,8 @@
 		</a>
 		
         
-        <a href="/2019/12/09/lunix_02question/" class="archive-article-date">
-  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+        <a href="/2019/12/12/security-01jwt/" class="archive-article-date">
+  	<time datetime="2019-12-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
 </a>
         
       </header>
@@ -211,53 +214,118 @@
 	  <!-- 文章头增加转载声明 -->
       
       
-        <div class="topdeclare">
-           <hr>
-          <strong>如需转载，请根据</strong>
-          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-          许可，附上本文作者及链接。
-          <br>
-          <strong>本文作者：</strong>
-          
-            执笔成念
-          
-          <br>
-          <strong>作者昵称：</strong>
-          
-            zbcn
-          
-          <br>
-          <strong>本文链接：</strong>
-          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/09/lunix_02question/">https://1363653611.github.io/zbcn.github.io/2019/12/09/lunix_02question/</a>
-          <br>
-          <hr>
-        </div>
+        <div class="topdeclare" hidden="hidden"></div>
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="Lunix-遇到问题总结"><a href="#Lunix-遇到问题总结" class="headerlink" title="Lunix 遇到问题总结"></a>Lunix 遇到问题总结</h3><ol>
-<li><code>xxx is not in the sudoers file.This incident will be reported</code><ul>
-<li>解决方案：解决方法就是在/etc/sudoers文件里给该用户添加权限<ul>
-<li>切换root 用户：方法为直接在命令行输入：su，然后输入密码</li>
-<li><code>/etc/sudoers</code> 文件默认是只读的，对root来说也是，因此需先添加sudoers文件的写权限,命令是:即执行操作：<code>chmod u+w /etc/sudoers</code></li>
+        <h3 id="JWT-（json-web-token）"><a href="#JWT-（json-web-token）" class="headerlink" title="JWT （json web token）"></a>JWT （json web token）</h3><h4 id="什么是token？"><a href="#什么是token？" class="headerlink" title="什么是token？"></a>什么是token？</h4><ul>
+<li>Token(令牌)通常是指Security Token(安全令牌)</li>
+<li>分类:<ul>
+<li>可分为Hardware Token(硬件令牌)</li>
+<li>Authentication Token(授权令牌)</li>
+<li>USB Token(USB令牌)</li>
+<li>Cryptographic Token(加密令牌)</li>
+<li>Virtual Token(虚拟令牌)</li>
+<li>Key Fob(钥匙卡)</li>
+</ul>
+</li>
+<li>作用：主要作用是验证身份的合法性，以允许计算机系统的用户可以操作系统资源</li>
+<li>生活中常见的令牌：登录密码，指纹，声纹，门禁卡，银行电子卡等。<a id="more"></a>
+<h4 id="什么是JSON-Web-Token"><a href="#什么是JSON-Web-Token" class="headerlink" title="什么是JSON Web Token"></a>什么是JSON Web Token</h4><img src="/zbcn.github.io/2019/12/12/security-01jwt/json_web_token.jpg" alt="jsonWebToken"><ul>
+<li>JSON Web Token(JWT)是一个基于RFC7519的开放数据标准，它定义了一种宽松且紧凑的数据组合方式，使用JSON对象在各应用之间传输加密信息。</li>
+<li>该JSON对象可以通过数字签名进行鉴签和校验，一般可采用HMAC算法、RSA或者ECDSA的公钥/私钥对数据进行签名操作。</li>
+<li>JWT 包含信息 （三者之间使用 <code>.</code> 链接）<ul>
+<li>HEADER (头)</li>
+<li>PAYLOAD (有效载荷)</li>
+<li>SIGNATURE (签名)</li>
+</ul>
+</li>
+<li>格式：<code>head.payload.singature</code><h4 id="如何创建JWT"><a href="#如何创建JWT" class="headerlink" title="如何创建JWT?"></a>如何创建JWT?</h4>JWT通常由“标头.有效载荷.签名”的格式组成。其中，标头用于存储有关如何计算JWT签名的信息，如对象类型，签名算法等。下面是JWT中Header部分的JSON对象实例：<br><strong>标头</strong><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//标头：type表示该对象为JWT,alg表示创建JWT时使用HMAC-SHA256散列算法计算签名</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">"type"</span>:<span class="string">"jwt"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">"alg"</span>:<span class="string">"hs256"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<strong>有效载荷</strong><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//有效载荷：主要用于存储用户信息，如用户id，email，角色和权限信息等</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">"uid"</span>:<span class="string">"1234556"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">"role"</span>:<span class="string">"admin"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">"name"</span>:<span class="string">"zhangsan"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<strong>签名</strong> 需要使用Base64URL编码技术对标头和有效载荷进行编码，并作为参数和秘钥一同传递给签名算法,生成最终的签名 (Signature)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//伪代码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = base64UrlEncode(head) + base64UrlEncode(payload)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hashData = hmacSha256(data.secret)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> signature = base64UrlEncode(hashData)</span></pre></td></tr></table></figure>
+####基于 Java 实现的 JWT<br>导入包<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.jsonwebtoken<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jjwt<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-</li>
+<ol>
+<li>创建 token<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * 创建 Jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@param</span> type 数据类型 ：jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@param</span> subject  主题</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@param</span> ttlMillis 过期时长</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">creatJwt</span><span class="params">(String type,String subject,<span class="keyword">long</span> ttlMillis)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">		<span class="comment">//签名算法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">		SignatureAlgorithm alg = SignatureAlgorithm.HS512;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">long</span> startMillis = System.currentTimeMillis();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">		Date date = <span class="keyword">new</span> Date(startMillis);<span class="comment">//签名时间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">		Map&lt;String, Object&gt; claims = <span class="keyword">new</span> HashMap&lt;&gt;(); <span class="comment">//创建有效载荷(payload)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">		claims.put(<span class="string">"oid"</span>,<span class="string">"91d2465c-77d9-429a-b4cf-4d61cbad8e3b"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">		claims.put(<span class="string">"org"</span>,<span class="string">"www.zbcn.com"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">		SecretKey key = key();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">		JwtBuilder jwtBuilder = Jwts.builder().</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">				setClaims(claims)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">				.setId(type)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">				.setIssuedAt(date) <span class="comment">//签发时间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">				.setSubject(subject) <span class="comment">//主题:是JWT 主题的拥有者,如:uuid,email,roles 等</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">				.signWith(alg, key);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">if</span>(ttlMillis &gt; <span class="number">0</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">			<span class="keyword">long</span> expiredMillis = startMillis + ttlMillis;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">			Date expiredDate = <span class="keyword">new</span> Date(expiredMillis);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">			jwtBuilder.setExpiration(expiredDate); <span class="comment">//签名过期时间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> jwtBuilder.compact(); <span class="comment">//生成jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure></li>
+<li>生成密钥<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * 生成签名密钥</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> SecretKey <span class="title">key</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">byte</span>[] decode = Base64Codec.BASE64.decode(SECRET_KEY);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		SecretKey key = <span class="keyword">new</span> SecretKeySpec(decode, <span class="number">0</span>, decode.length, <span class="string">"AES"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> key;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure></li>
+<li>解析密钥<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * 解析jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@param</span> jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Claims <span class="title">parse</span><span class="params">(String jwt)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		SecretKey key = key(); <span class="comment">//获取签名密钥</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">		Claims body = Jwts.parser() <span class="comment">//开始解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">				.setSigningKey(key)<span class="comment">//设置密钥信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">				.parseClaimsJws(jwt)<span class="comment">//解析主题信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">				.getBody();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> body;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure></li>
+<li>解析结果<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sub=&#123;"uid":"1234556","role":"admin","name":"zhangsan"&#125;, # 有效载荷主体</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">org=www.zbcn.com,//</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">oid=91d2465c-77d9-429a-b4cf-4d61cbad8e3b,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"> exp=1576143065, //过期时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> iat=1576142465, //签发时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> jti=jwt//对象类型</span></pre></td></tr></table></figure>
+<h3 id="jwt-工作流"><a href="#jwt-工作流" class="headerlink" title="jwt 工作流"></a>jwt 工作流</h3><img src="/zbcn.github.io/2019/12/12/security-01jwt/jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="jwt工作流"></li>
 </ol>
-<a id="more"></a>
+<ul>
+<li><p>在身份验证中，当用户成功登录系统时，授权服务器将会把JWT返回给客户端，用户需要将此凭证信息存储在本地(cookie或浏览器缓存)。</p>
+</li>
+<li><p>当用户发起新的请求时，需要在请求头中附带此凭证信息，当服务器接收到用户请求时，会先检查请求头中有无凭证，是否过期，是否有效。</p>
+</li>
+<li><p>如果凭证有效，将放行请求；若凭证非法或者过期，服务器将回跳到认证中心，重新对用户身份进行验证，直至用户身份验证成功。以访问API资源为例，上图显示了获取并使用JWT的基本流程.</p>
+</li>
+<li><p>当客户端对应用服务器发起调用时，应用服务器会使用秘钥对签名进行校验，如果签名有效且未过期，则允许客户端的请求，反之则拒绝请求。</p>
+</li>
+<li><p>使用 JWT 的优势</p>
+<ul>
+<li>更少的数据库连接：因其基于算法来实现身份认证，在使用JWT时查询数据的次数更少(更少的数据连接不等于不连接数据库)，可以获得更快的系统响应时间。</li>
+<li>构建更简单：如果应用程序本身是无状态的，那么选择JWT可以加快系统构建过程。</li>
+<li>跨服务调用：可以构建一个认证中心来处理用户身份认证和发放签名的工作，其他应用服务在后续的用户请求中不需要(理论上)在询问认证中心，可使用自有的公钥对用户签名进行验证</li>
+<li>无状态：不需要向传统的Web应用那样将用户状态保存于Session中。</li>
+</ul>
+</li>
+<li><p>使用 JWT 的弊端</p>
+<ul>
+<li>严重依赖于秘钥<ul>
+<li>WT的生成与解析过程都需要依赖于秘钥(Secret)，且都以硬编码的方式存在于系统中(也有放在外部配置文件中的)。如果秘钥不小心泄露，系统的安全性将受到威胁。</li>
+</ul>
+</li>
+<li>服务端无法管理客户端的信息:<ul>
+<li>如果用户身份发生异常(信息泄露，或者被攻击)，服务端很难向操作Session那样主动将异常用户进行隔离。</li>
+</ul>
+</li>
+<li>服务端无法主动推送消息<ul>
+<li>服务端由于是无状态的，将无法使用像Session那样的方式推送消息到客户端，例如过期时间将至，服务端无法主动为用户续约，需要客户端向服务端发起续约请求。</li>
+</ul>
+</li>
+<li>冗余的数据开销<ul>
+<li>一个JWT签名的大小要远比一个Session ID长很多，如果对有效载荷(payload)中的数据不做有效控制，其长度会成几何倍数增长，且在每一次请求时都需要负担额外的网络开销。</li>
+</ul>
+</li>
+<li>JWT相比于Session,OIDC(OpenId Connect)等技术还比较新，支持的库还比较少。而且JWT也并非比传统Session更安全，它们都没有解决CSRF和XSS的问题。因此，在决定使用JWT前，需要仔细考虑其利弊。</li>
+</ul>
+</li>
+</ul>
+<h3 id="JWT-并非银弹"><a href="#JWT-并非银弹" class="headerlink" title="JWT 并非银弹"></a>JWT 并非银弹</h3><h4 id="考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？"><a href="#考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？" class="headerlink" title="考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？"></a>考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？</h4><p>如果单纯依靠JWT解决用户认证的所有问题，那么系统的安全性将是脆弱的。</p>
+<p>由于JWT令牌存储于客户端中，一旦客户端存储的令牌发生泄露事件或者被攻击，攻击者就可以轻而易举的伪造用户身份去修改/删除系统资源。</p>
+<p>虽然JWT自带过期时间，但在过期之前，攻击者可以肆无忌惮的操作系统数据。通过算法来校验用户身份合法性是JWT的优势，也是最大的弊端——太过于依赖算法。</p>
+<p>反观传统的用户认证措施，通常会包含多种组合，如手机验证码，人脸识别，语音识别，指纹锁等。</p>
+<p>用户名和密码只做用户身份识别使用，当用户名和密码泄露后，在遇到敏感操作时(如新增，修改，删除，下载，上传)，都会采用其他方式对用户的合法性进行验证(发送验证码，邮箱验证码，指纹信息等)以确保数据安全。</p>
+<p>与传统的身份验证方式相比，JWT过多的依赖于算法，缺乏灵活性，而且服务端往往是被动执行用户身份验证操作，无法及时对异常用户进行隔离。</p>
+<p>那是否有补救措施呢？答案是肯定的。接下来，将介绍在发生令牌泄露事件后，如何保证系统的安全。</p>
+<h3 id="JWT-爬坑指南"><a href="#JWT-爬坑指南" class="headerlink" title="JWT 爬坑指南"></a>JWT 爬坑指南</h3><h4 id="不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施-包含但不局限于此-。"><a href="#不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施-包含但不局限于此-。" class="headerlink" title="不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施(包含但不局限于此)。"></a>不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施(包含但不局限于此)。</h4><ul>
+<li>清除已泄露的令牌<ul>
+<li>最直接也容易实现。将JWT令牌在服务端也存储一份，若发现有异常的令牌存在，则从服务端将此异常令牌清除。当用户发起请求时，强制用户重新进行身份验证，直至验证成功。服务端令牌的存储，可以借助Redis等缓存服务器进行管理，也可使用Ehcache将令牌信息存储在内存中。</li>
+</ul>
+</li>
+<li>敏感操作保护:<ul>
+<li>在涉及到诸如新增，修改，删除，上传，下载等敏感性操作时，定期(30分钟，15分钟甚至更短)检查用户身份，如手机验证码，扫描二维码等手段，确认操作者是用户本人。如果身份验证不通过，则终止请求，并要求重新验证用户身份信息。</li>
+</ul>
+</li>
+<li>地域检查<ul>
+<li>常用户会在一个相对固定的地理范围内访问应用程序，可以将地理位置信息作为辅助来甄别。如果发现用户A由经常所在的地区1变到了相对较远的地区2，或者频繁在多个地区间切换，不管用户有没有可能在短时间内在多个地域活动(一般不可能)，都应当终止当前请求，强制用户重新进行验证身份，颁发新的JWT令牌，并提醒(或要求)用户重置密码。</li>
+</ul>
+</li>
+<li>监控请求频率<ul>
+<li>如果JWT密令被盗取，攻击者或通过某些工具伪造用户身份，高频次的对系统发送请求，以套取用户数据。针对这种情况，可以监控用户在单位时间内的请求次数，当单位时间内的请求次数超出预定阈值值，则判定该用户密令是有问题的。例如1秒内连续超过5次请求，则视为用户身份非法，服务端终止请求并强制将该用户的JWT密令清除，然后回跳到认证中心对用户身份进行验证。</li>
+</ul>
+</li>
+<li>客户端环境检查<ul>
+<li>对于一些移动端应用来说，可以将用户信息与设备(手机,平板)的机器码进行绑定，并存储于服务端中，当客户端发起请求时，可以先校验客户端的机器码与服务端的是否匹配，如果不匹配，则视为非法请求，并终止用户的后续请求。</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>JWT的出现，为解决Web应用安全性问题提供了一种新思路。但JWT并不是银弹，仍然需要做很多复杂的工作才能提升系统的安全性。</p>
+<p>当然，世上没有完美的解决方案，系统的安全性需要开发者积极主动地去提升，其过程是漫长且复杂的。</p>
+<p><a href="https://mp.weixin.qq.com/s/N7Np7rgQwEAAcrW7OKxPiw" target="_blank" rel="noopener">原文连接</a></p>
 
-<pre><code>- 编辑sudoers文件  `vi /etc/sudoers`
-   - 找到这行 `root ALL=(ALL) ALL`,在他下面添加 `xxx ALL=(ALL) ALL` (这里的xxx是你的用户名)
-   - ps:这里说下你可以sudoers添加下面四行中任意一条
-       *  `youuser ALL=(ALL) ALL`  *第一行:允许用户youuser执行sudo命令(需要输入密码).*
-       *  `%youuser ALL=(ALL) ALL` *第二行:允许用户组youuser里面的用户执行sudo命令(需要输入密码).*
-       * `youuser ALL=(ALL) NOPASSWD: ALL` *第三行:允许用户youuser执行sudo命令,并且在执行的时候不输入密码.*
-       * `%youuser ALL=(ALL) NOPASSWD: ALL` *第四行:允许用户组youuser里面的用户执行sudo命令,并且在执行的时候不输入密码.*
-
-   - 4.撤销sudoers文件写权限,命令:`chmod u-w /etc/sudoers`
-
-   - 切回普通用户 `su - zbcn`</code></pre>
       
 	  <!-- 增加版权声明 -->
 	  
@@ -307,7 +375,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LUNIX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
         		</li>
       		
 		</ul>
@@ -319,7 +387,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/LUNIX//" class="article-tag-list-link color1">LUNIX</a>
+        			<a href="/categories/jwt//" class="article-tag-list-link color4">jwt</a>
         		</li>
       		
 		</ul>
@@ -374,7 +442,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1363653611.github.io/zbcn.github.io/2019/12/09/lunix_02question/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1363653611.github.io/zbcn.github.io/2019/12/12/security-01jwt/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -388,18 +456,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/09/lunix_01%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/19/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          01 LUNIX基本命令
+          hello world
         
       </div>
     </a>
   
   
-    <a href="/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">01 java 并发机制底层实现</div>
+    <a href="/2019/12/11/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">07 字节码执行引擎</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -426,7 +494,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lunix-遇到问题总结"><span class="toc-number">1.</span> <span class="toc-text">Lunix 遇到问题总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JWT-（json-web-token）"><span class="toc-number">1.</span> <span class="toc-text">JWT （json web token）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是token？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是token？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是JSON-Web-Token"><span class="toc-number">1.2.</span> <span class="toc-text">什么是JSON Web Token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何创建JWT"><span class="toc-number">1.3.</span> <span class="toc-text">如何创建JWT?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jwt-工作流"><span class="toc-number">2.</span> <span class="toc-text">jwt 工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JWT-并非银弹"><span class="toc-number">3.</span> <span class="toc-text">JWT 并非银弹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？"><span class="toc-number">3.1.</span> <span class="toc-text">考虑这样一个问题：如果客户端的JWT令牌泄露或者被盗取，会发生什么严重的后果？有什么补救措施？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JWT-爬坑指南"><span class="toc-number">4.</span> <span class="toc-text">JWT 爬坑指南</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施-包含但不局限于此-。"><span class="toc-number">4.1.</span> <span class="toc-text">不管是基于Sessions还是基于JWT，一旦密令被盗取，都是一件棘手的事情。下面介绍JWT发生令牌泄露是该采取什么样的措施(包含但不局限于此)。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
