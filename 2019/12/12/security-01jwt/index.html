@@ -14,14 +14,14 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="JWT （json web token）什么是token？ Token(令牌)通常是指Security Token(安全令牌) 分类: 可分为Hardware Token(硬件令牌) Authentication Token(授权令牌) USB Token(USB令牌) Cryptographic Token(加密令牌) Virtual Token(虚拟令牌) Key Fob(钥匙卡)   作用：">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;postImg&#x2F;json_web_token.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;postImg&#x2F;jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;security-01jwt&#x2F;json_web_token.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;security-01jwt&#x2F;jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
 <meta property="article:published_time" content="2019-12-12T05:33:36.000Z">
-<meta property="article:modified_time" content="2019-12-12T11:40:09.349Z">
+<meta property="article:modified_time" content="2019-12-13T01:48:35.493Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="jwt">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;security-01jwt&#x2F;postImg&#x2F;json_web_token.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;security-01jwt&#x2F;json_web_token.jpg">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -99,8 +99,6 @@
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/li-kun-52-5/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 			</div>
 		</nav>
 	</header>		
@@ -147,8 +145,6 @@
 						<a class="weibo" target="_blank" href="https://weibo.com/u/2151025583" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/li-kun-52-5/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
@@ -231,7 +227,7 @@
 </li>
 <li>作用：主要作用是验证身份的合法性，以允许计算机系统的用户可以操作系统资源</li>
 <li>生活中常见的令牌：登录密码，指纹，声纹，门禁卡，银行电子卡等。<a id="more"></a>
-<h4 id="什么是JSON-Web-Token"><a href="#什么是JSON-Web-Token" class="headerlink" title="什么是JSON Web Token"></a>什么是JSON Web Token</h4><img src="/zbcn.github.io/zbcn.github.io/2019/12/12/security-01jwt/postImg/json_web_token.jpg" alt="jsonWebToken"><ul>
+<h4 id="什么是JSON-Web-Token"><a href="#什么是JSON-Web-Token" class="headerlink" title="什么是JSON Web Token"></a>什么是JSON Web Token</h4><img src="/zbcn.github.io/assets/postImg/security-01jwt/json_web_token.jpg" alt="jsonWebToken"><ul>
 <li>JSON Web Token(JWT)是一个基于RFC7519的开放数据标准，它定义了一种宽松且紧凑的数据组合方式，使用JSON对象在各应用之间传输加密信息。</li>
 <li>该JSON对象可以通过数字签名进行鉴签和校验，一般可采用HMAC算法、RSA或者ECDSA的公钥/私钥对数据进行签名操作。</li>
 <li>JWT 包含信息 （三者之间使用 <code>.</code> 链接）<ul>
@@ -252,7 +248,7 @@
 <li>生成密钥<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * 生成签名密钥</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> SecretKey <span class="title">key</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">byte</span>[] decode = Base64Codec.BASE64.decode(SECRET_KEY);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		SecretKey key = <span class="keyword">new</span> SecretKeySpec(decode, <span class="number">0</span>, decode.length, <span class="string">"AES"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> key;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure></li>
 <li>解析密钥<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * 解析jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@param</span> jwt</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Claims <span class="title">parse</span><span class="params">(String jwt)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		SecretKey key = key(); <span class="comment">//获取签名密钥</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">		Claims body = Jwts.parser() <span class="comment">//开始解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">				.setSigningKey(key)<span class="comment">//设置密钥信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">				.parseClaimsJws(jwt)<span class="comment">//解析主题信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">				.getBody();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> body;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure></li>
 <li>解析结果<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sub=&#123;"uid":"1234556","role":"admin","name":"zhangsan"&#125;, # 有效载荷主体</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">org=www.zbcn.com,//</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">oid=91d2465c-77d9-429a-b4cf-4d61cbad8e3b,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"> exp=1576143065, //过期时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> iat=1576142465, //签发时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> jti=jwt//对象类型</span></pre></td></tr></table></figure>
-<h3 id="jwt-工作流"><a href="#jwt-工作流" class="headerlink" title="jwt 工作流"></a>jwt 工作流</h3><img src="/zbcn.github.io/zbcn.github.io/2019/12/12/security-01jwt/postImg/jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="jwt工作流"></li>
+<h3 id="jwt-工作流"><a href="#jwt-工作流" class="headerlink" title="jwt 工作流"></a>jwt 工作流</h3><img src="/zbcn.github.io/assets/postImg/security-01jwt/jwt%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="jwt工作流"></li>
 </ol>
 <ul>
 <li><p>在身份验证中，当用户成功登录系统时，授权服务器将会把JWT返回给客户端，用户需要将此凭证信息存储在本地(cookie或浏览器缓存)。</p>
@@ -643,6 +639,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
@@ -651,19 +655,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,15 +675,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
               </li>
             
             <div class="clearfix"></div>
