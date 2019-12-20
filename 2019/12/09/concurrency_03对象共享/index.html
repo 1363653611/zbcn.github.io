@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
   <title>03 对象共享 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象共享问题? 在访问共享的可变状态时，需要进行正确的管理 共享和发布对象 临界区 &#x2F;内存可见性">
+  <meta name="description" content="对象共享问题? 在访问共享的可变状态时，需要进行正确的管理 共享和发布对象 临界区 &#x2F;内存可见性  可见性 多个线程的同步机制，可以保证线程的可见性  重排序  在没有看到同步的情况下，编译器，处理器以及运行时等都可能对操作的顺序进行一些意想不到的调整。在缺乏足够同步的多线程程序中，内存操作顺序是无法准确判断的。   失效数据 No Visibility  在缺乏同步的程序中，产生错误结果的一种情">
 <meta property="og:type" content="article">
 <meta property="og:title" content="03 对象共享">
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="对象共享问题? 在访问共享的可变状态时，需要进行正确的管理 共享和发布对象 临界区 &#x2F;内存可见性">
+<meta property="og:description" content="对象共享问题? 在访问共享的可变状态时，需要进行正确的管理 共享和发布对象 临界区 &#x2F;内存可见性  可见性 多个线程的同步机制，可以保证线程的可见性  重排序  在没有看到同步的情况下，编译器，处理器以及运行时等都可能对操作的顺序进行一些意想不到的调整。在缺乏足够同步的多线程程序中，内存操作顺序是无法准确判断的。   失效数据 No Visibility  在缺乏同步的程序中，产生错误结果的一种情">
 <meta property="article:published_time" content="2019-12-09T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-10T05:46:59.241Z">
+<meta property="article:modified_time" content="2019-12-10T03:56:05.508Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="concurrency">
@@ -238,8 +238,6 @@
 <li>共享和发布对象</li>
 <li>临界区 /内存可见性</li>
 </ul>
-<a id="more"></a>
-
 <h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><ul>
 <li><p>多个线程的同步机制，可以保证线程的可见性</p>
 </li>
@@ -632,8 +630,8 @@
     </a>
   
   
-    <a href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">02 mysql 索引基本命令</div>
+    <a href="/zbcn.github.io/2019/12/09/database_01mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">01 mysql 学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -801,19 +799,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,15 +811,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,15 +847,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">uml</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis 基本命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">uml</a>
               </li>
             
             <div class="clearfix"></div>
