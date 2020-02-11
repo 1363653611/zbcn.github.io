@@ -193,6 +193,984 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java_02并发内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">java并发内存模型</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="java-内存模型"><a href="#java-内存模型" class="headerlink" title="java 内存模型"></a>java 内存模型</h3><h4 id="java-内存模型的基础"><a href="#java-内存模型的基础" class="headerlink" title="java 内存模型的基础"></a>java 内存模型的基础</h4><ol>
+<li><p>并发编程的两个问题：  </p>
+<ul>
+<li><p>线程间的通讯机制模型： <strong>共享内存</strong> ,<strong>消息传递</strong></p>
+</li>
+<li><p>线程之间如何通讯  </p>
+<ul>
+<li>共享内存(隐式通讯)： 在共享内存的并发模型里，线程之间共享程序的公共状态，通过读-写 内存中的公共状态进行通讯</li>
+<li>消息传递（显示通讯）：线程之间没用公共状态， 只能通过显式发布消息。
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/java_02%E5%B9%B6%E5%8F%91%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lunix_01命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/lunix_01%E5%91%BD%E4%BB%A4/">01 LUNIX基本命令</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/lunix_01%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h4 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h4><ol>
+<li>man 命令<ul>
+<li>功能: 显示指定命令的用法和描述</li>
+<li>语法： <code>man &lt;command name&gt;</code></li>
+<li>eg： <code>man ls</code></li>
+</ul>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_01%E5%91%BD%E4%BB%A4/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LUNIX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/LUNIX//" class="article-tag-list-link color1">LUNIX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_01%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lunix_02question" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/lunix_02question/">02 Lunix 遇到问题总结</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/lunix_02question/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="Lunix-遇到问题总结"><a href="#Lunix-遇到问题总结" class="headerlink" title="Lunix 遇到问题总结"></a>Lunix 遇到问题总结</h3><ol>
+<li><code>xxx is not in the sudoers file.This incident will be reported</code><ul>
+<li>解决方案：解决方法就是在/etc/sudoers文件里给该用户添加权限<ul>
+<li>切换root 用户：方法为直接在命令行输入：su，然后输入密码</li>
+<li><code>/etc/sudoers</code> 文件默认是只读的，对root来说也是，因此需先添加sudoers文件的写权限,命令是:即执行操作：<code>chmod u+w /etc/sudoers</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_02question/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LUNIX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/LUNIX//" class="article-tag-list-link color1">LUNIX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/lunix_02question/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java_01并发机制的底层实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">01 java 并发机制底层实现</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2019-12-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><h4 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h4><ol>
+<li>单核处理器也支持多线程执行代码.</li>
+<li>cpu 通过时间分配算法来循环执行任务,当前任务执行一个时间片后会切换到一下个任务.</li>
+<li>在切换前会保存上一个任务的状态,以便于下一次切换回这个任务时,可以再加载这个任务的之前状态.</li>
+<li><strong>定义:</strong> 任务从保存到再加载的过程就是一次上下文切换.</li>
+<li><strong>注意:</strong> 多线程不一定比单线程快.数据量不超过百万次时,多线程比单线程反而慢.
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-concurrency_02-线程安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">02 concurrency-线程安全</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="archive-article-date">
+  	<time datetime="2019-12-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="concurrency-线程安全"><a href="#concurrency-线程安全" class="headerlink" title="concurrency-线程安全"></a>concurrency-线程安全</h3><h4 id="I-导言"><a href="#I-导言" class="headerlink" title="I . 导言"></a>I . 导言</h4><p>A . 要编写线程安全的代码，其核心在于要对状态访问操作进行管理</p>
+<ul>
+<li>A.A shared 共享的<ul>
+<li>共享意味着变量可以由多个线程同时访问<br>A.B Mutiable 可变的</li>
+</ul>
+</li>
+<li>意味着变量的值在其生命周期内可以发生变化</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringCloud_01概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/">01 SpringCloud 概述</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/" class="archive-article-date">
+  	<time datetime="2019-12-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><ul>
+<li><p>构建的模式工具</p>
+<pre><code>- 配置管理
+- 服务发现
+- 短路器
+- 智能路由
+- 微代理
+- 控制总线</code></pre>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo_yili_02-photos" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/">yilia 实现相册功能</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/" class="archive-article-date">
+  	<time datetime="2019-12-06T01:41:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><ul>
+<li><p>在github上新建一个仓库，主要用于存储图片，可以通过url访问到，也方便管理</p>
+</li>
+<li><p>将要放到相册的图片处理成json格式的数据，然后进行访问，这里json的格式需要配合要使用的样式，所以需要处理成特定格式的json数据，下面会给出</p>
+</li>
+<li><p>图片裁剪，因为相册显示的样式最好是正方形的的图片，这里使用脚本处理一下</p>
+</li>
+<li><p>图片压缩，相册显示的图片是压缩后的图片，提高加载的速度，打开后的图片是原图</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo_createBlog_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/">Hexo博客新建文章并发布</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/" class="archive-article-date">
+  	<time datetime="2019-12-05T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="基于Hexo-Github-搭建个人博客"><a href="#基于Hexo-Github-搭建个人博客" class="headerlink" title="基于Hexo+Github 搭建个人博客"></a>基于Hexo+Github 搭建个人博客</h3><h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-py3.8_01_install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -431,735 +1409,9 @@
 
 
   
-    <article id="post-myBatis_04Java_api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/">04.MyBatis java API</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/" class="archive-article-date">
-  	<time datetime="2019-10-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="MyBatis-java-API"><a href="#MyBatis-java-API" class="headerlink" title="MyBatis java API"></a>MyBatis java API</h3><h4 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a>SqlSession</h4><p>SqlSession 由 SqlSessionFactory 创建. 而SqlSessionFactory 由 SqlSessionFactoryBuilder 创建.</p>
-<h4 id="SqlSessionFactoryBuilder"><a href="#SqlSessionFactoryBuilder" class="headerlink" title="SqlSessionFactoryBuilder"></a>SqlSessionFactoryBuilder</h4><p>SqlSessionFactoryBuilder 有五个 build() 方法，每一种都允许你从不同的资源中创建一个 SqlSessionFactory 实例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream)</span><span class="comment">//最常用的方法</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, String environment)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, Properties properties)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, String env, Properties props)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(Configuration config)</span></span></span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/动态sql//" class="article-tag-list-link color1">动态sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-myBatis_02映射文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">02.MyBatis 映射文件</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-10-08T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="xml-映射文件"><a href="#xml-映射文件" class="headerlink" title="xml 映射文件"></a>xml 映射文件</h3><h4 id="映射-文件的顶级元素"><a href="#映射-文件的顶级元素" class="headerlink" title="映射 文件的顶级元素"></a>映射 文件的顶级元素</h4><ul>
-<li>cache 给定命名空间的缓存配置</li>
-<li>cache-ref 对其他命名空间的缓存引用</li>
-<li>resultMap 最复杂也是最强大的.描述如合从数据库结果中加载对象</li>
-<li>sql 可被其他语句引用的可重用的语句块.</li>
-<li>insert 插入语句</li>
-<li>update 更新语句</li>
-<li>delete 删除语句</li>
-<li>select 选择语句</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/动态sql//" class="article-tag-list-link color1">动态sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-myBatis_01基本说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/">myBatis 01.基本说明</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2019-10-07T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="myBatis-01-基本说明"><a href="#myBatis-01-基本说明" class="headerlink" title="myBatis 01.基本说明"></a>myBatis 01.基本说明</h3><h4 id="关键类"><a href="#关键类" class="headerlink" title="关键类:"></a>关键类:</h4><ul>
-<li>SqlSessionFactoryBuilder:<ul>
-<li>作用:创建 <code>SqlSessionFactory</code>, 一旦创建后,就再不需要了 <code>SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);</code></li>
-<li>作用域: 方法作用域（也就是局部方法变量）</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/基本说明//" class="article-tag-list-link color5">基本说明</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-py_02virtualenvs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/06/py_02virtualenvs/">2. python3 virtualenv 虚拟环境搭建</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/06/py_02virtualenvs/" class="archive-article-date">
-  	<time datetime="2019-10-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="虚拟环境搭建"><a href="#虚拟环境搭建" class="headerlink" title="虚拟环境搭建"></a>虚拟环境搭建</h3><ol>
-<li><p>venv 环境创建<code>virtualenv venv</code></p>
-<ul>
-<li>报错,提示<code>virtualenv: command not found...</code></li>
-<li>解决方案:<ol>
-<li>找到<code>virtualenv.py</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">find &#x2F; -name &#39;virtualenv.py&#39;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">--&gt; &#x2F;usr&#x2F;local&#x2F;python3&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;virtualenv.py</span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/py_02virtualenvs/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python/env//" class="article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/py_02virtualenvs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-py_03Flask项目打包部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/06/py_03Flask%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">3. Flask 项目打包部署</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/06/py_03Flask%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2019-10-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="Flask-项目打包部署"><a href="#Flask-项目打包部署" class="headerlink" title="Flask 项目打包部署"></a>Flask 项目打包部署</h3><h4 id="requirements-txt-文件生成-pip-freeze-gt-requirements-txt"><a href="#requirements-txt-文件生成-pip-freeze-gt-requirements-txt" class="headerlink" title="requirements.txt 文件生成 pip freeze &gt; requirements.txt"></a>requirements.txt 文件生成 <code>pip freeze &gt; requirements.txt</code></h4><h4 id="安装requirements-txt依赖-pip-install-r-requirements-txt"><a href="#安装requirements-txt依赖-pip-install-r-requirements-txt" class="headerlink" title="安装requirements.txt依赖 pip install -r requirements.txt"></a>安装requirements.txt依赖 <code>pip install -r requirements.txt</code></h4><ul>
-<li>执行报错 <code>ModuleNotFoundError: No module named ‘_ctypes’</code></li>
-<li>解决方案： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">yum install libffi-dev -y</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">yum update -y</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">make install</span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/py_03Flask%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python/env//" class="article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/py_03Flask%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-uml_01概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/06/uml_01%E6%A6%82%E8%BF%B0/">01 UML概述</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/06/uml_01%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2019-10-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h1><h2 id="uml-学习笔记"><a href="#uml-学习笔记" class="headerlink" title="uml 学习笔记"></a>uml 学习笔记</h2><h2 id="UML-概述："><a href="#UML-概述：" class="headerlink" title="UML 概述："></a>UML 概述：</h2><h3 id="什么是uml"><a href="#什么是uml" class="headerlink" title="什么是uml"></a>什么是uml</h3><ul>
-<li>uml 是一种为面向对象开发系统的产品进行说明、可视化和编制文档的标准语言</li>
-<li>作为一种模型语言，uml使得开发更加专注于产品的模型和接口，而不是考虑用什么编程语言和算法来实现
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/uml_01%E6%A6%82%E8%BF%B0/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">uml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/uml//" class="article-tag-list-link color4">uml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/06/uml_01%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/4/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="page-number" href="/zbcn.github.io/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/4/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="page-number" href="/zbcn.github.io/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/zbcn.github.io/page/6/">6</a><a class="extend next" rel="next" href="/zbcn.github.io/page/6/">Next</a>
     </nav>
   
 
@@ -1271,6 +1523,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
               </li>
              
@@ -1287,11 +1547,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1315,10 +1579,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">logback</a>
               </li>
              
@@ -1339,7 +1599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1347,7 +1607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">
