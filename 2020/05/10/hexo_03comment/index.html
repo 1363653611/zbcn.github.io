@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>01 LOGBACK 学习笔记 | zbcn</title>
+  <title>Hexo博客添加 评论 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LOGBACK 学习笔记 logback 日志框架 涉及到的jar包有三个  logBack-core，logback-classic，logback-access。  1. 其中logback是核心。 2. logback-core是其它两个模块的基础模块。 3. logback-classic是log4j的一个改良版本. 4. 此外logback-classic完整实现SLF4J API使你可">
+  <meta name="description" content="最近打算给博客添加评论功能，看了下市面上一些评论插件，觉得gitment和Valine这两款插件比较符合我的要求：轻量而且配置简单。不过gitment只支持github账号评论，虽然也没啥人看我博客，不过权衡了下，还是决定用Valine。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01 LOGBACK 学习笔记">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;log_01logback&#x2F;index.html">
+<meta property="og:title" content="Hexo博客添加 评论">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2020&#x2F;05&#x2F;10&#x2F;hexo_03comment&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="LOGBACK 学习笔记 logback 日志框架 涉及到的jar包有三个  logBack-core，logback-classic，logback-access。  1. 其中logback是核心。 2. logback-core是其它两个模块的基础模块。 3. logback-classic是log4j的一个改良版本. 4. 此外logback-classic完整实现SLF4J API使你可">
-<meta property="article:published_time" content="2019-12-11T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-11T10:32:56.847Z">
+<meta property="og:description" content="最近打算给博客添加评论功能，看了下市面上一些评论插件，觉得gitment和Valine这两款插件比较符合我的要求：轻量而且配置简单。不过gitment只支持github账号评论，虽然也没啥人看我博客，不过权衡了下，还是决定用Valine。">
+<meta property="article:published_time" content="2020-05-10T05:14:10.000Z">
+<meta property="article:modified_time" content="2020-05-10T04:48:25.388Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="logback">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="yilia">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
@@ -174,14 +175,18 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-log_01logback" class="article article-type-post " itemscope itemprop="blogPost">
+  <i class="fa fa-thumb-tack"></i>
+  <font color=7D26CD>置顶</font>
+  <span class="post-meta-divider">|</span>
+
+<article id="post-hexo_03comment" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      01 LOGBACK 学习笔记
+      Hexo博客添加 评论
     </h1>
   
 
@@ -196,8 +201,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/11/log_01logback/" class="archive-article-date">
-  	<time datetime="2019-12-11T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
+        <a href="/zbcn.github.io/2020/05/10/hexo_03comment/" class="archive-article-date">
+  	<time datetime="2020-05-10T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
         
       </header>
@@ -224,305 +229,28 @@
           
           <br>
           <strong>本文链接：</strong>
-          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/11/log_01logback/">https://1363653611.github.io/zbcn.github.io/2019/12/11/log_01logback/</a>
+          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2020/05/10/hexo_03comment/">https://1363653611.github.io/zbcn.github.io/2020/05/10/hexo_03comment/</a>
           <br>
           <hr>
         </div>
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="LOGBACK-学习笔记"><a href="#LOGBACK-学习笔记" class="headerlink" title="LOGBACK 学习笔记"></a>LOGBACK 学习笔记</h3><ul>
-<li><p>logback 日志框架 涉及到的jar包有三个</p>
-<blockquote>
-<p>logBack-core，logback-classic，logback-access。</p>
-</blockquote>
-<pre><code>1. 其中logback是核心。
-2. logback-core是其它两个模块的基础模块。
-3. logback-classic是log4j的一个改良版本.
-4. 此外logback-classic完整实现SLF4J API使你可以很方便地更换成其它日志系统如log4j或JDK14 Logging.
-5. logback-access访问模块与Servlet容器集成提供通过Http来访问日志的功能。
-6. Logback是要与SLF4J结合起来用</code></pre><a id="more"></a>
-</li>
-<li><p>logback 和 log4j 相比较的优势</p>
-<ul>
-<li>同样的代码路径，logback执行速度更快</li>
-<li>更充分的测试</li>
-<li>原生实现了 SLF4J API（Log4J 还需要有一个中间转换层）</li>
-<li>内容更丰富的文档 （200多页的官方文档）</li>
-<li>支持多种格式的配置额文件（支持 XML 或者 Groovy 方式配置）</li>
-<li>配置文件自动热加载</li>
-<li>从 IO 错误中优雅恢复</li>
-<li>自动删除日志归档</li>
-<li>自动压缩日志成为归档文件</li>
-<li>支持 Prudent 模式，使多个 JVM 进程能记录同一个日志文件</li>
-<li>支持配置文件中加入条件判断来适应不同的环境</li>
-<li>更强大的过滤器</li>
-<li>支持 SiftingAppender（可筛选 Appender）</li>
-<li>异常栈信息带有包信息</li>
-</ul>
-</li>
-<li><p>logback 依赖的pom依赖文件：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;!-- logback+slf4j --&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   &lt;dependency&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">       &lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">       &lt;artifactId&gt;slf4j-api&lt;&#x2F;artifactId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">       &lt;version&gt;1.6.0&lt;&#x2F;version&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">       &lt;type&gt;jar&lt;&#x2F;type&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">       &lt;scope&gt;compile&lt;&#x2F;scope&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">   &lt;&#x2F;dependency&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">   &lt;dependency&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       &lt;groupId&gt;ch.qos.logback&lt;&#x2F;groupId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">       &lt;artifactId&gt;logback-core&lt;&#x2F;artifactId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">       &lt;version&gt;0.9.28&lt;&#x2F;version&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">       &lt;type&gt;jar&lt;&#x2F;type&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">   &lt;&#x2F;dependency&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">   &lt;dependency&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">       &lt;groupId&gt;ch.qos.logback&lt;&#x2F;groupId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">       &lt;artifactId&gt;logback-classic&lt;&#x2F;artifactId&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">       &lt;version&gt;0.9.28&lt;&#x2F;version&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">       &lt;type&gt;jar&lt;&#x2F;type&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">   &lt;&#x2F;dependency&gt;</span></pre></td></tr></table></figure></li>
-<li><p>Logback默认配置的步骤</p>
-<pre><code>1. 尝试在 classpath下查找文件logback-test.xml；</code></pre><p>　　　　2. 如果文件不存在，则查找文件logback.xml；<br>　　　　3. 如果两个文件都不存在，logback用BasicConfigurator自动对自己进行配置，这会导致记录输出到控制台。</p>
-</li>
-<li><p>配置详解</p>
-<ul>
-<li><p>根节点<configuration></p>
-<ol>
-<li><p>每个logger都关联到logger上下文，默认上下文名称为<code>default</code>，但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。</p>
-</li>
-<li><p><configuration>，包含下面三个属性</p>
-<ol>
-<li>scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。</li>
-<li>scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。</li>
-<li>debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</li>
-<li>eg：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration scan&#x3D;&quot;true&quot; scanPeriod&#x3D;&quot;60 seconds&quot; debug&#x3D;&quot;false&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">            　　　　　　&lt;!--其他配置省略--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">            　　&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p><contextName> - 设置上下文名称</p>
-<ol>
-<li><p>每个logger都关联到logger上下文，默认上下文名称为“default”。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。</p>
-<ol start="2">
-<li>xml 配置代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration scan&#x3D;&quot;true&quot; scanPeriod&#x3D;&quot;60 second&quot; debug&#x3D;&quot;false&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      &lt;contextName&gt;myAppName&lt;&#x2F;contextName&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      &lt;!-- 其他配置省略--&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>设置变量 <property></p>
-<ol>
-<li>用来定义变量值的标签，<property> 有两个属性，name和value；其中name的值是变量的名称，value的值时变量定义的值。通过<property>定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。</li>
-<li>xml配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration scan&#x3D;&quot;true&quot; scanPeriod&#x3D;&quot;60 second&quot; debug&#x3D;&quot;false&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      &lt;property name&#x3D;&quot;APP_Name&quot; value&#x3D;&quot;myAppName&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      &lt;contextName&gt;$&#123;APP_Name&#125;&lt;&#x2F;contextName&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      &lt;!-- 其他配置省略--&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>获取时间戳字符串 <timestamp></p>
-<ol>
-<li>两个属性 key:标识此<timestamp> 的名字；datePattern：设置将当前时间（解析配置文件的时间）转换为字符串的模式，遵循Java.txt.SimpleDateFormat的格式。</li>
-<li>xml 配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">  configuration scan&#x3D;&quot;true&quot; scanPeriod&#x3D;&quot;60 second&quot; debug&#x3D;&quot;false&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      &lt;timestamp key&#x3D;&quot;bySecond&quot; datePattern&#x3D;&quot;yyyyMMdd&#39;T&#39;HHmmss&quot;&#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      &lt;contextName&gt;$&#123;bySecond&#125;&lt;&#x2F;contextName&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      &lt;!-- 其他配置省略--&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
+        <p>最近打算给博客添加评论功能，看了下市面上一些评论插件，觉得gitment和Valine这两款插件比较符合我的要求：轻量而且配置简单。<br>不过gitment只支持github账号评论，虽然也没啥人看我博客，不过权衡了下，还是决定用Valine。</p>
+<a id="more"></a>
 
+<h2 id="我hexo博客主题用的是yilia，看了下-config-yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。"><a href="#我hexo博客主题用的是yilia，看了下-config-yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。" class="headerlink" title="我hexo博客主题用的是yilia，看了下_config.yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。"></a>我hexo博客主题用的是yilia，看了下_config.yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。</h2><ol>
+<li>修改yilia主题下的_config.yml文件，添加valine配置<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># valine配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">valine_appid:</span> <span class="string">'填写leancloud的appid'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">valine_appkey:</span> <span class="string">'填写leancloud的appkey'</span></span></pre></td></tr></table></figure></li>
+<li>修改layout/_partial/article.ejs，添加一段代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index)&#123; %&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    &lt;% <span class="keyword">if</span> (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &lt;section id=<span class="string">"comments"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"comments"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">          &lt;style&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">          &lt;<span class="regexp">/style&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="regexp">          &lt;%- partial('post/</span>valine<span class="string">', &#123;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="string">            key: post.slug,</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="string">            title: post.title,</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="string">            url: config.url+url_for(post.path)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="string">            &#125;) %&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="string">      &lt;/section&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="string">    &lt;% &#125; %&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;% &#125; %&gt;</span></span></pre></td></tr></table></figure></li>
+<li><strong>新增</strong> layout/_partial/post/valine.ejs<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"comment"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">'//unpkg.com/valine/dist/Valine.min.js'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Valine(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    el: <span class="string">'#comment'</span> ,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    notify:<span class="literal">false</span>, </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    verify:<span class="literal">false</span>, </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    appId: <span class="string">'&lt;%=theme.valine_appid%&gt;'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    appKey: <span class="string">'&lt;%=theme.valine_appkey%&gt;'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    placeholder: <span class="string">'ヾﾉ≧∀≦)o欢迎评论!'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    path:<span class="built_in">window</span>.location.pathname, </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    avatar:<span class="string">'mm'</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/script&gt;</span></span></pre></td></tr></table></figure>
 
 </li>
 </ol>
+<p>大功搞成了.</p>
+<h3 id="转"><a href="#转" class="headerlink" title="转:"></a>转:</h3><ul>
+<li><p>改文章生成的评论在首页面会显示评论框: <a href="http://anata.me/2018/04/05/hexo%E4%B8%BB%E9%A2%98yilia%E6%B7%BB%E5%8A%A0valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_blank" rel="noopener">http://anata.me/2018/04/05/hexo%E4%B8%BB%E9%A2%98yilia%E6%B7%BB%E5%8A%A0valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</a></p>
 </li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><logger> - 用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender></p>
-<ul>
-<li><p>有三个属性 ： 一个name属性，一个可选的level和一个可选的additivity属性</p>
-<blockquote>
-<p>name：用来指定受此logger约束的某一个包或者具体的某一个类。</p>
-</blockquote>
-<blockquote>
-<p>level：用来设置打印级别，大小写无关：<code>TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF</code>，还有一个特殊值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别。</p>
-</blockquote>
-<blockquote>
-<p>additivity：是否向上级logger传递打印信息。默认是true。</p>
-</blockquote>
-<blockquote>
-<p><logger>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p><root> - 也是<logger>元素，但是它是根logger。只有一个level属性，应为已经被命名为”root”.</p>
-<blockquote>
-<p>level：用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p><appender> - <appender>是<configuration>的子节点，是负责写日志的组件。<appender>有两个必要属性name和class。name指定appender名称，class指定appender的全限定名。</p>
-<ul>
-<li>ConsoleAppender<blockquote>
-<p>把日志添加到控制台，有以下子节点：<br><encoder>：对日志进行格式化。（具体参数稍后讲解 ）<br><target>：字符串 System.out 或者 System.err ，默认 System.out .</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  &lt;appender name&#x3D;&quot;STDOUT&quot; class&#x3D;&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &lt;encoder&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      &lt;pattern&gt;%-4relative [%thread] %-5level %logger&#123;35&#125; - %msg %n&lt;&#x2F;pattern&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;encoder&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  &lt;&#x2F;appender&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  &lt;root level&#x3D;&quot;DEBUG&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    &lt;appender-ref ref&#x3D;&quot;STDOUT&quot; &#x2F;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  &lt;&#x2F;root&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
-
-<ul>
-<li><p>FileAppender - 把日志添加到文件，</p>
-<ul>
-<li>有以下子节点：<ol>
-<li><file>：被写入的文件名，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建，没有默认值。</li>
-<li><append>：如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true</li>
-<li><encoder>：对记录事件进行格式化。（具体参数稍后讲解 ）</li>
-<li><prudent>：如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      &lt;appender name&#x3D;&quot;FILE&quot; class&#x3D;&quot;ch.qos.logback.core.FileAppender&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">         &lt;file&gt;testFile.log&lt;&#x2F;file&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">         &lt;append&gt;true&lt;&#x2F;append&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">         &lt;encoder&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">           &lt;pattern&gt;%-4relative [%thread] %-5level %logger&#123;35&#125; - %msg%n&lt;&#x2F;pattern&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">         &lt;&#x2F;encoder&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">       &lt;&#x2F;appender&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       &lt;root level&#x3D;&quot;DEBUG&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">         &lt;appender-ref ref&#x3D;&quot;FILE&quot; &#x2F;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">       &lt;&#x2F;root&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> &lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>RollingFIleAppender -滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。</p>
-<ul>
-<li><p>有以下子节点</p>
-<ol>
-<li><file>：被写入的文件名，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建，没有默认值。</li>
-<li><append>：如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true。</li>
-<li><encoder>：对记录事件进行格式化。（具体参数稍后讲解 ）</li>
-<li><rollingPolicy>:当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名。</li>
-<li><triggeringPolicy >: 告知 RollingFileAppender 何时激活滚动。</li>
-<li><prudent>：当为true时，不支持FixedWindowRollingPolicy。支持TimeBasedRollingPolicy，但是有两个限制，1不支持也不允许文件压缩，2不能设置file属性，必须留空</li>
-</ol>
-</li>
-<li><p>rollingPolicy</p>
-<ol>
-<li><p>imeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责触发滚动。</p>
-<ul>
-<li><p>有以下子节点：</p>
-<blockquote>
-<p> <fileNamePattern>: 必要节点，包含文件名及“%d”转换符，%d”可以包含一个Java.text.SimpleDateFormat指定的时间格式，如：%d{yyyy-MM}。如果直接使用 %d，默认格式是 yyyy-MM-dd。RollingFileAppender 的file字节点可有可无，通过设置file，可以为活动文件和归档文件指定不同位置，当前日志总是记录到file指定的文件（活动文件），活动文件的名字不会改变；如果没设置file，活动文件的名字会根据fileNamePattern 的值，每隔一段时间改变一次。“/”或者“\”会被当做目录分隔符。</p>
-</blockquote>
-<blockquote>
-<p> <maxHistory>: 可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每个月滚动，且<maxHistory>是6，则只保存最近6个月的文件，删除之前的旧文件。注意，删除旧文件是，那些为了归档而创建的目录也会被删除。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>FixedWindowRollingPolicy： 根据固定窗口算法重命名文件的滚动策略。</p>
-<ul>
-<li>有如下节点：<blockquote>
-<p><minIndex>:窗口索引最小值。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p><maxIndex>:窗口索引最大值，当用户指定的窗口过大时，会自动将窗口设置为12。</p>
-</blockquote>
-<blockquote>
-<p><fileNamePattern >: 必须包含“%i”例如，假设最小值和最大值分别为1和2，命名模式为 mylog%i.log,会产生归档文件mylog1.log和mylog2.log。还可以指定文件压缩选项，例如，mylog%i.log.gz 或者 没有log%i.log.zip</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>triggeringPolicy -</p>
-<ul>
-<li><p>SizeBasedTriggeringPolicy： 查看当前活动文件的大小，如果超过指定大小会告知RollingFileAppender 触发当前活动文件滚动。</p>
-<ul>
-<li>只有一个节点：<maxFileSize>:这是活动文件的大小，默认值是10MB。</li>
-<li>eg1 : 每天生产一个日志文件，保存30天的日志文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   &lt;appender name&#x3D;&quot;FILE&quot; class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">       &lt;fileNamePattern&gt;logFile.%d&#123;yyyy-MM-dd&#125;.log&lt;&#x2F;fileNamePattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">       &lt;maxHistory&gt;30&lt;&#x2F;maxHistory&gt;    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">     &lt;&#x2F;rollingPolicy&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">     &lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       &lt;pattern&gt;%-4relative [%thread] %-5level %logger&#123;35&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">     &lt;&#x2F;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">   &lt;&#x2F;appender&gt;    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">   &lt;root level&#x3D;&quot;DEBUG&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">     &lt;appender-ref ref&#x3D;&quot;FILE&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">   &lt;&#x2F;root&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"> &lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure></li>
-<li>eg2: 按照固定窗口模式生成日志文件，当文件大于20MB时，生成新的日志文件。窗口大小是1到3，当保存了3个归档文件后，将覆盖最早的日志。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    &lt;appender name&#x3D;&quot;FILE&quot; class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">          &lt;file&gt;test.log&lt;&#x2F;file&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">          &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.FixedWindowRollingPolicy&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">              &lt;fileNamePattern&gt;tests.%i.log.zip&lt;&#x2F;fileNamePattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">              &lt;minIndex&gt;1&lt;&#x2F;minIndex&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">              &lt;maxIndex&gt;3&lt;&#x2F;maxIndex&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">          &lt;&#x2F;rollingPolicy&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">          &lt;triggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                  &lt;maxFileSize&gt;5MB&lt;&#x2F;maxFileSize&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          &lt;&#x2F;triggeringPolicy&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">          &lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                &lt;pattern&gt;%-4relative [%thread] %-5level %logger&#123;35&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">          &lt;&#x2F;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;appender&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    &lt;root level&#x3D;&quot;DEBUG&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">          &lt;appender-ref ref&#x3D;&quot;FILE&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;root&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  &lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>另外还有SocketAppender、SMTPAppender、DBAppender、SyslogAppender、SiftingAppender，并不常用，这些就不在这里讲解了，大家可以参考官方文档。当然大家可以编写自己的Appender</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><encoder> - 负责两件事，一是把日志信息转换成字节数组，二是把字节数组写入到输出流。</p>
-<ul>
-<li>目前PatternLayoutEncoder 是唯一有用的且默认的encoder ，有一个<pattern>节点，用来设置日志的输入格式。使用“%”加“转换符”方式，如果要输出“%”，则必须用“\”对“%”进行转义。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   &lt;pattern&gt;%-4relative [%thread] %-5level %logger&#123;35&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;encoder&gt;</span></pre></td></tr></table></figure></li>
-<li>格式修饰符，与转换符共同使用：<ol>
-<li>可选的格式修饰符位于“%”和转换符之间</li>
-<li>“-” 是左对齐 标志</li>
-<li>可选的最小宽度 修饰符，用十进制数表示.如果字符小于最小宽度，则左填充或右填充，默认是左填充（即右对齐），填充符为空格。如果字符大于最小宽度，字符永远不会被截断。</li>
-<li>最大宽度 修饰符，符号是点号”.”后面加十进制数。如果字符大于最大宽度，则从前面截断。点符号“.”后面加减号“-”在加数字，表示从尾部截断</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>日志的打印界别控制</p>
-<ul>
-<li><p>只配置root的配置文件详解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      &lt;appender name&#x3D;&quot;STDOUT&quot; class&#x3D;&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- encoder 默认配置为PatternLayoutEncoder --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        &lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">          &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      &lt;&#x2F;appender&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      &lt;root level&#x3D;&quot;INFO&quot;&gt;             </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        &lt;appender-ref ref&#x3D;&quot;STDOUT&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      &lt;&#x2F;root&gt;     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"> &lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
-<blockquote>
-<p>其中appender的配置表示打印到控制台。<root level=”INFO”>将root的打印级别设置为“INFO”，指定了名字为 “STDOUT”的appender</p>
-</blockquote>
-<blockquote>
-<p>当执行logback.LogbackDemo类的main方法时，root将级别为“INFO”及大于“INFO”的日志信息交给已经配置好的名为“STDOUT”的appender处理，“STDOUT”appender将信息打印到控制台；</p>
-</blockquote>
-<p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">13:30:38.484 [main] INFO  logback.LogbackDemo-&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;info  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">13:30:38.500 [main] WARN  logback.LogbackDemo -&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;warn  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">13:30:38.500 [main] ERROR logback.LogbackDemo -&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;error</span></pre></td></tr></table></figure>
-</li>
-<li><p>带有logger的配置，不指定级别，不指定appender</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      &lt;appender name&#x3D;&quot;STDOUT&quot; class&#x3D;&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- encoder 默认配置为PatternLayoutEncoder --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        &lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">          &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      &lt;&#x2F;appender&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      &lt;!-- logback为java中的包 --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      &lt;logger name&#x3D;&quot;logback&quot;&#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      &lt;root level&#x3D;&quot;DEBUG&quot;&gt;             </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        &lt;appender-ref ref&#x3D;&quot;STDOUT&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">      &lt;&#x2F;root&gt;     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
-
-<p>其中appender的配置表示打印到控制台。输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">13:19:15.406 [main] DEBUG logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;debug  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">13:19:15.406 [main] INFO  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;info  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">13:19:15.406 [main] WARN  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;warn  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">13:19:15.406 [main] ERROR logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;error</span></pre></td></tr></table></figure>
-<blockquote>
-<p><logger name=”logback” />将控制logback包下的所有类的日志的打印，但是并没有设置打印级别，所以继承他的上级<root>的日志级别“DEBUG”。</p>
-</blockquote>
-<blockquote>
-<p>没有设置additivity，默认为true，将此logger的打印信息向上级传递。</p>
-</blockquote>
-<blockquote>
-<p>没有设置appender，此logger本身不打印任何信息。</p>
-</blockquote>
-<blockquote>
-<p><root level=”DEBUG”>将root的打印级别设置为“DEBUG”，指定了名字为“STDOUT”的appender。</p>
-</blockquote>
-<blockquote>
-<p>当执行logback.LogbackDemo类的main方法时，因为LogbackDemo 在包logback中，所以首先执行<logger name=”logback” />，将级别为“DEBUG”及大于“DEBUG”的日志信息传递给root，本身并不打印。</p>
-</blockquote>
-<blockquote>
-<p>root接到下级传递的信息，交给已经配置好的名为“STDOUT”的appender处理，“STDOUT”appender将信息打印到控制台。</p>
-</blockquote>
-</li>
-<li><p>带有多个logger的配置，指定级别，指定appender</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">     &lt;appender name&#x3D;&quot;STDOUT&quot; class&#x3D;&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">      &lt;!-- encoder 默认配置为PatternLayoutEncoder --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      &lt;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;&#x2F;pattern&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      &lt;&#x2F;encoder&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;appender&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    &lt;!-- logback为java中的包 --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &lt;logger name&#x3D;&quot;logback&quot;&#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &lt;!--logback.LogbackDemo：类的全路径 --&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &lt;logger name&#x3D;&quot;logback.LogbackDemo&quot; level&#x3D;&quot;INFO&quot; additivity&#x3D;&quot;false&quot;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      &lt;appender-ref ref&#x3D;&quot;STDOUT&quot;&#x2F;&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;logger&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    &lt;root level&#x3D;&quot;ERROR&quot;&gt;             </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">      &lt;appender-ref ref&#x3D;&quot;STDOUT&quot; &#x2F;&gt;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;root&gt;     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">14:05:35.937 [main] INFO  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;info  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">14:05:35.937 [main] WARN  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;warn  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">14:05:35.937 [main] ERROR logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;error</span></pre></td></tr></table></figure>
-<blockquote>
-<p><logger name=”logback” />将控制logback包下的所有类的日志的打印，但是并没用设置打印级别，所以继承他的上级<root>的日志级别“DEBUG”。</p>
-</blockquote>
-<blockquote>
-<p>没有设置additivity，默认为true，将此logger的打印信息向上级传递。</p>
-</blockquote>
-<blockquote>
-<p>没有设置appender，此logger本身不打印任何信息。</p>
-</blockquote>
-<blockquote>
-<p>logger name=”logback.LogbackDemo” level=”INFO” additivity=”false”&gt;控制logback.LogbackDemo类的日志打印，打印级别为“INFO”。</p>
-</blockquote>
-<blockquote>
-<p>additivity属性为false，表示此logger的打印信息不再向上级传递，指定了名字为“STDOUT”的appender。</p>
-</blockquote>
-<blockquote>
-<p><root level=”DEBUG”>将root的打印级别设置为“ERROR”，指定了名字为“STDOUT”的appender。</p>
-</blockquote>
-<blockquote>
-<p>当执行logback.LogbackDemo类的main方法时，先执行<logger name=”logback.LogbackDemo” level=”INFO” additivity=”false”>，将级别为“INFO”及大于“INFO”的日志信息交给此logger指定的名为“STDOUT”的appender处理，在控制台中打出日志，不再向次logger的上级 <logger name=”logback”/> 传递打印信息。</p>
-</blockquote>
-<blockquote>
-<p><logger name=”logback”/>未接到任何打印信息，当然也不会给它的上级root传递任何打印信息。</p>
-</blockquote>
-<blockquote>
-<p>如果将<logger name=”logback.LogbackDemo” level=”INFO” additivity=”false”>修改为 <logger name=”logback.LogbackDemo” level=”INFO” additivity=”true”>. 则日志打印了两次，想必大家都知道原因了，因为打印信息向上级传递，logger本身打印一次，root接到后又打印一次：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] INFO  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;info  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] INFO  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;info  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] WARN  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;warn  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] WARN  logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;warn  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] ERROR logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;error  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">14:09:01.531 [main] ERROR logback.LogbackDemo - &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;error</span></pre></td></tr></table></figure>
-
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4></li>
-<li><p>-</p>
-<blockquote>
-<ol>
-<li>logger 中的level 是向root中传递的；</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>要达到向父logger中传递，2. 要使得 <code>additivity=&quot;false&quot;</code> ;同时在子和父logger中要有同样的<code>&lt;appender-ref ref=&quot;&lt;appenderName&gt;&quot; /&gt;</code></li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>完整的配置案例：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    &lt;!--</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    -scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    -scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    -           当scan为true时，此属性生效。默认的时间间隔为1分钟</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    -debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    - configuration 子节点为 appender、logger、root</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &lt;configuration scan&#x3D;&quot;true&quot; scanPeriod&#x3D;&quot;60 second&quot; debug&#x3D;&quot;false&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- 负责写日志,控制台日志 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        &lt;appender name&#x3D;&quot;STDOUT&quot; class&#x3D;&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- 一是把日志信息转换成字节数组,二是把字节数组写入到输出流 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">            &lt;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">                &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;&#x2F;Pattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                &lt;charset&gt;UTF-8&lt;&#x2F;charset&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;appender&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- 文件日志 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        &lt;appender name&#x3D;&quot;DEBUG&quot; class&#x3D;&quot;ch.qos.logback.core.FileAppender&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            &lt;file&gt;debug.log&lt;&#x2F;file&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- append: true,日志被追加到文件结尾; false,清空现存文件;默认是true --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">            &lt;append&gt;true&lt;&#x2F;append&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">            &lt;filter class&#x3D;&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">                &lt;!-- LevelFilter: 级别过滤器，根据日志级别进行过滤 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">                &lt;level&gt;DEBUG&lt;&#x2F;level&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">                &lt;onMatch&gt;ACCEPT&lt;&#x2F;onMatch&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">                &lt;onMismatch&gt;DENY&lt;&#x2F;onMismatch&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;filter&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            &lt;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">                &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;&#x2F;Pattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">                &lt;charset&gt;UTF-8&lt;&#x2F;charset&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;appender&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">        &lt;appender name&#x3D;&quot;INFO&quot; class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">            &lt;File&gt;info.log&lt;&#x2F;File&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- ThresholdFilter:临界值过滤器，过滤掉 TRACE 和 DEBUG 级别的日志 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">            &lt;filter class&#x3D;&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">                &lt;level&gt;INFO&lt;&#x2F;level&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;filter&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">            &lt;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">                &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;&#x2F;Pattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">                &lt;charset&gt;UTF-8&lt;&#x2F;charset&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">            &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">                &lt;!-- 每天生成一个日志文件，保存30天的日志文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">                - 如果隔一段时间没有输出日志，前面过期的日志不会被删除，只有再重新打印日志的时候，会触发删除过期日志的操作。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">                --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">                &lt;fileNamePattern&gt;info.%d&#123;yyyy-MM-dd&#125;.log&lt;&#x2F;fileNamePattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">                &lt;maxHistory&gt;30&lt;&#x2F;maxHistory&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">                &lt;TimeBasedFileNamingAndTriggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">                    &lt;maxFileSize&gt;100MB&lt;&#x2F;maxFileSize&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">                &lt;&#x2F;TimeBasedFileNamingAndTriggeringPolicy&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;rollingPolicy&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;appender &gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">        &lt;!--&lt;!– 异常日志输出 –&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">        &lt;!--&lt;appender name&#x3D;&quot;EXCEPTION&quot; class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;file&gt;exception.log&lt;&#x2F;file&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;!– 求值过滤器，评估、鉴别日志是否符合指定条件. 需要额外的两个JAR包，commons-compiler.jar和janino.jar –&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;filter class&#x3D;&quot;ch.qos.logback.core.filter.EvaluatorFilter&quot;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;!– 默认为 ch.qos.logback.classic.boolex.JaninoEventEvaluator –&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;evaluator&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">                    &lt;!--&lt;!– 过滤掉所有日志消息中不包含&quot;Exception&quot;字符串的日志 –&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">                    &lt;!--&lt;expression&gt;return message.contains(&quot;Exception&quot;);&lt;&#x2F;expression&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;&#x2F;evaluator&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;OnMatch&gt;ACCEPT&lt;&#x2F;OnMatch&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;OnMismatch&gt;DENY&lt;&#x2F;OnMismatch&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;&#x2F;filter&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;triggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;!– 触发节点，按固定文件大小生成，超过5M，生成新的日志文件 –&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">81</span></pre></td><td class="code"><pre><span class="line">                &lt;!--&lt;maxFileSize&gt;5MB&lt;&#x2F;maxFileSize&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">82</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;&#x2F;triggeringPolicy&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">83</span></pre></td><td class="code"><pre><span class="line">        &lt;!--&lt;&#x2F;appender&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">84</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">85</span></pre></td><td class="code"><pre><span class="line">        &lt;appender name&#x3D;&quot;ERROR&quot; class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">86</span></pre></td><td class="code"><pre><span class="line">            &lt;file&gt;error.log&lt;&#x2F;file&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">87</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">88</span></pre></td><td class="code"><pre><span class="line">            &lt;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">89</span></pre></td><td class="code"><pre><span class="line">                &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;&#x2F;Pattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">90</span></pre></td><td class="code"><pre><span class="line">                &lt;charset&gt;UTF-8&lt;&#x2F;charset&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">91</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;encoder&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">92</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">93</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- 按照固定窗口模式生成日志文件，当文件大于20MB时，生成新的日志文件。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">94</span></pre></td><td class="code"><pre><span class="line">            -    窗口大小是1到3，当保存了3个归档文件后，将覆盖最早的日志。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">95</span></pre></td><td class="code"><pre><span class="line">            -    可以指定文件压缩选项</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">96</span></pre></td><td class="code"><pre><span class="line">            --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">97</span></pre></td><td class="code"><pre><span class="line">            &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.FixedWindowRollingPolicy&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">98</span></pre></td><td class="code"><pre><span class="line">                &lt;fileNamePattern&gt;error.%d&#123;yyyy-MM&#125;(%i).log.zip&lt;&#x2F;fileNamePattern&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">99</span></pre></td><td class="code"><pre><span class="line">                &lt;minIndex&gt;1&lt;&#x2F;minIndex&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">100</span></pre></td><td class="code"><pre><span class="line">                &lt;maxIndex&gt;3&lt;&#x2F;maxIndex&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">101</span></pre></td><td class="code"><pre><span class="line">                &lt;timeBasedFileNamingAndTriggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">102</span></pre></td><td class="code"><pre><span class="line">                    &lt;maxFileSize&gt;100MB&lt;&#x2F;maxFileSize&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">103</span></pre></td><td class="code"><pre><span class="line">                &lt;&#x2F;timeBasedFileNamingAndTriggeringPolicy&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">104</span></pre></td><td class="code"><pre><span class="line">                &lt;maxHistory&gt;30&lt;&#x2F;maxHistory&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">105</span></pre></td><td class="code"><pre><span class="line">            &lt;&#x2F;rollingPolicy&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">106</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;appender&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">107</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">108</span></pre></td><td class="code"><pre><span class="line">        &lt;!-- 异步输出 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">109</span></pre></td><td class="code"><pre><span class="line">        &lt;appender name &#x3D;&quot;ASYNC&quot; class&#x3D; &quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">110</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">111</span></pre></td><td class="code"><pre><span class="line">            &lt;discardingThreshold &gt;0&lt;&#x2F;discardingThreshold&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">112</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">113</span></pre></td><td class="code"><pre><span class="line">            &lt;queueSize&gt;512&lt;&#x2F;queueSize&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">114</span></pre></td><td class="code"><pre><span class="line">            &lt;!-- 添加附加的appender,最多只能添加一个 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">115</span></pre></td><td class="code"><pre><span class="line">            &lt;appender-ref ref &#x3D;&quot;ERROR&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">116</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;appender&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">117</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">118</span></pre></td><td class="code"><pre><span class="line">        &lt;!--</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">119</span></pre></td><td class="code"><pre><span class="line">        - 1.name：包名或类名，用来指定受此logger约束的某一个包或者具体的某一个类</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">120</span></pre></td><td class="code"><pre><span class="line">        - 2.未设置打印级别，所以继承他的上级&lt;root&gt;的日志级别“DEBUG”</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">121</span></pre></td><td class="code"><pre><span class="line">        - 3.未设置additivity，默认为true，将此logger的打印信息向上级传递；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">122</span></pre></td><td class="code"><pre><span class="line">        - 4.未设置appender，此logger本身不打印任何信息，级别为“DEBUG”及大于“DEBUG”的日志信息传递给root，</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">123</span></pre></td><td class="code"><pre><span class="line">        -  root接到下级传递的信息，交给已经配置好的名为“STDOUT”的appender处理，“STDOUT”appender将信息打印到控制台；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">124</span></pre></td><td class="code"><pre><span class="line">        --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">125</span></pre></td><td class="code"><pre><span class="line">        &lt;logger name&#x3D;&quot;ch.qos.logback&quot; &#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">126</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">127</span></pre></td><td class="code"><pre><span class="line">        &lt;!--</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">128</span></pre></td><td class="code"><pre><span class="line">        - 1.将级别为“INFO”及大于“INFO”的日志信息交给此logger指定的名为“STDOUT”的appender处理，在控制台中打出日志，</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">129</span></pre></td><td class="code"><pre><span class="line">        -   不再向次logger的上级 &lt;logger name&#x3D;&quot;logback&quot;&#x2F;&gt; 传递打印信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">130</span></pre></td><td class="code"><pre><span class="line">        - 2.level：设置打印级别（TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF），还有一个特殊值INHERITED或者同义词NULL，代表强制执行上级的级别。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">131</span></pre></td><td class="code"><pre><span class="line">        -        如果未设置此属性，那么当前logger将会继承上级的级别。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">132</span></pre></td><td class="code"><pre><span class="line">        - 3.additivity：为false，表示此logger的打印信息不再向上级传递,如果设置为true，会打印两次</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">133</span></pre></td><td class="code"><pre><span class="line">        - 4.appender-ref：指定了名字为&quot;STDOUT&quot;的appender。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">134</span></pre></td><td class="code"><pre><span class="line">        --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">135</span></pre></td><td class="code"><pre><span class="line">        &lt;logger name&#x3D;&quot;com.weizhi.common.LogMain&quot; level&#x3D;&quot;INFO&quot; additivity&#x3D;&quot;false&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">136</span></pre></td><td class="code"><pre><span class="line">            &lt;appender-ref ref&#x3D;&quot;STDOUT&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">137</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;DEBUG&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">138</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;EXCEPTION&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">139</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;INFO&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">140</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;ERROR&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">141</span></pre></td><td class="code"><pre><span class="line">            &lt;appender-ref ref&#x3D;&quot;ASYNC&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">142</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;logger&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">143</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">144</span></pre></td><td class="code"><pre><span class="line">        &lt;!--</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">145</span></pre></td><td class="code"><pre><span class="line">        - 根logger</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">146</span></pre></td><td class="code"><pre><span class="line">        - level:设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">147</span></pre></td><td class="code"><pre><span class="line">        -       默认是DEBUG。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">148</span></pre></td><td class="code"><pre><span class="line">        -appender-ref:可以包含零个或多个&lt;appender-ref&gt;元素，标识这个appender将会添加到这个logger</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">149</span></pre></td><td class="code"><pre><span class="line">        --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">150</span></pre></td><td class="code"><pre><span class="line">        &lt;root level&#x3D;&quot;DEBUG&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">151</span></pre></td><td class="code"><pre><span class="line">            &lt;appender-ref ref&#x3D;&quot;STDOUT&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">152</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;DEBUG&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">153</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;EXCEPTION&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">154</span></pre></td><td class="code"><pre><span class="line">            &lt;!--&lt;appender-ref ref&#x3D;&quot;INFO&quot;&#x2F;&gt;--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">155</span></pre></td><td class="code"><pre><span class="line">            &lt;appender-ref ref&#x3D;&quot;ASYNC&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">156</span></pre></td><td class="code"><pre><span class="line">        &lt;&#x2F;root&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">157</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;configuration&gt;</span></pre></td></tr></table></figure>
+<li><p>这个没问题: <a href="https://mxy493.xyz/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_blank" rel="noopener">https://mxy493.xyz/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</a></p>
 </li>
 </ul>
 
@@ -569,13 +297,22 @@
     </div>
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">logback</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -587,7 +324,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/logback//" class="article-tag-list-link color3">logback</a>
+        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -605,18 +342,18 @@
   
 <nav id="article-nav">
   
-    <a href="/zbcn.github.io/2019/12/11/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/zbcn.github.io/20220/05/06/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          07 字节码执行引擎
+          Spring_01 整体架构
         
       </div>
     </a>
   
   
-    <a href="/zbcn.github.io/2019/12/10/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">06 类的加载机制</div>
+    <a href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dp_01设计模式六种原则</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -643,7 +380,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#LOGBACK-学习笔记"><span class="toc-number">1.</span> <span class="toc-text">LOGBACK 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明："><span class="toc-number">1.1.</span> <span class="toc-text">说明：</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#我hexo博客主题用的是yilia，看了下-config-yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。"><span class="toc-number">1.</span> <span class="toc-text">我hexo博客主题用的是yilia，看了下_config.yml配置文件，发现它竟默认支持gitment，为了也能使用valine，只能魔改源码了。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转"><span class="toc-number">1.1.</span> <span class="toc-text">转:</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
