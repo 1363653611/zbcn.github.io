@@ -8,18 +8,25 @@
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
   <title>06 类的加载机制 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类的加载机制类的加载时机生命周期： 加载（loading）-&gt;验证（verification）-&gt;准备（preparation）-&gt;解析（resolution）-&gt;初始化（initialization）-&gt;使用（using）-&gt;卸载（unloading）">
+  <meta name="description" content="java 代码转换字节码 类的加载机制类的加载时机###生命周期：   加载（loading）-&gt;验证（verification）-&gt;准备（preparation）-&gt;解析（resolution）-&gt;初始化（initialization）-&gt;使用（using）-&gt;卸载（unloading）   一个非数组类的加载阶段（加载阶段获取类的二进制字节流的动作）是可控性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="06 类的加载机制">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;10&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;14&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="类的加载机制类的加载时机生命周期： 加载（loading）-&gt;验证（verification）-&gt;准备（preparation）-&gt;解析（resolution）-&gt;初始化（initialization）-&gt;使用（using）-&gt;卸载（unloading）">
-<meta property="article:published_time" content="2019-12-10T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-12T00:52:59.045Z">
+<meta property="og:description" content="java 代码转换字节码 类的加载机制类的加载时机###生命周期：   加载（loading）-&gt;验证（verification）-&gt;准备（preparation）-&gt;解析（resolution）-&gt;初始化（initialization）-&gt;使用（using）-&gt;卸载（unloading）   一个非数组类的加载阶段（加载阶段获取类的二进制字节流的动作）是可控性">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200804174206365.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200801121638058.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200731170619363.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200801121545254.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200801121505389.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200731173927816.png">
+<meta property="article:published_time" content="2019-12-14T10:14:10.000Z">
+<meta property="article:modified_time" content="2020-10-09T09:25:55.050Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&#x2F;image-20200804174206365.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -197,8 +204,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/10/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2019-12-10T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/zbcn.github.io/2019/12/14/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2019-12-14T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
         
       </header>
@@ -225,19 +232,26 @@
           
           <br>
           <strong>本文链接：</strong>
-          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/10/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">https://1363653611.github.io/zbcn.github.io/2019/12/10/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</a>
+          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/14/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">https://1363653611.github.io/zbcn.github.io/2019/12/14/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</a>
           <br>
           <hr>
         </div>
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="类的加载机制"><a href="#类的加载机制" class="headerlink" title="类的加载机制"></a>类的加载机制</h3><h4 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h4><h4 id="生命周期："><a href="#生命周期：" class="headerlink" title="生命周期："></a>生命周期：</h4><ul>
+        <h1 id="java-代码转换字节码"><a href="#java-代码转换字节码" class="headerlink" title="java 代码转换字节码"></a>java 代码转换字节码</h1><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200804174206365.png" alt="image-20200804174206365"></p>
+<h1 id="类的加载机制"><a href="#类的加载机制" class="headerlink" title="类的加载机制"></a>类的加载机制</h1><h2 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h2><p>###生命周期：</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200801121638058.png" alt="image-20200801121638058"></p>
+<ul>
 <li>加载（loading）-&gt;验证（verification）-&gt;准备（preparation）-&gt;解析（resolution）-&gt;初始化（initialization）-&gt;使用（using）-&gt;卸载（unloading）</li>
 </ul>
+<blockquote>
+<p>一个非数组类的加载阶段（加载阶段获取类的二进制字节流的动作）是可控性最强的阶段.这一步我们可以去完成还可以自定义类加载器去控制字节流的获取方式（重写一个类加载器的 <code>loadClass()</code> 方法）。数组类型不通过类加载器创建，它由 Java 虚拟机直接创建。</p>
+<p>所有的类都由类加载器加载，加载的作用就是将 .class文件加载到内存。</p>
+</blockquote>
 <a id="more"></a>
 
-<h4 id="需要初始化"><a href="#需要初始化" class="headerlink" title="需要初始化"></a>需要初始化</h4><ul>
+<h3 id="需要初始化"><a href="#需要初始化" class="headerlink" title="需要初始化"></a>需要初始化</h3><ul>
 <li><p>遇到new、getstatic、putstatic或者invokestatic这四条字节码指令时</p>
 <ul>
 <li>对应的Java指令<ul>
@@ -260,9 +274,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h4><ul>
-<li><p>加载</p>
-<ul>
+<h1 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h1><h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><ul>
 <li>步骤<ol>
 <li>通过全限定性类名获取定义此类的二进制字节流<ul>
 <li>获取位置<ul>
@@ -276,98 +288,61 @@
 </ul>
 </li>
 <li>将这个字节流代表的静态存储结构转化为方法区的运行时数据结构</li>
-<li>在内存中生成一个代表这个类的class.lang.Class 对象，作为方法区这个类的各种相关数据的访问入口</li>
+<li>在内存中生成一个代表这个类的<code>class.lang.Class</code> 对象，作为方法区这个类的各种相关数据的访问入口</li>
 </ol>
 </li>
 </ul>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200731170619363.png" alt="image-20200731170619363"></p>
+<ul>
+<li>功能：确保从加载文件的字节流中包含的信息符合当前虚拟机的要求，并不会危害虚拟机自身的安全<br>验证阶段的4个步骤<h3 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- 是否以魔数0xCAFEBABE 开头</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">- 主、次版本号是否在当前虚拟机处理的范围内</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">- 常量池的常量中是否有不被支持的常量类型（tag标志）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">- 指向常量的各种索引值是否有指向不存在的常量或者不符合类型的常量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">- CONSTANT_Utf_8_info 型的常量是否有不符合utf-8 格式的数据</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">- class文件中各个部分以及文件本身是否有被删除的或者附加的其他信息</span></pre></td></tr></table></figure>
+
 </li>
-<li><p>验证</p>
-<ul>
-<li><p>功能：确保从加载文件的字节流中包含的信息符合当前虚拟机的要求，并不会危害虚拟机自身的安全</p>
-</li>
-<li><p>验证阶段的4个步骤</p>
-<ul>
-<li><p>文件格式验证</p>
-<ul>
-<li>是否以魔数0xCAFEBABE 开头</li>
-<li>主、次版本号是否在当前虚拟机处理的范围内</li>
-<li>常量池的常量中是否有不被支持的常量类型（tag标志）</li>
-<li>指向常量的各种索引值是否有指向不存在的常量或者不符合类型的常量</li>
-<li>CONSTANT_Utf_8_info 型的常量是否有不符合utf-8 格式的数据</li>
-<li>class文件中各个部分以及文件本身是否有被删除的或者附加的其他信息</li>
 </ul>
-</li>
-<li><p>元数据的验证（语义分析）</p>
-<ul>
-<li>这个类是否有父类</li>
-<li>这个类是否继承了不允许继承的类（被final 修饰的类）</li>
-<li>如果这个类不是抽象的类，是否实现了其父类或者接口之中要求要实现的方法</li>
-<li>类中的字段、方法是否与父类产生矛盾</li>
-</ul>
-</li>
-<li><p>字节码验证</p>
-<ul>
-<li><p>目的</p>
-<ul>
-<li>数据流和控制流的分析。确定程序语义是合法的，符合逻辑的</li>
-<li>对方法体进行校验分析</li>
-</ul>
-</li>
-<li><p>内容</p>
-<ul>
-<li>保证任意时刻操作数栈的数据类型与指令代码都能够配合使用</li>
-<li>保证跳转指令不会跳转到方法以外的字节码上</li>
-<li>保证方法体中的类型转换是有效的</li>
-</ul>
-</li>
-<li><p>版本不同</p>
-<ul>
+<h3 id="元数据的验证（语义分析）"><a href="#元数据的验证（语义分析）" class="headerlink" title="元数据的验证（语义分析）"></a>元数据的验证（语义分析）</h3><pre><code>- 这个类是否有父类
+- 这个类是否继承了不允许继承的类（被final 修饰的类）
+- 如果这个类不是抽象的类，是否实现了其父类或者接口之中要求要实现的方法
+- 类中的字段、方法是否与父类产生矛盾</code></pre><h3 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h3><pre><code>- 目的
+- 数据流和控制流的分析。确定程序语义是合法的，符合逻辑的
+- 对方法体进行校验分析
+- 内容
+- 保证任意时刻操作数栈的数据类型与指令代码都能够配合使用
+- 保证跳转指令不会跳转到方法以外的字节码上
+- 保证方法体中的类型转换是有效的</code></pre><ul>
+<li>版本不同<ul>
 <li>类型推导（jdk1.6之前）</li>
 <li>类型检查（jdk1.6 之后）</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>符号引用验证</p>
+<h3 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h3><pre><code>- 目的
+    - 该阶段发生在将符号引用转化为直接引用的时候，这个转化动作发生在“解析阶段”
+    - 可以看作是类对自身以外（常量池中的各种符号引用）的信息进行匹配性校验
+- 内容
+    - 符号引用中通过字符串描述的全限定性类名能否找到对应的类
+    - 在指定类中是否存在符合方法的字段描述符以及简单名称所描述的方法和字段
+    - 符号引用中的类、字段、方法的访问性是否可被当前类访问</code></pre><h3 id="关闭验证：-Xverify-none"><a href="#关闭验证：-Xverify-none" class="headerlink" title="关闭验证：-Xverify:none"></a>关闭验证：-Xverify:none</h3><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><p>目的</p>
 <ul>
-<li>目的<ul>
-<li>该阶段发生在将符号引用转化为直接引用的时候，这个转化动作发生在“解析阶段”</li>
-<li>可以看作是类对自身以外（常量池中的各种符号引用）的信息进行匹配性校验</li>
-</ul>
-</li>
-<li>内容<ul>
-<li>符号引用中通过字符串描述的全限定性类名能否找到对应的类</li>
-<li>在指定类中是否存在符合方法的字段描述符以及简单名称所描述的方法和字段</li>
-<li>符号引用中的类、字段、方法的访问性是否可被当前类访问</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>关闭验证：-Xverify:none</p>
-</li>
-</ul>
-</li>
-<li><p>准备</p>
-<ul>
-<li>目的<ul>
 <li>正式为类变量分配内存并设置类变量初始化值的阶段，这些变量所使用的内存都将在方法区中进行分配</li>
 </ul>
 </li>
-<li>说明<ul>
-<li>通常情况:(初始化零值)</li>
+<li><p>说明</p>
+<ul>
+<li><p>通常情况:(初始化零值)</p>
+</li>
+<li><p>基本数据类型的零值：</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200801121545254.png" alt="image-20200801121545254"></p>
+</li>
 </ul>
 </li>
-<li>特殊情况<ul>
+<li><p>特殊情况</p>
+<ul>
 <li>属性表中存在ConstantValue属性，那在准备阶段变量value就会被初始化为constantValue 属性指定的值</li>
 <li>javac时会将final 修饰的的属性，对应的value值在constantValue中存放</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>解析</p>
-<ul>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
 <li>作用<ul>
 <li>将常量池中的符号引用转化为直接引用的过程</li>
 <li>解析动作主要针对：类或者接口、字段、类方法、接口方法、方法类型、方法句柄、调用点限定符</li>
@@ -383,8 +358,6 @@
 <li>如果有了直接引用，说明目标必定已经在内存中存在</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>分类<ul>
 <li>类或者接口的解析</li>
 <li>字段的解析</li>
@@ -394,45 +367,64 @@
 </li>
 </ul>
 </li>
-<li><p>初始化</p>
-<ul>
+</ul>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
 <li>类加载的最后一步。该阶段才是真正执行类中定义的java代码的阶段</li>
-<li>初始化阶段是执行类构造器<cinit>()方法的过程</li>
+<li>初始化阶段是执行类构造器<code>&lt;cinit&gt;()</code>方法的过程</li>
 <li>编译器收集类中的赋值动作，和静态语句快（static{}）,合并并产生结果</li>
-<li>子类在执行<cinit>()方法之前，一定优先执行父类的<cinit>()方法</li>
+<li>子类在执行<code>&lt;cinit&gt;()</code>方法之前，一定优先执行父类的<code>&lt;cinit&gt;()</code>方法</li>
 </ul>
-</li>
-<li><p>使用</p>
-</li>
-<li><p>卸载</p>
-</li>
-</ul>
-<h4 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h4><ul>
-<li><p>类与类加载器</p>
+<h3 id="对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化-只有主动去使用类才会初始化类-："><a href="#对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化-只有主动去使用类才会初始化类-：" class="headerlink" title="对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化(只有主动去使用类才会初始化类)："></a>对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化(只有主动去使用类才会初始化类)：</h3><ol>
+<li>当遇到 new 、 getstatic、putstatic或invokestatic 这4条直接码指令时，比如 new 一个类，读取一个静态字段(未被 final 修饰)、或调用一个类的静态方法时。</li>
+</ol>
 <ul>
-<li>判断两个类相等<ul>
-<li>相同的类加载器</li>
-<li>class对象的equals方法</li>
-<li>isAssignableFrom()方法</li>
-<li>isInstance()方法</li>
-<li>使用instanceof关键字</li>
+<li>当jvm执行new指令时会初始化类。即当程序创建一个类的实例对象。</li>
+<li>当jvm执行getstatic指令时会初始化类。即程序访问类的静态变量(不是静态常量，常量会被加载到运行时常量池)。</li>
+<li>当jvm执行putstatic指令时会初始化类。即程序给类的静态变量赋值。</li>
+<li>当jvm执行invokestatic指令时会初始化类。即程序调用类的静态方法。</li>
 </ul>
+<ol start="2">
+<li><p>使用 <code>java.lang.reflect</code> 包的方法对类进行反射调用时如<code>Class.forname(&quot;...&quot;),newInstance()</code>等等，如果类没初始化，需要触发其初始化。</p>
 </li>
-</ul>
+<li><p>初始化一个类，如果其父类还未初始化，则先触发该父类的初始化。</p>
 </li>
-<li><p>双亲委派机制模型</p>
-<ul>
-<li>加载器的类型<ul>
-<li>启动类加载器（Bootstrap ClassLoader）</li>
-<li>扩展类加载器 Extension Classloader</li>
-<li>应用程序类加载器 （Application Classloader）</li>
-</ul>
+<li><p>当虚拟机启动时，用户需要定义一个要执行的主类 (包含 main 方法的那个类)，虚拟机会先初始化这个类。</p>
 </li>
-</ul>
+<li><p><code>MethodHandle</code>和<code>VarHandle</code>可以看作是轻量级的反射调用机制，而要想使用这2个调用， 就必须先使用<code>findStaticVarHandle</code>来初始化要调用的类。</p>
+<p><strong>当一个接口中定义了JDK8新加入的默认方法（被default关键字修饰的接口方法）时，如果有这个接口的实现类发生了初始化，那该接口要在其之前被初始化。</strong></p>
 </li>
-<li><p>破坏双亲委派模型</p>
-</li>
-</ul>
+</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>​    卸载类即该类的Class对象被GC。</p>
+<h3 id="卸载类需要满足3个要求"><a href="#卸载类需要满足3个要求" class="headerlink" title="卸载类需要满足3个要求:"></a>卸载类需要满足3个要求:</h3><ol>
+<li>该类的所有的实例对象都已被GC，也就是说堆不存在该类的实例对象。</li>
+<li>该类没有在其他任何地方被引用</li>
+<li>该类的类加载器的实例已被GC</li>
+</ol>
+<p>所以，在JVM生命周期类，由jvm自带的类加载器加载的类是不会被卸载的。但是由我们自定义的类加载器加载的类是可能被卸载的。</p>
+<p>jdk自带的BootstrapClassLoader,PlatformClassLoader,AppClassLoader负责加载jdk提供的类，所以它们(类加载器的实例)肯定不会被回收。而我们自定义的类加载器的实例是可以被回收的，所以使用我们自定义加载器加载的类是可以被卸载掉的。</p>
+<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><h2 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h2><pre><code>- 判断两个类相等
+    - 相同的类加载器
+    - class对象的equals方法
+    - isAssignableFrom()方法
+    - isInstance()方法
+    - 使用instanceof关键字</code></pre><h2 id="双亲委派机制模型"><a href="#双亲委派机制模型" class="headerlink" title="双亲委派机制模型"></a>双亲委派机制模型</h2><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200801121505389.png" alt="image-20200801121505389"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderDemo</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"ClassLodarDemo's ClassLoader is "</span> + ClassLoaderDemo<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>())</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"The Parent of ClassLodarDemo's ClassLoader is "</span> + ClassLoaderDemo<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>().<span class="title">getParent</span>())</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"The GrandParent of ClassLodarDemo's ClassLoader is "</span> + ClassLoaderDemo<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>().<span class="title">getParent</span>().<span class="title">getParent</span>())</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//ClassLodarDemo's ClassLoader is sun.misc.Launcher$AppClassLoader@18b4aac2</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//The Parent of ClassLodarDemo's ClassLoader is sun.misc.Launcher$ExtClassLoader@1b6d3586</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//The GrandParent of ClassLodarDemo's ClassLoader is null</span></span></pre></td></tr></table></figure>
+
+<p><code>AppClassLoader</code>的父类加载器为<code>ExtClassLoader</code> <code>ExtClassLoader</code>的父类加载器为null，<strong>null并不代表<code>ExtClassLoader</code>没有父类加载器，而是 <code>BootstrapClassLoader</code></strong></p>
+<h3 id="加载器的类型"><a href="#加载器的类型" class="headerlink" title="加载器的类型"></a>加载器的类型</h3><h4 id="启动类加载器（BootstrapClassLoader）"><a href="#启动类加载器（BootstrapClassLoader）" class="headerlink" title="启动类加载器（BootstrapClassLoader）:"></a>启动类加载器（<code>BootstrapClassLoader</code>）:</h4><blockquote>
+<p>最顶层的加载类，由C++实现，负责加载 <code>%JAVA_HOME%/lib</code>目录下的jar包和类或者或被 <code>-Xbootclasspath</code>参数指定的路径中的所有类</p>
+</blockquote>
+<p>####　 扩展类加载器 <code>ExtensionClassLoader</code></p>
+<pre><code>&gt; 主要负责加载目录 `%JRE_HOME%/lib/ext` 目录下的jar包和类，或被 `java.ext.dirs` 系统变量所指定的路径下的jar包。</code></pre><h4 id="应用程序类加载器-（AppClassLoader）"><a href="#应用程序类加载器-（AppClassLoader）" class="headerlink" title="应用程序类加载器 （AppClassLoader）:"></a>应用程序类加载器 （<code>AppClassLoader</code>）:</h4><blockquote>
+<p>面向我们用户的加载器，负责加载当前应用classpath下的所有jar包和类</p>
+</blockquote>
+<h2 id="双亲委派模型实现源码分析"><a href="#双亲委派模型实现源码分析" class="headerlink" title="双亲委派模型实现源码分析"></a>双亲委派模型实现源码分析</h2><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/image-20200731173927816.png" alt="image-20200731173927816"></p>
+<p>双亲委派模型的实现代码非常简单，逻辑非常清晰，都集中在 <code>java.lang.ClassLoader</code> 的 <code>loadClass()</code> 中，相关代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> ClassLoader parent;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">throws</span> ClassNotFoundException</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">synchronized</span> (getClassLoadingLock(name)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 首先，检查请求的类是否已经被加载过</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            Class&lt;?&gt; c = findLoadedClass(name);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">long</span> t0 = System.nanoTime();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;<span class="comment">//父加载器不为空，调用父加载器loadClass()方法处理</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                        c = parent.loadClass(name, <span class="keyword">false</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                    &#125; <span class="keyword">else</span> &#123;<span class="comment">//父加载器为空，使用启动类加载器 BootstrapClassLoader 加载</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                        c = findBootstrapClassOrNull(name);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">                   <span class="comment">//抛出异常说明父类加载器无法完成加载请求</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">long</span> t1 = System.nanoTime();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                    <span class="comment">//自己尝试加载</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">                    c = findClass(name);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                    <span class="comment">// this is the defining class loader; record the stats</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">                    sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">                    sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">                    sun.misc.PerfCounter.getFindClasses().increment();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (resolve) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">                resolveClass(c);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> c;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+
+<h3 id="双亲委派模型的好处"><a href="#双亲委派模型的好处" class="headerlink" title="双亲委派模型的好处"></a>双亲委派模型的好处</h3><p>双亲委派模型保证了Java程序的稳定运行，可以避免类的重复加载（JVM 区分不同类的方式不仅仅根据类名，相同的类文件被不同的类加载器加载产生的是两个不同的类），也保证了 Java 的核心 API 不被篡改。如果没有使用双亲委派模型，而是每个类加载器加载自己的话就会出现一些问题，比如我们编写一个称为 <code>java.lang.Object</code> 类的话，那么程序运行的时候，系统就会出现多个不同的 Object 类。</p>
+<h2 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h2><p>为了避免双亲委托机制，我们可以自己定义一个类加载器，然后重写 loadClass() 即可</p>
+<h2 id="自定义类加载器"><a href="#自定义类加载器" class="headerlink" title="自定义类加载器"></a>自定义类加载器</h2><p>除了 <code>BootstrapClassLoader</code>其他类加载器均由 Java 实现且全部继承自<code>java.lang.ClassLoader</code>。如果我们要自定义自己的类加载器，很明显需要继承 <code>ClassLoader</code></p>
 
       
 	  <!-- 增加版权声明 -->
@@ -521,18 +513,18 @@
   
 <nav id="article-nav">
   
-    <a href="/zbcn.github.io/2019/12/10/JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/zbcn.github.io/2019/12/15/JVM_07%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          03 垃圾收集器和内存分配策略
+          07 字节码执行引擎
         
       </div>
     </a>
   
   
-    <a href="/zbcn.github.io/2019/12/10/concurrency_01%20-%20%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">01 并发编程基础</div>
+    <a href="/zbcn.github.io/2019/12/13/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">05 类文件结构</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -559,7 +551,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类的加载机制"><span class="toc-number">1.</span> <span class="toc-text">类的加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类的加载时机"><span class="toc-number">1.1.</span> <span class="toc-text">类的加载时机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生命周期："><span class="toc-number">1.2.</span> <span class="toc-text">生命周期：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要初始化"><span class="toc-number">1.3.</span> <span class="toc-text">需要初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类的加载过程"><span class="toc-number">1.4.</span> <span class="toc-text">类的加载过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类加载器"><span class="toc-number">1.5.</span> <span class="toc-text">类加载器</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-代码转换字节码"><span class="toc-number">1.</span> <span class="toc-text">java 代码转换字节码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的加载机制"><span class="toc-number">2.</span> <span class="toc-text">类的加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类的加载时机"><span class="toc-number">2.1.</span> <span class="toc-text">类的加载时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要初始化"><span class="toc-number">2.1.1.</span> <span class="toc-text">需要初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的加载过程"><span class="toc-number">3.</span> <span class="toc-text">类的加载过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加载"><span class="toc-number">3.1.</span> <span class="toc-text">加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证"><span class="toc-number">3.2.</span> <span class="toc-text">验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件格式验证"><span class="toc-number">3.2.1.</span> <span class="toc-text">文件格式验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元数据的验证（语义分析）"><span class="toc-number">3.2.2.</span> <span class="toc-text">元数据的验证（语义分析）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码验证"><span class="toc-number">3.2.3.</span> <span class="toc-text">字节码验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符号引用验证"><span class="toc-number">3.2.4.</span> <span class="toc-text">符号引用验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭验证：-Xverify-none"><span class="toc-number">3.2.5.</span> <span class="toc-text">关闭验证：-Xverify:none</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">3.3.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">3.4.</span> <span class="toc-text">解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">3.5.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化-只有主动去使用类才会初始化类-："><span class="toc-number">3.5.1.</span> <span class="toc-text">对于初始化阶段，虚拟机严格规范了有且只有5种情况下，必须对类进行初始化(只有主动去使用类才会初始化类)：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.6.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载"><span class="toc-number">3.7.</span> <span class="toc-text">卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载类需要满足3个要求"><span class="toc-number">3.7.1.</span> <span class="toc-text">卸载类需要满足3个要求:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类加载器"><span class="toc-number">4.</span> <span class="toc-text">类加载器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类与类加载器"><span class="toc-number">4.1.</span> <span class="toc-text">类与类加载器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双亲委派机制模型"><span class="toc-number">4.2.</span> <span class="toc-text">双亲委派机制模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载器的类型"><span class="toc-number">4.2.1.</span> <span class="toc-text">加载器的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动类加载器（BootstrapClassLoader）"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">启动类加载器（BootstrapClassLoader）:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用程序类加载器-（AppClassLoader）"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">应用程序类加载器 （AppClassLoader）:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双亲委派模型实现源码分析"><span class="toc-number">4.3.</span> <span class="toc-text">双亲委派模型实现源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双亲委派模型的好处"><span class="toc-number">4.3.1.</span> <span class="toc-text">双亲委派模型的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#破坏双亲委派模型"><span class="toc-number">4.4.</span> <span class="toc-text">破坏双亲委派模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义类加载器"><span class="toc-number">4.5.</span> <span class="toc-text">自定义类加载器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -743,11 +735,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,19 +747,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,11 +763,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,11 +791,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">

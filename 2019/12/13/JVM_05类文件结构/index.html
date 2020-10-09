@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>03 垃圾收集器和内存分配策略 | zbcn</title>
+  <title>05 类文件结构 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法">
+  <meta name="description" content="类文件结构无关性的的基石 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式: 字节码（byteCode） 是构成平台无关性的基石  JVM 只与.class 这种特殊的二进制文件格式所关联  class文件  java虚拟机指令集 符号表 其他辅助信息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="03 垃圾收集器和内存分配策略">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;10&#x2F;JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8&#x2F;index.html">
+<meta property="og:title" content="05 类文件结构">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="垃圾收集器和内存分配策略对象已死 算法 引用计数算法 问题：无法解决循环引用问题   可达性分析算法">
-<meta property="article:published_time" content="2019-12-10T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-10T10:37:28.908Z">
+<meta property="og:description" content="类文件结构无关性的的基石 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式: 字节码（byteCode） 是构成平台无关性的基石  JVM 只与.class 这种特殊的二进制文件格式所关联  class文件  java虚拟机指令集 符号表 其他辅助信息">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200731144811221.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;JVM_05类文件结构&#x2F;image-20200731145012679.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121834478.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121803063.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121727496.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;my-blog-to-use.oss-cn-beijing.aliyuncs.com&#x2F;2019-6&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;my-blog-to-use.oss-cn-beijing.aliyuncs.com&#x2F;2019-6&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png">
+<meta property="article:published_time" content="2019-12-13T10:14:10.000Z">
+<meta property="article:modified_time" content="2020-10-09T09:26:21.889Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200731144811221.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -175,14 +183,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-JVM_03内存收集策略和垃圾回收器" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-JVM_05类文件结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      03 垃圾收集器和内存分配策略
+      05 类文件结构
     </h1>
   
 
@@ -197,8 +205,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/10/JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2019-12-10T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/zbcn.github.io/2019/12/13/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2019-12-13T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
 </a>
         
       </header>
@@ -225,360 +233,432 @@
           
           <br>
           <strong>本文链接：</strong>
-          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/10/JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/">https://1363653611.github.io/zbcn.github.io/2019/12/10/JVM_03%E5%86%85%E5%AD%98%E6%94%B6%E9%9B%86%E7%AD%96%E7%95%A5%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/</a>
+          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/13/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">https://1363653611.github.io/zbcn.github.io/2019/12/13/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</a>
           <br>
           <hr>
         </div>
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="垃圾收集器和内存分配策略"><a href="#垃圾收集器和内存分配策略" class="headerlink" title="垃圾收集器和内存分配策略"></a>垃圾收集器和内存分配策略</h3><h4 id="对象已死"><a href="#对象已死" class="headerlink" title="对象已死"></a>对象已死</h4><ul>
-<li>算法<ul>
-<li>引用计数算法</li>
-<li>问题：无法解决循环引用问题</li>
-</ul>
+        <h1 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h1><h2 id="无关性的的基石"><a href="#无关性的的基石" class="headerlink" title="无关性的的基石"></a>无关性的的基石</h2><ul>
+<li><p>各种不同平台的虚拟机与所有平台都统一使用的程序存储格式: <strong>字节码（byteCode）</strong> 是构成平台无关性的基石</p>
 </li>
-<li>可达性分析算法<a id="more"></a>
+<li><p>JVM 只与.class 这种特殊的二进制文件格式所关联</p>
+</li>
+<li><p>class文件</p>
 <ul>
-<li>GC roots<ol>
-<li>虚拟机栈（栈帧中本地变量表）中引用的对象</li>
-<li>方法区中类静态属性引用的对象</li>
-<li>方法区中常量引用的对象</li>
-<li>本地方法栈中JNI(native方法)引用的对象</li>
-</ol>
-</li>
+<li>java虚拟机指令集</li>
+<li>符号表</li>
+<li>其他辅助信息</li>
 </ul>
 </li>
 </ul>
-<h4 id="对象引用"><a href="#对象引用" class="headerlink" title="对象引用"></a>对象引用</h4><ul>
-<li><p>强引用Strong reference</p>
-<ul>
-<li>垃圾收集器永远不会回收</li>
-</ul>
-</li>
-<li><p>软引用 soft reference</p>
-<ul>
-<li>在系统发生内存溢出之前，将会把这些对象列进回收范围之内进行二次回收</li>
-</ul>
-</li>
-<li><p>弱引用 weak reference</p>
-<ul>
-<li>该引用的对象只能生存到下一次垃圾回收之前</li>
-</ul>
-</li>
-<li><p>虚引用 phantom reference</p>
-<ul>
-<li>对象是否有虚引用存在，完全不会对其生存时间造成影响。</li>
-<li>作用是能在这个对象被收集器回收时收到一个系统通知</li>
-</ul>
-</li>
-<li><p>对象生存还是死亡</p>
-<ul>
-<li>注：可达性分析算法中，的不可达对象，要宣布死亡，需要经历两次标记过程。</li>
-<li>标记过程：<ul>
-<li>第一次标记/筛选<ul>
-<li>条件：对象是否有必要执行finalize方法<ul>
-<li>没必要执行的条件：<ol>
-<li>对象没有覆盖finalize方法</li>
-<li>finalize方法已经执行过</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>第一次标记后存放到F-queue的队列中<ul>
-<li>第二次小规模标记</li>
-<li>将f-queue中的对象最后一次标记</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>执行finalize方法。finalize方法中对象逃脱回收的最后机会</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>回收方法区（永久代的垃圾回收）</p>
-<ul>
-<li>废弃的常量<ul>
-<li>string</li>
-<li>类（接口）、方法、字段符号的引用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>无用的类</p>
-<ul>
-<li><p>条件：</p>
-<ol>
-<li>该类所有的实例已经被回收</li>
-<li>加载该类的classload已经被回收</li>
-<li>该类对应的java.lang.class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</li>
-</ol>
-</li>
-<li><p>hotSpot配置参数观察无用类回收情况</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">-verbose:class</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">-XX:+TraseClassLoading</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">-XX:+TraseClassUnLoading</span></pre></td></tr></table></figure>
+<a id="more"></a>
 
-</li>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200731144811221.png" alt="image-20200731144811221"></p>
+<p><strong>可以说<code>.class</code>文件是不同的语言在 Java 虚拟机之间的重要桥梁，同时也是支持 Java 跨平台很重要的一个原因。</strong></p>
+<h2 id="Class文件的结构"><a href="#Class文件的结构" class="headerlink" title="Class文件的结构"></a>Class文件的结构</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ClassFile &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    u4             magic; <span class="comment">//Class 文件的标志: 魔数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    u2             minor_version;<span class="comment">//Class 的小版本号</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    u2             major_version;<span class="comment">//Class 的大版本号</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    u2             constant_pool_count;<span class="comment">//常量池的数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="comment">//常量池</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    u2             access_flags;<span class="comment">//Class 的访问标记</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    u2             this_class;<span class="comment">//当前类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    u2             super_class;<span class="comment">//父类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    u2             interfaces_count;<span class="comment">//接口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    u2             interfaces[interfaces_count];<span class="comment">//一个类可以实现多个接口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    u2             fields_count;<span class="comment">//Class 文件的字段属性</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    field_info     fields[fields_count];<span class="comment">//一个类会可以有个字段</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    u2             methods_count;<span class="comment">//Class 文件的方法数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    method_info    methods[methods_count];<span class="comment">//一个类可以有个多个方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    u2             attributes_count;<span class="comment">//此类的属性表中的属性数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    attribute_info attributes[attributes_count];<span class="comment">//属性表集合</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="Class文件字节码结构组织示意图"><a href="#Class文件字节码结构组织示意图" class="headerlink" title="Class文件字节码结构组织示意图"></a>Class文件字节码结构组织示意图</h2><img src="JVM_05类文件结构/image-20200731145012679.png" alt="image-20200731145012679" style="zoom:80%;" />
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>class文件是以8位字节为基础单位的二进制流。各个数据项目严格按照顺序紧凑地排列在class文件之中，中间没有任何分割符。</li>
+<li>当遇到需要占用8位字节以上空间额数据项时，则会按照高位在前的方式，分割成若干个8位字节进行存储</li>
+<li>class文件格式采用类似与C语言结构的方式存储</li>
 </ul>
-</li>
-</ul>
-<h4 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h4><ol>
-<li><p>标记-清除算法（Mark-Sweep）</p>
+<h3 id="class文件的数据类型"><a href="#class文件的数据类型" class="headerlink" title="class文件的数据类型"></a>class文件的数据类型</h3><pre><code>- 无符号数
+    - u1\u2\u4\u8 来分别代表1个字节、2个字节、4个字节和8个字节
+    - 用途：
+        - 描述数字
+        - 索引引用
+        - 数量值
+        - 按照utf-8编码构成的字符串值
+- 表
+    - 是由多个无符号数或者其他表作为数据项构成的复合类型
+    - 表都习惯以`_info` 结尾</code></pre><h1 id="各个数据项的含义"><a href="#各个数据项的含义" class="headerlink" title="各个数据项的含义"></a>各个数据项的含义</h1><h2 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h2><p><code>u4             magic; //Class 文件的标志</code></p>
 <ul>
-<li>不足<ol>
-<li>效率问题，标记和清除过程的效率都不高</li>
-<li>空间问题：标记清除之后会产生大量不连续的碎片。</li>
-</ol>
-</li>
+<li>头4个字节为magic Number</li>
+<li>确定这个文件是否为能被虚拟机接受的class文件</li>
 </ul>
-</li>
-<li><p>复制算法</p>
-</li>
-<li><p>标记整理算法</p>
-</li>
-<li><p>分代收集算法</p>
-</li>
-</ol>
-<h4 id="hotSpot-的算法实现"><a href="#hotSpot-的算法实现" class="headerlink" title="hotSpot 的算法实现"></a>hotSpot 的算法实现</h4><ol>
-<li>枚举根节点</li>
-<li>安全点</li>
-<li>安全区域</li>
-</ol>
-<h4 id="垃圾收集器-收集器类型"><a href="#垃圾收集器-收集器类型" class="headerlink" title="垃圾收集器(收集器类型)"></a>垃圾收集器(收集器类型)</h4><ol>
-<li><p>Serial 收集器（复制算法）</p>
+<h2 id="class文件的版本"><a href="#class文件的版本" class="headerlink" title="class文件的版本"></a>class文件的版本</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             minor_version;<span class="comment">//Class 的小版本号</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">u2             major_version;<span class="comment">//Class 的大版本号</span></span></pre></td></tr></table></figure>
+
 <ul>
-<li>缺点<ul>
-<li>线程收集器：他进行垃圾收集时，必须暂停其他所有工作线程（stop the word）</li>
+<li>紧接着魔数的4个字节为Class文件的版本号</li>
+<li>Minor Version 5 \ 6 字节</li>
+<li>Major Version 7\ 8 字节</li>
 </ul>
-</li>
-<li>用途<ul>
-<li>Client 模式下默认的新生代收集器</li>
-<li>和CMS收集器配合使用</li>
-</ul>
-</li>
-<li>特点<ul>
-<li>与其他收集器的线程比简单而高效（没有线程切换的开销）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>ParNew收集器（复制算法）</p>
+<h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             constant_pool_count;<span class="comment">//常量池的数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="comment">//常量池</span></span></pre></td></tr></table></figure>
+
+<p>常量池的数量是 constant_pool_count-1（<strong>常量池计数器是从1开始计数的，将第0项常量空出来是有特殊考虑的，索引值为0代表“不引用任何一个常量池项”</strong>）。</p>
 <ul>
-<li>多线程收集器（多条垃圾回收线程同时执行，工作线程仍就处于等待状态）</li>
-<li>用途<ul>
-<li>可以和CMS收集器配合使用</li>
-<li>server模式下虚拟集中首选的新生代收集器</li>
-</ul>
+<li><p>主版本之后为常量池入口</p>
 </li>
-<li>其他<ul>
-<li>使用 -XX:UseConcMarkSweepGC  后，新生代使用ParNew收集器为默认收集器</li>
-<li>-XX:UserParNewGC  强制制定ParNewGC为新生代收集器</li>
-<li>-XX:ParallelGCThreads  控制垃圾收集线程的数量</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Parallel Scavenge 收集器（复制算法）</p>
-<ul>
-<li>特点<ul>
-<li>新生代收集器（复制算法）</li>
-<li>并行的多线程收集器</li>
-</ul>
-</li>
-<li>关注点<ul>
-<li>达到一个可控制的吞吐量（吞吐量优先收集器）</li>
-<li>吞吐量 = 运行用户代码时间/（运行用户代码时间+垃圾收集时间）</li>
-</ul>
-</li>
-<li>用途<ul>
-<li>适合在后台运算而不需要太多交互任务的地方</li>
-<li>配置参数<ul>
-<li>-XX:MaxGCPauseMillis   最大垃圾收集停顿时间（大于0的数值）</li>
-<li>-XX: GCTimeRatio 直接设置吞吐量（0-100 的整数）</li>
-<li>-XX:+UseAdaptiveSizePolicy   –GC自适应调整策略： 虚拟机根据当前系统的运行情况收集性能监控信息，动态调整堆内存中的相关参数，以提供最适合的停顿时间或者最大的吞吐量</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Serial Old 收集器（标记整理算法）</p>
-<ul>
-<li>Serial 的老年代版本</li>
-<li>标记-整理算法</li>
-<li>Client模式</li>
-<li>其他<ul>
-<li>JDK1.5之前，如果新生代使用了Parallel Scavenge 收集器，老年代必须使用Serial Old收集器</li>
-<li>CMS 收集器的后备方案</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Parallel Old 收集器（标记-整理）</p>
-<ul>
-<li>JDK1.6 之后提供</li>
-<li>和 parallel Sacvenge收集器配合，提供吞吐量</li>
-</ul>
-</li>
-<li><p>CMS 收集器(Concurrent Mark Sweep) (标记整理算法)</p>
-<ul>
 <li><p>特点</p>
+</li>
+<li><p>class文件之中的资源仓库。</p>
 <ul>
-<li>重视服务的响应速度，希望系统的停顿时间最短</li>
+<li>class文件结构中与其他项目关联最多的数据类型</li>
+<li>Class文件中第一个出现表类型数据的项目</li>
+<li>class文件中空间最大的数据项目之一</li>
 </ul>
 </li>
-<li><p>运行过程</p>
+<li><p>常量池容量计数器</p>
 <ul>
-<li><p>初始标记CMS initial mark（串行）</p>
+<li>入口位置：放置u2类型的数据。代表常量池容量计数值（constant_pool_count）</li>
+<li>范围：1-21</li>
+<li>0表示指向常量池的索引值的数据在特定情况下，不引用任何一个常量池项目。</li>
+</ul>
+</li>
+</ul>
 <ul>
-<li>需要stop the word</li>
-<li>速度很快 ：仅仅只是标记需要GC roots 关联到的对象</li>
-</ul>
-</li>
-<li><p>并发标记 CMS concurrent mark（并发）</p>
+<li><p>常量类型</p>
 <ul>
-<li>进行GC roots Tracing 的过程</li>
-<li>时间长</li>
-<li>和用户线程一起运行</li>
-</ul>
-</li>
-<li><p>重新标记 CMS remark（并行）</p>
+<li><p>字面常量Literal</p>
 <ul>
-<li>需要stop the word</li>
-<li>速度较长，但远比并发标记时间短：修正并发标记期间因用户程序继续运行而导致标记产生变化的那一部分的对象标记记录</li>
+<li>字符串常量</li>
+<li>申明为final的常量值</li>
 </ul>
 </li>
-<li><p>并发清除  CMS concurrent sweep（并发）</p>
+<li><p>符号引用 Symbolic References</p>
 <ul>
-<li>时间长</li>
-<li>和用户线程一起运行</li>
+<li>类和接口的全限定性类名 Fully Qualified Name</li>
+<li>字段的名称和描述符</li>
+<li>方法名称和描述符</li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
+<li><p>当虚拟机运行时，需要从常量池获得对应的符号引用，再在类创建时或者运行时解析、翻译到具体的类存地址中。</p>
 </li>
-</ol>
+<li><p>常量池中有14种结构类型。每一项都是一个表</p>
+</li>
+</ul>
+<p>14种表有一个共同的特点：<strong>开始的第一位是一个 u1 类型的标志位 -tag 来标识常量的类型，代表当前这个常量属于哪种常量类型．</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>标志（tag）</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CONSTANT_utf8_info</td>
+<td>1</td>
+<td>UTF-8编码的字符串</td>
+</tr>
+<tr>
+<td>CONSTANT_Integer_info</td>
+<td>3</td>
+<td>整形字面量</td>
+</tr>
+<tr>
+<td>CONSTANT_Float_info</td>
+<td>4</td>
+<td>浮点型字面量</td>
+</tr>
+<tr>
+<td>CONSTANT_Long_info</td>
+<td>５</td>
+<td>长整型字面量</td>
+</tr>
+<tr>
+<td>CONSTANT_Double_info</td>
+<td>６</td>
+<td>双精度浮点型字面量</td>
+</tr>
+<tr>
+<td>CONSTANT_Class_info</td>
+<td>７</td>
+<td>类或接口的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_String_info</td>
+<td>８</td>
+<td>字符串类型字面量</td>
+</tr>
+<tr>
+<td>CONSTANT_Fieldref_info</td>
+<td>９</td>
+<td>字段的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_Methodref_info</td>
+<td>10</td>
+<td>类中方法的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_InterfaceMethodref_info</td>
+<td>11</td>
+<td>接口中方法的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_NameAndType_info</td>
+<td>12</td>
+<td>字段或方法的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_MothodType_info</td>
+<td>16</td>
+<td>标志方法类型</td>
+</tr>
+<tr>
+<td>CONSTANT_MethodHandle_info</td>
+<td>15</td>
+<td>表示方法句柄</td>
+</tr>
+<tr>
+<td>CONSTANT_InvokeDynamic_info</td>
+<td>18</td>
+<td>表示一个动态方法调用点</td>
+</tr>
+</tbody></table>
+<h2 id="访问标志-access-flag"><a href="#访问标志-access-flag" class="headerlink" title="访问标志 access flag"></a>访问标志 access flag</h2><p><img src="JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200801121834478.png" alt="image-20200801121834478"></p>
 <ul>
-<li>缺点<ul>
-<li>对cpu资源非常敏感</li>
-<li>无法处理浮动垃圾（floating Garbage），可能出现“Concurrent Mode Failure ”失败，导致另一侧full GC。<ul>
-<li>浮动垃圾：由于cms并发清理垃圾阶段，用户线程还在执行，伴随着程序运行自然就会产生新的垃圾，这一步分垃圾在标记过程之后残生，cms无法在档次收集中处理他们，只好到下一次处理。</li>
-<li>jdk1.5 的默认设置下，cms收集器，当老年代使用了68%的空间后，cms收集被激活，这是一个偏保守的设置</li>
-<li>使用 -XX:CMSInitiatingOccupancyFraction 的值来提高触发的cms的收集动作</li>
+<li>2个字节</li>
+<li>识别一些类或者接口层次的访问信息<ul>
+<li>这个class是类还是接口<ul>
+<li>类(<em>是否被申明为final</em>)</li>
+<li>接口</li>
 </ul>
 </li>
-<li>CMS 是一个基于标记-清除的算法实现的收集器，会产生大量的空间碎片<ul>
-<li>-XX:UserCMSCompactAtFullCollection —开起碎片合并整理过程（停顿时间变长）</li>
-<li>-XX:CMSFullGCsBeforeCompaction  用来设置执行多少次不压缩后，执行一次压缩</li>
+<li>是否定义为public</li>
+<li>是否定义为abstract类型</li>
 </ul>
 </li>
+<li>通过 <code>javap -v class类名</code> 指令来看一下类的访问标志</li>
 </ul>
-</li>
-</ul>
-<h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><ul>
-<li><p>特点</p>
+<h2 id="类索引、父类索引、结构索引-集合"><a href="#类索引、父类索引、结构索引-集合" class="headerlink" title="类索引、父类索引、结构索引 集合"></a>类索引、父类索引、结构索引 集合</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             this_class;<span class="comment">//当前类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">u2             super_class;<span class="comment">//父类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">u2             interfaces_count;<span class="comment">//接口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">u2             interfaces[interfaces_count];<span class="comment">//一个类可以实现多个接口</span></span></pre></td></tr></table></figure>
+
+<blockquote>
 <ul>
-<li>并发与并行</li>
-<li>分代收集</li>
-<li>空间整合</li>
-<li>可预测停顿</li>
+<li>类索引<ul>
+<li>标志这个类的全限定性类名</li>
 </ul>
 </li>
-<li><p>说明：G1将整个Java堆划分为多个大小的独立区域（region）。虽然保留了新生代和老年代的区分，但是这两个概念之间不再是物理隔离了。他们都是一部分region的集合（不需要连续）</p>
+<li>父类索引<ul>
+<li>确定这个类的父类的全限定性类名</li>
+</ul>
 </li>
-<li><p>使用region划分内存空间以及有优先级区域（后台维护了一个优先级列表）回收的方式，保证了有效时间内可以获取尽可能高的收集效率</p>
+<li>接口索引集合<ul>
+<li>描述这些类实现了哪些接口</li>
+</ul>
 </li>
-<li><p>运行过程：</p>
+</ul>
+</blockquote>
+<h2 id="字段集合表-field-info"><a href="#字段集合表-field-info" class="headerlink" title="字段集合表 field_info"></a>字段集合表 field_info</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             fields_count;<span class="comment">//Class 文件的字段的个数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">field_info     fields[fields_count];<span class="comment">//一个类会可以有个字段</span></span></pre></td></tr></table></figure>
+
 <ul>
-<li>初始标记 initial Marking（串行）<ul>
-<li>记录GC roots 能关联到的对象</li>
-<li>修改TAMS (next top at mark start)的值，让用户线程并发运行时，能在正确可用的region中创建对象，这过程需要停顿线程</li>
+<li>用于描述类或者接口中申明的变量</li>
+<li>field info(字段表) 的结构:</li>
 </ul>
-</li>
-<li>并发标记 concurrent Marking（并发）<ul>
-<li>从GC roots开始，对对象做可达性分析，找出最终存活的对象</li>
-<li>虚拟机将这段时间产生的变化记录在remembered set Logs里面</li>
-<li>耗时长</li>
-</ul>
-</li>
-<li>最终标记 final marking（并行）<ul>
-<li>修正并发标记期间因用户程序继续运行而导致标记产生变化的那一部分的对象标记记录。</li>
-<li>将remembered set log 中的数据最终和并到remembered set中</li>
-</ul>
-</li>
-<li>筛选回收 live data counting and evacuation(并行)<ul>
-<li>对各个region的回收价值和成本进行排序，依据用户所期望的GC停顿时间来定制回收计划，</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="GC日志"><a href="#GC日志" class="headerlink" title="GC日志"></a>GC日志</h4><ul>
-<li><p>[GC   /  [Full GC  —垃圾回收的类型</p>
-</li>
-<li><p>GC发生的区域</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200801121803063.png" alt="image-20200801121803063"></p>
 <ul>
-<li>[DefNew  (defaut new generation)<ul>
-<li>erial 收集器</li>
-<li>新生代</li>
+<li><strong>access_flags:</strong> 字段的作用域（<code>public</code> ,<code>private</code>,<code>protected</code>修饰符），是实例变量还是类变量（<code>static</code>修饰符）,可否被序列化（transient 修饰符）,可变性（final）,可见性（volatile 修饰符，是否强制从主内存读写）。</li>
+<li><strong>name_index:</strong> 对常量池的引用，表示的字段的名称；</li>
+<li><strong>descriptor_index:</strong> 对常量池的引用，表示字段和方法的描述符；</li>
+<li><strong>attributes_count:</strong> 一个字段还会拥有一些额外的属性，attributes_count 存放属性的个数；</li>
+<li><strong>attributes[attributes_count]:</strong> 存放具体属性具体内容。</li>
 </ul>
-</li>
-<li>[ParNew    (perallel new Generation)<ul>
-<li>ParNew 收集器</li>
-</ul>
-</li>
-<li>[Tenured</li>
-<li>[Perm</li>
-</ul>
-</li>
-<li><p>垃圾收集器参数的总结</p>
+<p>上述这些信息中，各个修饰符都是布尔值，要么有某个修饰符，要么没有，很适合使用标志位来表示。而字段叫什么名字、字段被定义为什么数据类型这些都是无法固定的，只能引用常量池中常量来描述。</p>
 <ul>
-<li><p>内存分配与回收策略</p>
+<li><p>类型</p>
 <ul>
-<li>问题痛点<ul>
-<li>给对象分配内存</li>
-<li>回收分配给对象的内存</li>
+<li>类级变量</li>
+<li>实例级别变量</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>分配规则</p>
+<li><p>包含的信息</p>
 <ul>
-<li><p>对象先在eden 分配</p>
+<li><p>修饰符用boolean值来区分 —用标志位来表示</p>
 </li>
-<li><p>大对象直接在老年代分配</p>
+<li><p>字段的定义、数据类型用常量池中的常量来表示</p>
+</li>
+<li><p>可变性（final）</p>
 <ul>
-<li>-XX:PretenureSizeThreshold   设置对象大小阀值，新建对象大于改值时，直接在老年代分配内存</li>
+<li>访问标志 access_flag</li>
+<li>是实例变量还是类变量（static）</li>
+<li>是否可序列化（transient 修饰符）</li>
+<li>字段的作用域</li>
+<li>并发可见性 （volatile 关键字）</li>
 </ul>
 </li>
-<li><p>长期存活的对象直接进入老年代</p>
+<li><p>字段数据类型</p>
+</li>
+<li><p>字段名称</p>
 <ul>
-<li>对象年龄<ul>
-<li>使用对象年龄计数器来记录，默认为15岁</li>
-<li>可以认为指定：-XX：MaxTenuringThreshold   来设置</li>
-</ul>
-</li>
-<li>对象每熬过一次minorGC ，对象年龄增加一岁，当超过阀值时，分配到老年代</li>
-</ul>
-</li>
-<li><p>动态对象年龄判定</p>
+<li><p>相关定义</p>
 <ul>
-<li>如果在survivor空间中，相同年龄所有对象大小综合大于survivor空间的一半，年龄大于或者等于改念龄的对象就直接进入老年代。</li>
+<li>全限定性类名</li>
+<li>简单名称</li>
+<li>描述符<ul>
+<li>字段<ul>
+<li>数据类型</li>
 </ul>
 </li>
-<li><p>空间分配担保</p>
+<li>方法<ul>
+<li>参数</li>
+<li>返回值</li>
+</ul>
 </li>
-<li><p>相关配置参数</p>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字段列表集合中不会列出从超类或者父类接口中继承过来的字段</p>
 <ul>
-<li>-verbose<pre><code>* -verbose：class  运行时，有多少class被加载
-* -verbose： gc   虚拟机发生内存回收时，在控制台显示
-* -verbose：jni：jni 输出native方法的调用情况。一般用于判断jni调用错误</code></pre></li>
-<li>-XX:+PrintGCDetails  – 打印垃圾回收信息</li>
+<li><p>字段的 access_flags 的取值</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200801121727496.png" alt="image-20200801121727496"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="方法集合表"><a href="#方法集合表" class="headerlink" title="方法集合表"></a>方法集合表</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             methods_count;<span class="comment">//Class 文件的方法的数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">method_info    methods[methods_count];<span class="comment">//一个类可以有个多个方法</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li><p>methods_count 表示方法的数量，而 method_info 表示的方法表。</p>
+</li>
+<li><p>Class 文件存储格式中对方法的描述与对字段的描述几乎采用了完全一致的方式。方法表的结构如同字段表一样，依次包括了访问标志、名称索引、描述符索引、属性表集合几项</p>
+</li>
+<li><p>method_info  方法表的结构<br>  <img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="img"></p>
+<blockquote>
+<ul>
+<li>包含的信息<ul>
+<li>访问标志 access_flag</li>
+<li>名称索引 name_index</li>
+<li>描述符索引 descriptor_index</li>
+<li>属性表集合 attributes</li>
+</ul>
+</li>
+<li>方法属性表里里面的Code<ul>
+<li>方法体中的代码</li>
+</ul>
+</li>
+<li>父类方法在子类中没有被重写。则方法表集合中就不会出现父类方法信息</li>
+</ul>
+</blockquote>
+</li>
+<li><p>方法表的 access_flag 取值：<br><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png" alt="方法表的 access_flag 取值"></p>
+</li>
+</ul>
+<p>因为<code>volatile</code>修饰符和<code>transient</code>修饰符不可以修饰方法，所以方法表的访问标志中没有这两个对应的标志，但是增加了<code>synchronized</code>、<code>native</code>、<code>abstract</code>等关键字修饰方法，所以也就多了这些关键字对应的标志。</p>
+<h2 id="属性表集合-attribute-info"><a href="#属性表集合-attribute-info" class="headerlink" title="属性表集合 attribute_info"></a>属性表集合 attribute_info</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">u2             attributes_count;<span class="comment">//此类的属性表中的属性数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">attribute_info attributes[attributes_count];<span class="comment">//属性表集合</span></span></pre></td></tr></table></figure>
+
+<p>在 Class 文件，字段表，方法表中都可以携带自己的属性表集合，以用于描述某些场景专有的信息。与 Class 文件中其它的数据项目要求的顺序、长度和内容不同，属性表集合的限制稍微宽松一些，不再要求各个属性表具有严格的顺序，并且只要不与已有的属性名重复，任何人实现的编译器都可以向属性表中写 入自己定义的属性信息，Java 虚拟机运行时会忽略掉它不认识的属性。</p>
+<ul>
+<li>Class文件、字段表、方法表都可以携带自己的属性表集合</li>
+<li>一些关键属性<ul>
+<li>code属性</li>
+<li>Exceptons属性</li>
+<li>LineNumberTable 属性</li>
+<li>Source File 属性</li>
+<li>ConstantValue 属性</li>
+<li>Inner Class 属性</li>
+<li>Deprecated 及 Synthetic 属性</li>
+<li>Signature 属性</li>
+<li>BootStrapMethods 属性</li>
+</ul>
+</li>
+</ul>
+<h1 id="字节码指令简介"><a href="#字节码指令简介" class="headerlink" title="字节码指令简介"></a>字节码指令简介</h1><ul>
+<li><p>分类</p>
+<ul>
+<li>字节码与数据类型</li>
+</ul>
+</li>
+<li><p>加载和存储指令</p>
+<ul>
+<li>用于将数据在栈帧中的局部变量表和操作数栈之间来回传输。</li>
+<li>指令<ul>
+<li>将一个局部变量加载到操作栈 <code>*load</code></li>
+<li>将一个数值从操作数栈存储到局部变量表 <code>*store</code></li>
+<li>将一个常量加载到操作数栈</li>
+<li>扩充局部变量表的访问索引指令：wide</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>运算指令</p>
+<ul>
+<li>用于对两个操作数栈上的值进行某种特定的运算，并把结果存储到操作数栈的栈顶</li>
+<li>分类<ul>
+<li>加法</li>
+<li>减法</li>
+<li>乘法</li>
+<li>除法</li>
+<li>求余</li>
+<li>求反</li>
+<li>位移</li>
+<li>按位或</li>
+<li>按位与</li>
+<li>按位异或</li>
+<li>局部变量自增</li>
+<li>比较</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>类型转换指令</p>
+</li>
+<li><p>对象创建与访问指令</p>
+<ul>
+<li>创建类实例的指令 new</li>
+<li>创建数组的指令：newarray、anewarray、multianewarray</li>
+<li>访问静态字段指令和实例字段的指令：getfield\putfield\getstatic\putstatic</li>
+<li>把一个数组元素加载到操作数栈的指令 <code>*aload</code></li>
+<li>将操作数栈的值存储到数组元素的指令 <code>*astore</code></li>
+<li>取数组长度的指令 arraylength</li>
+<li>检查类实例类型的指令 ：instanceof ，chackcast</li>
+</ul>
+</li>
+<li><p>操作数栈管理指令</p>
+<ul>
+<li>将操作数栈顶的一个或者两个元素出栈：<code>pop、pop2</code></li>
+<li>复制栈顶的一个或者两个数值并将复制值或者双份的复制值重新压入栈顶：<code>dup\dup2</code></li>
+<li>将最栈顶端的连个数值互换： swap</li>
+</ul>
+</li>
+<li><p>控制转移指令</p>
+<ul>
+<li>条件分支</li>
+<li>符合条件分支</li>
+<li>无条件分支</li>
+</ul>
+</li>
+<li><p>方法调用和返回指令</p>
+<ul>
+<li>invokevirtual 指令 用于调用对象实例方法</li>
+<li>invokeinterface 指令用调用接口方法</li>
+<li>invokespecial 指令用于调用一些需要特殊处理的实例方法（实例初始化方法、私有方法、父类方法）</li>
+<li>invokestatic 指令用于调用类方法</li>
+<li>invokedynamic 指令 用于在运行时动态解析出调用点姓丁符所引用的方法，并执行该方法</li>
+</ul>
+</li>
+<li><p>异常处理指令</p>
+</li>
+<li><p>同步指令</p>
+</li>
+<li><p>简介</p>
+<ul>
+<li><p>操作码 Opcode</p>
+<ul>
+<li>操作码总数不能超过256条</li>
+<li>操作码的长度只有一个字节</li>
+</ul>
+</li>
+<li><p>操作数 Operands</p>
+</li>
+</ul>
+</li>
+<li><p>公有设计和私有实现</p>
+</li>
+<li><p>class文件结构的发展</p>
+<ul>
+<li>class文件格式所具备的平台中立（不依赖于操作系统）、紧凑、稳定和可扩展的特点，是java技术体系实现平台无关、语言无关两项特性的重要支柱</li>
 </ul>
 </li>
 </ul>
@@ -670,18 +750,18 @@
   
 <nav id="article-nav">
   
-    <a href="/zbcn.github.io/2019/12/11/log_01logback/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/zbcn.github.io/2019/12/14/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          01 LOGBACK 学习笔记
+          06 类的加载机制
         
       </div>
     </a>
   
   
-    <a href="/zbcn.github.io/2019/12/10/JVM_06%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">06 类的加载机制</div>
+    <a href="/zbcn.github.io/2019/12/12/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">04 性能监控/故障处理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -708,7 +788,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾收集器和内存分配策略"><span class="toc-number">1.</span> <span class="toc-text">垃圾收集器和内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象已死"><span class="toc-number">1.1.</span> <span class="toc-text">对象已死</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象引用"><span class="toc-number">1.2.</span> <span class="toc-text">对象引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#垃圾收集算法"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾收集算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hotSpot-的算法实现"><span class="toc-number">1.4.</span> <span class="toc-text">hotSpot 的算法实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#垃圾收集器-收集器类型"><span class="toc-number">1.5.</span> <span class="toc-text">垃圾收集器(收集器类型)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#G1-收集器"><span class="toc-number">1.6.</span> <span class="toc-text">G1 收集器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GC日志"><span class="toc-number">1.7.</span> <span class="toc-text">GC日志</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">1.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#无关性的的基石"><span class="toc-number">1.1.</span> <span class="toc-text">无关性的的基石</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class文件的结构"><span class="toc-number">1.2.</span> <span class="toc-text">Class文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class文件字节码结构组织示意图"><span class="toc-number">1.3.</span> <span class="toc-text">Class文件字节码结构组织示意图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.4.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#class文件的数据类型"><span class="toc-number">1.4.1.</span> <span class="toc-text">class文件的数据类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#各个数据项的含义"><span class="toc-number">2.</span> <span class="toc-text">各个数据项的含义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#魔数"><span class="toc-number">2.1.</span> <span class="toc-text">魔数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class文件的版本"><span class="toc-number">2.2.</span> <span class="toc-text">class文件的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常量池"><span class="toc-number">2.3.</span> <span class="toc-text">常量池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问标志-access-flag"><span class="toc-number">2.4.</span> <span class="toc-text">访问标志 access flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类索引、父类索引、结构索引-集合"><span class="toc-number">2.5.</span> <span class="toc-text">类索引、父类索引、结构索引 集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段集合表-field-info"><span class="toc-number">2.6.</span> <span class="toc-text">字段集合表 field_info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法集合表"><span class="toc-number">2.7.</span> <span class="toc-text">方法集合表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性表集合-attribute-info"><span class="toc-number">2.8.</span> <span class="toc-text">属性表集合 attribute_info</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字节码指令简介"><span class="toc-number">3.</span> <span class="toc-text">字节码指令简介</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -892,11 +972,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,19 +984,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,11 +1000,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,11 +1028,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">

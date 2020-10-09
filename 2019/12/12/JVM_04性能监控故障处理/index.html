@@ -6,20 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>02 JVM对象创建 | zbcn</title>
+  <title>04 性能监控/故障处理 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象的创建遇到new指令后 在常量池中定位到一个类的符号引用  检查符号引用代表的类是否被加载、解析、初始化。如果没有，就需要执行类的加载过程  为新生对象分配内存空间">
+  <meta name="description" content="性能监控&#x2F;故障处理 JDK 自带工具 jps JVM Process Status Tool 显示指定系统内所有的 HotSpot 虚拟机进程 jstat JVM Statistics Monitoring Tool  用于收集 HotSpot 虚拟机各方面的运行数据 jinfo Configuration Info for Java, 显示虚拟机配置信息 jmap   Memory Map fo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02 JVM对象创建">
-<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA&#x2F;index.html">
+<meta property="og:title" content="04 性能监控&#x2F;故障处理">
+<meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="对象的创建遇到new指令后 在常量池中定位到一个类的符号引用  检查符号引用代表的类是否被加载、解析、初始化。如果没有，就需要执行类的加载过程  为新生对象分配内存空间">
-<meta property="article:published_time" content="2019-12-09T10:14:10.000Z">
-<meta property="article:modified_time" content="2019-12-10T10:37:21.919Z">
+<meta property="og:description" content="性能监控&#x2F;故障处理 JDK 自带工具 jps JVM Process Status Tool 显示指定系统内所有的 HotSpot 虚拟机进程 jstat JVM Statistics Monitoring Tool  用于收集 HotSpot 虚拟机各方面的运行数据 jinfo Configuration Info for Java, 显示虚拟机配置信息 jmap   Memory Map fo">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730164714700.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730165455251.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730165536737.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730165758738.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730170217689.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730170259376.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730173744870.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730174043114.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730174146361.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730174319599.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730174406692.png">
+<meta property="article:published_time" content="2019-12-12T10:14:10.000Z">
+<meta property="article:modified_time" content="2020-10-09T09:29:47.385Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;12&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86&#x2F;imgs&#x2F;image-20200730164714700.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -175,14 +187,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-JVM_02对象创建" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-JVM_04性能监控故障处理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      02 JVM对象创建
+      04 性能监控/故障处理
     </h1>
   
 
@@ -197,8 +209,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+        <a href="/zbcn.github.io/2019/12/12/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2019-12-12T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
 </a>
         
       </header>
@@ -225,112 +237,354 @@
           
           <br>
           <strong>本文链接：</strong>
-          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">https://1363653611.github.io/zbcn.github.io/2019/12/09/JVM_02%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/</a>
+          <a rel="license" href="https://1363653611.github.io/zbcn.github.io/2019/12/12/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/">https://1363653611.github.io/zbcn.github.io/2019/12/12/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/</a>
           <br>
           <hr>
         </div>
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h4 id="遇到new指令后"><a href="#遇到new指令后" class="headerlink" title="遇到new指令后"></a>遇到new指令后</h4><ol>
-<li><p>在常量池中定位到一个类的符号引用</p>
-</li>
-<li><p>检查符号引用代表的类是否被加载、解析、初始化。如果没有，就需要执行类的加载过程</p>
-</li>
-<li><p>为新生对象分配内存空间</p>
+        <p>性能监控/故障处理</p>
+<h1 id="JDK-自带工具"><a href="#JDK-自带工具" class="headerlink" title="JDK 自带工具"></a>JDK 自带工具</h1><ul>
+<li><code>jps</code> <code>JVM Process Status Tool</code> 显示指定系统内所有的 HotSpot 虚拟机进程</li>
+<li><code>jstat</code> <code>JVM Statistics Monitoring Tool</code>  用于收集 HotSpot 虚拟机各方面的运行数据</li>
+<li><code>jinfo</code> <code>Configuration Info for Java</code>, 显示虚拟机配置信息</li>
+<li><code>jmap</code>   <code>Memory Map for Java</code>  生成虚拟机的内存转储快照（heapdump 文件）</li>
+<li><code>jhat</code>  <code>JVM Heap Analysis Tool</code> 用于分析 heapdump 文件（它会建立一个 HTTP/HTML 服务器，让用户可以在浏览器上查看分析结果）</li>
+<li><code>jstack</code> <code>Stack Trace for Java</code> 显示虚拟机的线程快照</li>
+</ul>
+<p>官方文档: <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/toc.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/toc.html</a></p>
 <a id="more"></a>
+
+<h1 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h1><h2 id="jps-虚拟机进程状况"><a href="#jps-虚拟机进程状况" class="headerlink" title="jps   虚拟机进程状况"></a>jps   虚拟机进程状况</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 命令格式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">jps [ options ] [ hostid ]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jps</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">15236 Jps</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">14966 Example1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg2： 输出应用程序main class的完整package名或者应用程序的jar文件完整路径名</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jps -l</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">15249 sun.tools.jps.Jps</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">14966 com.jaxer.jvm.egs.Example1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg3：输出main method的参数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jps -m</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">15264 Jps -m</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">14966 Example1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg4 ：  输出传递给JVM的参数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jps -v</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">14966 Example1 -Dvisualvm.id=44321340563858 -Xmx50m -Xms50m -XX:+PrintGCDetails -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=61849:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">15278 Jps -Dapplication.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home -Xms8m</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg5： 只显示pid，不显示class名称,jar文件名和传递给main方法的参数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jps -q</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">9938</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">14966</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">15334</span></pre></td></tr></table></figure>
+
+<h2 id="jstat-虚拟机统计信息监视工具"><a href="#jstat-虚拟机统计信息监视工具" class="headerlink" title="jstat: 虚拟机统计信息监视工具"></a>jstat: 虚拟机统计信息监视工具</h2><h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> option： 参数选项</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -t： 可以在打印的列加上Timestamp列，用于显示系统运行的时间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -h： 可以在周期性数据数据的时候，可以在指定输出多少行以后输出一次表头</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vmid： Virtual Machine ID（ 进程的 pid）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> interval： 执行每次的间隔时间，单位为毫秒</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> count： 用于指定输出多少次记录，缺省则会一直打印</span></span></pre></td></tr></table></figure>
+
+<h3 id="option-选项"><a href="#option-选项" class="headerlink" title="option 选项"></a>option 选项</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jstat -option</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">-class 显示ClassLoad的相关信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">-compiler 显示JIT编译的相关信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">-gc 显示和gc相关的堆信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">-gccapacity 　　 显示各个代的容量以及使用情况；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">-gcmetacapacity 显示metaspace的大小</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">-gcnew 显示新生代信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">-gcnewcapacity 显示新生代大小和使用情况；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">-gcold 显示老年代和永久代的信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">-gcoldcapacity 显示老年代的大小；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">-gcutil　　 显示垃圾收集信息；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">-gccause 显示垃圾回收的相关信息（通-gcutil）,同时显示最后一次或当前正在发生的垃圾回收的诱因；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">-printcompilation 输出JIT编译的方法信息</span></pre></td></tr></table></figure>
+
+<p>参数名称 | 参数说明<br> —|—|—<br> class | 用于查看类加载情况的统计，显示加载class的数量，及所占空间等信息。<br> compiler | 查看HotSpot中即时编译器编译情况的统计<br> gc | 查看JVM中堆的垃圾收集情况的统计，可以显示gc的信息，查看gc的次数，及时间。其中最后五项，分别是young gc的次数，young gc的时间，full gc的次数，full gc的时间，gc的总时间。<br> gccapacity | 查看新生代、老生代及持久代的存储容量情况，可以显示，VM内存中三代（young,old,perm）对象的使用和占用大小<br> gccause | 查看垃圾收集的统计情况（这个和-gcutil选项一样），如果有发生垃圾收集，它还会显示最后一次及当前正在发生垃圾收集的原因<br> gcmetacapacity | 显示关于metaspace大小的统计信息。<br> gcnew | 查看新生代垃圾收集的情况，new对象的信息<br> gcnewcapacity | 用于查看新生代的存储容量情况，new对象的信息及其占用量<br> gcold | 用于查看老生代及持久代发生GC的情况，old对象的信息<br> gcoldcapacity | 用于查看老生代的容量，old对象的信息及其占用量<br> gcpermcapacity | 用于查看持久代的容量，perm对象的信息及其占用量<br> gcutil | 查看新生代、老生代及持代垃圾收集的情况<br> printcompilation | 当前VM执行的信息</p>
+<h3 id="堆内存监控（垃圾收集统计-gc）"><a href="#堆内存监控（垃圾收集统计-gc）" class="headerlink" title="堆内存监控（垃圾收集统计 gc）"></a>堆内存监控（垃圾收集统计 gc）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 命令格式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">jstat [option vmid [interval[s|ms] [count]] ]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> eg: 监控堆内存信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jstat -gc 11200</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> 0.0    0.0    0.0    0.0   13312.0   2048.0   11264.0     6465.8   17920.0 16755.0 2304.0 1853.8     13    0.050  22      1.524    1.574</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 每隔 1000 毫秒打印堆内存信息，打印 10 次</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jstat -gc 11200 1000 10</span></span></pre></td></tr></table></figure>
+
 <ul>
-<li>指针碰撞 Dump the point<ul>
-<li>条件：<ol>
-<li>假设java堆中的内存是绝对规整的。</li>
-<li>所有用过的内存都放在一边，空闲的放在另一边。</li>
-<li>中间放着一个指针作为分界点的指示器。</li>
+<li><p>参数主要是新生代、老年代的内存空间占用情况以及 GC 的次数和时间</p>
+<blockquote>
+<p><code>S0C</code>: Current survivor space 0 capacity (kB).</p>
+<p><code>S1C</code>: Current survivor space 1 capacity (kB).</p>
+<p><code>S0U</code>: Survivor space 0 utilization (kB).</p>
+<p><code>S1U</code>: Survivor space 1 utilization (kB).</p>
+<p><code>EC</code>: Current eden space capacity (kB).</p>
+<p><code>EU</code>: Eden space utilization (kB).</p>
+<p><code>OC</code>: Current old space capacity (kB).</p>
+<p><code>OU</code>: Old space utilization (kB).</p>
+<p><code>MC</code>: Metaspace capacity (kB).</p>
+<p><code>MU</code>: Metacspace utilization (kB).</p>
+<p><code>CCSC</code>: Compressed class space capacity (kB).</p>
+<p><code>CCSU</code>: Compressed class space used (kB).</p>
+<p><code>YGC</code>: Number of young generation garbage collection events.</p>
+<p><code>YGCT</code>: Young generation garbage collection time.</p>
+<p><code>FGC</code>: Number of full GC events.</p>
+<p><code>FGCT</code>: Full garbage collection time.</p>
+<p><code>GCT</code>: Total garbage collection time.</p>
+</blockquote>
+<p>官方文档:<a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html#BEHHGFAE" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html#BEHHGFAE</a></p>
+<p>S0C：第一个幸存区的大小</p>
+<p>S1C：第二个幸存区的大小</p>
+<p>S0U：第一个幸存区的使用大小</p>
+<p>S1U：第二个幸存区的使用大小</p>
+<p>EC：青年代区的大小</p>
+<p>EU：青年代区的使用大小</p>
+<p>OC：老年代大小</p>
+<p>OU：老年代使用大小</p>
+<p>MC：方法区大小</p>
+<p>MU：方法区使用大小</p>
+<p>CCSC:压缩类空间大小</p>
+<p>CCSU:压缩类空间使用大小</p>
+<p>YGC：年轻代垃圾回收次数</p>
+<p>YGCT：年轻代垃圾回收消耗时间</p>
+<p>FGC：老年代垃圾回收次数</p>
+<p>FGCT：老年代垃圾回收消耗时间</p>
+<p>GCT：垃圾回收消耗总时间。</p>
+</li>
+</ul>
+<h3 id="查看类加载-卸载信息"><a href="#查看类加载-卸载信息" class="headerlink" title="查看类加载/卸载信息"></a>查看类加载/卸载信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"> jstat -class 14966</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Loaded  Bytes  Unloaded  Bytes     Time</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   829  1604.4        0     0.0       0.37</span></pre></td></tr></table></figure>
+
+<ul>
+<li>Loaded:加载class的数量</li>
+<li>Bytes：所占用空间大小</li>
+<li>Unloaded：未加载数量</li>
+<li>Bytes:未加载占用空间</li>
+<li>Time：时间</li>
+</ul>
+<h3 id="编译统计-compiler"><a href="#编译统计-compiler" class="headerlink" title="编译统计 compiler"></a>编译统计 compiler</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -compiler 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Compiled Failed Invalid   Time   FailedType FailedMethod</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   25446      9       0   583.46          1 oracle/net/ano/Ano init</span></pre></td></tr></table></figure>
+
+<ul>
+<li>Compiled：编译数量</li>
+<li>Failed：失败数量</li>
+<li>Invalid：不可用数量</li>
+<li>Time：时间</li>
+<li>FailedType：失败类型</li>
+<li>FailedMethod：失败的方法</li>
+</ul>
+<h3 id="堆内存统计-gccapacity"><a href="#堆内存统计-gccapacity" class="headerlink" title="### 堆内存统计 gccapacity"></a>### 堆内存统计 gccapacity</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gccapacity 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC       MCMN     MCMX      MC     CCSMN    CCSMX     CCSC    YGC    FGC</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"> 26624.0 423936.0 418304.0 101376.0 100864.0 216064.0    53248.0   847872.0   847872.0   847872.0      0.0 1243136.0 212224.0      0.0 1048576.0  18432.0    164  8131</span></pre></td></tr></table></figure>
+
+<ul>
+<li>NGCMN：新生代最小容量</li>
+<li>NGCMX：新生代最大容量</li>
+<li>NGC：当前新生代容量</li>
+<li>S0C：第一个幸存区大小</li>
+<li>S1C：第二个幸存区的大小</li>
+<li>EC：青年代区的大小</li>
+<li>OGCMN：老年代最小容量</li>
+<li>OGCMX：老年代最大容量</li>
+<li>OGC：当前老年代大小</li>
+<li>OC:当前老年代大小</li>
+<li>MCMN:最小元数据容量</li>
+<li>MCMX：最大元数据容量</li>
+<li>MC：当前元数据空间大小</li>
+<li>CCSMN：最小压缩类空间大小</li>
+<li>CCSMX：最大压缩类空间大小</li>
+<li>CCSC：当前压缩类空间大小</li>
+<li>YGC：年轻代gc次数</li>
+<li>FGC：老年代GC次数</li>
+</ul>
+<h3 id="新生代垃圾回收统计-gcnew"><a href="#新生代垃圾回收统计-gcnew" class="headerlink" title="新生代垃圾回收统计 gcnew"></a>新生代垃圾回收统计 gcnew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcnew 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> S0C    S1C    S0U    S1U   TT MTT  DSS      EC       EU     YGC     YGCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">101376.0 100864.0    0.0    0.0  1  15 100864.0 216064.0 206937.9    164    3.348</span></pre></td></tr></table></figure>
+
+<ul>
+<li>S0C：第一个幸存区大小</li>
+<li>S1C：第二个幸存区的大小</li>
+<li>S0U：第一个幸存区的使用大小</li>
+<li>S1U：第二个幸存区的使用大小</li>
+<li>TT:对象在新生代存活的次数</li>
+<li>MTT:对象在新生代存活的最大次数</li>
+<li>DSS:期望的幸存区大小</li>
+<li>EC：伊甸园区的大小</li>
+<li>EU：伊甸园区的使用大小</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>YGCT：年轻代垃圾回收消耗时间</li>
+</ul>
+<h3 id="新生代内存统计-gcnewcapacity"><a href="#新生代内存统计-gcnewcapacity" class="headerlink" title="新生代内存统计 gcnewcapacity"></a>新生代内存统计 gcnewcapacity</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcnewcapacity 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  NGCMN      NGCMX       NGC      S0CMX     S0C     S1CMX     S1C       ECMX        EC      YGC   FGC</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   26624.0   423936.0   418304.0 141312.0 101376.0 141312.0 100864.0   422912.0   216064.0   164  8133</span></pre></td></tr></table></figure>
+
+<ul>
+<li>NGCMN：新生代最小容量</li>
+<li>NGCMX：新生代最大容量</li>
+<li>NGC：当前新生代容量</li>
+<li>S0CMX：最大幸存1区大小</li>
+<li>S0C：当前幸存1区大小</li>
+<li>S1CMX：最大幸存2区大小</li>
+<li>S1C：当前幸存2区大小</li>
+<li>ECMX：最大伊甸园区大小</li>
+<li>EC：当前伊甸园区大小</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>FGC：老年代回收次数</li>
+</ul>
+<h3 id="老年代垃圾回收统计-gcold"><a href="#老年代垃圾回收统计-gcold" class="headerlink" title="老年代垃圾回收统计 gcold"></a>老年代垃圾回收统计 gcold</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcold 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   MC       MU      CCSC     CCSU       OC          OU       YGC    FGC    FGCT     GCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">212224.0 206925.1  18432.0  17487.5    847872.0    847454.4    164  8134 5117.114 5120.462</span></pre></td></tr></table></figure>
+
+<ul>
+<li>MC：方法区大小</li>
+<li>MU：方法区使用大小</li>
+<li>CCSC:压缩类空间大小</li>
+<li>CCSU:压缩类空间使用大小</li>
+<li>OC：老年代大小</li>
+<li>OU：老年代使用大小</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>FGC：老年代垃圾回收次数</li>
+<li>FGCT：老年代垃圾回收消耗时间</li>
+<li>GCT：垃圾回收消耗总时间</li>
+</ul>
+<p>###　老年代内存统计　gcoldcapacity</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcoldcapacity 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   OGCMN       OGCMX        OGC         OC       YGC   FGC    FGCT     GCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    53248.0    847872.0    847872.0    847872.0   164  8134 5117.114 5120.462</span></pre></td></tr></table></figure>
+
+<ul>
+<li>OGCMN：老年代最小容量</li>
+<li>OGCMX：老年代最大容量</li>
+<li>OGC：当前老年代大小</li>
+<li>OC：老年代大小</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>FGC：老年代垃圾回收次数</li>
+<li>FGCT：老年代垃圾回收消耗时间</li>
+<li>GCT：垃圾回收消耗总时间</li>
+</ul>
+<h3 id="元数据空间统计-gcmetacapacity"><a href="#元数据空间统计-gcmetacapacity" class="headerlink" title="元数据空间统计 gcmetacapacity"></a>元数据空间统计 gcmetacapacity</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcmetacapacity 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   MCMN       MCMX        MC       CCSMN      CCSMX       CCSC     YGC   FGC    FGCT     GCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">       0.0  1243136.0   212224.0        0.0  1048576.0    18432.0   164  8135 5117.698 5121.046</span></pre></td></tr></table></figure>
+
+<ul>
+<li>MCMN: 最小元数据容量</li>
+<li>MCMX：最大元数据容量</li>
+<li>MC：当前元数据空间大小</li>
+<li>CCSMN：最小压缩类空间大小</li>
+<li>CCSMX：最大压缩类空间大小</li>
+<li>CCSC：当前压缩类空间大小</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>FGC：老年代垃圾回收次数</li>
+<li>FGCT：老年代垃圾回收消耗时间</li>
+<li>GCT：垃圾回收消耗总时间</li>
+</ul>
+<h3 id="总结垃圾回收统计-gcutil"><a href="#总结垃圾回收统计-gcutil" class="headerlink" title="总结垃圾回收统计 gcutil"></a>总结垃圾回收统计 gcutil</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -gcutil 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  0.00   0.00  81.70  99.95  97.50  94.88    164    3.348  8136 5118.422 5121.769</span></pre></td></tr></table></figure>
+
+<ul>
+<li>S0：幸存1区当前使用比例</li>
+<li>S1：幸存2区当前使用比例</li>
+<li>E：伊甸园区使用比例</li>
+<li>O：老年代使用比例</li>
+<li>M：元数据区使用比例</li>
+<li>CCS：压缩使用比例</li>
+<li>YGC：年轻代垃圾回收次数</li>
+<li>FGC：老年代垃圾回收次数</li>
+<li>FGCT：老年代垃圾回收消耗时间</li>
+<li>GCT：垃圾回收消耗总时间</li>
+</ul>
+<h3 id="JVM编译方法统计-printcompilation"><a href="#JVM编译方法统计-printcompilation" class="headerlink" title="JVM编译方法统计 printcompilation"></a>JVM编译方法统计 printcompilation</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jstat -printcompilation 5013</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Compiled  Size  Type Method</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   25446   1646    1 org/springframework/beans/factory/support/AbstractBeanFactory getAliases</span></pre></td></tr></table></figure>
+
+<ul>
+<li>Compiled：最近编译方法的数量</li>
+<li>Size：最近编译方法的字节码数量</li>
+<li>Type：最近编译方法的编译类型。</li>
+<li>Method：方法名标识。</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.jianshu.com/p/845924a1b8f2" target="_blank" rel="noopener">https://www.jianshu.com/p/845924a1b8f2</a></li>
+</ul>
+<h2 id="jinfo-java-配置信息工具"><a href="#jinfo-java-配置信息工具" class="headerlink" title="jinfo java 配置信息工具"></a>jinfo java 配置信息工具</h2><h3 id="查看-JVM-启动参数"><a href="#查看-JVM-启动参数" class="headerlink" title="查看 JVM 启动参数"></a>查看 JVM 启动参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ jinfo -flags <span class="number">15416</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Attaching to process ID <span class="number">15416</span>, please wait...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Debugger attached successfully.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Server compiler detected.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">JVM version is <span class="number">25.151</span>-b12</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Non-<span class="keyword">default</span> VM flags: -XX:CICompilerCount=<span class="number">4</span> -XX:InitialHeapSize=<span class="number">134217728</span> -XX:+ManagementServer -XX:MaxHeapSize=<span class="number">2118123520</span> -XX:MaxNewSize=<span class="number">705691648</span> -XX:MinHeapDeltaBytes=<span class="number">524288</span> -XX:NewSize=<span class="number">44564480</span> -XX:OldSize=<span class="number">89653248</span> -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Command line:  -Djava.util.logging.config.file=C:\Users\zbcn8\.IntelliJIdea2019<span class="number">.2</span>\system\tomcat\Unnamed_czsb_2\conf\logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Drebel.base=C:\Users\zbcn8\.jrebel -Drebel.env.ide.plugin.version=<span class="number">2020.1</span><span class="number">.1</span> -Drebel.env.ide.version=<span class="number">2019.2</span><span class="number">.2</span> -Drebel.env.ide.product=IU -Drebel.env.ide=intellij -Drebel.notification.url=http:<span class="comment">//localhost:17434 -agentpath:C:\Users\zbcn8\.IntelliJIdea2019.2\config\plugins\jr-ide-idea\lib\jrebel6\lib\jrebel64.dll -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:61103,suspend=y,server=n -javaagent:C:\Users\zbcn8\.IntelliJIdea2019.2\system\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote= -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.password.file=C:\Users\zbcn8\.IntelliJIdea2019.2\system\tomcat\Unnamed_czsb_2\jmxremote.password -Dcom.sun.management.jmxremote.access.file=C:\Users\zbcn8\.IntelliJIdea2019.2\system\tomcat\Unnamed_czsb_2\jmxremote.access -Djava.rmi.server.hostname=127.0.0.1 -Djdk.tls.ephemeralDHKeySize=2048 -Dignore.endorsed.dirs= -Dcatalina.base=C:\Users\zbcn8\.IntelliJIdea2019.2\system\tomcat\Unnamed_czsb_2 -Dcatalina.home=D:\tomcat\tomcat-7-oracle -Djava.io.tmpdir=D:\tomcat\tomcat-7-oracle\temp</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>值得注意的是，JDK 8 使用该命令时会抛出如下异常：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ jinfo -flags <span class="number">26284</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Attaching to process ID <span class="number">26284</span>, please wait...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Error attaching to process: sun.jvm.hotspot.debugger.DebuggerException: Can<span class="string">'t attach symbolicator to the process</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">sun.jvm.hotspot.debugger.DebuggerException: sun.jvm.hotspot.debugger.DebuggerException: Can'</span>t attach symbolicator to the process</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal$BsdDebuggerLocalWorkerThread.execute(BsdDebuggerLocal.java:<span class="number">169</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal.attach(BsdDebuggerLocal.java:<span class="number">287</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.HotSpotAgent.attachDebugger(HotSpotAgent.java:<span class="number">671</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.HotSpotAgent.setupDebuggerDarwin(HotSpotAgent.java:<span class="number">659</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.HotSpotAgent.setupDebugger(HotSpotAgent.java:<span class="number">341</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.HotSpotAgent.go(HotSpotAgent.java:<span class="number">304</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.HotSpotAgent.attach(HotSpotAgent.java:<span class="number">140</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.tools.Tool.start(Tool.java:<span class="number">185</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.tools.Tool.execute(Tool.java:<span class="number">118</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"> at sun.jvm.hotspot.tools.JInfo.main(JInfo.java:<span class="number">138</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"> at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"> at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">62</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"> at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"> at java.lang.reflect.Method.invoke(Method.java:<span class="number">498</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"> at sun.tools.jinfo.JInfo.runTool(JInfo.java:<span class="number">108</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"> at sun.tools.jinfo.JInfo.main(JInfo.java:<span class="number">76</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">Caused by: sun.jvm.hotspot.debugger.DebuggerException: Can<span class="string">'t attach symbolicator to the process</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"><span class="string"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal.attach0(Native Method)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="string"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal.access$100(BsdDebuggerLocal.java:65)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="string"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal$1AttachTask.doit(BsdDebuggerLocal.java:278)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="string"> at sun.jvm.hotspot.debugger.bsd.BsdDebuggerLocal$BsdDebuggerLocalWorkerThread.run(BsdDebuggerL</span></span></pre></td></tr></table></figure>
+
+<p>查资料说是 JVM 的 bug（链接：<a href="https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8160376），在" target="_blank" rel="noopener">https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8160376），在</a> JDK 9 b129 修复了。</p>
+<h2 id="jmap-Java-内存映像工具"><a href="#jmap-Java-内存映像工具" class="headerlink" title="jmap: Java 内存映像工具"></a>jmap: Java 内存映像工具</h2><h3 id="查看对象信息"><a href="#查看对象信息" class="headerlink" title="查看对象信息:"></a>查看对象信息:</h3><ul>
+<li>可以使用 jmap 查看内存中的对象数量及内存空间占用：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 命令</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">jmap [option] &lt;pid&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">                                                                         </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">λ jmap -histo 11200 | head -20</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> num     #instances         #bytes  class name (module)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">-------------------------------------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">   1:         24274        2567096  [B (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">   2:          2857         649120  [I (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">   3:         22521         540504  java.lang.String (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">   4:          3683         454944  java.lang.Class (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">   5:          8779         280928  java.util.HashMap$Node (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">   6:           246         255224  [C (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">   7:          7912         253184  java.util.concurrent.ConcurrentHashMap$Node (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">   8:           181         248688  [Ljava.util.concurrent.ConcurrentHashMap$Node; (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">   9:          3319         237488  [Ljava.lang.Object; (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  10:          1547         136136  java.lang.reflect.Method (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  11:           563         102880  [Ljava.util.HashMap$Node; (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  12:          1348          53920  java.lang.ref.SoftReference (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  13:          1927          50808  [Ljava.lang.Class; (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  14:          1143          45720  java.util.LinkedHashMap$Entry (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  15:          2739          43824  java.lang.Object (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  16:           888          42624  java.lang.invoke.MemberName (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  17:           764          36672  sun.util.locale.LocaleObjectCache$CacheEntry (java.base@11.0.3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  18:           606          29088  java.util.HashMap (java.base@11.0.3)</span></pre></td></tr></table></figure>
+
+<h3 id="导出堆转储快照"><a href="#导出堆转储快照" class="headerlink" title="导出堆转储快照"></a>导出堆转储快照</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以在对应路径下看到堆转储快照文件 dump.hprof。导出来之后，就可以用其它工具分析快照文件了。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jmap -dump:live,format=b,file=/Users/jaxer/Desktop/dump.hprof 26472</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Dumping heap to /Users/jaxer/Desktop/dump.hprof ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Heap dump file created</span></pre></td></tr></table></figure>
+
+<h2 id="jhat-堆转储快照分析工具"><a href="#jhat-堆转储快照分析工具" class="headerlink" title="jhat: 堆转储快照分析工具"></a>jhat: 堆转储快照分析工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 分析 jmap 生成的快照文件</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">λ jhat D:\baseCode\JavaBase\java_pid18868.hprof</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Reading from D:\baseCode\JavaBase\java_pid18868.hprof...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Dump file created Thu Jul 30 14:27:28 CST 2020</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Snapshot read, resolving...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Resolving 819534 objects...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Chasing references, expect 163 dots...................................................................................................................................................................</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">Eliminating duplicate references...................................................................................................................................................................</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">Snapshot resolved.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">Started HTTP server on port 7000</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">Server is ready.</span></pre></td></tr></table></figure>
+
+<ul>
+<li>Server 启动后，在浏览器打开 <a href="http://localhost:7000/，可以看到如下信息：" target="_blank" rel="noopener">http://localhost:7000/，可以看到如下信息：</a></li>
+</ul>
+<p><img src="JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730164714700.png" alt="image-20200730164714700"></p>
+<ul>
+<li>实际工作中，一般不会直接使用 jhat 命令来分析 dump 文件，主要原因：</li>
+</ul>
+<blockquote>
+<ol>
+<li>一般不会在部署应用程序的服务器上直接分析 dump 文件（分析工作一般比较耗时，而且消耗硬件资源，在其他机器上进行时则没必要受到命令行工具的限制）；</li>
+<li>jhat 分析功能相对简陋，VisualVM 等更工具功能强大。</li>
 </ol>
-</li>
-<li>操作：分配内存就是仅仅把那个指针向空闲那边挪动一段与对象相等的距离</li>
-<li>对应的垃圾收集器(带compact功能的收集器)<ul>
-<li>serial</li>
-<li>parNew</li>
+</blockquote>
+<h2 id="jvisualvm-amp-VisualVM-堆转储快照分析工具"><a href="#jvisualvm-amp-VisualVM-堆转储快照分析工具" class="headerlink" title="jvisualvm &amp; VisualVM: 堆转储快照分析工具"></a>jvisualvm &amp; VisualVM: 堆转储快照分析工具</h2><ul>
+<li>jvisualvm 也是 JDK 自带的命令，虽然后面独立发展了。这两种方式都可以使用。</li>
+<li>VisualVM 链接：<a href="https://visualvm.github.io/" target="_blank" rel="noopener">https://visualvm.github.io/</a></li>
 </ul>
-</li>
+<h3 id="使用-VisualVM-分析上面-jmap-导出的堆栈转储文件"><a href="#使用-VisualVM-分析上面-jmap-导出的堆栈转储文件" class="headerlink" title="使用 VisualVM 分析上面 jmap 导出的堆栈转储文件"></a>使用 VisualVM 分析上面 jmap 导出的堆栈转储文件</h3><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730165455251.png" alt="image-20200730165455251"></p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730165536737.png" alt="image-20200730165536737"></p>
+<h2 id="jconsole-JVM-性能监控"><a href="#jconsole-JVM-性能监控" class="headerlink" title="jconsole: JVM 性能监控"></a>jconsole: JVM 性能监控</h2><p>使用 jconsole 命令会启动一个用户界面，如下</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730165758738.png" alt="image-20200730165758738"></p>
+<p>概览</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730170217689.png" alt="image-20200730170217689"></p>
+<p>死锁检测</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730170259376.png" alt="image-20200730170259376"></p>
+<p>除了上面 JDK 自带的工具，还有个很好用的阿里开源的 Arthas</p>
+<h2 id="Arthas"><a href="#Arthas" class="headerlink" title="Arthas"></a>Arthas</h2><ul>
+<li>官方文档：</li>
 </ul>
-</li>
-<li>空闲列表  free list<ul>
-<li>条件：<ol>
-<li>Java堆中的内存不规整，已使用和未使用的内存相互交错</li>
-<li>虚拟机维护一个列表，用于记录那些内存时可用的。</li>
-</ol>
-</li>
-<li>操作：<ul>
-<li>找一块足够大的空间划分给对象实例。并更新列表上的记录。</li>
-</ul>
-</li>
-<li>对应的收集器<ul>
-<li>Mark-sweep</li>
-<li>CMS</li>
-</ul>
-</li>
-<li>保证线程安全的两种方式<ol>
-<li>CAS配上失败重试的方式保证更新操作的原子性</li>
-<li>把内存分配的动作按照线程划分在不同的空间之中进行（即每个线程在java堆中预先分配一块小内存–本地线程分配缓冲（TLAB））</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>虚拟机需要将分配到的内存空间都初始化零值（不包括对象头）</p>
+<blockquote>
+<p>中：<a href="https://alibaba.github.io/arthas/" target="_blank" rel="noopener">https://alibaba.github.io/arthas/</a></p>
+<p>英：<a href="https://alibaba.github.io/arthas/en/" target="_blank" rel="noopener">https://alibaba.github.io/arthas/en/</a></p>
+</blockquote>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>为了演示部分功能，这里准备了一些简单的示例代码</p>
 <ul>
-<li>作用：保证了对象的实例字段在java代码中可以不赋初始值就直接使用</li>
+<li><code>hello.java</code></li>
 </ul>
-</li>
-<li><p>对象头的必要设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jaxer.jvm.arthas;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  System.out.println(LocalDateTime.now() + <span class="string">" hello"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"> &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
 <ul>
-<li>哪个类的实例、</li>
-<li>如何才能找到类的元数据信息</li>
-<li>对象的hash码</li>
-<li>GC分代年龄</li>
-<li>锁的使用情况</li>
+<li><code>ArthasTest.java</code></li>
 </ul>
-</li>
-<li><p>init 方法的执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jaxer.jvm.arthas;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArthasTest</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">   TimeUnit.SECONDS.sleep(<span class="number">5</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">   <span class="keyword">new</span> Hello().sayHello();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"> &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
 <ul>
-<li>对象按照程序员的意愿进行初始化</li>
+<li><h4 id="启动-Arthas"><a href="#启动-Arthas" class="headerlink" title="启动 Arthas"></a>启动 Arthas</h4></li>
 </ul>
-</li>
-</ol>
-<h4 id="内存的布局"><a href="#内存的布局" class="headerlink" title="内存的布局"></a>内存的布局</h4><ol>
-<li><p>对象头 Header</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Arthas 其实是一个 jar 包，下载后运行：</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> java -jar arthas-boot.jar</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 打印帮助信息：</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> java -jar arthas-boot.jar -h</span></span></pre></td></tr></table></figure>
+
 <ul>
-<li>自身运行时数据<ul>
-<li>hash码</li>
-<li>GC分代年龄</li>
-<li>锁的状态标志</li>
-<li>线程持有的锁</li>
-<li>偏向线程id</li>
-<li>偏向时间戳</li>
+<li>启动成功后</li>
 </ul>
-</li>
-<li>类型指针<ul>
-<li>对象指向它对应元数据的指针—-确定这个对象是哪个类的实例</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>实例数据区 Instance Data</p>
-</li>
-<li><p>对齐填充区 padding</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">λ java -jar arthas-boot.jar                                             </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[INFO] arthas-boot version: 3.1.7                                       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[INFO] Found existing java process, please choose one and hit RETURN.   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">* [1]: 11200 com.intellij.database.remote.RemoteJdbcServer              </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  [2]: 18352 org.jetbrains.jps.cmdline.Launcher                         </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  [3]: 18292 org.jetbrains.kotlin.daemon.KotlinCompileDaemon            </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  [4]: 19300 org.jetbrains.idea.maven.server.RemoteMavenServer          </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  [5]: 15416 org.apache.catalina.startup.Bootstrap                      </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  [6]: 5112                                                             </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  [7]: 10476                                                            </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  [8]: 16140 org.jetbrains.jps.cmdline.Launcher</span></pre></td></tr></table></figure>
+
 <ul>
-<li>占位符的作用</li>
+<li>Arthas 会检测本地 JVM 进程并列出来（参见上面的 jps 命令），选择前面的序号就能附着到对应的进程。这里选择 1，然后回车：</li>
 </ul>
-</li>
-<li><p>对象的访问定位</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">1                                                                        </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[INFO] arthas home: C:\Users\zbcn8\.arthas\lib\3.3.7\arthas              </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[INFO] The target process already listen port 3658, skip attach.         </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[INFO] arthas-client connect 127.0.0.1 3658                              </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  ,---.  ,------. ,--------.,--.  ,--.  ,---.   ,---.                    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> /  O  \ |  .--. ''--.  .--'|  '--'  | /  O  \ '   .-'                   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">|  .-.  ||  '--'.'   |  |   |  .--.  ||  .-.  |`.  `-.                   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">|  | |  ||  |\  \    |  |   |  |  |  ||  | |  |.-'    |                  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">`--' `--'`--' '--'   `--'   `--'  `--'`--' `--'`-----'                   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">wiki      https://alibaba.github.io/arthas                               </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">tutorials https://alibaba.github.io/arthas/arthas-tutorials              </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">version   3.3.7                                                          </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">pid       11200                                                          </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">time      2020-07-30 09:33:21                                            </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@11200]$</span></span></pre></td></tr></table></figure>
+
+<p>这样就成功附着到了该进程。接下来就可以执行各种命令来分析 JVM 了。</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="help-Arthas-的命令概览"><a href="#help-Arthas-的命令概览" class="headerlink" title="help  Arthas 的命令概览"></a>help  Arthas 的命令概览</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@36934]$</span><span class="bash"> <span class="built_in">help</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> NAME         DESCRIPTION</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"> help         Display Arthas Help</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"> keymap       Display all the available keymap for the specified connection.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> sc           Search all the classes loaded by JVM</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> sm           Search the method of classes loaded by JVM</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> classloader  Show classloader info</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"> jad          Decompile class</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"> getstatic    Show the static field of a class</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"> monitor      Monitor method execution statistics, e.g. total/success/failure count, average rt, fail rate, etc.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"> stack        Display the stack trace for the specified class and method</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"> thread       Display thread info, thread stack</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> trace        Trace the execution time of specified method invocation.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"> watch        Display the input/output parameter, return object, and thrown exception of specified method invocation</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"> tt           Time Tunnel</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"> jvm          Display the target JVM information</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"> perfcounter  Display the perf counter infornation.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"> ognl         Execute ognl expression.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"> mc           Memory compiler, compiles java files into bytecode and class files in memory.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"> redefine     Redefine classes. @see Instrumentation#redefineClasses(ClassDefinition...)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"> dashboard    Overview of target jvm's thread, memory, gc, vm, tomcat info.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"> dump         Dump class byte array from JVM</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"> heapdump     Heap dump</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"> options      View and change various Arthas options</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"> cls          Clear the screen</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"> reset        Reset all the enhanced classes</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"> version      Display Arthas version</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"> session      Display current session information</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"> sysprop      Display, and change the system properties.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"> sysenv       Display the system env.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line"> vmoption     Display, and update the vm diagnostic options.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line"> logger       Print logger info, and update the logger level</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"> history      Display command history</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"> cat          Concatenate and print files</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line"> echo         write arguments to the standard output</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"> pwd          Return working directory name</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"> mbean        Display the mbean information</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"> grep         grep command for pipes.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"> tee          tee command for pipes.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line"> profiler     Async Profiler. https://github.com/jvm-profiling-tools/async-profiler</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line"> stop         Stop/Shutdown Arthas server and exit the console.</span></pre></td></tr></table></figure>
+
+<h4 id="查看每个命令的用法-命令后面加-help"><a href="#查看每个命令的用法-命令后面加-help" class="headerlink" title="查看每个命令的用法, 命令后面加 -help"></a>查看每个命令的用法, 命令后面加 -help</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@36934]$</span><span class="bash"> <span class="built_in">help</span> -<span class="built_in">help</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> USAGE:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   help [-h] [cmd]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> SUMMARY:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">   Display Arthas Help</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> Examples:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  help</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  help sc</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  help sm</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  help watch</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> OPTIONS:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"> -h, --help                                      this help</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"> &lt;cmd&gt;                                           command name</span></pre></td></tr></table></figure>
+
+<h4 id="dashboard"><a href="#dashboard" class="headerlink" title="dashboard"></a>dashboard</h4><p>dashboard 命令可以总览 JVM 状况（默认 5 秒刷新一次）</p>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730173744870.png" alt="image-20200730173744870"></p>
+<h4 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h4><ul>
+<li>jvm 可以查看当前 JVM 的运行时信息，比如机器信息、JVM 版本、启动参数、ClassPath 等：</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730174043114.png" alt="image-20200730174043114"></p>
 <ul>
-<li>句柄</li>
-<li>直接指针</li>
+<li>还有类加载信息、编译信息、垃圾收集器、内存相关信息</li>
 </ul>
-</li>
-</ol>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730174146361.png" alt="image-20200730174146361"></p>
+<ul>
+<li>以及操作系统信息、死锁等</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730174319599.png" alt="image-20200730174319599"></p>
+<h4 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h4><ul>
+<li>线程信息、线程堆栈：</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/imgs/image-20200730174406692.png" alt="image-20200730174406692"></p>
+<h4 id="sc-amp-sm"><a href="#sc-amp-sm" class="headerlink" title="sc &amp; sm"></a>sc &amp; sm</h4><ul>
+<li>sc 可以查看类加载信息：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@7176]$</span><span class="bash"> sc zbcn.com.*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">zbcn.com.arthas.ArthasTest</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">zbcn.com.arthas.Hello</span></pre></td></tr></table></figure>
+
+<ul>
+<li>sm 可以查看类的方法信息：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@7176]$</span><span class="bash"> sm zbcn.com.arthas.ArthasTest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">zbcn.com.arthas.ArthasTest &lt;init&gt;()V</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">zbcn.com.arthas.ArthasTest main([Ljava/lang/String;)V</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Affect(row-cnt:2) cost in 8 ms.</span></pre></td></tr></table></figure>
+
+<h4 id="jad"><a href="#jad" class="headerlink" title="jad"></a>jad</h4><p>jad 可以堆类进行反编译,</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@7176]$</span><span class="bash"> jad zbcn.com.arthas.ArthasTest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译结果</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">ClassLoader:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">+-sun.misc.Launcher$AppClassLoader@18b4aac2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  +-sun.misc.Launcher$ExtClassLoader@66d460a5</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Location:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">/D:/baseCode/JavaBase/JvmTest/target/classes/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">/*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"> * Decompiled with CFR.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"> *</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> * Could not load the following classes:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"> *  zbcn.com.arthas.Hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"> */</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">package zbcn.com.arthas;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.TimeUnit;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">import zbcn.com.arthas.Hello;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">public class ArthasTest &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        while (true) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            TimeUnit.SECONDS.sleep(5L);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">            new Hello().sayHello();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">Affect(row-cnt:1) cost in 549 ms.</span></pre></td></tr></table></figure>
+
+<h4 id="redefine"><a href="#redefine" class="headerlink" title="redefine"></a>redefine</h4><p>redefine 就是热部署，通俗来讲就是「开着飞机换引擎」</p>
+<ul>
+<li>原始代码执行结果</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:42:53.040 hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:42:58.040 hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:43:03.040 hello</span></pre></td></tr></table></figure>
+
+<ul>
+<li>在不停止该程序的情况下，可以改变输出内容</li>
+<li>在不停止该程序的情况下，可以改变输出内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">package zbcn.com.arthas;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">import java.time.LocalDateTime;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">public class Hello &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    public void sayHello() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        System.out.println(LocalDateTime.now() + "test hello update");</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ul>
+<li>然后在本地执行 javac 将其编译为 class 文件（注意该文件的路径为 D:\baseCode\JavaBase\JvmTest\target\classes\zbcn\com\arthas\Hello.class），然后运行 redefine 命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">[arthas@7176]$</span><span class="bash"> redefine D:\\baseCode\\JavaBase\\JvmTest\\target\\classes\\zbcn\\com\\arthas\\Hello.class</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">redefine success, size: 1, classes:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">zbcn.com.arthas.Hello</span></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:13.136 hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:18.137 hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:23.137 hello</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:28.137 test hello update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:33.138 test hello update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:38.138 test hello update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:43.138 test hello update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">2020-07-30T18:57:48.138 test hello update</span></pre></td></tr></table></figure>
+
+
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>命令不知道了,别忘了help</li>
+</ul>
+<h1 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://mp.weixin.qq.com/s/iqlzfq_niGBBGeDz7iNTDg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/iqlzfq_niGBBGeDz7iNTDg</a></li>
+</ul>
 
       
 	  <!-- 增加版权声明 -->
@@ -419,18 +673,18 @@
   
 <nav id="article-nav">
   
-    <a href="/zbcn.github.io/2019/12/09/JVM_01java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/zbcn.github.io/2019/12/13/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          01 JVM- java内存区域
+          05 类文件结构
         
       </div>
     </a>
   
   
-    <a href="/zbcn.github.io/2019/12/09/JVM_04%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86_TODO/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">04 性能监控/故障处理</div>
+    <a href="/zbcn.github.io/2019/12/12/security-01jwt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">security_01jwt</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -457,7 +711,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的创建"><span class="toc-number">1.</span> <span class="toc-text">对象的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#遇到new指令后"><span class="toc-number">1.1.</span> <span class="toc-text">遇到new指令后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存的布局"><span class="toc-number">1.2.</span> <span class="toc-text">内存的布局</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK-自带工具"><span class="toc-number">1.</span> <span class="toc-text">JDK 自带工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令格式"><span class="toc-number">2.</span> <span class="toc-text">命令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jps-虚拟机进程状况"><span class="toc-number">2.1.</span> <span class="toc-text">jps   虚拟机进程状况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jstat-虚拟机统计信息监视工具"><span class="toc-number">2.2.</span> <span class="toc-text">jstat: 虚拟机统计信息监视工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数说明"><span class="toc-number">2.2.1.</span> <span class="toc-text">参数说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#option-选项"><span class="toc-number">2.2.2.</span> <span class="toc-text">option 选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存监控（垃圾收集统计-gc）"><span class="toc-number">2.2.3.</span> <span class="toc-text">堆内存监控（垃圾收集统计 gc）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看类加载-卸载信息"><span class="toc-number">2.2.4.</span> <span class="toc-text">查看类加载&#x2F;卸载信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译统计-compiler"><span class="toc-number">2.2.5.</span> <span class="toc-text">编译统计 compiler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存统计-gccapacity"><span class="toc-number">2.2.6.</span> <span class="toc-text">### 堆内存统计 gccapacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新生代垃圾回收统计-gcnew"><span class="toc-number">2.2.7.</span> <span class="toc-text">新生代垃圾回收统计 gcnew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新生代内存统计-gcnewcapacity"><span class="toc-number">2.2.8.</span> <span class="toc-text">新生代内存统计 gcnewcapacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#老年代垃圾回收统计-gcold"><span class="toc-number">2.2.9.</span> <span class="toc-text">老年代垃圾回收统计 gcold</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元数据空间统计-gcmetacapacity"><span class="toc-number">2.2.10.</span> <span class="toc-text">元数据空间统计 gcmetacapacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结垃圾回收统计-gcutil"><span class="toc-number">2.2.11.</span> <span class="toc-text">总结垃圾回收统计 gcutil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM编译方法统计-printcompilation"><span class="toc-number">2.2.12.</span> <span class="toc-text">JVM编译方法统计 printcompilation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">2.2.13.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jinfo-java-配置信息工具"><span class="toc-number">2.3.</span> <span class="toc-text">jinfo java 配置信息工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-JVM-启动参数"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看 JVM 启动参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jmap-Java-内存映像工具"><span class="toc-number">2.4.</span> <span class="toc-text">jmap: Java 内存映像工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看对象信息"><span class="toc-number">2.4.1.</span> <span class="toc-text">查看对象信息:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出堆转储快照"><span class="toc-number">2.4.2.</span> <span class="toc-text">导出堆转储快照</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jhat-堆转储快照分析工具"><span class="toc-number">2.5.</span> <span class="toc-text">jhat: 堆转储快照分析工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jvisualvm-amp-VisualVM-堆转储快照分析工具"><span class="toc-number">2.6.</span> <span class="toc-text">jvisualvm &amp; VisualVM: 堆转储快照分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-VisualVM-分析上面-jmap-导出的堆栈转储文件"><span class="toc-number">2.6.1.</span> <span class="toc-text">使用 VisualVM 分析上面 jmap 导出的堆栈转储文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jconsole-JVM-性能监控"><span class="toc-number">2.7.</span> <span class="toc-text">jconsole: JVM 性能监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arthas"><span class="toc-number">2.8.</span> <span class="toc-text">Arthas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动"><span class="toc-number">2.8.1.</span> <span class="toc-text">启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动-Arthas"><span class="toc-number">2.8.1.1.</span> <span class="toc-text">启动 Arthas</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">2.8.2.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#help-Arthas-的命令概览"><span class="toc-number">2.8.2.1.</span> <span class="toc-text">help  Arthas 的命令概览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看每个命令的用法-命令后面加-help"><span class="toc-number">2.8.2.2.</span> <span class="toc-text">查看每个命令的用法, 命令后面加 -help</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dashboard"><span class="toc-number">2.8.2.3.</span> <span class="toc-text">dashboard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jvm"><span class="toc-number">2.8.2.4.</span> <span class="toc-text">jvm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#thread"><span class="toc-number">2.8.2.5.</span> <span class="toc-text">thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sc-amp-sm"><span class="toc-number">2.8.2.6.</span> <span class="toc-text">sc &amp; sm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jad"><span class="toc-number">2.8.2.7.</span> <span class="toc-text">jad</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redefine"><span class="toc-number">2.8.2.8.</span> <span class="toc-text">redefine</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">2.9.</span> <span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考-1"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -641,11 +895,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,19 +907,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,11 +923,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,11 +951,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">
