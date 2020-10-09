@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-spring_03_XmlBeanFactory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JCF_01HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/">Spring_03 XmlBeanFactory</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/">JCF_01 HashMap</a>
     </h1>
   
 
@@ -215,8 +215,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/" class="archive-article-date">
-  	<time datetime="2020-05-07T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+        <a href="/zbcn.github.io/2020/10/06/JCF_01HashMap/" class="archive-article-date">
+  	<time datetime="2020-10-06T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
 </a>
         
       </header>
@@ -230,12 +230,13 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="XmlBeanFactory"><a href="#XmlBeanFactory" class="headerlink" title="XmlBeanFactory"></a>XmlBeanFactory</h2><ul>
-<li>xmlBeanFactory被表明为Deprecated. 推荐使用DefaultListableBeanFactory和XmlBeanDefinitionReader替换。</li>
-<li>XmlBeanFactory继承自DefaultListableBeanFactory，扩展了从xml文档中读取bean definition的能力。XmlBeanFactory是硬编码（hard coded）的方式，不利与扩展。从本质上讲，XmlBeanFactory等同于DefaultListableBeanFactory+XmlBeanDefinitionReader ，如果有更好的需求，可以考虑使用DefaultListableBeanFactory+XmlBeanDefinitionReader方案，因为该方案可以从多个xml文件读取资源，并且在解析xml上具有更灵活的可配置性。</li>
-</ul>
+        <h1 id="hashMap-的前世今生"><a href="#hashMap-的前世今生" class="headerlink" title="hashMap 的前世今生"></a>hashMap 的前世今生</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>hashMap 依据 hashCode 值存储数据。如果通过hashcode 可以直接定位到数据的值，访问的复杂度则为常数，但遍历的顺序则是无序的。</p>
+<p>HashMap最多只允许一个key为null，允许多个key的value值为null。</p>
+<p>HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。jdk 1.7 之前的版本有可能在多线程下导致死锁。</p>
+<p>如果需要满足线程安全，可以使用ConcurrentHashMap。</p>
+<p>hashMap 由数组+ 链表组成。数组是HashMap的主体，链表是为了结局Hash冲突而存在的（拉链法）。</p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -255,7 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -267,7 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -276,7 +277,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/">展开全文 >></a>
         </p>
       
 
@@ -307,14 +308,14 @@
 
 
   
-    <article id="post-spring_02_容器的基本实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IO_03管道流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/">Spring_02 容器的基本实现</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/">IO_03 管道流</a>
     </h1>
   
 
@@ -329,8 +330,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2020-05-06T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+        <a href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-10-04T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
 </a>
         
       </header>
@@ -344,16 +345,474 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="02-容器的基本实现"><a href="#02-容器的基本实现" class="headerlink" title="02_ 容器的基本实现"></a>02_ 容器的基本实现</h2><h3 id="bean-的定义-和获取"><a href="#bean-的定义-和获取" class="headerlink" title="bean 的定义 和获取"></a>bean 的定义 和获取</h3><ul>
-<li>功能分析：<ol>
-<li>读取配置文件 xxx.xml</li>
-<li>根据配置文件 xxx.xml 中的配置找到对应的类的配置，并实例化。</li>
-<li>调用实例化后的实例</li>
-</ol>
+        <h1 id="PipedInputStream和PipedOutputStream"><a href="#PipedInputStream和PipedOutputStream" class="headerlink" title="PipedInputStream和PipedOutputStream"></a>PipedInputStream和PipedOutputStream</h1><p>管道输入输出流也是一对内存操作可循环读写的数组的输入输出流，基本上读写的方法都是放在 <code>PipedInputStream</code> 这个对象中，在做读写操作的时候需要把输入输出流进行关联，否则不能做对应的读写操作。</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_02常用的流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/">IO_02 常用流</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-10-03T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h1><ul>
+<li>输入:<code>FileInputStream/FileReader</code></li>
+<li>输出：<code>FileOutputStream/FileWriter</code></li>
+</ul>
+<p>InputStream和Reader都是抽象类，本身不能创建实例，但它们分别有一个用于读取文件的输入流：FileInputStream和FileReader.它们都是节点流(会直接和指定文件关联</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_01架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/">IO_01 概述</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2020-10-02T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="IO-概述"><a href="#IO-概述" class="headerlink" title="IO 概述"></a>IO 概述</h1><ul>
+<li>网络操作相关的类在 <code>java.net</code>包下面。</li>
+<li>磁盘操作：文件，文件操作</li>
+<li>“流”：有能力产生数据源或者有能力接受数据源的对象(一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。)</li>
+<li>流的本质是数据传输，根据数据传输特性将流抽象为各种类，方便更直观的进行数据操作。</li>
+<li><strong>流有输入和输出，输入时是流从数据源流向程序。输出时是流从程序传向数据源，而数据源可以是内存，文件，网络或程序等。</strong></li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_00字符_字节_file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/">IO_00 预备知识</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/" class="archive-article-date">
+  	<time datetime="2020-10-01T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="字符与字节"><a href="#字符与字节" class="headerlink" title="字符与字节"></a>字符与字节</h1><ul>
+<li><p>在Java中有输入、输出两种IO流，每种输入、输出流又分为字节流和字符流两大类。</p>
+</li>
+<li><p>一个字节 8 个bit</p>
+</li>
+<li><p>Java采用<code>unicode</code>编码，2个字节来表示一个字符。(C语言中采用ASCII，在大多数系统中，一个字符通常占1个字节，但是在0~127整数之间的字符映射，<code>unicode</code>向下兼容ASCII。)</p>
+</li>
+<li><p>Java采用<code>unicode</code>来表示字符，一个中文或英文字符的<code>unicode</code>编码都占2个字节。但如果采用其他编码方式，一个字符占用的字节数则各不相同。</p>
+</li>
+<li><p>Java中的String类是按照unicode进行编码的，当使用 <code>String(byte[] bytes, String encoding)</code>构造字符串时，encoding所指的是bytes中的数据是按照那种方式编码的，而不是最后产生的String是什么编码方式。换句话说，是让系统把bytes中的数据由encoding编码方式转换成unicode编码。如果不指明，bytes的编码方式将由jdk根据操作系统决定。</p>
 </li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_10transaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/07/21/spring_10transaction/">Spring_10 spring 事务</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/07/21/spring_10transaction/" class="archive-article-date">
+  	<time datetime="2020-07-21T08:59:34.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="spring-事务"><a href="#spring-事务" class="headerlink" title="spring 事务"></a>spring 事务</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--事物管理类--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSourceTransactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启注解模式--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 基于注解的事务管理:事务开启的入口 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"dataSourceTransactionManager"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;tx:jta-transaction-manager/&gt;--&gt;</span></span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -394,7 +853,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/">展开全文 >></a>
         </p>
       
 
@@ -425,14 +884,14 @@
 
 
   
-    <article id="post-spring_01_整体架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring_08jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">Spring_01 整体架构</a>
+      <a class="article-title" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">Spring_08 spring JDBC</a>
     </h1>
   
 
@@ -447,8 +906,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-05-05T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/zbcn.github.io/2020/07/18/spring_08jdbc/" class="archive-article-date">
+  	<time datetime="2020-07-18T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
         
       </header>
@@ -462,11 +921,11 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="Spring-的整体架构"><a href="#Spring-的整体架构" class="headerlink" title="Spring 的整体架构"></a>Spring 的整体架构</h2><ul>
-<li>包含一系列的元素，大概分为20个模块<br><img src="/zbcn.github.io/assets/postImg/spring/imgs/%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="整体架构图"></li>
+        <h2 id="springJDBC-数据库链接"><a href="#springJDBC-数据库链接" class="headerlink" title="springJDBC 数据库链接"></a>springJDBC 数据库链接</h2><ul>
+<li>jdbc （java data base connection）， 用于执行sql 的api。为多种关系型数据库提供统一访问入口。</li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -507,7 +966,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">展开全文 >></a>
         </p>
       
 
@@ -538,14 +997,14 @@
 
 
   
-    <article id="post-dp01_设计模式的六种原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-al_07heap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">dp_01设计模式六种原则</a>
+      <a class="article-title" href="/zbcn.github.io/2020/06/27/al_07heap/">al_07 heap</a>
     </h1>
   
 
@@ -560,8 +1019,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-03-07T08:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+        <a href="/zbcn.github.io/2020/06/27/al_07heap/" class="archive-article-date">
+  	<time datetime="2020-06-27T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
 </a>
         
       </header>
@@ -575,16 +1034,77 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="设计模式-–-6大原则"><a href="#设计模式-–-6大原则" class="headerlink" title="设计模式 – 6大原则"></a>设计模式 – 6大原则</h2><p>设计模式是一套经过反复总结,多数人认可的代码设计经验总结.设计模式使用的宗旨是:可重用代码,让代码更容易被他人理解,保证代码的可靠性.设计模式使代码编制工程化,设计模式也是软件编程的基石.</p>
-<h3 id="1-SRP-single-Responsbility-Principle-单一职责原则"><a href="#1-SRP-single-Responsbility-Principle-单一职责原则" class="headerlink" title="1. SRP- single Responsbility Principle  单一职责原则"></a>1. SRP- single Responsbility Principle  单一职责原则</h3><ol>
-<li><strong>核心思想</strong>: 一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</li>
-<li><strong>问题描述</strong>: 一个类(大到模块,小到方法)承担的职责越多,它被复用的可能性就越小,而且,一个类承担的职责过多,就相当于将这些职责耦合在一起,其中一个职责变化是,会影响其他职责的使用. 因此要将多个职责分离,将不同的职责封装在不同的类中,即:将不同的变化封装在不同的类中.如果多个职责总是同时发生改变则可将它们封装在同一类中。</li>
-<li><strong>优点</strong>: 类的复杂度降低、可读性提高、可维护性提高、扩展性提高、降低了变更引起的风险</li>
-<li><strong>注意点</strong>: <strong>单一职责</strong> 是实现 <strong>高内聚,低耦合</strong> 的指导方针, 它是最简单也是最难运用的原则,需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</li>
-</ol>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/#more">more >></a>
-        
+        <h1 id="堆的概念："><a href="#堆的概念：" class="headerlink" title="堆的概念："></a>堆的概念：</h1><p>堆(heap)又被为优先队列(priority queue). 尽管名为优先队列，但堆并不是队列。在<a href="http://www.cnblogs.com/vamei/archive/2013/03/15/2961729.html" target="_blank" rel="noopener">队列</a>中，我们可以进行的限定操作是dequeue和enqueue。dequeue是按照进入队列的先后顺序来取出元素。而在堆中，我们不是按照元素进入队列的先后顺序取出元素的,而是按照元素的优先级取出元素。</p>
+<p>这就好像候机的时候，无论谁先到达候机厅，总是头等舱的乘客先登机，然后是商务舱的乘客，最后是经济舱的乘客。每个乘客都有头等舱、商务舱、经济舱三种个键值(key)中的一个。头等舱-&gt;商务舱-&gt;经济舱依次享有从高到低的优先级。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/18204853-d3f8df9596e5413b93d3b45ffe69cf5a.jpg" alt="img"></p>
+<p>Linux内核中的调度器(scheduler)会按照各个进程的优先级来安排CPU执行哪一个进程。计算机中通常有多个进程，每个进程有不同的优先级(该优先级的计算会综合多个因素，比如进程所需要耗费的时间，进程已经等待的时间，用户的优先级，用户设定的进程优先程度等等)。内核会找到优先级最高的进程，并执行。如果有优先级更高的进程被提交，那么调度器会转而安排该进程运行。优先级比较低的进程则会等待。“堆”是实现调度器的理想数据结构。</p>
+<p>(Linux中可以使用nice命令来影响进程的优先级)</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>堆就是用数组实现的二叉树，所以它没有使用父指针或者子指针。堆根据“堆属性”来排序，“堆属性”决定了树中节点的位置。</p>
+<p>n个元素序列 { k1, k2, k3, k4, k5, k6 …. kn } 当且仅当满足以下关系时才会被称为堆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ki &lt;&#x3D; k2i,ki &lt;&#x3D; k2i+1 或者 ki &gt;&#x3D; k2i,ki &gt;&#x3D; k2i+1 (i &#x3D; 1,2,3,4 .. n&#x2F;2)</span></pre></td></tr></table></figure>
+
+<p>如果数组的下表是从0开始，那么需要满足</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ki &lt;&#x3D; k2i+1,ki &lt;&#x3D; k2i+2 或者 ki &gt;&#x3D; k2i+1,ki &gt;&#x3D; k2i+2 (i &#x3D; 0,1,2,3 .. n&#x2F;2)</span></pre></td></tr></table></figure>
+
+<p>比如 { 1,3,5,10,15,9 } 这个序列就满足 [1 &lt;= 3; 1 &lt;= 5], [3 &lt;= 10; 3 &lt;= 15], [5 &lt;= 9] 这3个条件，这个序列就是一个堆。</p>
+<p>所以堆其实是一个序列(数组)，如果这个序列满足上述条件，那么就把这个序列看成堆。</p>
+<h2 id="二叉堆概览"><a href="#二叉堆概览" class="headerlink" title="二叉堆概览"></a>二叉堆概览</h2><p>首先，二叉堆和二叉树有啥关系呢，为什么人们总数把二叉堆画成一棵二叉树？</p>
+<p>因为，二叉堆其实就是一种特殊的二叉树（完全二叉树），只不过存储在数组里。一般的链表二叉树，我们操作节点的指针，而在数组里，我们把数组索引作为指针：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父节点的索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">parent</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> root / <span class="number">2</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左孩子的索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">left</span><span class="params">(<span class="keyword">int</span> root)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> root * <span class="number">2</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 右孩子的索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">right</span><span class="params">(<span class="keyword">int</span> root)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> root * <span class="number">2</span> + <span class="number">1</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<p>堆的实现通常是通过构造二叉堆，因为二叉堆应用很普遍，当不加限定时，堆通常指的就是二叉堆。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/image-20200827193908626.png" alt="image-20200827193908626"></p>
+<p>你看到了，把 arr[1] 作为整棵树的根的话，每个节点的父节点和左右孩子的索引都可以通过简单的运算得到，这就是二叉堆设计的一个巧妙之处。为了方便讲解，下面都会画的图都是二叉树结构，相信你能把树和数组对应起来。</p>
+<p>二叉堆还分为最大堆和最小堆。<strong>最大堆的性质是：每个节点都大于等于它的两个子节点。</strong>类似的，最小堆的性质是：每个节点都小于等于它的子节点。</p>
+<h1 id="堆的实现"><a href="#堆的实现" class="headerlink" title="堆的实现"></a>堆的实现</h1><p>堆的一个经典的实现是完全二叉树(complete binary tree)。这样实现的堆成为二叉堆(binary heap)。</p>
+<p>二叉堆是一种特殊的堆，是一棵完全二叉树或者是近似完全二叉树，同时二叉堆还满足堆的特性：父节点的键值总是保持固定的序关系于任何一个子节点的键值，且每个节点的左子树和右子树都是一个二叉堆。</p>
+<p>当父节点的键值总是大于或等于任何一个子节点的键值时为<strong>最大堆</strong>。 当父节点的键值总是小于或等于任何一个子节点的键值时为<strong>最小堆</strong>。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/image-20200827193726644.png" alt="image-20200827193726644"></p>
+<p>上图中的最小堆对应的序列是： [1,3,5,9,10,15] 满足最小堆的特性(父节点的键值小于或等于任何一个子节点的键值，并且也满足堆的性质 [1 &lt;= 3; 1 &lt;= 5], [3 &lt;= 9; 3 &lt;= 10], [5 &lt;= 15])</p>
+<p>上图中的最大堆对应的序列是： [15,10,9,7,5,3] 满足最大堆的特性(父节点的键值大于或等于任何一个子节点的键值，并且也满足堆的性质 [15 &gt;= 10; 15 &gt;= 9], [10 &gt;= 7; 10 &gt;= 5], [9 &gt;= 3])</p>
+<p>两种堆核心思路都是一样的，本文以最大堆为例讲解。</p>
+<p>对于一个最大堆，根据其性质，显然堆顶，也就是 arr[1] 一定是所有元素中最大的元素。</p>
+<h2 id="优先级队列概览"><a href="#优先级队列概览" class="headerlink" title="优先级队列概览"></a>优先级队列概览</h2><p>优先级队列这种数据结构有一个很有用的功能，你插入或者删除元素的时候，元素会自动排序，这底层的原理就是二叉堆的操作。</p>
+<p>数据结构的功能无非增删查该，优先级队列有两个主要 API，分别是 insert 插入一个元素和 delMax 删除最大元素（如果底层用最小堆，那么就是 delMin）。</p>
+<p>下面我们实现一个简化的优先级队列，先看下代码框架：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxPq</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 存储元素的数组</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> T[] pq;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 当前 Priority Queue 中的元素个数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> N = <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MaxPq</span><span class="params">(<span class="keyword">int</span> cap)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 索引 0 不用，所以多分配一个空间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        pq = (T[]) <span class="keyword">new</span> Comparable[cap + <span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 返回当前队列中最大元素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">max</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> pq[<span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 插入元素 e */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(T e)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//.....</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 删除并返回当前队列中最大元素 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">delMax</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//...</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 上浮第 k 个元素，以维护最大堆性质 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//...</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 下沉第 k 个元素，以维护最大堆性质 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//...</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 交换数组的两个元素 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">        T temp = pq[i];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">        pq[i] = pq[j];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">        pq[j] = temp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* pq[i] 是否比 pq[j] 小？ */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> pq[i].compareTo(pq[j]) &lt; <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* 还有 left, right, parent 三个方法 */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="实现-swim-和sink"><a href="#实现-swim-和sink" class="headerlink" title="实现 swim 和sink"></a>实现 swim 和sink</h2><p>为什么要有<strong>上浮 swim</strong>  和 <strong>下沉 sink</strong>  的操作呢？为了维护堆结构。</p>
+<p>我们要讲的是最大堆，每个节点都比它的两个子节点大，但是在插入元素和删除元素时，难免破坏堆的性质，这就需要通过这两个操作来恢复堆的性质了。</p>
+<p>对于最大堆，会破坏堆性质的有有两种情况：</p>
+<ul>
+<li>如果某个节点 A 比它的子节点（中的一个）小，那么 A 就不配做父节点，应该下去，下面那个更大的节点上来做父节点，这就是对 A 进行 <strong>下沉</strong>。</li>
+<li>如果某个节点 A 比它的父节点大，那么 A 不应该做子节点，应该把父节点换下来，自己去做父节点，这就是对 A 的 <strong>上浮</strong>。</li>
+</ul>
+<p>当然，错位的节点 A 可能要上浮（或下沉）很多次，才能到达正确的位置，恢复堆的性质。所以代码中肯定有一个 <code>while</code> 循环。</p>
+<p>细心的读者也许会问，这两个操作不是互逆吗，所以上浮的操作一定能用下沉来完成，为什么我还要费劲写两个方法？</p>
+<p>是的，操作是互逆等价的，但是最终我们的操作只会在堆底和堆顶进行（等会讲原因），显然堆底的「错位」元素需要上浮，堆顶的「错位」元素需要下沉。</p>
+<h3 id="上浮-swim-实现代码"><a href="#上浮-swim-实现代码" class="headerlink" title="上浮 swim 实现代码"></a>上浮 swim 实现代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 如果浮到堆顶，就不能再上浮了</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">1</span> &amp;&amp; less(parent(k), k)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 如果第 k 个元素比上层大</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 将 k 换上去</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        exch(parent(k), k);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        k = parent(k);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>如下图:</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/93772f02d5d996c979a13d3409c.gif" alt="2"></p>
+<h3 id="下沉的代码实现"><a href="#下沉的代码实现" class="headerlink" title="下沉的代码实现"></a><strong>下沉的代码实现</strong></h3><p>下沉比上浮略微复杂一点，因为上浮某个节点 A，只需要 A 和其父节点比较大小即可；但是下沉某个节点 A，需要 A 和其两个子节点比较大小，如果 A 不是最大的就需要调整位置，要把较大的那个子节点和 A 交换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 如果沉到堆底，就沉不下去了</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">while</span> (left(k) &lt;= N) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 先假设左边节点较大</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">int</span> older = left(k);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 如果右边节点存在，比一下大小</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (right(k) &lt;= N &amp;&amp; less(older, right(k)))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            older = right(k);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 结点 k 比俩孩子都大，就不必下沉了</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (less(older, k)) <span class="keyword">break</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 否则，不符合最大堆的结构，下沉 k 结点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        exch(k, older);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        k = older;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>如下图:</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/bf9ee02a870642cdf3db9a4b49.gif" alt="3"></p>
+<p>至此，二叉堆的主要操作就讲完了，一点都不难吧，代码加起来也就十行。明白了 <code>sink</code> 和 <code>swim</code> 的行为，下面就可以实现优先级队列了。</p>
+<h2 id="实现-delMax-和-insert"><a href="#实现-delMax-和-insert" class="headerlink" title="实现 delMax 和 insert"></a>实现 delMax 和 insert</h2><p>这两个方法就是建立在 <code>swim</code> 和 <code>sink</code> 上的。</p>
+<p><strong><code>insert</code> 方法先把要插入的元素添加到堆底的最后，然后让其上浮到正确位置。</strong></p>
+<p><img src="../docker/docker_00_%E5%AD%A6%E4%B9%A0/46b12e4fdb79ef744a0a0437ddc98ee940e905.gif" alt="4"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key e)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    N++;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 先把新元素加到最后</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    pq[N] = e;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 然后让它上浮到正确的位置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    swim(N);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p><strong><code>delMax</code> 方法先把堆顶元素 A 和堆底最后的元素 B 对调，然后删除 A，最后让 B 下沉到正确位置。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 最大堆的堆顶就是最大元素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    Key max = pq[<span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 把这个最大元素换到最后，删除之</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    exch(<span class="number">1</span>, N);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    pq[N] = <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    N--;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 让 pq[1] 下沉到正确位置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    sink(<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> max;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_07heap/17f68902de95b18a6b85b80a494708418a.gif" alt="5"></p>
+<p>至此，一个优先级队列就实现了，插入和删除元素的时间复杂度为 O(logK)O(logK)，KK 为当前二叉堆（优先级队列）中的元素总数。因为我们时间复杂度主要花费在 sink 或者 swim 上，而不管上浮还是下沉，最多也就树（堆）的高度，也就是 log 级别。</p>
+<h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><p>二叉堆就是一种完全二叉树，所以适合存储在数组中，而且二叉堆拥有一些特殊性质。</p>
+<p>二叉堆的操作很简单，主要就是上浮和下沉，来维护堆的性质（堆有序），核心代码也就十行。</p>
+<p>优先级队列是基于二叉堆实现的，主要操作是插入和删除。插入是先插到最后，然后上浮到正确位置；删除是调换位置后再删除，然后下沉到正确位置。核心代码也就十行。</p>
+
       
 	  <!-- 增加版权声明 -->
 	  
@@ -603,7 +1123,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">designPattern</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
         		</li>
       		
 		</ul>
@@ -615,7 +1135,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/designPattern//" class="article-tag-list-link color4">designPattern</a>
+        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
         		</li>
       		
 		</ul>
@@ -624,7 +1144,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/06/27/al_07heap/">展开全文 >></a>
         </p>
       
 
@@ -655,14 +1175,14 @@
 
 
   
-    <article id="post-git_02常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-al_06红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">git_02 rebase 和merge 区别</a>
+      <a class="article-title" href="/zbcn.github.io/2020/06/25/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/">al_06 红黑树</a>
     </h1>
   
 
@@ -677,8 +1197,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-03-07T04:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+        <a href="/zbcn.github.io/2020/06/25/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-06-25T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
 </a>
         
       </header>
@@ -692,370 +1212,356 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题:"></a>常见问题:</h2><h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><h4 id="合并冲突："><a href="#合并冲突：" class="headerlink" title="合并冲突："></a>合并冲突：</h4><ul>
-<li><p>提交的文件如果出现冲突就会出现这种提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict in readme.txt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span></pre></td></tr></table></figure></li>
-<li><p>通过 <code>git status</code> 查看冲突文件</p>
-</li>
-<li><p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/tree.png" alt="img"></p>
+<h2 id="平衡二叉搜索树"><a href="#平衡二叉搜索树" class="headerlink" title="平衡二叉搜索树"></a>平衡二叉搜索树</h2><p>平衡二叉搜索树（Balanced Binary Search Tree），英文简称 BBST。经典常见的平衡二叉搜索树是 AVL 树和红黑树。</p>
+<h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><p><strong>二叉搜索树</strong>（Binary Search Tree）是二叉树的一种，英文简称 BST。又称为二叉查找树、二叉排序树。</p>
+<p>它的<strong>特点</strong>是任何一个结点的值都<strong>大于</strong>其<strong>左</strong>子树的所有结点的值，任何一个结点的值都<strong>小于</strong>其<strong>右</strong>子树的所有结点的值。</p>
+<h2 id="平衡"><a href="#平衡" class="headerlink" title="平衡"></a>平衡</h2><p><strong>平衡</strong>（Balance）：就是当结点数量固定时，左右子树的高度越接近，这棵二叉树越平衡（高度越低）。而<strong>最理想的平衡</strong>就是完全二叉树/满二叉树，高度最小的二叉树。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/binary-tree-compare.png" alt="img"></p>
+<p>一棵二叉搜索树平均时间复杂度可以认为是树的高度 O(h)。像左边这棵，结点的左右子树的高度接近，属于一棵平衡二叉搜索树，O(h) = O(logn)；而右边这棵，高度达到了最大，已经退化成了链表，O(h)=O(n)。</p>
+<h2 id="改进二叉搜索树"><a href="#改进二叉搜索树" class="headerlink" title="改进二叉搜索树"></a>改进二叉搜索树</h2><p>当二叉树退化成链表时，性能是很低的，所以我们需要在结点的插入、删除操作之后，想办法让二叉搜索树恢复平衡（减小树的高度）。但是如果为了追求最理想的平衡，而增加了时间复杂度也不是很有必要，因此比较合理的方案就是：<strong>用尽量少的调整次数达到适度平衡</strong>。</p>
+<p>由此引申出 AVL 树的概念。</p>
+<h1 id="AVL-树"><a href="#AVL-树" class="headerlink" title="AVL 树"></a>AVL 树</h1><p>AVL 树是最早发明的自平衡二叉搜索树之一，它取名自两位发明家的名字：G.M.Adelson-Velsky 和 E.M.Landis。</p>
+<h2 id="平衡因子"><a href="#平衡因子" class="headerlink" title="平衡因子"></a>平衡因子</h2><ul>
+<li>平衡因子（Balance Factor）：某结点的左右子树的高度差。</li>
+<li>每个叶子结点的平衡因子都是 0。看这棵二叉搜索树，红色数字标注了每个结点对应的平衡因子。</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/binary-search-tree-balance-factor.png" alt="img"></p>
+<p><strong>举例：</strong></p>
+<ul>
+<li>8 的左子树高度为 2，右子树高度为 1，因此它的平衡因子为 1；</li>
+<li>5 的左子树高度为 0，右子树高度为 3,因此它的平衡因子为 -3</li>
+<li>4 的左子树高度为 2，右子树高度为 4，因此它的平衡因子为 -2；</li>
+</ul>
+<p>再看这棵 AVL 树和它每个结点对应的平衡因子：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/avl-tree-balance-factor.png" alt="img"></p>
+<p>可以看到 AVL 树具有以下<strong>特点</strong>：</p>
+<ul>
+<li>每个结点的平衡因子只可能是 -1、0、1（如果绝对值超过 1，则认为是<strong>失衡</strong>）</li>
+<li>每个结点的左右子树高度差不超过 1</li>
+<li>搜索、插入、删除的时间复杂度是 O(logn)</li>
+</ul>
+<h1 id="B-树"><a href="#B-树" class="headerlink" title="B 树"></a>B 树</h1><p>B 树（Balanced Tree）是一种<strong>平衡</strong>的<strong>多路</strong>搜索树，多用于文件系统、数据库的实现。这是一个简单的 3 阶 B 树：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/b-tree.png" alt="img"></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>1 个结点可以存储超过 2 个元素，可以拥有超过 2 个子结点</li>
+<li>拥有二叉搜索树的一些性质</li>
+<li>平衡，每个结点的所有子树高度一致</li>
+<li>比较矮</li>
+</ol>
+<h2 id="m-阶-B-树的性质（m-≥-2）"><a href="#m-阶-B-树的性质（m-≥-2）" class="headerlink" title="m 阶 B 树的性质（m ≥ 2）"></a>m 阶 B 树的性质（m ≥ 2）</h2><p>m 阶 B 树指的是一个结点最多拥有 m 个子结点.假设一个结点存储的<strong>元素个数</strong>为 x，那么如果这个结点是：</p>
 <ol>
-<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>标记冲突开始，后面跟的是当前分支中的内容。</li>
-<li>HEAD指向当前分支末梢的提交</li>
-<li><code>=======</code>之后，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之前是要merge过来的另一条分支上的代码。</li>
-<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之后的dev是该分支的名字。</li>
+<li>根结点：1 ≤ x ≤ m - 1</li>
+<li>非根结点：┌ m / 2 ┐ - 1 ≤ x ≤ m - 1</li>
 </ol>
-</li>
-<li><p>修改文件，保存，再次提交即可</p>
-</li>
-<li><p>通过git log查看分支合并的情况</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-git_01 基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">git_01基础命令</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-03-07T03:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="git-基本命令"><a href="#git-基本命令" class="headerlink" title="git 基本命令"></a>git 基本命令</h2><p><img src="/zbcn.github.io/assets/postImg/git/imgs/git%E6%A6%82%E8%A7%88.png" alt="git概览"></p>
-<h3 id="git-修改用户名和邮箱"><a href="#git-修改用户名和邮箱" class="headerlink" title="git 修改用户名和邮箱"></a>git 修改用户名和邮箱</h3><ul>
-<li>修改project 中的用户名/邮箱名<ol>
-<li>切换到你的项目</li>
-<li>查看用户名:<code>git config user.name</code></li>
-<li>用户名: <code>git config user.name &#39;zbcn&#39;</code>;</li>
-<li>邮箱名称: <code>git config user.email &#39;xxx.@email.com&#39;</code></li>
+<p>如果有子结点，<strong>子结点个数</strong> 为 y = x + 1，那么如果这个结点是：</p>
+<ol>
+<li>根结点：2 ≤ y ≤ m</li>
+<li>非根结点：┌ m / 2 ┐ ≤ y ≤ m</li>
 </ol>
+<blockquote>
+<p>向上取整（Ceiling），指的是取比自己大的最小整数，用数学符号 ┌ ┐ 表示。<br>向下取整（Floor），指的是取比自己小的最大整数，用数学符号 └ ┘ 表示。</p>
+</blockquote>
+<p>比如 m = 3， 子结点个数 2 ≤ y ≤ 3，这个 B 树可以称为（2,3）树、2-3 树；</p>
+<p>比如 m = 4， 子结点个数 2 ≤ y ≤ 4，这个 B 树可以称为（2,4）树、2-3-4 树；</p>
+<p>比如 m = 5， 子结点个数 3 ≤ y ≤ 4，这个 B 树可以称为（3,5）树、3-4-5 树；</p>
+<h1 id="B-树-VS-二叉搜索树"><a href="#B-树-VS-二叉搜索树" class="headerlink" title="B 树 VS 二叉搜索树"></a>B 树 VS 二叉搜索树</h1><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/binary-search-tree.png" alt="img"></p>
+<p>这是一棵二叉搜索树，通过某些父子结点合并，恰好能与上面的 B 树对应。我们可以得到结论：</p>
+<ul>
+<li>B 树和二叉搜索树，在逻辑上是等价的</li>
+<li>多代结点合并，可以获得一个超级结点，且 n 代合并的超级结点，最多拥有 个子结点 （至少是2^n 阶 B 树）</li>
+</ul>
+<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p>红黑树，本质上是一颗二叉查找树，但他在二叉查找树的基础上增加了着色和相关的性质，使得红黑树相对平衡，从而保证了红黑树的查找，插入，删除的复杂度最坏为O(log n).</p>
+<p>如何保证一棵n个结点的红黑树的高度始终保持在h = logn的呢？这就引出了红黑树的5条性质.</p>
+<p>红黑树是一种含有<strong>红黑结点</strong>并能<strong>自平衡</strong>的二叉搜索树。</p>
+<h1 id="红黑树的五条性质"><a href="#红黑树的五条性质" class="headerlink" title="红黑树的五条性质"></a>红黑树的五条性质</h1><ol>
+<li>每个节点要么是红的要么是黑的</li>
+<li>根节点是黑色的</li>
+<li>每个页节点（叶结点即指树尾端NIL指针或NULL结点）是黑色的</li>
+<li>如果一个节点是红色的，则他们的儿子节点都是黑色的(红色结点不能连续（也就是，红色结点的孩子和父亲都是黑色）)</li>
+<li><strong>对任意以节点而言，其到叶节点树尾端NIL指针的每条路径都包含相同数量的黑节点</strong></li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/1.png" alt="img"></p>
+<p>上文中我们所说的 “叶结点” 或”NULL结点”，它不包含数据而只充当树在此结束的指示，这些结点以及它们的父结点，在绘图中都会经常被省略。</p>
+<h1 id="红黑树与B树的等价变换"><a href="#红黑树与B树的等价变换" class="headerlink" title="红黑树与B树的等价变换"></a>红黑树与B树的等价变换</h1><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825140335138.png" alt="image-20200825140335138"></p>
+<p>根据上面的性质，可以画出这样一棵红黑树。接下来对红黑树做等价变换，即将所有的红色结点上升一层与它的父结点放在同一行，这就很像一棵 4 阶 B 树，转换效果如下图所示。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825140422773.png" alt="image-20200825140422773"></p>
+<h2 id="可以得出结论："><a href="#可以得出结论：" class="headerlink" title="可以得出结论："></a>可以得出结论：</h2><ul>
+<li>红黑树与 4 阶 B 树（2-3-4树）具有等价性</li>
+<li>黑色结点与红色子结点融合在一起，形成 1 个 B 树结点</li>
+<li>红黑树的黑色结点个数与 4 阶 B 树的结点总个数相等</li>
+</ul>
+<h1 id="红黑树的基本操作"><a href="#红黑树的基本操作" class="headerlink" title="红黑树的基本操作"></a>红黑树的基本操作</h1><p>当我们对一棵平衡二叉搜索树进行插入、删除的时候，很可能会让这棵树变得<strong>失衡</strong>（最坏可能导致所有祖先结点失衡，但是父结点和非祖先结点都不可能失衡），为了达到平衡，需要对树进行旋转。而红黑树能够达到自平衡，靠的也就是<strong>左旋</strong>、<strong>右旋</strong>和<strong>变色</strong>。</p>
+<p>旋转操作是局部的。当一侧子树的结点少了，向另一侧“借”一些结点；当一侧子树的结点多了，则“租”一些结点给另一侧。</p>
+<h2 id="为了更清楚地讲解这部分内容，先声明几个概念"><a href="#为了更清楚地讲解这部分内容，先声明几个概念" class="headerlink" title="为了更清楚地讲解这部分内容，先声明几个概念"></a>为了更清楚地讲解这部分内容，先声明几个概念</h2><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/red-black-tree-node-definition.png" alt="img"></p>
+<ul>
+<li>N - node：当前结点</li>
+<li>P - parent：父结点</li>
+<li>S - sibling：兄弟结点</li>
+<li>U - uncle：叔父结点（P 的兄弟结点）</li>
+<li>G - grand：祖父结点（P 的父结点）</li>
+</ul>
+<h2 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h2><p><strong>左旋</strong>指的是以某个结点作为支点(旋转结点)，其右子结点变为旋转结点的父结点，右子结点的左子结点变为旋转结点的右子结点，左子结点保持不变。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/left-rotation.png" alt="img"></p>
+<p>不考虑结点颜色，可以看到左旋只影响旋转结点和其右子树的结构，把右子树的结点往左子树移动。</p>
+<h2 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h2><p><strong>右旋</strong>指的是以某个结点作为支点(旋转结点)，其左子结点变为旋转结点的父结点，左子结点的右子结点变为旋转结点的左子结点，右子结点保持不变。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/right-rotation.png" alt="img"></p>
+<p>不考虑结点颜色，可以看到右旋只影响旋转结点和其左子树的结构，把左子树的结点往右子树移动。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>左旋和右旋知识详见 al_05_平衡二叉树的 @ 二叉树的修正机制 章节;</p>
+<h2 id="变色"><a href="#变色" class="headerlink" title="变色"></a>变色</h2><p>变色指的是结点的颜色由红变黑或由黑变红。</p>
+<h3 id="变换规则"><a href="#变换规则" class="headerlink" title="变换规则"></a>变换规则</h3><p>将左旋、右旋和变色结合起来，得到一套变换规则。</p>
+<h4 id="变色："><a href="#变色：" class="headerlink" title="变色："></a>变色：</h4><p>如果当前结点的父结点和叔父结点是红色，那么：</p>
+<ul>
+<li>把父结点和叔父结点变为黑色</li>
+<li>把祖父结点变为红色</li>
+<li>把指针定义到<strong>祖父结点</strong></li>
+</ul>
+<h4 id="左旋-1"><a href="#左旋-1" class="headerlink" title="左旋"></a><strong>左旋</strong></h4><p>当前结点是<strong>右子树</strong>，且父结点是<strong>红色</strong>，叔父结点是<strong>黑色</strong>，对它的<strong>父结点</strong>左旋</p>
+<h4 id="右旋-1"><a href="#右旋-1" class="headerlink" title="右旋"></a>右旋</h4><p>当前结点是<strong>左子树</strong>，且父结点是<strong>红色</strong>，叔父结点是<strong>黑色</strong>，那么：</p>
+<ul>
+<li>把父结点变为<strong>黑色</strong></li>
+<li>把祖父结点变为<strong>红色</strong></li>
+<li>对<strong>祖父结点</strong>右旋</li>
+</ul>
+<h2 id="红黑树搜索"><a href="#红黑树搜索" class="headerlink" title="红黑树搜索"></a>红黑树搜索</h2><p>由于红黑树本来就是平衡二叉搜索树，并且搜索也不会破坏树的平衡，所以搜索算法也与平衡二叉搜索树一致：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-search-flow-chart.png" alt="img"></p>
+<p>具体步骤：</p>
+<ol>
+<li>从<strong>根结点</strong>开始检索，把根结点设置为当前结点；</li>
+<li>若当前结点为<strong>空</strong>，<strong>返回 nil</strong>。</li>
+<li>若当前结点不为空，比较当前结点 key 与搜索 key 的大小；</li>
+<li>若当前结点 key <strong>等于</strong>搜索 key，那么该 key 就是搜索目标，<strong>返回当前结点</strong>。</li>
+<li>若当前结点 key <strong>大于</strong>搜索 key，把当前结点的<strong>左子结点</strong>设置为当前结点，重复步骤 2；</li>
+<li>若当前结点 key <strong>小于</strong>搜索 key，把当前结点的<strong>右子结点</strong>设置为当前结点，重复步骤 2；</li>
+</ol>
+<h2 id="红黑树插入"><a href="#红黑树插入" class="headerlink" title="红黑树插入"></a>红黑树插入</h2><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-add-flow-chart.png" alt="img"></p>
+<p>具体步骤：</p>
+<ol>
+<li>从根结点开始检索；</li>
+<li>若根结点为空，那么<strong>插入结点设为根结点</strong>，结束。</li>
+<li>若根结点不为空，那么把根结点设为当前结点；</li>
+<li>若当前结点为 nil，<strong>返回当前结点的父结点</strong>，结束。</li>
+<li>若当前结点 key <strong>等于</strong>搜索 key，那么该 key 所在结点就是插入结点，<strong>更新结点的值</strong>，结束。</li>
+<li>若当前结点 key <strong>大于</strong>搜索 key，把当前结点的<strong>左子结点</strong>设置为当前结点，重复步骤 4；</li>
+<li>若当前结点 key <strong>小于</strong>搜索 key，把当前结点的<strong>右子结点</strong>设置为当前结点，重复步骤 4；</li>
+</ol>
+<h3 id="插入后实现自平衡"><a href="#插入后实现自平衡" class="headerlink" title="插入后实现自平衡"></a>插入后实现自平衡</h3><p>建议新添加的结点默认为<strong>红色</strong>，因此这样能够让红黑树的性质尽快满足。不过如果添加的结点是<strong>根结点</strong>，设为黑色即可。</p>
+<p>总结一下<strong>红黑树插入</strong>可能出现的<strong>所有场景</strong>。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-all.png" alt="img"></p>
+<h4 id="场景-1：红黑树为空树"><a href="#场景-1：红黑树为空树" class="headerlink" title="场景 1：红黑树为空树"></a>场景 1：红黑树为空树</h4><p>红黑树的性质 2：根结点必须是黑色。</p>
+<p><strong>处理</strong>：直接把插入结点设成黑色并作为根结点。</p>
+<h4 id="场景-2：插入结点的-key-已存在"><a href="#场景-2：插入结点的-key-已存在" class="headerlink" title="场景 2：插入结点的 key 已存在"></a>场景 2：插入结点的 key 已存在</h4><p>二叉搜索树中不能插入相同元素，既然结点的 key 已经存在，红黑树也已平衡，无需重复插入。</p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将插入结点设为将要替换结点的颜色</li>
+<li>更新当前结点的值为插入结点的值</li>
+</ul>
+<h4 id="场景-3：插入结点的父结点为黑色"><a href="#场景-3：插入结点的父结点为黑色" class="headerlink" title="场景 3：插入结点的父结点为黑色"></a>场景 3：插入结点的父结点为黑色</h4><p>插入的结点默认是红色的，当它的父结点是黑色时，并不会破坏平衡。</p>
+<p><strong>处理</strong>：直接插入。</p>
+<h4 id="场景-4：插入结点的父结点为红色"><a href="#场景-4：插入结点的父结点为红色" class="headerlink" title="场景 4：插入结点的父结点为红色"></a>场景 4：插入结点的父结点为红色</h4><p>如果插入结点的父结点为红色，那么父结点不可能为根结点，所以插入结点总是存在祖父结点。这点很重要，后续的旋转操作需要祖父结点的参与。</p>
+<h5 id="场景-4-1：存在叔父结点，且为红色"><a href="#场景-4-1：存在叔父结点，且为红色" class="headerlink" title="场景 4.1：存在叔父结点，且为红色"></a>场景 4.1：存在叔父结点，且为红色</h5><p>由红黑树性质 4 可知：红色结点不能连续。那么此时该插入子树的红黑层数的情况是：黑-红-红。显然最简单的处理方式就是将其改为：红-黑-红。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-4-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将父结点和叔父结点变为黑色</li>
+<li>将祖父结点变为红色</li>
+<li>将祖父结点设置为当前插入结点</li>
+</ul>
+<h5 id="场景-4-2：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的左子结点"><a href="#场景-4-2：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的左子结点" class="headerlink" title="场景 4.2：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的左子结点"></a>场景 4.2：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的左子结点</h5><p>这种场景下，叔父结点所在的子树的黑色结点就比父结点所在子树的多，不满足红黑树的性质 5。</p>
+<h6 id="场景-4-2-1：插入结点是左子树"><a href="#场景-4-2-1：插入结点是左子树" class="headerlink" title="场景 4.2.1：插入结点是左子树"></a>场景 4.2.1：插入结点是左子树</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-4-2-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将父结点变为黑色</li>
+<li>将祖父结点变为红色</li>
+<li>将祖父结点右旋</li>
+</ul>
+<h5 id="场景-4-2-2：插入结点是左子树"><a href="#场景-4-2-2：插入结点是左子树" class="headerlink" title="场景 4.2.2：插入结点是左子树"></a>场景 4.2.2：插入结点是左子树</h5><p>这种场景显然可以转换为 4.2.1。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-4-2-2.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将父结点进行左旋</li>
+<li>将父结点设为插入结点，得到场景 4.2.1</li>
+<li>进行场景 4.2.1 的处理</li>
+</ul>
+<h5 id="场景-4-3：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的右子结点"><a href="#场景-4-3：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的右子结点" class="headerlink" title="场景 4.3：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的右子结点"></a>场景 4.3：叔父结点不存在或为黑色，插入结点的父结点是祖父结点的右子结点</h5><p>相当于场景 4.2 的方向反转，直接看图。</p>
+<h6 id="场景-4-3-1：插入结点是左子树"><a href="#场景-4-3-1：插入结点是左子树" class="headerlink" title="场景 4.3.1：插入结点是左子树"></a>场景 4.3.1：插入结点是左子树</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-4-3-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将父结点变为黑色</li>
+<li>将祖父结点变为红色</li>
+<li>对祖父结点进行左旋</li>
+</ul>
+<h6 id="场景-4-3-2：插入结点是右子树"><a href="#场景-4-3-2：插入结点是右子树" class="headerlink" title="场景 4.3.2：插入结点是右子树"></a>场景 4.3.2：插入结点是右子树</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-4-3-2.png" alt="img"></p>
+<p><strong>处理：</strong></p>
+<ul>
+<li>将父结点进行右旋</li>
+<li>将父结点设置为插入结点，得到场景 4.3.1</li>
+<li>进行场景 4.3.1 的处理</li>
+</ul>
+<h6 id="下面举个例子，往一棵红黑树中插入元素，整棵树的变换如下图所示："><a href="#下面举个例子，往一棵红黑树中插入元素，整棵树的变换如下图所示：" class="headerlink" title="下面举个例子，往一棵红黑树中插入元素，整棵树的变换如下图所示："></a>下面举个例子，往一棵红黑树中插入元素，整棵树的变换如下图所示：</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-insert-example.png" alt="img"></p>
+<h3 id="红黑树自平衡2"><a href="#红黑树自平衡2" class="headerlink" title="红黑树自平衡2"></a>红黑树自平衡2</h3><p>红黑树的插入过程和二叉查找树插入过程基本类似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。</p>
+<p>下来，将分析插入红色节点后红黑树的情况。这里假设要插入的节点为 N，N 的父节点为 P，祖父节点为 G，叔叔节点为 U。插入红色节点后，会出现5种情况，分别如下：</p>
+<h4 id="情况一"><a href="#情况一" class="headerlink" title="情况一"></a>情况一</h4><p>插入的新节点 N 是红黑树的根节点，这种情况下，我们把节点 N 的颜色由红色变为黑色，性质2（根是黑色）被满足。同时 N 被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性质5（从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点）仍然被满足。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825175445178.png" alt="image-20200825175445178"></p>
+<h4 id="情况二"><a href="#情况二" class="headerlink" title="情况二"></a>情况二</h4><p>N 的父节点是黑色，这种情况下，性质4（每个红色节点必须有两个黑色的子节点）和性质5没有受到影响，不需要调整。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825175654719.png" alt="image-20200825175654719"></p>
+<h4 id="情况三"><a href="#情况三" class="headerlink" title="情况三"></a>情况三</h4><p>N 的父节点是红色（节点 P 为红色，其父节点必然为黑色），叔叔节点 U 也是红色。由于 P 和 N 均为红色，所有性质4被打破，此时需要进行调整。这种情况下，先将 P 和 U 的颜色染成黑色，再将 G 的颜色染成红色。此时经过 G 的路径上的黑色节点数量不变，性质5仍然满足。但需要注意的是 G 被染成红色后，可能会和它的父节点形成连续的红色节点，此时需要递归向上调整。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825175823196.png" alt="image-20200825175823196"></p>
+<h4 id="情况四"><a href="#情况四" class="headerlink" title="情况四"></a>情况四</h4><p>N 的父节点为红色，叔叔节点为黑色。节点 N 是 P 的右孩子，且节点 P 是 G 的左孩子。此时先对节点 P 进行左旋，调整 N 与 P 的位置。接下来按照情况五进行处理，以恢复性质4。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825175927893.png" alt="image-20200825175927893"></p>
+<h4 id="情况五"><a href="#情况五" class="headerlink" title="情况五"></a>情况五</h4><p>N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825175954445.png" alt="image-20200825175954445"></p>
+<h4 id="插入总结"><a href="#插入总结" class="headerlink" title="插入总结"></a>插入总结</h4><p>上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825180108239.png" alt="image-20200825180108239"></p>
+<h1 id="红黑树删除"><a href="#红黑树删除" class="headerlink" title="红黑树删除"></a>红黑树删除</h1><p>红黑树删除操作也分为两步：</p>
+<h2 id="定位删除的位置"><a href="#定位删除的位置" class="headerlink" title="定位删除的位置"></a>定位删除的位置</h2><p>定位删除位置可以复用<a href="https://blog.fiteen.top/2020/red-black-tree#rbtree-search" target="_blank" rel="noopener">红黑树搜索</a>的操作。</p>
+<p>如果不存在目标结点，忽略本次操作；如果找到目标结点，删除后进行自平衡处理。</p>
+<h2 id="删除后实现自平衡"><a href="#删除后实现自平衡" class="headerlink" title="删除后实现自平衡"></a>删除后实现自平衡</h2><p><strong>二叉搜索树删除</strong>的时候可能出现三种场景：</p>
+<ul>
+<li>场景一：若删除结点<strong>无</strong>子结点，<strong>直接删除</strong>即可；</li>
+<li>场景二：若删除结点只有<strong>一个</strong>子结点，用<strong>子结点</strong>替换删除结点；</li>
+<li>场景三：若删除结点有<strong>两个</strong>子结点，用<strong>后继结点（大于删除结点的最小结点）</strong>替换删除结点。</li>
+</ul>
+<p>具体应用，可以借助这张图理解：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/binary-tree-delete-example.png" alt="img"></p>
+<p>我们可以发现，另外两种二叉树的删除场景都可以通过相互转换变为场景一。</p>
+<p>在场景二情况下：删除结点用其唯一的子结点替换，子结点替换为删除结点后，可以认为删除的是子结点，若子结点又有两个子结点，那么相当于转换为场景三，一直自顶向下转换，总是能转换为场景一。</p>
+<p>在场景三情况下：删除结点用后继结点，如果后继结点有右子结点，那么相当于转换为场景二，否则转为场景一。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/binary-tree-delete-situation.png" alt="img"></p>
+<p>综上所述，<strong>删除的结点可以看作删除替换结点</strong>，且<strong>替换结点最后总是在树末</strong>。</p>
+<p>下面总结一下<strong>红黑树删除</strong>可能出现的<strong>所有场景</strong>。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-all.png" alt="img"></p>
+<p>为了方面理解，我们先约定一下结点的叫法：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-node-definition.png" alt="img"></p>
+<ul>
+<li>R - <strong>替换结点</strong></li>
+<li>P - 替换结点的<strong>父结点</strong></li>
+<li>S - 替换结点的<strong>兄弟结点</strong></li>
+<li>SL - 兄弟结点的<strong>左子结点</strong></li>
+<li>SR - 兄弟结点的<strong>右子结点</strong></li>
+<li>灰色 - 结点颜色可能是红色，也可能是黑色</li>
+</ul>
+<p>注意：<strong>R 是即将被替换到删除结点的位置的替换结点</strong>，在删除前，它还在原来所在位置参与树的子平衡，平衡后再替换到删除结点的位置，才算删除完成。</p>
+<h3 id="场景-1：替换结点为红色"><a href="#场景-1：替换结点为红色" class="headerlink" title="场景 1：替换结点为红色"></a>场景 1：替换结点为红色</h3><p>我们把替换结点换到了删除结点的位置时，由于替换结点为红色，删除也了不会影响红黑树的平衡，只要把替换结点的颜色变为删除的结点的颜色即可重新平衡。</p>
+<p><strong>处理</strong>：替换结点颜色变为删除结点的颜色。</p>
+<h3 id="场景-2：替换结点为黑色"><a href="#场景-2：替换结点为黑色" class="headerlink" title="场景 2：替换结点为黑色"></a>场景 2：替换结点为黑色</h3><p>当替换结点是黑色时，就必须进行自平衡处理了，我们可以通过区分替换结点是其父结点的左子结点还是右子结点，来做不同的旋转，使树重新平衡。</p>
+<h4 id="场景-2-1：替换结点是左子树"><a href="#场景-2-1：替换结点是左子树" class="headerlink" title="场景 2.1：替换结点是左子树"></a>场景 2.1：替换结点是左子树</h4><h5 id="场景-2-1-1：替换结点的兄弟结点为红色"><a href="#场景-2-1-1：替换结点的兄弟结点为红色" class="headerlink" title="场景 2.1.1：替换结点的兄弟结点为红色"></a>场景 2.1.1：替换结点的兄弟结点为红色</h5><p>若兄弟结点是红结点，那么根据红黑树性质 4，兄弟结点的父结点和子结点肯定为黑色，按照下图方式处理，得到删除场景 2.1.2.3。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-1-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点变为黑色</li>
+<li>将父结点变为红色</li>
+<li>对父结点进行左旋，得到场景 2.1.2.3</li>
+<li>进行场景 2.1.2.3 的处理</li>
+</ul>
+<h5 id="场景-2-1-2：替换结点的兄弟结点为黑色"><a href="#场景-2-1-2：替换结点的兄弟结点为黑色" class="headerlink" title="场景 2.1.2：替换结点的兄弟结点为黑色"></a>场景 2.1.2：替换结点的兄弟结点为黑色</h5><p>当兄弟结点为黑时，其父结点和子结点的具体颜色也无法确定，此时又得考虑多种子场景。</p>
+<h6 id="场景-2-1-2-1：替换结点的兄弟结点的右子结点为红色，左子结点任意颜色"><a href="#场景-2-1-2-1：替换结点的兄弟结点的右子结点为红色，左子结点任意颜色" class="headerlink" title="场景 2.1.2.1：替换结点的兄弟结点的右子结点为红色，左子结点任意颜色"></a>场景 2.1.2.1：替换结点的兄弟结点的右子结点为红色，左子结点任意颜色</h6><p>即将删除的左子树的一个黑色结点，显然左子树的黑色结点少 1 了，然而右子结点又是红色，那么我们直接向右子树“借”个红结点来补充黑结点，并进行旋转处理。如图所示：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-1-2-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点的颜色变为父结点的颜色</li>
+<li>将父结点变为黑色</li>
+<li>将兄弟结点的右子结点变为黑色</li>
+<li>对父结点进行左旋</li>
+</ul>
+<h6 id="场景-2-1-2-2：替换结点的兄弟结点的右子结点为黑色，左子结点为红色"><a href="#场景-2-1-2-2：替换结点的兄弟结点的右子结点为黑色，左子结点为红色" class="headerlink" title="场景 2.1.2.2：替换结点的兄弟结点的右子结点为黑色，左子结点为红色"></a>场景 2.1.2.2：替换结点的兄弟结点的右子结点为黑色，左子结点为红色</h6><p>兄弟结点所在的子树有红结点，又可以向兄弟子树“借”个红结点过来，这就转换回了场景 2.1.2.1。如图所示：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-1-2-2.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点变为红色</li>
+<li>将兄弟结点的左子结点变为黑色</li>
+<li>对兄弟结点进行右旋，得到场景 2.1.2.1</li>
+<li>进行场景 2.1.2.1 的处理</li>
+</ul>
+<h6 id="场景-2-1-2-3：替换结点的兄弟结点的子结点都为黑色"><a href="#场景-2-1-2-3：替换结点的兄弟结点的子结点都为黑色" class="headerlink" title="场景 2.1.2.3：替换结点的兄弟结点的子结点都为黑色"></a>场景 2.1.2.3：替换结点的兄弟结点的子结点都为黑色</h6><p>兄弟子树没有红结点可以“借”了，再向父结点“借”。如果父结点是黑色，为了让父结点在所在的子树中保证平衡（替换结点即将删除，少了一个黑色结点，子树也需要少一个）先把兄弟结点变为红色，再让父结点成为新的替换结点。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-1-2-3.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>如果父结点为黑色<ul>
+<li>将兄弟结点变为红色</li>
+<li>将父结点作为新的替换结点</li>
+<li>重新进行删除结点的场景处理</li>
+</ul>
 </li>
-<li>修改全局用户名和邮箱名<ol>
-<li>查看用户名:<code>git config --gloable user.name</code></li>
-<li>用户名: <code>git config --gloable user.name &#39;xxx&#39;</code></li>
-<li>邮箱名称: <code>git config --gloable user.email &#39;xxx.@email.comm&#39;</code>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
+<li>如果父结点为红色<ul>
+<li>替换结点的父结点和替换结点的兄弟结点颜色交换</li>
+<li>删除结点和替换结点的值交换后，删除替换结点</li>
+</ul>
+</li>
+</ul>
+<h4 id="场景-2-2：替换结点是右子树"><a href="#场景-2-2：替换结点是右子树" class="headerlink" title="场景 2.2：替换结点是右子树"></a>场景 2.2：替换结点是右子树</h4><p>实际上是场景 2.1 的镜像操作。</p>
+<h5 id="场景-2-2-1：替换结点的兄弟结点为红色"><a href="#场景-2-2-1：替换结点的兄弟结点为红色" class="headerlink" title="场景 2.2.1：替换结点的兄弟结点为红色"></a>场景 2.2.1：替换结点的兄弟结点为红色</h5><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-2-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点变为黑色</li>
+<li>将父结点变为红色</li>
+<li>对父结点进行右旋，得到场景 2.2.2.3</li>
+<li>进行场景 2.2.2.3 的处理</li>
+</ul>
+<h5 id="场景-2-2-2：替换结点的兄弟结点为黑色"><a href="#场景-2-2-2：替换结点的兄弟结点为黑色" class="headerlink" title="场景 2.2.2：替换结点的兄弟结点为黑色"></a>场景 2.2.2：替换结点的兄弟结点为黑色</h5><h6 id="场景-2-2-2-1：替换结点的兄弟结点的左子结点为红色，右子结点任意颜色"><a href="#场景-2-2-2-1：替换结点的兄弟结点的左子结点为红色，右子结点任意颜色" class="headerlink" title="场景 2.2.2.1：替换结点的兄弟结点的左子结点为红色，右子结点任意颜色"></a>场景 2.2.2.1：替换结点的兄弟结点的左子结点为红色，右子结点任意颜色</h6><p><strong>处理</strong></p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-2-2-1.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点的颜色变为父结点的颜色</li>
+<li>将父结点变为黑色</li>
+<li>将兄弟结点的左子结点变为黑色</li>
+<li>对父结点进行右旋</li>
+</ul>
+<h6 id="场景-2-2-2-2：替换结点的兄弟结点的左子结点为黑色，右子结点为红色"><a href="#场景-2-2-2-2：替换结点的兄弟结点的左子结点为黑色，右子结点为红色" class="headerlink" title="场景 2.2.2.2：替换结点的兄弟结点的左子结点为黑色，右子结点为红色"></a>场景 2.2.2.2：替换结点的兄弟结点的左子结点为黑色，右子结点为红色</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-2-2-2.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>将兄弟结点变为红色</li>
+<li>将兄弟结点的右子结点设为黑色</li>
+<li>对兄弟结点进行左旋，得到场景 2.2.2.1</li>
+<li>进行场景 2.2.2.1 的处理</li>
+</ul>
+<h6 id="场景-2-2-2-3：替换结点的兄弟结点的子结点都为黑色"><a href="#场景-2-2-2-3：替换结点的兄弟结点的子结点都为黑色" class="headerlink" title="场景 2.2.2.3：替换结点的兄弟结点的子结点都为黑色"></a>场景 2.2.2.3：替换结点的兄弟结点的子结点都为黑色</h6><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/rbtree-delete-2-2-2-3.png" alt="img"></p>
+<p><strong>处理</strong>：</p>
+<ul>
+<li>如果父结点为黑色<ul>
+<li>将兄弟结点变为红色</li>
+<li>将父结点作为新的替换结点</li>
+<li>重新进行删除结点的场景处理</li>
+</ul>
+</li>
+<li>如果父结点为红色<ul>
+<li>替换结点的父结点和替换结点的兄弟结点颜色交换</li>
+<li>删除结点和替换结点的值交换后，删除替换结点</li>
+</ul>
+</li>
+</ul>
+<h3 id="删除后自平衡2"><a href="#删除后自平衡2" class="headerlink" title="删除后自平衡2"></a>删除后自平衡2</h3><p>相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。</p>
+<p>红黑树删除操作的复杂度在于删除节点的颜色，当删除的节点是红色时，直接拿其孩子节点补空位即可。因为删除红色节点，性质5（从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点）仍能够被满足。</p>
+<p>当删除的节点是黑色时，那么所有经过该节点的路径上的黑节点数量少了一个，破坏了性质5。如果该节点的孩子为红色，直接拿孩子节点替换被删除的节点，并将孩子节点染成黑色，即可恢复性质5。但如果孩子节点为黑色，处理起来就要复杂的多。分为6种情况，下面会展开说明。</p>
+<p>在展开说明之前，我们先做一些假设，方便说明。这里假设最终被删除的节点为<code>X</code>（至多只有一个孩子节点），孩子节点为<code>N</code>，<code>X</code>的兄弟节点为<code>S</code>，<code>S</code>的左节点为 SL，右节点为 SR，接下来讨论是建立在节点 <code>X</code> 被删除，节点 <code>N</code> 替换<code>X</code>的基础上进行的。这里说明把被删除的节点<code>X</code>特地拎出来说一下的原因是防止大家误以为节点<code>N</code>会被删除，不然可能看不明白。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825195727597.png" alt="image-20200825195727597"></p>
+<p>在上面的基础上，接下来就可以展开讨论了。红黑树删除有6种情况，分别是：</p>
+<h4 id="情况一-1"><a href="#情况一-1" class="headerlink" title="情况一"></a>情况一</h4><p>N 是新的根。在这种情形下，我们就做完了。我们从所有路径去除了一个黑色节点，而新根是黑色的，所以性质都保持着。</p>
+<p>上面是维基百科中关于红黑树删除的情况一说明，由于没有配图，看的有点晕。经过思考，我觉得可能会是下面这种情形：</p>
+<p>要删除的节点 X 是根节点，且左右孩子节点均为空节点，此时将节点 X 用空节点替换完成删除操作。</p>
+<h4 id="情况二-1"><a href="#情况二-1" class="headerlink" title="情况二"></a>情况二</h4><p>S 为红色，其他节点为黑色。这种情况下可以对 N 的父节点进行左旋操作，然后互换 P 与 S 颜色。但这并未结束，经过节点 P 和 N 的路径删除前有3个黑色节点（<code>P -&gt; X -&gt; N</code>），现在只剩两个了（<code>P -&gt; N</code>）。比未经过 N 的路径少一个黑色节点，性质5仍不满足，还需要继续调整。不过此时可以按照情况四、五、六进行调整。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825200133240.png" alt="image-20200825200133240"></p>
+<h4 id="情况三-1"><a href="#情况三-1" class="headerlink" title="情况三"></a>情况三</h4><p>N 的父节点，兄弟节点 S 和 S 的孩子节点均为黑色。这种情况下可以简单的把 S 染成红色，所有经过 S 的路径比之前少了一个黑色节点，这样经过 N 的路径和经过 S 的路径黑色节点数量一致了。但经过 P 的路径比不经过 P 的路径少一个黑色节点，此时需要从情况一开始对 P 进行平衡处理。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825200551025.png" alt="image-20200825200551025"></p>
+<h4 id="情况四-1"><a href="#情况四-1" class="headerlink" title="情况四"></a>情况四</h4><p>N 的父节点为红色，叔叔节点为黑色。节点 N 是 P 的右孩子，且节点 P 是 G 的左孩子。此时先对节点 P 进行左旋，调整 N 与 P 的位置。接下来按照情况五进行处理，以恢复性质4。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825200839850.png" alt="image-20200825200839850"></p>
+<p>这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825200927105.png" alt="image-20200825200927105"></p>
+<p>如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。</p>
+<h4 id="情况五-1"><a href="#情况五-1" class="headerlink" title="情况五"></a>情况五</h4><p>S 为黑色，S 的左孩子为红色，右孩子为黑色。N 的父节点颜色可红可黑，且 N 是 P 左孩子。这种情况下对 S 进行右旋操作，并互换 S 和 SL 的颜色。此时，所有路径上的黑色数量仍然相等，N 兄弟节点的由 S 变为了 SL，而 SL 的右孩子变为红色。接下来我们到情况六继续分析。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825201005677.png" alt="image-20200825201005677"></p>
+<h4 id="情况六"><a href="#情况六" class="headerlink" title="情况六"></a>情况六</h4><p>S 为黑色，S 的右孩子为红色。N 的父节点颜色可红可黑，且 N 是其父节点左孩子。这种情况下，我们对 P 进行左旋操作，并互换 P 和 S 的颜色，并将 SR 变为黑色。因为 P 变为黑色，所以经过 N 的路径多了一个黑色节点，经过 N 的路径上的黑色节点与删除前的数量一致。对于不经过 N 的路径，则有以下两种情况：</p>
+<ol>
+<li>该路径经过 N 新的兄弟节点 SL ，那它之前必然经过 S 和 P。而 S 和 P 现在只是交换颜色，对于经过 SL 的路径不影响。</li>
+<li>该路径经过 N 新的叔叔节点 SR，那它之前必然经过 P、 S 和 SR，而现在它只经过 S 和 SR。在对 P 进行左旋，并与 S 换色后，经过 SR 的路径少了一个黑色节点，性质5被打破。另外，由于 S 的颜色可红可黑，如果 S 是红色的话，会与 SR 形成连续的红色节点，打破性质4（每个红色节点必须有两个黑色的子节点）。此时仅需将 SR 由红色变为黑色即可同时恢复性质4和性质5（从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。）。</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825201033330.png" alt="image-20200825201033330"></p>
+<h4 id="删除总结"><a href="#删除总结" class="headerlink" title="删除总结"></a>删除总结</h4><p>红黑树删除的情况比较多，大家刚开始看的时候可能会比较晕。可能会产生这样的疑问，为啥红黑树会有这种删除情况，为啥又会有另一种情况，它们之间有什么联系和区别？和大家一样，我刚开始看的时候也有这样的困惑，直到我把所有情况对应的图形画在一起时，拨云见日，一切都明了了。此时天空中出现了4个字，原来如此、原来如此、原来如此。所以，请看图吧：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/image-20200825201134903.png" alt="image-20200825201134903"></p>
+<h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><p>红黑树是一种重要的二叉树，应用广泛，但在很多数据结构相关的书本中出现的次数并不多。很多书中要么不说，要么就一笔带过，并不会进行详细的分析，这可能是因为红黑树比较复杂的缘故。我在学习红黑树的时候也找了很多资料，但总体感觉讲的都不太好。尤其是在我学习删除操作的时候，很多资料是实在人看不下去，看的我很痛苦。直到我看到维基百科上关于<a href="https://en.wikipedia.org/wiki/Red–black_tree" target="_blank" rel="noopener">红黑树</a>的分析时，很是欣喜。这篇文章分析的很有条理，言简意赅，比很多资料好了太多。本文对红黑树的分析也主要参考了维基百科中的红黑树分析，并对维基百科中容易让人产生疑问和误解的地方进行了说明。同时维基百科中文版红黑树文中的图片较为模糊，这里我重新进行了绘制。需要说明的是，维基百科中文版无法打开了，文中关于维基百科的链接都是英文版的。另外在给大家推荐一个数据结构可视化的网站，里面包含常见数据结构可视化过程，地址为：<a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank" rel="noopener">t.cn/RZFgryr</a>。</p>
+<p>另外，由于红黑树本身比较复杂，实现也较为复杂。在写这篇文章之前，我曾尝试过用 Java 语言实现红黑树的增删操作，最终只写出了新增节点操作，删除没做出来。而且自己写的新增逻辑实在太繁琐，写的不好看，没法拿出来 show。所以最后把 Java 中的 TreeMap 增删相关源码拷出来，按照自己的需求把源码修改了一下，也勉强算是实现了红黑树吧。代码放到了 github 上，传送门 -&gt; <a href="https://github.com/code4wt/basic_algorithm/blob/master/src/main/java/search/RBTree.java" target="_blank" rel="noopener">RBTree.java</a>。</p>
+<p>最后，如果你也在学习红黑树，希望这篇文章能够帮助到你。另外，由于红黑树本身比较复杂，加之本人水平有限，难免会出一些错误。如果有错，还望大家指出来，我们共同讨论。</p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-essay_02愿山河无恙,人间皆安" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/">愿山河无恙,人间皆安</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/" class="archive-article-date">
-  	<time datetime="2020-03-01T09:42:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <p>不知不觉，今天已经三月了。 民间传说，庚子鼠，祸必至。2020年，踏入鼠年，武汉肺炎疫情大爆发，令全国人心慌慌。起初那偏远的农村老家，人们还没有那么强烈的意识去自我防护。邻里相亲，该干嘛干嘛。赶年集，串门、备年货、大家在一起聊天，打扑克。所谓的疫情，只是一个遥远的传说而已，只是听听看看，是大家在一起闲谈的茶余饭后而已。</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/essay//" class="article-tag-list-link color1">essay</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_02线性表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-02-20T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>线性表是一种线性的数据结构，特点是在有限的非空集合中，其中第一个元素没有直接前驱元素，最后一个元素没有直接后继元素，其他元素都有唯一的前驱元素和后继元素。线性表有 <strong>顺序存储结构</strong> 和 <strong>链式存储结构</strong>.</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/#more">more >></a>
-        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1095,7 +1601,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/06/25/al_06%E7%BA%A2%E9%BB%91%E6%A0%91/">展开全文 >></a>
         </p>
       
 
@@ -1126,14 +1632,14 @@
 
 
   
-    <article id="post-al_00数据结构算法概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-al_05_平衡二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/">数据结构</a>
+      <a class="article-title" href="/zbcn.github.io/2020/06/21/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">al_05 平衡二叉树</a>
     </h1>
   
 
@@ -1148,8 +1654,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2020-02-20T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+        <a href="/zbcn.github.io/2020/06/21/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-06-21T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
 </a>
         
       </header>
@@ -1163,11 +1669,192 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
-<li>主要任务是通过分析数据对象的结构特征,包括逻辑结构与数据对象之间的关系,然后把逻辑结构表示成计算机计算机可实现的物理结构,从而便于计算处理.
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/#more">more >></a>
-        
+        <h1 id="平衡二叉树的由来"><a href="#平衡二叉树的由来" class="headerlink" title="平衡二叉树的由来"></a>平衡二叉树的由来</h1><h2 id="平衡二叉树存在缺馅"><a href="#平衡二叉树存在缺馅" class="headerlink" title="平衡二叉树存在缺馅"></a>平衡二叉树存在缺馅</h2><ul>
+<li>二叉搜索树一定程度上可以提高搜索效率，但是当原序列有序时，例如序列 A = {1，2，3，4，5，6}，构造二叉搜索树如图 1.1。依据此序列构造的二叉搜索树为右斜树，同时二叉树退化成单链表，搜索效率降低为 O(n)。</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819105205167.png" alt="image-20200819105205167"></p>
+<ul>
+<li>插入和删除操作可能降低未来操作的性能</li>
+</ul>
+<h1 id="什么是平衡二叉树"><a href="#什么是平衡二叉树" class="headerlink" title="什么是平衡二叉树"></a>什么是平衡二叉树</h1><p><code>Balanced BinaryTree</code>  平衡二叉树,又被称作VAL 树.特点:为一颗空树,或者它的左右两颗子树之前的高度差的绝对值不能超过1,并且左右两颗子树都是一颗平衡二叉树.</p>
+<p>平衡二叉树一般是一个有序树，它具有二叉树的所有性质，其遍历操作和二叉树的遍历操作相同。但是由于其对二叉树施加了额外限制，因而其添加、删除操作都必须保证平衡二叉树的因子被保持。</p>
+<h2 id="平衡因子"><a href="#平衡因子" class="headerlink" title="平衡因子"></a>平衡因子</h2><p>指的是该节点的两个子树，即左子树和右子树的高度差.即用左子树的高度减去右子树的高度，如果该节点的某个子树不存在，则该子树的高度为0,如果高度差的绝对值超过1就要根据情况进行调整。</p>
+<p>下图中：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819132801887.png" alt="image-20200819132801887"></p>
+<ul>
+<li>对根结点A而言， 它左子树高度为2， 右子树高度为1， 那么它的平衡因子BF = 2 - 1 = 1</li>
+<li>对结点B而言， 它左子树高度为1， 没有右子树（高度视为0），BF = 1 - 0 = 1；</li>
+</ul>
+<h2 id="平衡二叉树的节点"><a href="#平衡二叉树的节点" class="headerlink" title="平衡二叉树的节点"></a>平衡二叉树的节点</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">   *  平衡二叉树的节点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">   *  &lt;br/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">   *  <span class="doctag">@author</span> zbcn8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">   *  <span class="doctag">@since</span>  2020/8/19 13:32</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">   */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       * 节点值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">private</span> T val;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       * 深度，这里计算每个结点的深度，通过深度的比较可得出是否平衡</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> depth;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       * 父节点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">private</span> Node&lt;T&gt; parent;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       * 左子树</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">private</span> Node&lt;T&gt; left;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       * 右子树</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line"><span class="comment">       */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">private</span> Node&lt;T&gt; right;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(T val)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">          <span class="keyword">this</span>.val = val;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">          depth=<span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">          parent=<span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">          left= <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">          right = <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">      &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr></table></figure>
+
+
+
+<h2 id="平衡因子-1"><a href="#平衡因子-1" class="headerlink" title="平衡因子"></a>平衡因子</h2><p>某节点的左子树与右子树的高度(深度)差即为该节点的平衡因子（BF,Balance Factor）。平衡二叉树中不存在平衡因子大于 1 的节点，在一棵平衡二叉树中，节点的平衡因子只能取 0 （左右子树等高）、1（左子树比较高） 或者 -1（右子树比较高） ，分别对应着。</p>
+<ul>
+<li>左右子树等高</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819135300012.png" alt="image-20200819135300012"></p>
+<ul>
+<li>左子树高</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819135315983.png" alt="image-20200819135315983"></p>
+<ul>
+<li>右子树高</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819135329303.png" alt="image-20200819135329303"></p>
+<h2 id="最小失衡子树"><a href="#最小失衡子树" class="headerlink" title="最小失衡子树"></a>最小失衡子树</h2><p>在新插入的结点向上查找，以第一个平衡因子的<strong>绝对值</strong>超过 1 的结点为根的子树称为最小不平衡子树。也就是说，一棵失衡的树，是有可能有多棵子树同时失衡的。而这个时候，我们只要调整最小的不平衡子树，就能够将不平衡的树调整为平衡的树。</p>
+<p>如下图：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/v2-2ddb0f9b832fff594e294dffc299b373_b.webp" alt="img"></p>
+<p>上图中，增加99节点后，节点 66 的左子树高度为 1，右子树高度为 3，此时平衡因子为 -2，树失去平衡。</p>
+<h1 id="二叉树的修正机制"><a href="#二叉树的修正机制" class="headerlink" title="二叉树的修正机制"></a>二叉树的修正机制</h1><p><strong>平衡二叉树的失衡调整主要是通过旋转最小失衡子树来实现的</strong>。根据旋转的方向有两种处理方式，<strong>左旋</strong> 与 <strong>右旋</strong> 。</p>
+<h2 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h2><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819141304848.png" alt="image-20200819141304848"></p>
+<p>上图中：加入新节点 99 后， 节点 66 的左子树高度为 1，右子树高度为 3，此时平衡因子为 -2。为保证树的平衡，此时需要对节点 66 做出旋转，因为右子树高度高于左子树，对节点进行左旋操作。</p>
+<h3 id="操作流程如下："><a href="#操作流程如下：" class="headerlink" title="操作流程如下："></a>操作流程如下：</h3><ol>
+<li>节点的右孩子替代此节点位置</li>
+<li>右孩子的左子树变为该节点的右子树</li>
+<li>节点本身变为右孩子的左子树</li>
+</ol>
+<p>如下图：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/v2-db1cdb0da952a71f9b6d64b2608467eb_b.webp" alt="img"></p>
+<h2 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h2><p>右旋操作与左旋类似，</p>
+<h3 id="操作流程为"><a href="#操作流程为" class="headerlink" title="操作流程为"></a>操作流程为</h3><ol>
+<li>节点的左孩子代表此节点</li>
+<li>节点的左孩子的右子树变为节点的左子树</li>
+<li>将此节点作为左孩子节点的右子树。</li>
+</ol>
+<p>如下图：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/v2-05246384c1c16537ca6176983bdb2627_b.webp" alt="img"></p>
+<h2 id="四种失衡的情况"><a href="#四种失衡的情况" class="headerlink" title="四种失衡的情况"></a>四种失衡的情况</h2><table>
+<thead>
+<tr>
+<th>插入方式</th>
+<th>描述</th>
+<th>旋转方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LL</td>
+<td>在 A 的左子树根节点的左子树上插入节点而破坏平衡</td>
+<td>右旋转</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>在 A 的右子树根节点的右子树上插入节点而破坏平衡</td>
+<td>左旋转</td>
+</tr>
+<tr>
+<td>LR</td>
+<td>在A的左子树根节点的右子树上插入节点而破坏平衡</td>
+<td>先左旋后右旋</td>
+</tr>
+<tr>
+<td>RL</td>
+<td>在 A 的右子树根节点的左子树上插入节点而破坏平衡</td>
+<td>先右旋后左旋</td>
+</tr>
+<tr>
+<td>RL</td>
+<td>在 A 的<strong>右子树</strong>根节点的<strong>左子树</strong>上插入节点而破坏平衡</td>
+<td>先右旋后左旋</td>
+</tr>
+</tbody></table>
+<h3 id="LL型-（左孩子的左子树）通过右旋解决"><a href="#LL型-（左孩子的左子树）通过右旋解决" class="headerlink" title="LL型 -（左孩子的左子树）通过右旋解决"></a>LL型 -（左孩子的左子树）通过右旋解决</h3><p>在结点的左孩子的左子树中插入数据。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/v2-373766641d1c03a78f3d7eac803d1f57_b.webp" alt="img"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * 右旋</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@param</span> node</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node&lt;T&gt; <span class="title">rotateRight</span><span class="params">(Node&lt;T&gt; node)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//获取左儿子</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    Node&lt;T&gt; left = node.getLeft();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//将左儿子的右儿子（"拖油瓶"结点）链接到旋转后的node的左链接中</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    node.setLeft(left.getRight());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 调转node和它左儿子的父子关系，使node成为它原左儿子的右子树</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    left.setRight(node);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 更新并维护受影响结点的height</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    node.setHeight(max(height(node.getLeft()), height(node.getRight()))+<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 更新并维护受影响结点的height</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    left.setHeight(max(height(left.getLeft()),height(left.getRight()))+<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> left;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<h3 id="RR型-（右孩子的右子树）通过左旋解决"><a href="#RR型-（右孩子的右子树）通过左旋解决" class="headerlink" title="RR型-（右孩子的右子树）通过左旋解决"></a>RR型-（右孩子的右子树）通过左旋解决</h3><p>只需要执行一次左旋即可。</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/v2-e7044e4965ba640ee9ef35beac407cdc_b.webp" alt="img"></p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">  * 左旋</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">  * <span class="doctag">@param</span> node</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">  */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node&lt;T&gt; <span class="title">rotateLeft</span><span class="params">(Node&lt;T&gt; node)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//获取右儿子</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    Node&lt;T&gt; right = node.getRight();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//将右儿子的左儿子("拖油瓶"结点）链接到旋转后的node的右侧链接中</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    node.setRight(right.getLeft());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//调转node 节点和它右侧儿子的父子关系,使node 成为它原右生儿子的左子树</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    right.setLeft(node);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    node.setHeight(max(height(node.getRight()),height(node.getLeft()))+<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    right.setHeight(max(height(right.getLeft()),height(right.getRight()))+<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> right;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<h3 id="LR型（左孩子的右子树）通过先左旋再右旋解决"><a href="#LR型（左孩子的右子树）通过先左旋再右旋解决" class="headerlink" title="LR型（左孩子的右子树）通过先左旋再右旋解决"></a>LR型（左孩子的右子树）通过先左旋再右旋解决</h3><p>若 A 的左孩子节点 B 的右子树 E 插入节点 F ，导致节点 A 失衡</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819142636524.png" alt="image-20200819142636524"></p>
+<ul>
+<li>解决方案</li>
+</ul>
+<p>需要执行两步操作，使得旋转之后为 <strong>原来根结点的左孩子的右孩子作为新的根节点</strong>，即E作为根节点</p>
+<ol>
+<li>对失衡节点 A 的左孩子 B 进行左旋操作，即上述 RR 情形操作（左旋）</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819143738333.png" alt="image-20200819143738333"></p>
+<ol start="2">
+<li>对失衡节点 A 做右旋操作，即上述 LL 情形操作（右旋）</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819143917943.png" alt="image-20200819143917943"></p>
+<p>也就是说，经过这两步操作，使得 <strong>原来根节点的左孩子的右孩子 E 节点成为了新的根节点</strong>。</p>
+<h4 id="两次旋转、先左旋后右旋"><a href="#两次旋转、先左旋后右旋" class="headerlink" title="两次旋转、先左旋后右旋"></a>两次旋转、先左旋后右旋</h4><p>由于在a的左子树根结点的右子树上插入结点（LR）， 导致a的平衡因子由1变成2，导致以a为根结点的子树失去平衡，需要进行两次旋转， 先左旋后右旋</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200820093747764.png" alt="image-20200820093747764"></p>
+<h3 id="RL型（右孩子的左子树）通过先右旋再左旋解决"><a href="#RL型（右孩子的左子树）通过先右旋再左旋解决" class="headerlink" title="RL型（右孩子的左子树）通过先右旋再左旋解决"></a>RL型（右孩子的左子树）通过先右旋再左旋解决</h3><p>若 A 的右孩子节点 C 的左子树 D 插入节点 F ，导致节点 A 失衡，</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819144217627.png" alt="image-20200819144217627"></p>
+<ul>
+<li>解决方案</li>
+</ul>
+<p>要执行两步操作，使得旋转之后为 <strong>原来根结点的右孩子的左孩子作为新的根节点</strong> 。</p>
+<ol>
+<li>对失衡节点 A 的右孩子 C 进行右旋操作，即上述 LL 情形操作（右旋）</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819145857039.png" alt="image-20200819145857039"></p>
+<ol>
+<li>对失衡节点 A 做左旋操作，即上述 RR 情形操作（左旋）</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200819145926046.png" alt="image-20200819145926046"></p>
+<p>经过这两步操作，使得 <strong>原来根节点的右孩子的左孩子 D 节点成为了新的根节点</strong>。</p>
+<h4 id="两次旋转，-先右旋后左旋"><a href="#两次旋转，-先右旋后左旋" class="headerlink" title="两次旋转， 先右旋后左旋"></a>两次旋转， 先右旋后左旋</h4><p>由于在a的右子树根结点的左子树上插入结点（RL）， a的平衡因子由-1变成-2，导致以a为根结点的子树失去平衡， 则需要进行两次旋转，先右旋后左旋</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200820093825980.png" alt="image-20200820093825980"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>在所有的不平衡情况中，都是按照先 <strong>寻找最小不平衡树</strong>，然后 <strong>寻找所属的不平衡类别</strong>，再 <strong>根据 4 种类别进行固定化程序的操作</strong>。</li>
+<li>LL , LR ，RR ，RL其实已经为我们提供了最后哪个节点作为新的根指明了方向。如 LR 型最后的根节点为原来的根的左孩子的右孩子，RL 型最后的根节点为原来的根的右孩子的左孩子。只要记住这四种情况，可以很快地推导出所有的情况。</li>
+<li>维护平衡二叉树，最麻烦的地方在于平衡因子的维护</li>
+</ul>
+<h1 id="AVL-树的四种删除节点的方式"><a href="#AVL-树的四种删除节点的方式" class="headerlink" title="AVL 树的四种删除节点的方式"></a>AVL 树的四种删除节点的方式</h1><p>VL 树和二叉查找树的删除操作情况一致，都分为四种情况：</p>
+<ol>
+<li>删除叶子节点</li>
+<li>删除的节点只有左子树</li>
+<li>删除的节点只有右子树</li>
+<li>删除的节点既有左子树又有右子树</li>
+</ol>
+<p>AVL 树在删除节点后需要重新<strong>检查平衡性并修正</strong>，同时，删除操作与插入操作后的平衡修正区别在于，插入操作后只需要对插入栈中的弹出的第一个非平衡节点进行修正，而删除操作需要修正栈中的所有非平衡节点。</p>
+<h2 id="删除操作的大致步骤"><a href="#删除操作的大致步骤" class="headerlink" title="删除操作的大致步骤"></a>删除操作的大致步骤</h2><ul>
+<li>以前三种情况为基础尝试删除节点，并将访问节点入栈。</li>
+<li>如果尝试删除成功，则依次检查栈顶节点的平衡状态，遇到非平衡节点，即进行旋转平衡，直到栈空。</li>
+<li>如果尝试删除失败，证明是第四种情况。这时先找到被删除节点的右子树最小节点并删除它，将访问节点继续入栈。</li>
+<li>再依次检查栈顶节点的平衡状态和修正直到栈空。</li>
+</ul>
+<p>对于删除操作造成的非平衡状态的修正，可以这样理解：对左或者右子树的删除操作相当于对右或者左子树的插入操作，然后再对应上插入的四种情况选择相应的旋转就好了。</p>
+<h2 id="删除叶子节点"><a href="#删除叶子节点" class="headerlink" title="删除叶子节点"></a>删除叶子节点</h2><ol>
+<li>将该节点直接从树中删除；</li>
+<li>其父节点的子树高度的变化将导致父节点平衡因子的变化，通过向上检索并推算其父节点是否失衡；</li>
+<li>如果其父节点未失衡，则继续向上检索推算其父节点的父节点是否失衡…如此反复2的判断，直到根节点 ；如果向上推算过程中发现了失衡的现象，则进行 4 的处理；</li>
+<li>如果其父节点失衡，则判断是哪种失衡类型 [LL、LR、RR、RL] ，并对其进行相应的平衡化处理。如果平衡化处理结束后，发现与原来以父节点为根节点的树的高度发生变化，则继续进行 2 的检索推算；如果与原来以父节点为根节点的高度一致时，则可说明父节点的父节点及祖先节点的平衡因子将不会有变化，因此可以退出处理；</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/20200819152418.gif" alt="img"></p>
+<p>具体数字演示：</p>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/20200819152447.gif" alt="img"></p>
+<h2 id="删除的节点只有左子树或右子树"><a href="#删除的节点只有左子树或右子树" class="headerlink" title="删除的节点只有左子树或右子树"></a>删除的节点只有左子树或右子树</h2><ul>
+<li>将左子树（右子树）替代原有节点 C 的位置；</li>
+<li>节点  C 被删除后，则以 C 的父节点  B 为起始推算点，依此向上检索推算各节点（父、祖先）是否失衡；</li>
+<li>如果其父节点未失衡，则继续向上检索推算其父节点 的父节点 是否失衡…如此反复 ② 的判断，直到根节点 ；如果向上推算过程中发现了失衡的现象，则进行 ④ 的处理；</li>
+<li>如果其父节点失衡，则判断是哪种失衡类型 [LL、LR、RR、RL] ，并对其进行相应的平衡化处理。如果平衡化处理结束后，发现与原来以父节点为根节点的树的高度发生变化，则继续进行 ② 的检索推算；如果与原来以父节点为根节点的高度一致时，则可说明父节点的父节点及祖先节点的平衡因子将不会有变化，因此可以退出处理；</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/20200819152319.gif" alt="img"></p>
+<h2 id="删除的节点既有左子树又有右子树"><a href="#删除的节点既有左子树又有右子树" class="headerlink" title="删除的节点既有左子树又有右子树"></a>删除的节点既有左子树又有右子树</h2><ol>
+<li>找到被删节点 B 和替代节点 BLR (节点 B 的前继节点或后继节点 —— 在此选择 <strong>前继</strong>)；</li>
+<li>将替代节点 BLR 的值赋给节点 B ，再把替代节点 BLR 的左孩子 BLRL 替换替代节点 BLR 的位置；</li>
+<li>以 BLR 的父节点 BL 为起始推算点，依此向上检索推算父节点或祖先节点是否失衡；</li>
+<li>如果其父节点未失衡，则继续向上检索推算其父节点的父节点是否失衡…如此反复③的判断，直到根节点；如果向上推算过程中发现了失衡的现象，则进行⑤的处理；</li>
+<li>如果其父节点失衡，则判断是哪种失衡类型  [LL、LR、RR、RL]  ，并对其进行相应的平衡化处理。如果平衡化处理结束后，发现与原来以父节点为根节点的树的高度发生变化，则继续进行 ② 的检索推算；如果与原来以父节点为根节点的高度一致时，则可说明父节点的父节点及祖先节点的平衡因子将不会有变化，因此可以退出处理；</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/20200819152222.gif" alt="img"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/56066942" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/56066942</a></li>
+<li><a href="https://www.cnblogs.com/penghuwan/archive/2018/01/01/8166133.html" target="_blank" rel="noopener">https://www.cnblogs.com/penghuwan/archive/2018/01/01/8166133.html</a></li>
+<li><a href="https://blog.zhenlanghuo.top/2017/08/22/AVL平衡二叉树的实现/" target="_blank" rel="noopener">https://blog.zhenlanghuo.top/2017/08/22/AVL%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%AE%9E%E7%8E%B0/</a></li>
+<li><a href="https://blog.csdn.net/u014634338/article/details/42465089" target="_blank" rel="noopener">https://blog.csdn.net/u014634338/article/details/42465089</a></li>
+</ul>
+
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1207,118 +1894,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_01数据结构与算法总览" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/">概述</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/" class="archive-article-date">
-  	<time datetime="2020-02-20T03:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="基础数据结构-和算法"><a href="#基础数据结构-和算法" class="headerlink" title="基础数据结构 和算法"></a>基础数据结构 和算法</h2><h3 id="基础数据结构"><a href="#基础数据结构" class="headerlink" title="基础数据结构"></a>基础数据结构</h3><h4 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表(Linked List)"></a>链表(Linked List)</h4>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/06/21/al_05_%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
         </p>
       
 
@@ -1351,7 +1927,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="page-number" href="/zbcn.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/8/">8</a><a class="extend next" rel="next" href="/zbcn.github.io/page/3/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/zbcn.github.io/page/3/">3</a><a class="page-number" href="/zbcn.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/9/">9</a><a class="extend next" rel="next" href="/zbcn.github.io/page/3/">Next</a>
     </nav>
   
 
@@ -1455,11 +2031,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1475,15 +2067,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1491,15 +2075,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,6 +2095,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
@@ -1523,19 +2111,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1547,11 +2131,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1568,6 +2152,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

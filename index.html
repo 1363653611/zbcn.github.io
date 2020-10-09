@@ -546,14 +546,14 @@
 
 
   
-    <article id="post-spring_10transaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web_03Filter和Listener" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/07/21/spring_10transaction/">Spring_10 spring 事务</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/13/web_03Filter%E5%92%8CListener/">web_03 Session 和 Cookie</a>
     </h1>
   
 
@@ -568,8 +568,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/07/21/spring_10transaction/" class="archive-article-date">
-  	<time datetime="2020-07-21T08:59:34.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+        <a href="/zbcn.github.io/2020/10/13/web_03Filter%E5%92%8CListener/" class="archive-article-date">
+  	<time datetime="2020-10-13T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
 </a>
         
       </header>
@@ -583,9 +583,11 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="spring-事务"><a href="#spring-事务" class="headerlink" title="spring 事务"></a>spring 事务</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--事物管理类--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSourceTransactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启注解模式--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 基于注解的事务管理:事务开启的入口 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"dataSourceTransactionManager"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;tx:jta-transaction-manager/&gt;--&gt;</span></span></pre></td></tr></table></figure>
+        <h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><p>Filter可以对请求进行预处理，因此，我们可以把很多公共预处理逻辑放到Filter中完成。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>我们在Web应用中经常需要处理用户上传文件，例如，一个UploadServlet可以简单地编写如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/upload/file"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span>  IOException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 读取Request Body:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        InputStream input = req.getInputStream();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        ByteArrayOutputStream output = <span class="keyword">new</span> ByteArrayOutputStream();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (;;) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">int</span> len = input.read(buffer);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (len == -<span class="number">1</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">break</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            output.write(buffer, <span class="number">0</span>, len);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// <span class="doctag">TODO:</span> 写入文件:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 显示上传结果:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        String uploadedText = output.toString(StandardCharsets.UTF_8.name());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        PrintWriter pw = resp.getWriter();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        pw.write(<span class="string">"&lt;h1&gt;Uploaded:&lt;/h1&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        pw.write(<span class="string">"&lt;pre&gt;&lt;code&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        pw.write(uploadedText);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        pw.write(<span class="string">"&lt;/code&gt;&lt;/pre&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">        pw.flush();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/13/web_03Filter%E5%92%8CListener/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -605,7 +607,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -617,7 +619,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/WEB//" class="article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -626,7 +628,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/13/web_03Filter%E5%92%8CListener/">展开全文 >></a>
         </p>
       
 
@@ -657,14 +659,14 @@
 
 
   
-    <article id="post-spring_08jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web_04项目结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">Spring_08 spring JDBC</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/13/web_04%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">web_04 WEB项目结构</a>
     </h1>
   
 
@@ -679,8 +681,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/07/18/spring_08jdbc/" class="archive-article-date">
-  	<time datetime="2020-07-18T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+        <a href="/zbcn.github.io/2020/10/13/web_04%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2020-10-13T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
 </a>
         
       </header>
@@ -694,11 +696,127 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="springJDBC-数据库链接"><a href="#springJDBC-数据库链接" class="headerlink" title="springJDBC 数据库链接"></a>springJDBC 数据库链接</h2><ul>
-<li>jdbc （java data base connection）， 用于执行sql 的api。为多种关系型数据库提供统一访问入口。</li>
+        <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>对一个Web应用程序来说，除了Servlet、Filter这些逻辑组件，还需要JSP这样的视图文件，外加一堆静态资源文件，如CSS、JS等。</p>
+<p>合理组织文件结构非常重要。我们以一个具体的Web应用程序为例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">webapp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── pom.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">└── src</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    └── main</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        ├── java</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        │   └── com</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        │       └── itranswarp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        │           └── learnjava</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        │               ├── Main.java</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        │               ├── filter</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        │               │   └── EncodingFilter.java</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        │               └── servlet</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        │                   ├── FileServlet.java</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        │                   └── HelloServlet.java</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        ├── resources</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        └── webapp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            ├── WEB-INF</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">            │   └── web.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">            ├── favicon.ico</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">            └── static</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                └── bootstrap.css</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/13/web_04%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WEB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/WEB//" class="article-tag-list-link color4">WEB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/13/web_04%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-web_02session和cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/12/web_02session%E5%92%8Ccookie/">web_02 session 和 cookie</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/12/web_02session%E5%92%8Ccookie/" class="archive-article-date">
+  	<time datetime="2020-10-12T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <ul>
+<li>在Web应用程序中，我们经常要跟踪用户身份。当一个用户登录成功后，如果他继续访问其他页面，Web程序如何才能识别出该用户身份？</li>
 </ul>
+<blockquote>
+<p>因为HTTP协议是一个无状态协议，即Web应用程序无法区分收到的两个HTTP请求是否是同一个浏览器发出的。为了跟踪用户状态，服务器可以向浏览器分配一个唯一ID，并以Cookie的形式发送到浏览器，浏览器在后续访问时总是附带此Cookie，这样，服务器就可以识别用户身份。</p>
+</blockquote>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/12/web_02session%E5%92%8Ccookie/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -718,7 +836,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -730,7 +848,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/WEB//" class="article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -739,7 +857,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/12/web_02session%E5%92%8Ccookie/">展开全文 >></a>
         </p>
       
 
@@ -770,14 +888,14 @@
 
 
   
-    <article id="post-spring_07aop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web_01项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/11/spring_07aop/">Spring_07 spring AOP</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/11/web_01%E9%A1%B9%E7%9B%AE/">web_01 新建web 项目</a>
     </h1>
   
 
@@ -792,8 +910,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/11/spring_07aop/" class="archive-article-date">
-  	<time datetime="2020-05-11T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
+        <a href="/zbcn.github.io/2020/10/11/web_01%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2020-10-11T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
 </a>
         
       </header>
@@ -807,9 +925,16 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="spring-AOP"><a href="#spring-AOP" class="headerlink" title="spring AOP"></a>spring AOP</h1><p>面向对象编程（OOP），有个局限，当需要为多个不具有继承关系的对象引入一个公共的行为时，例如log，安全检测等，我们只有在每个对象列引入公共行为，这样程序里就产生了大量的公共代码。所以，面向切面编程（AOP）技术就运用而生。AOP关注的是横向的，不同于oop的纵向。</p>
+        <h1 id="新建-web-app-的maven项目"><a href="#新建-web-app-的maven项目" class="headerlink" title="新建 web-app 的maven项目"></a>新建 web-app 的maven项目</h1><ol>
+<li>新建maven项目</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/WEB/web_01%E9%A1%B9%E7%9B%AE/image-20201001121332936.png" alt="image-20201001121332936"></p>
+<ol start="2">
+<li>配置项目结构</li>
+</ol>
+<p><img src="/zbcn.github.io/assets/postImg/WEB/web_01%E9%A1%B9%E7%9B%AE/image-20201001121528915.png" alt="image-20201001121528915"></p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/11/spring_07aop/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/11/web_01%E9%A1%B9%E7%9B%AE/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -829,7 +954,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -841,7 +966,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/WEB//" class="article-tag-list-link color4">WEB</a>
         		</li>
       		
 		</ul>
@@ -850,7 +975,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/11/spring_07aop/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/11/web_01%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
         </p>
       
 
@@ -881,14 +1006,14 @@
 
 
   
-    <article id="post-spring_06_容器扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JCF_04LinkedHashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/">Spring_06 Bean 容器扩展</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/10/JCF_04LinkedHashMap/">JCF_01 LinkedHashMap</a>
     </h1>
   
 
@@ -903,8 +1028,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/" class="archive-article-date">
-  	<time datetime="2020-05-10T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+        <a href="/zbcn.github.io/2020/10/10/JCF_04LinkedHashMap/" class="archive-article-date">
+  	<time datetime="2020-10-10T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-10</time>
 </a>
         
       </header>
@@ -918,11 +1043,10 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="spring-06-容器扩展"><a href="#spring-06-容器扩展" class="headerlink" title="spring_06_容器扩展"></a>spring_06_容器扩展</h2><ul>
-<li>ApplicationContext 用于扩展BeanFactory现有的功能。相比于BeanFactory，ApplicationContext 提供了更多的扩展功能。因为ApplicationContext 包含了BeanFactory的所有功能，所以一般建议使用ApplicationContext。除非在一些限制场合，比如字节长度对内存有很大的影响（applet）。 绝大多数的企业应用中，就是要使用ApplicationContext， 才能完成更多的业务场景需求。</li>
-</ul>
+        <h1 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h1><p><em>LinkedHashSet</em>和<em>LinkedHashMap</em>在Java里也有着相同的实现，前者仅仅是对后者做了一层包装，也就是说<strong><code>LinkedHashSet</code>里面有一个<code>LinkedHashMap</code>（适配器模式）</strong>。因此本文将重点分析<code>LinkedHashMap</code>。</p>
+<p><em>LinkedHashMap</em>实现了<em>Map</em>接口，即允许放入<code>key</code>为<code>null</code>的元素，也允许插入<code>value</code>为<code>null</code>的元素。从名字上可以看出该容器是<em>linked list</em>和<em>HashMap</em>的混合体，也就是说它同时满足<em>HashMap</em>和<em>linked list</em>的某些特性。<strong>可将<code>LinkedHashMap</code>看作采用<code>linkedlist</code>增强的<code>HashMap</code>。</strong></p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/10/JCF_04LinkedHashMap/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -942,7 +1066,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -954,7 +1078,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -963,7 +1087,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/10/JCF_04LinkedHashMap/">展开全文 >></a>
         </p>
       
 
@@ -994,14 +1118,14 @@
 
 
   
-    <article id="post-hexo_03comment" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JCF_03TreeMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/10/hexo_03comment/">Hexo博客添加 评论</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/">JCF_03 TreeMap</a>
     </h1>
   
 
@@ -1016,8 +1140,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/10/hexo_03comment/" class="archive-article-date">
-  	<time datetime="2020-05-10T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+        <a href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/" class="archive-article-date">
+  	<time datetime="2020-10-09T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
 </a>
         
       </header>
@@ -1031,9 +1155,11 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <p>最近打算给博客添加评论功能，看了下市面上一些评论插件，觉得gitment和Valine这两款插件比较符合我的要求：轻量而且配置简单。<br>不过gitment只支持github账号评论，虽然也没啥人看我博客，不过权衡了下，还是决定用Valine。</p>
+        <h1 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h1><p>Java <em>TreeMap</em>实现了<em>SortedMap</em>接口，也就是说会按照<code>key</code>的大小顺序对<em>Map</em>中的元素进行排序，<code>key</code>大小的评判可以通过其本身的自然顺序（natural ordering），也可以通过构造时传入的比较器（Comparator）。</p>
+<p><strong><code>TreeMap</code>底层通过红黑树（Red-Black tree）实现</strong>，也就意味着<code>containsKey()</code>, <code>get()</code>, <code>put()</code>, <code>remove()</code>都有着<code>log(n)</code>的时间复杂度。</p>
+<p><img src="/zbcn.github.io/assets/postImg/JCF/JCF_03TreeMap/939998-20160517211933779-124491145.png" alt="TreeMap_base.png"></p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/hexo_03comment/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1053,11 +1179,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -1069,7 +1191,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -1078,7 +1200,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/hexo_03comment/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/">展开全文 >></a>
         </p>
       
 
@@ -1109,14 +1231,14 @@
 
 
   
-    <article id="post-spring_05_bean的加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JCF_02Map数据结构对比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/">Spring_05 Bean 的加载</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/">JCF_02 Map 数据结构对比</a>
     </h1>
   
 
@@ -1131,8 +1253,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-05-09T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+        <a href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/" class="archive-article-date">
+  	<time datetime="2020-10-08T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-08</time>
 </a>
         
       </header>
@@ -1146,12 +1268,9 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="Bean-的加载"><a href="#Bean-的加载" class="headerlink" title="Bean 的加载"></a>Bean 的加载</h3><ul>
-<li>bean 的加载远比bean 的解析复杂的多。</li>
-<li>从<code>TestBean testBean = beanFactory.getBean(&quot;test&quot;, TestBean.class);</code> 分析。</li>
-</ul>
+        <h1 id="ConCurrentHashMap"><a href="#ConCurrentHashMap" class="headerlink" title="ConCurrentHashMap"></a>ConCurrentHashMap</h1><h2 id="put-方法分析"><a href="#put-方法分析" class="headerlink" title="put 方法分析"></a>put 方法分析</h2><p><img src="/zbcn.github.io/assets/postImg/JCF/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/image-20200817135444955.png" alt="image-20200817135444955"></p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1171,7 +1290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -1183,7 +1302,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
         		</li>
       		
 		</ul>
@@ -1192,118 +1311,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-spring_04_默认标签的解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/">Spring_04 默认标签的解析</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-05-08T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="默认标签的解析"><a href="#默认标签的解析" class="headerlink" title="默认标签的解析"></a>默认标签的解析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//DefaultBeanDefinitionDocumentReader</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseDefaultElement</span><span class="params">(Element ele, BeanDefinitionParserDelegate delegate)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">if</span> (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">//import 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">			importBeanDefinitionResource(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, ALIAS_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// alias 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">			processAliasRegistration(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, BEAN_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">//bean 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">			processBeanDefinition(ele, delegate);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, NESTED_BEANS_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// recurse</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// beans 标签的解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">			doRegisterBeanDefinitions(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/">展开全文 >></a>
         </p>
       
 
@@ -1336,7 +1344,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/zbcn.github.io/page/2/">2</a><a class="page-number" href="/zbcn.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/8/">8</a><a class="extend next" rel="next" href="/zbcn.github.io/page/2/">Next</a>
+      <span class="page-number current">1</span><a class="page-number" href="/zbcn.github.io/page/2/">2</a><a class="page-number" href="/zbcn.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/9/">9</a><a class="extend next" rel="next" href="/zbcn.github.io/page/2/">Next</a>
     </nav>
   
 
@@ -1440,11 +1448,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1460,15 +1484,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1476,15 +1492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1500,6 +1512,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
@@ -1508,19 +1528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1532,11 +1548,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1553,6 +1569,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>
