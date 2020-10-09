@@ -16,13 +16,13 @@
 <meta property="og:description" content="类文件结构无关性的的基石 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式: 字节码（byteCode） 是构成平台无关性的基石  JVM 只与.class 这种特殊的二进制文件格式所关联  class文件  java虚拟机指令集 符号表 其他辅助信息">
 <meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200731144811221.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;JVM_05类文件结构&#x2F;image-20200731145012679.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121834478.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121834478.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121803063.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;image-20200801121727496.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;my-blog-to-use.oss-cn-beijing.aliyuncs.com&#x2F;2019-6&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;my-blog-to-use.oss-cn-beijing.aliyuncs.com&#x2F;2019-6&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;JVM&#x2F;JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84&#x2F;%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png">
 <meta property="article:published_time" content="2019-12-13T10:14:10.000Z">
-<meta property="article:modified_time" content="2020-10-09T09:26:21.889Z">
+<meta property="article:modified_time" content="2020-10-09T09:50:00.473Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="java">
@@ -413,7 +413,7 @@
 <td>表示一个动态方法调用点</td>
 </tr>
 </tbody></table>
-<h2 id="访问标志-access-flag"><a href="#访问标志-access-flag" class="headerlink" title="访问标志 access flag"></a>访问标志 access flag</h2><p><img src="JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200801121834478.png" alt="image-20200801121834478"></p>
+<h2 id="访问标志-access-flag"><a href="#访问标志-access-flag" class="headerlink" title="访问标志 access flag"></a>访问标志 access flag</h2><p><img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/image-20200801121834478.png" alt="image-20200801121834478"></p>
 <ul>
 <li>2个字节</li>
 <li>识别一些类或者接口层次的访问信息<ul>
@@ -524,7 +524,7 @@
 </li>
 <li><p>Class 文件存储格式中对方法的描述与对字段的描述几乎采用了完全一致的方式。方法表的结构如同字段表一样，依次包括了访问标志、名称索引、描述符索引、属性表集合几项</p>
 </li>
-<li><p>method_info  方法表的结构<br>  <img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="img"></p>
+<li><p>method_info  方法表的结构<br>  <img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="img"></p>
 <blockquote>
 <ul>
 <li>包含的信息<ul>
@@ -542,7 +542,7 @@
 </ul>
 </blockquote>
 </li>
-<li><p>方法表的 access_flag 取值：<br><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png" alt="方法表的 access_flag 取值"></p>
+<li><p>方法表的 access_flag 取值：<br><img src="/zbcn.github.io/assets/postImg/JVM/JVM_05%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/%E6%96%B9%E6%B3%95%E8%A1%A8%E7%9A%84access_flag%E7%9A%84%E6%89%80%E6%9C%89%E6%A0%87%E5%BF%97%E4%BD%8D.png" alt="方法表的 access_flag 取值"></p>
 </li>
 </ul>
 <p>因为<code>volatile</code>修饰符和<code>transient</code>修饰符不可以修饰方法，所以方法表的访问标志中没有这两个对应的标志，但是增加了<code>synchronized</code>、<code>native</code>、<code>abstract</code>等关键字修饰方法，所以也就多了这些关键字对应的标志。</p>
@@ -984,10 +984,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1008,11 +1004,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
               </li>
              
               <li class="article-tag-list-item">
