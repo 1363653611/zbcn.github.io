@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-spring_01_整体架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JCF_03TreeMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">Spring_01 整体架构</a>
+      <a class="article-title" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/">JCF_03 TreeMap</a>
     </h1>
   
 
@@ -215,8 +215,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-05-05T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/" class="archive-article-date">
+  	<time datetime="2020-10-09T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
 </a>
         
       </header>
@@ -230,11 +230,1010 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="Spring-的整体架构"><a href="#Spring-的整体架构" class="headerlink" title="Spring 的整体架构"></a>Spring 的整体架构</h2><ul>
-<li>包含一系列的元素，大概分为20个模块<br><img src="/zbcn.github.io/assets/postImg/spring/imgs/%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="整体架构图"></li>
+        <h1 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h1><p>Java <em>TreeMap</em>实现了<em>SortedMap</em>接口，也就是说会按照<code>key</code>的大小顺序对<em>Map</em>中的元素进行排序，<code>key</code>大小的评判可以通过其本身的自然顺序（natural ordering），也可以通过构造时传入的比较器（Comparator）。</p>
+<p><strong><code>TreeMap</code>底层通过红黑树（Red-Black tree）实现</strong>，也就意味着<code>containsKey()</code>, <code>get()</code>, <code>put()</code>, <code>remove()</code>都有着<code>log(n)</code>的时间复杂度。</p>
+<p><img src="/zbcn.github.io/assets/postImg/JCF/JCF_03TreeMap/939998-20160517211933779-124491145.png" alt="TreeMap_base.png"></p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/09/JCF_03TreeMap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-JCF_02Map数据结构对比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/">JCF_02 Map 数据结构对比</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/" class="archive-article-date">
+  	<time datetime="2020-10-08T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="ConCurrentHashMap"><a href="#ConCurrentHashMap" class="headerlink" title="ConCurrentHashMap"></a>ConCurrentHashMap</h1><h2 id="put-方法分析"><a href="#put-方法分析" class="headerlink" title="put 方法分析"></a>put 方法分析</h2><p><img src="/zbcn.github.io/assets/postImg/JCF/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/image-20200817135444955.png" alt="image-20200817135444955"></p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/08/JCF_02Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-uml_02技术架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/06/uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/">架构的基础概念</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/06/uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2020-10-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="架构的基础概念"><a href="#架构的基础概念" class="headerlink" title="架构的基础概念"></a>架构的基础概念</h1><h2 id="什么是技术架构"><a href="#什么是技术架构" class="headerlink" title="什么是技术架构?"></a>什么是技术架构?</h2><ul>
+<li>架构就是对系统中的实体以及实体之间的关系所进行的抽象描述，是一系列的决策.</li>
+<li>架构是结构和愿景。</li>
+<li>系统架构是概念的体现，是对物/信息的功能与形式元素之间的对应情况所做的分配，是对元素之间的关系以及元素同周边环境之间的关系所做的定义。</li>
+</ul>
+<h2 id="什么是架构图？"><a href="#什么是架构图？" class="headerlink" title="什么是架构图？"></a>什么是架构图？</h2><p>系统架构图是为了抽象地表示软件系统的整体轮廓和各个组件之间的相互关系和约束边界，以及软件系统的物理部署和软件系统的演进方向的整体视图。</p>
+<h2 id="架构图的作用"><a href="#架构图的作用" class="headerlink" title="架构图的作用"></a>架构图的作用</h2><p>一图胜千言。要让干系人理解、遵循架构决策，就需要把架构信息传递出去。架构图就是一个很好的载体。那么，画架构图是为了：</p>
+<ul>
+<li>解决沟通障碍</li>
+<li>达成共识</li>
+<li>减少歧义</li>
+</ul>
+<h2 id="架构图分类"><a href="#架构图分类" class="headerlink" title="架构图分类"></a>架构图分类</h2><p>搜集了很多资料，分类有很多，有一种比较流行的是4+1视图:</p>
+<ul>
+<li>场景视图、</li>
+<li>逻辑视图、</li>
+<li>物理视图、</li>
+<li>处理流程视图</li>
+<li>开发视图</li>
+</ul>
+<h2 id="场景图"><a href="#场景图" class="headerlink" title="场景图"></a>场景图</h2><p>场景视图用于描述系统的参与者与功能用例间的关系，反映系统的最终需求和交互设计，通常由 <strong>用例图</strong>表示。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/2020032414211623.png" alt="img"></p>
+<h2 id="逻辑视图"><a href="#逻辑视图" class="headerlink" title="逻辑视图"></a>逻辑视图</h2><p>逻辑视图用于描述系统软件功能拆解后的组件关系，组件约束和边界，反映系统整体组成与系统如何构建的过程，通常由UML的<strong>组件图</strong>和<strong>类图</strong>来表示。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142202120.png" alt="3"></p>
+<h2 id="物理视图"><a href="#物理视图" class="headerlink" title="物理视图"></a>物理视图</h2><p>物理视图用于描述系统软件到物理硬件的映射关系，反映出系统的组件是如何部署到一组可计算机器节点上，用于指导软件系统的部署实施过程。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142250490.png" alt="4"></p>
+<h2 id="处理流程视图"><a href="#处理流程视图" class="headerlink" title="处理流程视图"></a>处理流程视图</h2><p>处理流程视图用于描述系统软件组件之间的通信时序，数据的输入输出，反映系统的功能流程与数据流程,通常由<strong>时序图</strong>和<strong>流程图</strong>表示。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142341414.png" alt="5"></p>
+<h2 id="开发视图"><a href="#开发视图" class="headerlink" title="开发视图"></a>开发视图</h2><p>开发视图用于描述系统的模块划分和组成，以及细化到内部包的组成设计，服务于开发人员，反映系统开发实施过程。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142428685.png" alt="6"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上 5 种架构视图从不同角度表示一个软件系统的不同特征，组合到一起作为架构蓝图描述系统架构。</p>
+<h1 id="怎样的架构图是好的架构图"><a href="#怎样的架构图是好的架构图" class="headerlink" title="怎样的架构图是好的架构图"></a>怎样的架构图是好的架构图</h1><p>在画出一个好的架构图之前， 首先应该要明确其受众，再想清楚要给他们传递什么信息 ，所以，不要为了画一个物理视图去画物理视图，为了画一个逻辑视图去画逻辑视图，而应该根据受众的不同，传递的信息的不同，用图准确地表达出来，最后的图可能就是在这样一些分类里。那么，画出的图好不好的一个直接标准就是：受众有没有准确接收到想传递的信息。</p>
+<p>从受众角度来说，一个好的架构图是不需要解释的，它应该是自描述的，并且要具备一致性和足够的准确性，能够与代码相呼应。</p>
+<h1 id="画架构图遇到的常见问题"><a href="#画架构图遇到的常见问题" class="headerlink" title="画架构图遇到的常见问题"></a>画架构图遇到的常见问题</h1><h2 id="方框代表什么？"><a href="#方框代表什么？" class="headerlink" title="方框代表什么？"></a>方框代表什么？</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142542317.png" alt="7"></p>
+<p>为什么适用方框而不是圆形，它有什么特殊的含义吗？随意使用方框或者其它形状可能会引起混淆。</p>
+<h2 id="虚线、实线什么意思？箭头什么意思？颜色什么意思？"><a href="#虚线、实线什么意思？箭头什么意思？颜色什么意思？" class="headerlink" title="虚线、实线什么意思？箭头什么意思？颜色什么意思？"></a>虚线、实线什么意思？箭头什么意思？颜色什么意思？</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142633385.png" alt="8"></p>
+<p>随意使用线条或者箭头可能会引起误会。</p>
+<h2 id="运行时与编译时冲突？层级冲突？"><a href="#运行时与编译时冲突？层级冲突？" class="headerlink" title="运行时与编译时冲突？层级冲突？"></a>运行时与编译时冲突？层级冲突？</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142724103.png" alt="9"></p>
+<p>架构是一项复杂的工作，只使用单个图表来表示架构很容易造成莫名其妙的语义混乱。</p>
+<h1 id="推荐的画图方法"><a href="#推荐的画图方法" class="headerlink" title="推荐的画图方法"></a>推荐的画图方法</h1><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142821336.png" alt="10"></p>
+<p>C4 模型使用容器（应用程序、数据存储、微服务等）、组件和代码来描述一个软件系统的静态结构。这几种图比较容易画，也给出了画图要点，但最关键的是，我们认为，它明确指出了每种图可能的受众以及意义。</p>
+<p>下面的案例来自C4官网，然后加上了一些我们的理解，来看看如何更好的表达软件架构</p>
+<h2 id="语境图（System-Context-Diagram）"><a href="#语境图（System-Context-Diagram）" class="headerlink" title="语境图（System Context Diagram）"></a>语境图（System Context Diagram）</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324142930866.png" alt="11"></p>
+<p>这是一个想象的待建设的互联网银行系统，它使用外部的大型机银行系统存取客户账户、交易信息，通过外部电邮系统给客户发邮件。</p>
+<p>可以看到，非常简单、清晰，相信不需要解释，都看的明白，里面包含了需要建设的系统本身，系统的客户，和这个系统有交互的周边系统。</p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>这样一个简单的图，可以告诉我们，要构建的系统是什么；它的用户是谁，谁会用它，它要如何融入已有的IT环境。这个图的受众可以是开发团队的内部人员、外部的技术或非技术人员。即：</p>
+<ul>
+<li>构建的系统是什么</li>
+<li>谁会用它</li>
+<li>如何融入已有的IT环境</li>
+</ul>
+<h3 id="怎么画"><a href="#怎么画" class="headerlink" title="怎么画"></a>怎么画</h3><p>中间是自己的系统，周围是用户和其它与之相互作用的系统。这个图的关键就是梳理清楚待建设系统的用户和高层次的依赖，梳理清楚了画下来只需要几分钟时间。</p>
+<h2 id="容器图（Container-Diagram）"><a href="#容器图（Container-Diagram）" class="headerlink" title="容器图（Container Diagram）"></a>容器图（Container Diagram）</h2><p>容器图是把语境图里待建设的系统做了一个展开。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/2020032414310321.png" alt="12"></p>
+<p>上图中，除了用户和外围系统，要建设的系统包括:</p>
+<ul>
+<li>基于Java \ Spring MVC 的 Web 应用提供系统的功能入口，</li>
+<li>基于<code>xamarin</code>架构的手机 app 提供手机端的功能入口，</li>
+<li>基于 Java 的 API 应用提供服务</li>
+<li>MySQL 数据库用于存储，</li>
+<li>各个应用之间的交互都在箭头线上写明了。</li>
+</ul>
+<p>看这张图的时候，不会去关注到图中是直角方框还是圆角方框，不会关注是实线箭头还是虚线箭头，甚至箭头的指向也没有引起太多注意。</p>
+<p>有许多的画图方式，都对框、线的含义做了定义，这就需要画图的人和看图的人都清晰的理解这些定义，才能读全图里的信息，而现实是，这往往是非常高的一个要求，所以，很多图只能看个大概的含义。</p>
+<h3 id="用途-1"><a href="#用途-1" class="headerlink" title="用途"></a>用途</h3><p>这个图的受众可以是团队内部或外部的开发人员，也可以是运维人员。用途可以罗列为：</p>
+<ul>
+<li>展现了软件系统的整体形态</li>
+<li>体现了高层次的技术决策</li>
+<li>系统中的职责是如何分布的，容器间的是如何交互的</li>
+<li>告诉开发者在哪里写代码</li>
+</ul>
+<h3 id="怎么画-1"><a href="#怎么画-1" class="headerlink" title="怎么画"></a>怎么画</h3><p>用一个框图来表示，内部可能包括名称、技术选择、职责，以及这些框图之间的交互，如果涉及外部系统，最好明确边界。</p>
+<h2 id="组件图（Component-Diagram）"><a href="#组件图（Component-Diagram）" class="headerlink" title="组件图（Component Diagram）"></a>组件图（Component Diagram）</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324143359163.png" alt="13"></p>
+<p>组件图是把某个容器进行展开，描述其内部的模块。</p>
+<h3 id="用途-2"><a href="#用途-2" class="headerlink" title="用途"></a>用途</h3><p>这个图主要是给内部开发人员看的，怎么去做代码的组织和构建。其用途有：</p>
+<ul>
+<li>描述了系统由哪些组件/服务组成</li>
+<li>厘清了组件之间的关系和依赖</li>
+<li>为软件开发如何分解交付提供了框架</li>
+</ul>
+<h2 id="类图（Code-Class-Diagram）"><a href="#类图（Code-Class-Diagram）" class="headerlink" title="类图（Code/Class Diagram）"></a>类图（Code/Class Diagram）</h2><p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324143513220.png" alt="14"></p>
+<p>这个图很显然是给技术人员看的，比较常见，就不详细介绍了。</p>
+<h1 id="案例分享"><a href="#案例分享" class="headerlink" title="案例分享"></a>案例分享</h1><p>下面是内部的一个实时数据工具的架构图。作为一个应该自描述的架构图，这里不多做解释了。如果有看不明白的，那肯定是还画的不够好。</p>
+<p><img src="uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/20200324143611855.png" alt="15"></p>
+<p>画好架构图可能有许多方法论，本篇主要介绍了C4这种方法，C4的理论也是不断进化的。但不论是哪种画图方法论，我们回到画图初衷，更好的交流，我们在画的过程中不必被条条框框所限制。</p>
+<p>简而言之，画之前想好：画图给谁看，看什么，怎么样不解释就看懂。</p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h1><ul>
+<li><a href="https://guobinhit.blog.csdn.net/article/details/63250517" target="_blank" rel="noopener">https://guobinhit.blog.csdn.net/article/details/63250517</a></li>
+</ul>
+
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">uml</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/uml//" class="article-tag-list-link color4">uml</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/06/uml_02%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-JCF_01HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/">JCF_01 HashMap</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/06/JCF_01HashMap/" class="archive-article-date">
+  	<time datetime="2020-10-06T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="hashMap-的前世今生"><a href="#hashMap-的前世今生" class="headerlink" title="hashMap 的前世今生"></a>hashMap 的前世今生</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>hashMap 依据 hashCode 值存储数据。如果通过hashcode 可以直接定位到数据的值，访问的复杂度则为常数，但遍历的顺序则是无序的。</p>
+<p>HashMap最多只允许一个key为null，允许多个key的value值为null。</p>
+<p>HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。jdk 1.7 之前的版本有可能在多线程下导致死锁。</p>
+<p>如果需要满足线程安全，可以使用ConcurrentHashMap。</p>
+<p>hashMap 由数组+ 链表组成。数组是HashMap的主体，链表是为了结局Hash冲突而存在的（拉链法）。</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/JCF//" class="article-tag-list-link color4">JCF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/06/JCF_01HashMap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_03管道流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/">IO_03 管道流</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-10-04T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="PipedInputStream和PipedOutputStream"><a href="#PipedInputStream和PipedOutputStream" class="headerlink" title="PipedInputStream和PipedOutputStream"></a>PipedInputStream和PipedOutputStream</h1><p>管道输入输出流也是一对内存操作可循环读写的数组的输入输出流，基本上读写的方法都是放在 <code>PipedInputStream</code> 这个对象中，在做读写操作的时候需要把输入输出流进行关联，否则不能做对应的读写操作。</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/04/IO_03%E7%AE%A1%E9%81%93%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_02常用的流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/">IO_02 常用流</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-10-03T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h1><ul>
+<li>输入:<code>FileInputStream/FileReader</code></li>
+<li>输出：<code>FileOutputStream/FileWriter</code></li>
+</ul>
+<p>InputStream和Reader都是抽象类，本身不能创建实例，但它们分别有一个用于读取文件的输入流：FileInputStream和FileReader.它们都是节点流(会直接和指定文件关联</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/03/IO_02%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_01架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/">IO_01 概述</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2020-10-02T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="IO-概述"><a href="#IO-概述" class="headerlink" title="IO 概述"></a>IO 概述</h1><ul>
+<li>网络操作相关的类在 <code>java.net</code>包下面。</li>
+<li>磁盘操作：文件，文件操作</li>
+<li>“流”：有能力产生数据源或者有能力接受数据源的对象(一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。)</li>
+<li>流的本质是数据传输，根据数据传输特性将流抽象为各种类，方便更直观的进行数据操作。</li>
+<li><strong>流有输入和输出，输入时是流从数据源流向程序。输出时是流从程序传向数据源，而数据源可以是内存，文件，网络或程序等。</strong></li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/02/IO_01%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-IO_00字符_字节_file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/">IO_00 预备知识</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/" class="archive-article-date">
+  	<time datetime="2020-10-01T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="字符与字节"><a href="#字符与字节" class="headerlink" title="字符与字节"></a>字符与字节</h1><ul>
+<li><p>在Java中有输入、输出两种IO流，每种输入、输出流又分为字节流和字符流两大类。</p>
+</li>
+<li><p>一个字节 8 个bit</p>
+</li>
+<li><p>Java采用<code>unicode</code>编码，2个字节来表示一个字符。(C语言中采用ASCII，在大多数系统中，一个字符通常占1个字节，但是在0~127整数之间的字符映射，<code>unicode</code>向下兼容ASCII。)</p>
+</li>
+<li><p>Java采用<code>unicode</code>来表示字符，一个中文或英文字符的<code>unicode</code>编码都占2个字节。但如果采用其他编码方式，一个字符占用的字节数则各不相同。</p>
+</li>
+<li><p>Java中的String类是按照unicode进行编码的，当使用 <code>String(byte[] bytes, String encoding)</code>构造字符串时，encoding所指的是bytes中的数据是按照那种方式编码的，而不是最后产生的String是什么编码方式。换句话说，是让系统把bytes中的数据由encoding编码方式转换成unicode编码。如果不指明，bytes的编码方式将由jdk根据操作系统决定。</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/IO//" class="article-tag-list-link color3">IO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/10/01/IO_00%E5%AD%97%E7%AC%A6_%E5%AD%97%E8%8A%82_file/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_10transaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/07/21/spring_10transaction/">Spring_10 spring 事务</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/07/21/spring_10transaction/" class="archive-article-date">
+  	<time datetime="2020-07-21T08:59:34.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="spring-事务"><a href="#spring-事务" class="headerlink" title="spring 事务"></a>spring 事务</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--事物管理类--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSourceTransactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启注解模式--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 基于注解的事务管理:事务开启的入口 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"dataSourceTransactionManager"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;tx:jta-transaction-manager/&gt;--&gt;</span></span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -275,7 +1274,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/21/spring_10transaction/">展开全文 >></a>
         </p>
       
 
@@ -306,14 +1305,14 @@
 
 
   
-    <article id="post-dp01_设计模式的六种原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring_08jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">dp_01设计模式六种原则</a>
+      <a class="article-title" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">Spring_08 spring JDBC</a>
     </h1>
   
 
@@ -328,8 +1327,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-03-07T08:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+        <a href="/zbcn.github.io/2020/07/18/spring_08jdbc/" class="archive-article-date">
+  	<time datetime="2020-07-18T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
         
       </header>
@@ -343,752 +1342,11 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="设计模式-–-6大原则"><a href="#设计模式-–-6大原则" class="headerlink" title="设计模式 – 6大原则"></a>设计模式 – 6大原则</h2><p>设计模式是一套经过反复总结,多数人认可的代码设计经验总结.设计模式使用的宗旨是:可重用代码,让代码更容易被他人理解,保证代码的可靠性.设计模式使代码编制工程化,设计模式也是软件编程的基石.</p>
-<h3 id="1-SRP-single-Responsbility-Principle-单一职责原则"><a href="#1-SRP-single-Responsbility-Principle-单一职责原则" class="headerlink" title="1. SRP- single Responsbility Principle  单一职责原则"></a>1. SRP- single Responsbility Principle  单一职责原则</h3><ol>
-<li><strong>核心思想</strong>: 一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</li>
-<li><strong>问题描述</strong>: 一个类(大到模块,小到方法)承担的职责越多,它被复用的可能性就越小,而且,一个类承担的职责过多,就相当于将这些职责耦合在一起,其中一个职责变化是,会影响其他职责的使用. 因此要将多个职责分离,将不同的职责封装在不同的类中,即:将不同的变化封装在不同的类中.如果多个职责总是同时发生改变则可将它们封装在同一类中。</li>
-<li><strong>优点</strong>: 类的复杂度降低、可读性提高、可维护性提高、扩展性提高、降低了变更引起的风险</li>
-<li><strong>注意点</strong>: <strong>单一职责</strong> 是实现 <strong>高内聚,低耦合</strong> 的指导方针, 它是最简单也是最难运用的原则,需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</li>
-</ol>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">designPattern</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/designPattern//" class="article-tag-list-link color4">designPattern</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-git_02常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">git_02 rebase 和merge 区别</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-03-07T04:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题:"></a>常见问题:</h2><h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><h4 id="合并冲突："><a href="#合并冲突：" class="headerlink" title="合并冲突："></a>合并冲突：</h4><ul>
-<li><p>提交的文件如果出现冲突就会出现这种提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict in readme.txt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span></pre></td></tr></table></figure></li>
-<li><p>通过 <code>git status</code> 查看冲突文件</p>
-</li>
-<li><p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容</p>
-<ol>
-<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>标记冲突开始，后面跟的是当前分支中的内容。</li>
-<li>HEAD指向当前分支末梢的提交</li>
-<li><code>=======</code>之后，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之前是要merge过来的另一条分支上的代码。</li>
-<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之后的dev是该分支的名字。</li>
-</ol>
-</li>
-<li><p>修改文件，保存，再次提交即可</p>
-</li>
-<li><p>通过git log查看分支合并的情况</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-git_01 基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">git_01基础命令</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-03-07T03:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="git-基本命令"><a href="#git-基本命令" class="headerlink" title="git 基本命令"></a>git 基本命令</h2><p><img src="/zbcn.github.io/assets/postImg/git/imgs/git%E6%A6%82%E8%A7%88.png" alt="git概览"></p>
-<h3 id="git-修改用户名和邮箱"><a href="#git-修改用户名和邮箱" class="headerlink" title="git 修改用户名和邮箱"></a>git 修改用户名和邮箱</h3><ul>
-<li>修改project 中的用户名/邮箱名<ol>
-<li>切换到你的项目</li>
-<li>查看用户名:<code>git config user.name</code></li>
-<li>用户名: <code>git config user.name &#39;zbcn&#39;</code>;</li>
-<li>邮箱名称: <code>git config user.email &#39;xxx.@email.com&#39;</code></li>
-</ol>
-</li>
-<li>修改全局用户名和邮箱名<ol>
-<li>查看用户名:<code>git config --gloable user.name</code></li>
-<li>用户名: <code>git config --gloable user.name &#39;xxx&#39;</code></li>
-<li>邮箱名称: <code>git config --gloable user.email &#39;xxx.@email.comm&#39;</code>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-essay_02愿山河无恙,人间皆安" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/">愿山河无恙,人间皆安</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/" class="archive-article-date">
-  	<time datetime="2020-03-01T09:42:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <p>不知不觉，今天已经三月了。 民间传说，庚子鼠，祸必至。2020年，踏入鼠年，武汉肺炎疫情大爆发，令全国人心慌慌。起初那偏远的农村老家，人们还没有那么强烈的意识去自我防护。邻里相亲，该干嘛干嘛。赶年集，串门、备年货、大家在一起聊天，打扑克。所谓的疫情，只是一个遥远的传说而已，只是听听看看，是大家在一起闲谈的茶余饭后而已。</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/essay//" class="article-tag-list-link color1">essay</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/03/01/essay_02%E6%84%BF%E5%B1%B1%E6%B2%B3%E6%97%A0%E6%81%99,%E4%BA%BA%E9%97%B4%E7%9A%86%E5%AE%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_02线性表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-02-20T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>线性表是一种线性的数据结构，特点是在有限的非空集合中，其中第一个元素没有直接前驱元素，最后一个元素没有直接后继元素，其他元素都有唯一的前驱元素和后继元素。线性表有 <strong>顺序存储结构</strong> 和 <strong>链式存储结构</strong>.</p>
-<h3 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h3><p>是指将线性表中的各个元素依次存放在一组地址连续的存储单元中，通常将这种方法存储的线性表称之为 <strong>顺序表</strong></p>
-<p>假设，线性表的每个元素须占用m个存储单元，并以所占用的第一个单元的存储地址作为数据元素的存储位置,则线性表中第i+1个元素的存储位置location(ai+1)和第i个元素的存储位置location(ai)之间满足关系location(ai+1)=location（ai）+m. 线性表中第i个元素的存储位置与第一个元素的a1的存储位置满足以下关系,location(ai) =location(a1)+(i-1)*m. 其中，第一个元素的位置location(a1)称为 <strong>起始地址</strong> 或 <strong>基地址</strong></p>
-<p>顺序表逻辑上相邻的元素在物理上也是相邻的.每个元素的存储位置和线性表的起始位置相差一个和数据元素在线性表中的位序成正比的常数. 只要确定了一个元素的起始位置,线性表中的任意一个元素都可以随机获取,因此, <strong>线性表的顺序结构是一种随机存存储结构</strong>.  (java 中的 数组 array)</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_02%E7%BA%BF%E6%80%A7%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_00数据结构算法概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/">数据结构</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2020-02-20T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
-<li>主要任务是通过分析数据对象的结构特征,包括逻辑结构与数据对象之间的关系,然后把逻辑结构表示成计算机计算机可实现的物理结构,从而便于计算处理.</li>
+        <h2 id="springJDBC-数据库链接"><a href="#springJDBC-数据库链接" class="headerlink" title="springJDBC 数据库链接"></a>springJDBC 数据库链接</h2><ul>
+<li>jdbc （java data base connection）， 用于执行sql 的api。为多种关系型数据库提供统一访问入口。</li>
 </ul>
-<h4 id="概念术语"><a href="#概念术语" class="headerlink" title="概念术语"></a>概念术语</h4><ol>
-<li>数据(data) 是能被计算机处理的符号或者符号集合,含义广泛,可理解为”原材料”.如字符,图片,音视频.</li>
-<li>数据元素(data element) 是数据的基本单位.eg:一张学生统计表</li>
-<li>数据项(data item): 数据元素的最小单位. eg:一张学生统计表,里面有:编号,姓名,性别,籍贯</li>
-<li>数据对象(data object) : 是性质相同的数据元素的集合,是数据的一个子集.eg:正整数N={1，2，3，····}。</li>
-<li>数据结构(data structure):是数据的组织形式,数据元素之间存在一种或者多种特定关系的数据元素集合的组织形式.</li>
-<li>数据类型(data type): 是按照数据值的不同进行划分的可操作性.</li>
-</ol>
-<h4 id="数据的逻辑结构"><a href="#数据的逻辑结构" class="headerlink" title="数据的逻辑结构"></a>数据的逻辑结构</h4><p>逻辑结构(logic structure) 是指数据中数据元素之间的相互关系. 数据元素之间存在不同的逻辑关系构成了一下4中结构类型.</p>
-<ol>
-<li>集合结构: 集合的数据元素没有其他关系,仅仅是将他们统一收纳在一个称作为”集合”的容器中.</li>
-<li>线性结构: 线性的数据元素结构关系是一对一的,并且是一种先后的次序. eg:就像a-b-c-d-e-f-g·····被一根线穿连起来</li>
-<li>树性结构:树形的数据元素结构是一对多的. eg:像公司的部门级别，董事长-CEO\CTO-技术部\人事部\市场部…..。</li>
-<li>图结构:图数据元素的关系是多对多的. eg:常见的各大城市的铁路图，一个城市有很多线路连接不同城市(北京地铁)</li>
-</ol>
-<h4 id="数据的存储（物理）结构"><a href="#数据的存储（物理）结构" class="headerlink" title="数据的存储（物理）结构"></a>数据的存储（物理）结构</h4><p>存储结构(storage structure)也称作物理结构(physical structure),是指数据的逻辑结构在在计算机中的存储形式. 数据的存储结构一般可以反映数据元素之间的逻辑关系,分为顺序存储结构和链式存储结构.</p>
-<ol>
-<li>顺序存储结构: 是把数据元素放置在一组存储地址连续的存储单元里.其数据的逻辑关系和物理关系是一致的.</li>
-<li>链式存储结构: 把数据元素放置在任意的存储单元里,这组存储单元可以是连续的,也可以是不连续的.数据元素的存储关系并不能影响其逻辑关系,需要借助指针来表示元素之间的逻辑关系.</li>
-</ol>
-<p>总结: 数据的逻辑结构和物理(存储)结构是密切相关的,任何一个算法的设计都取决于选定的数据的逻辑结构.而算法的实现依赖于数据的存储结构.</p>
-<h3 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h3><p>抽象数据类型(abstract data type): 是描述具有某种逻辑关系的数据类型,并对在数学模型上进行的一组操作. 抽象数据类型描述的是一组逻辑上的特性, 与计算机内部表示无关. 计算机中的整数数据类型是一个抽象数据类型. 不同的处理器可能的实现方式不同,但其逻辑特性相同的,即 加.减.乘.除 等运算是一致的. “抽象”的意思是数据类型的数学抽象特性而不是指它们的实现方法。抽象数据类型体现了程序设计中的问题分解,抽象,信息隐藏等特性. 可以把现实中的大问题分解成多个规模小而且容易解决的小问题.然后建立起一个能被计算机处理的数据,并把每个功能模块的实现细节作为一个独立的单元，从而使具体实现过程隐藏起来。就类似建一栋房子，分成若干个小任务，如地皮规划、图纸设计、施工、装修等，整个过程与抽象数据类型中的问题分解类似。而搬砖人不需要了解图纸设计如何，设计图纸人员不需要了解施工的地基、砌墙的具体细节，装修工人不用关系图纸和搬砖过程，这就是抽象类型中的信息隐藏。</p>
-<p>抽象数据类型的概念可能让我们不容易理解. 例如线性表的抽象数类型的描述对象集合:线性表的数据对象集合为{a1,a2,a3,····,an},每个元素的类型均为DataType。其中，除了第一个元素a1外，每一个元素有且只有一个直接前驱元素；除了最后一个元素an外，每一个元素有且只有一个直接后继元素。数据元素之间的关系是一对一的。</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>算法(algorithm) 解决特定问题求解步骤的描述，在计算机中表现为有限的操作序列。在数据类型建立起来之后，就要对这些数据类型进行操作，建立起运算的集合即程序。运算的建立、方法好坏直接决定着计算机程序原型效率的高低。</p>
-<h3 id="数据结构和算法的关系"><a href="#数据结构和算法的关系" class="headerlink" title="数据结构和算法的关系"></a>数据结构和算法的关系</h3><p>两者既有联系又有区别. 联系: <strong>程序=算法+数据结构</strong> 数据结构是算法实现的基础,算法总是要依赖于某种数据结构来实现的. 算法的操作对象是数据结构. 区别是数据结构关注的是数据的逻辑结构和存储结构,有一基本操作. 而算法更加关注的是在数据结构的基础上解决实际问题. 算法是编程思想，数据结构则是这些思想的基础。</p>
-<h4 id="算法的5-大特性"><a href="#算法的5-大特性" class="headerlink" title="算法的5 大特性"></a>算法的5 大特性</h4><ol>
-<li>有穷性: 是指算法在执行有限的步骤之后，自动结束而不是出现无限循环，并且每一个步骤在可接受的时间内完成。</li>
-<li>确定性: 是指算法的每个执行步骤在一定条件下只有一条执行路径,也就是相同的输入只能有一个唯一的输出结果.</li>
-<li>可行性: 算法的每个步骤都必须可行,能够通过有限的执行次数完成.</li>
-<li>输入: 算法具有零个或者多个输入</li>
-<li>输出: 是指算法至少有一个或多个输出。</li>
-</ol>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>在进行算法分析时,T(n) 是关于问题规模n的函数.进而分析次数T(n)随n的变化情况并确定T(n)的数量级.算法的时间复杂度就是算法的时间量度.记作T(n) = O（f（n））.<br>他表示随问题规模n的增大,算法的执行时间的增长率和f(n)的增长率相同,称作算法渐进时间复杂度,简称 <strong>时间复杂度</strong> . 其中,f(n) 是问题规模n的某个函数.</p>
-<p>算法时间复杂度是衡量一个算法好坏的重要标志. 一般情况下,随着规模 n 的增大,次数T(n) 的增长较慢的为最优算法.常见时间复杂度从小到大依次排列：O(1) &lt; O(log2n) &lt; O(n) &lt; O(n²）&lt;O(n³) ····&lt;O(n!)</p>
-<p><img src="/zbcn.github.io/assets/postImg/algorithm/imgs/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.jpeg" alt="时间复杂度"></p>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>空间复杂度(space complexity) ,作为算法需存储空间的量度,记做S(n) = O (f(n)). 其中，n为问题的规模；f（n）为语句关于n的所占存储空间的函数。</p>
-<p>一般情况下，一个程序在机器上运行时，除了需要存储程序本身的指令、常数、变量和输入数据外，还需要存储对数据操作的存储单位。若输入数据所占空间只取决于问题本身，和算法无关，这样只需要分析该算法在实现时所需的辅助单元即可。若算法执行时所需的辅助空间相对于输入数据量而言是个常量，则称此算法为原地工作，空间复杂度为O(1)。</p>
-<h3 id="递归和非递归"><a href="#递归和非递归" class="headerlink" title="递归和非递归"></a>递归和非递归</h3><p>在数据结构与算法实践过程中, 递归式一种分而治之,是一种将复杂的问题转换为简单问题的方法. 使用递归编写的程序简单、结构清晰, 程序的正确性很容易证明，不需要理解递归调用的具体细节。</p>
-<ol>
-<li>函数的递归： 就是函数自己调用自己，即一个函数在调用其他函数的过程中，又出现对自身的调用，这种函数成为递归函数。函数的递归调用就是自己调用自己，可以直接调用自己，也可以间接自己调用自己。其中，在函数中直接调用自己称为函数的直接递归调用；如果函数f1调用了函数f2又再次调用了函数f1，这种调用的方式我们称之为间接递归调用。</li>
-</ol>
-
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_00%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_01数据结构与算法总览" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/">概述</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/" class="archive-article-date">
-  	<time datetime="2020-02-20T03:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="基础数据结构-和算法"><a href="#基础数据结构-和算法" class="headerlink" title="基础数据结构 和算法"></a>基础数据结构 和算法</h2><h3 id="基础数据结构"><a href="#基础数据结构" class="headerlink" title="基础数据结构"></a>基础数据结构</h3><h4 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表(Linked List)"></a>链表(Linked List)</h4><h4 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h4><h4 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h4><h4 id="栈-stack"><a href="#栈-stack" class="headerlink" title="栈(stack)"></a>栈(stack)</h4><h4 id="堆-heap"><a href="#堆-heap" class="headerlink" title="堆(heap)"></a>堆(heap)</h4><h4 id="二叉树-binary-tree"><a href="#二叉树-binary-tree" class="headerlink" title="二叉树(binary tree)"></a>二叉树(binary tree)</h4><h4 id="散列表-hash"><a href="#散列表-hash" class="headerlink" title="散列表(hash)"></a>散列表(hash)</h4><h4 id="图-Graph"><a href="#图-Graph" class="headerlink" title="图(Graph)"></a>图(Graph)</h4><h3 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h3><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h4 id="图的广度-BFS-和-DFS-深度优先搜索"><a href="#图的广度-BFS-和-DFS-深度优先搜索" class="headerlink" title="图的广度(BFS) 和(DFS)深度优先搜索"></a>图的广度(BFS) 和(DFS)深度优先搜索</h4><h4 id="字符串的朴素匹配算法"><a href="#字符串的朴素匹配算法" class="headerlink" title="字符串的朴素匹配算法"></a>字符串的朴素匹配算法</h4><h3 id="基础算法的思想"><a href="#基础算法的思想" class="headerlink" title="基础算法的思想"></a>基础算法的思想</h3><h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><h4 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h4><h4 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h4><h4 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h4><h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1108,7 +1366,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -1120,7 +1378,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -1129,201 +1387,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/20/al_01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E8%A7%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-MQ_02rabbitmq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/11/MQ_02rabbitmq/">MQ_02rabbitmq</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/11/MQ_02rabbitmq/" class="archive-article-date">
-  	<time datetime="2020-02-11T08:30:27.129Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="RabbitMQ-简介"><a href="#RabbitMQ-简介" class="headerlink" title="RabbitMQ 简介"></a>RabbitMQ 简介</h2><hr>
-<p>title: RabbitMQ 简介<br>date: 2020-02-11 10:14:10<br>tags:</p>
-<ul>
-<li>mq<br>categories:</li>
-<li>mq<br>topdeclare: true<br>reward: true</li>
-</ul>
-<hr>
-<p>官方推出的六种模式</p>
-<h3 id="1-1-“Hello-World-”"><a href="#1-1-“Hello-World-”" class="headerlink" title="1.1 “Hello World!”"></a>1.1 “Hello World!”</h3><p><img src="/zbcn.github.io/assets/postImg/mq/imgs/20190720145646828.png" alt="在这里插入图片描述"></p>
-<h6 id="简单模式-一对一生产消费"><a href="#简单模式-一对一生产消费" class="headerlink" title="简单模式 一对一生产消费"></a>简单模式 一对一生产消费</h6>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/11/MQ_02rabbitmq/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/11/MQ_02rabbitmq/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-MQ_01消息中间选型说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/02/11/MQ_01%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">MQ_01消息中间选型说明</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/02/11/MQ_01%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2020-02-11T08:30:27.126Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="Kafka，rabbitMq，-RocketMq-性能对比"><a href="#Kafka，rabbitMq，-RocketMq-性能对比" class="headerlink" title="Kafka，rabbitMq， RocketMq 性能对比"></a>Kafka，rabbitMq， RocketMq 性能对比</h1><hr>
-<p>title: Kafka，rabbitMq， RocketMq 性能对比<br>date: 2020-02-11 09:14:10<br>tags:</p>
-<ul>
-<li>mq<br>categories:</li>
-<li>mq<br>topdeclare: true<br>reward: true</li>
-</ul>
-<hr>
-<h2 id="MQ-简介："><a href="#MQ-简介：" class="headerlink" title="MQ 简介："></a>MQ 简介：</h2><p>MQ-Message queue,消息队列，就是指保存消息的一个容器。具体的定义这里就不类似于数据库、缓存等，用来保存数据的。当然，与数据库、缓存等产品比较，也有自己一些特点</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/11/MQ_01%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/02/11/MQ_01%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/07/18/spring_08jdbc/">展开全文 >></a>
         </p>
       
 
@@ -1356,7 +1420,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/7/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/6/">6</a><a class="page-number" href="/zbcn.github.io/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/zbcn.github.io/page/9/">9</a><a class="page-number" href="/zbcn.github.io/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/14/">14</a><a class="extend next" rel="next" href="/zbcn.github.io/page/9/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/7/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/6/">6</a><a class="page-number" href="/zbcn.github.io/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/zbcn.github.io/page/9/">9</a><a class="page-number" href="/zbcn.github.io/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/16/">16</a><a class="extend next" rel="next" href="/zbcn.github.io/page/9/">Next</a>
     </nav>
   
 
@@ -1472,11 +1536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1492,11 +1556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,6 +1580,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
@@ -1525,18 +1601,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1580,10 +1644,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
@@ -1596,11 +1656,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">uml</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">uml</a>
               </li>
              
               <li class="article-tag-list-item">
