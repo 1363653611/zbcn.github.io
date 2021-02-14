@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
   <title>springCloud 整体架构概览 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springCloud 整体架构概览SpringCloud为开发人员提供了快速构建分布式系统架构的工具，例如  配置管理， 服务发现， 断路器， 智能路由， 微代理， 控制总线， 一次性令牌， 全局锁定， 领导选举， 分布式会话， 集群状态 。。。。等。  架构 SpringCloud的版本关系SpringCloud是一个由许多子项目组成的综合项目，各子项目有不同的发布节奏。 为了管理Spring">
+  <meta name="description" content="springCloud 整体架构概览SpringCloud为开发人员提供了快速构建分布式系统架构的工具，例如  配置管理， 服务发现， 断路器， 智能路由， 微代理， 控制总线， 一次性令牌， 全局锁定， 领导选举， 分布式会话， 集群状态 。。。。等。  架构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springCloud 整体架构概览">
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;01&#x2F;springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="springCloud 整体架构概览SpringCloud为开发人员提供了快速构建分布式系统架构的工具，例如  配置管理， 服务发现， 断路器， 智能路由， 微代理， 控制总线， 一次性令牌， 全局锁定， 领导选举， 分布式会话， 集群状态 。。。。等。  架构 SpringCloud的版本关系SpringCloud是一个由许多子项目组成的综合项目，各子项目有不同的发布节奏。 为了管理Spring">
+<meta property="og:description" content="springCloud 整体架构概览SpringCloud为开发人员提供了快速构建分布式系统架构的工具，例如  配置管理， 服务发现， 断路器， 智能路由， 微代理， 控制总线， 一次性令牌， 全局锁定， 领导选举， 分布式会话， 集群状态 。。。。等。  架构">
 <meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88&#x2F;image-20201205211757470.png">
 <meta property="article:published_time" content="2021-01-01T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-13T09:19:12.454Z">
+<meta property="article:modified_time" content="2021-02-14T10:14:13.376Z">
 <meta property="article:author" content="执笔成念">
 <meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
@@ -249,6 +249,8 @@
 <li>。。。。等。</li>
 </ul>
 <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/image-20201205211757470.png" alt="image-20201205211757470"></p>
+<a id="more"></a>
+
 <h1 id="SpringCloud的版本关系"><a href="#SpringCloud的版本关系" class="headerlink" title="SpringCloud的版本关系"></a>SpringCloud的版本关系</h1><p>SpringCloud是一个由许多子项目组成的综合项目，各子项目有不同的发布节奏。 为了管理SpringCloud与各子项目的版本依赖关系，发布了一个清单，其中包括了某个SpringCloud版本对应的子项目版本。 为了避免SpringCloud版本号与子项目版本号混淆，SpringCloud版本采用了名称而非版本号的命名，这些版本的名字采用了伦敦地铁站的名字，根据字母表的顺序来对应版本时间顺序，例如Angel是第一个版本, Brixton是第二个版本。 当SpringCloud的发布内容积累到临界点或者一个重大BUG被解决后，会发布一个”service releases”版本，简称SRX版本，比如Greenwich.SR2就是SpringCloud发布的Greenwich版本的第2个SRX版本。</p>
 <h1 id="springCloud-和SpringBoot-的版本对应关系"><a href="#springCloud-和SpringBoot-的版本对应关系" class="headerlink" title="springCloud 和SpringBoot 的版本对应关系"></a>springCloud 和SpringBoot 的版本对应关系</h1><table>
 <thead>
@@ -570,11 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,19 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,11 +628,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,6 +637,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,15 +672,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,10 +693,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -193,6 +193,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker_00_学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/">Docker 学习</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2021-01-11T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><img src="/zbcn.github.io/assets/postImg/docker/Docker.assets/image-20200606203315597.png" alt="image-20200606203315597"></p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-springcloud-10sleuth分布式请求链路追踪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -232,61 +343,9 @@
       
         <h1 id="Spring-Cloud-Sleuth：分布式请求链路跟踪"><a href="#Spring-Cloud-Sleuth：分布式请求链路跟踪" class="headerlink" title="Spring Cloud Sleuth：分布式请求链路跟踪"></a>Spring Cloud Sleuth：分布式请求链路跟踪</h1><p>Spring Cloud Sleuth 是分布式系统中跟踪服务间调用的工具，它可以直观地展示出一次请求的调用过程，本文将对其用法进行详细介绍。</p>
 <h1 id="Spring-Cloud-Sleuth-简介"><a href="#Spring-Cloud-Sleuth-简介" class="headerlink" title="Spring Cloud Sleuth 简介"></a>Spring Cloud Sleuth 简介</h1><p>随着我们的系统越来越庞大，各个服务间的调用关系也变得越来越复杂。当客户端发起一个请求时，这个请求经过多个服务后，最终返回了结果，经过的每一个服务都有可能发生延迟或错误，从而导致请求失败。这时候我们就需要请求链路跟踪工具来帮助我们，理清请求调用的服务链路，解决问题。</p>
-<h1 id="给服务添加请求链路跟踪"><a href="#给服务添加请求链路跟踪" class="headerlink" title="给服务添加请求链路跟踪"></a>给服务添加请求链路跟踪</h1><p>我们将通过user-service和ribbon-service之间的服务调用来演示该功能，这里我们调用ribbon-service的接口时，ribbon-service会通过RestTemplate来调用user-service提供的接口。</p>
-<ul>
-<li><p>首先给user-service和ribbon-service添加请求链路跟踪功能的支持；</p>
-</li>
-<li><p>在user-service和ribbon-service中添加相关依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-zipkin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure></li>
-<li><p>复制application.yml文件，修改为application-zipkin.yml，然后在application-zipkin.yml中配置收集日志的zipkin-server访问地址：（user-service和ribbon-service都要处理）</p>
-</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">zipkin:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">base-url:</span> <span class="string">http://localhost:9411</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">sleuth:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">sampler:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">probability:</span> <span class="number">0.1</span> <span class="comment">#设置Sleuth的抽样收集概率</span></span></pre></td></tr></table></figure>
-
-<h2 id="整合Zipkin获取及分析日志"><a href="#整合Zipkin获取及分析日志" class="headerlink" title="整合Zipkin获取及分析日志"></a>整合Zipkin获取及分析日志</h2><p>Zipkin是Twitter的一个开源项目，可以用来获取和分析Spring Cloud Sleuth 中产生的请求链路跟踪日志，它提供了Web界面来帮助我们直观地查看请求链路跟踪信息。</p>
-<ul>
-<li><p>SpringBoot 2.0以上版本已经不需要自行搭建zipkin-server，我们可以从该地址下载zipkin-server：<a href="https://repo1.maven.org/maven2/io/zipkin/java/zipkin-server/2.9.4/zipkin-server-2.9.4-exec.jar" target="_blank" rel="noopener">https://repo1.maven.org/maven2/io/zipkin/java/zipkin-server/2.9.4/zipkin-server-2.9.4-exec.jar</a></p>
-</li>
-<li><p>下载完成后使用以下命令运行zipkin-server：</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">java -jar zipkin-server-<span class="number">2.9</span><span class="number">.4</span>-exec.jar</span></pre></td></tr></table></figure>
-
-<ul>
-<li>Zipkin页面访问地址：<a href="http://localhost:9411" target="_blank" rel="noopener">http://localhost:9411</a></li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-10sleuth%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/image-20201210192310926.png" alt="image-20201210192310926"></p>
-<ul>
-<li>启动eureka-sever，ribbon-service，user-service：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在 program arguments 中配置 ribbon-service，user-service 使用 application-zipkin.yml 文件启动</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">--spring.config.location=classpath:application-zipkin.yml</span></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>多次调用（Sleuth为抽样收集）ribbon-service的接口<a href="http://localhost:8301/user/1" target="_blank" rel="noopener">http://localhost:8301/user/1</a> ，调用完后查看Zipkin首页发现已经有请求链路跟踪信息了；</li>
-<li>点击查看详情可以直观地看到请求调用链路和通过每个服务的耗时：</li>
-</ul>
-<h2 id="使用Elasticsearch存储跟踪信息"><a href="#使用Elasticsearch存储跟踪信息" class="headerlink" title="使用Elasticsearch存储跟踪信息"></a>使用Elasticsearch存储跟踪信息</h2><p>如果我们把zipkin-server重启一下就会发现刚刚的存储的跟踪信息全部丢失了，可见其是存储在内存中的，有时候我们需要将所有信息存储下来，这里以存储到Elasticsearch为例，来演示下该功能。</p>
-<h3 id="安装Elasticsearch"><a href="#安装Elasticsearch" class="headerlink" title="安装Elasticsearch"></a>安装Elasticsearch</h3><p>略</p>
-<h3 id="修改启动参数将信息存储到Elasticsearch"><a href="#修改启动参数将信息存储到Elasticsearch" class="headerlink" title="修改启动参数将信息存储到Elasticsearch"></a>修改启动参数将信息存储到Elasticsearch</h3><p><strong>zipkin不支持7.0 以上版本的es</strong></p>
-<ul>
-<li><p>使用以下命令运行，就可以把跟踪信息存储到Elasticsearch里面去了，重新启动也不会丢失；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> STORAGE_TYPE：表示存储类型 ES_HOSTS：表示ES的访问地址 ES_USERNAME用户名（可选） ES_PASSWORD 用户密码（可选）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">java -jar zipkin-server-2.9.4-exec.jar --STORAGE_TYPE=elasticsearch --ES_HOSTS=localhost:9200  --ES_USERNAME=elastic --ES_PASSWORD=123456</span></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>之后需要重新启动user-service和ribbon-service才能生效，重启后多次调用ribbon-service的接口<a href="http://localhost:8301/user/1；" target="_blank" rel="noopener">http://localhost:8301/user/1；</a></p>
-</li>
-<li><p>如果安装了Elasticsearch的可视化工具Kibana的话，可以看到里面已经存储了跟踪信息：</p>
-</li>
-</ul>
-<h2 id="使用到的源码"><a href="#使用到的源码" class="headerlink" title="使用到的源码"></a>使用到的源码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-business/user-service -- 提供User对象CRUD接口的服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-common/ribbon-server -- ribbon服务调用测试服务</span></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/10/springcloud-10sleuth%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -508,75 +567,9 @@
       
         <h1 id="Spring-Cloud-Bus：消息总线"><a href="#Spring-Cloud-Bus：消息总线" class="headerlink" title="Spring Cloud Bus：消息总线"></a>Spring Cloud Bus：消息总线</h1><p>Spring Cloud Bus 使用轻量级的消息代理来连接微服务架构中的各个服务，可以将其用于广播状态更改（例如配置中心配置更改）或其他管理指令，本文将对其用法进行详细介绍。</p>
 <h1 id="Spring-Cloud-Bus-简介"><a href="#Spring-Cloud-Bus-简介" class="headerlink" title="Spring Cloud Bus 简介"></a>Spring Cloud Bus 简介</h1><p>我们通常会使用消息代理来构建一个主题，然后把微服务架构中的所有服务都连接到这个主题上去，当我们向该主题发送消息时，所有订阅该主题的服务都会收到消息并进行消费。使用 Spring Cloud Bus 可以方便地构建起这套机制，所以 Spring Cloud Bus 又被称为消息总线。Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。目前 Spring Cloud Bus 支持两种消息代理：RabbitMQ 和 Kafka，下面以 RabbitMQ 为例来演示下使用Spring Cloud Bus 动态刷新配置的功能。</p>
-<h1 id="RabbitMq-服务安装"><a href="#RabbitMq-服务安装" class="headerlink" title="RabbitMq 服务安装"></a>RabbitMq 服务安装</h1><p>略</p>
-<p>启动：</p>
-<p>浏览器访问： <a href="http://127.0.0.1:15672/" target="_blank" rel="noopener">http://127.0.0.1:15672/</a></p>
-<h1 id="动态刷新配置"><a href="#动态刷新配置" class="headerlink" title="动态刷新配置"></a>动态刷新配置</h1><p>使用 Spring Cloud Bus 动态刷新配置需要配合 Spring Cloud Config 一起使用，我们使用之前创建的config-server、config-client模块来演示下该功能。</p>
-<h2 id="给config-server添加消息总线支持"><a href="#给config-server添加消息总线支持" class="headerlink" title="给config-server添加消息总线支持"></a>给config-server添加消息总线支持</h2><ul>
-<li>在pom.xml 中添加 依赖</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bus-amqp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>添加配置文件application-amqp.yml，主要是添加了RabbitMQ的配置及暴露了刷新配置的Actuator端点；</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">8904</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">git:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">uri:</span> <span class="string">https://github.com/1363653611/config-repo.git</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">username:</span> <span class="string">xxxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">password:</span> <span class="string">xxxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">clone-on-start:</span> <span class="literal">true</span> <span class="comment"># 开启启动时直接从git获取配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">search-paths:</span> <span class="string">'&#123;application&#125;'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">rabbitmq:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">port:</span> <span class="number">5672</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">virtual-host:</span> <span class="string">/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 必须加，否则 其他客户端无法访问改 实例：No instances found of configserver (config-server)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">register-with-eureka:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">fetch-registry:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">endpoints:</span> <span class="comment">#暴露bus刷新配置的端点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">web:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">exposure:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">include:</span> <span class="string">'bus-refresh'</span></span></pre></td></tr></table></figure>
-
-<p>修改配置：program arguments</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">--spring.config.location=classpath:application-amqp.yml</span></pre></td></tr></table></figure>
-
-<h3 id="服务启动报错"><a href="#服务启动报错" class="headerlink" title="服务启动报错"></a>服务启动报错</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ERROR 16640 --- [:0:0:0:0:1:5672] c.r.c.impl.ForgivingExceptionHandler     : An unexpected connection driver error occured</span></pre></td></tr></table></figure>
-
-<p>原因： 未配置 virtual-host</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">rabbitmq:</span> <span class="comment">#rabbitmq相关配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">port:</span> <span class="number">5672</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">virtual-host:</span> <span class="string">/</span></span></pre></td></tr></table></figure>
-
-
-
-<h2 id="给config-client添加消息总线支持"><a href="#给config-client添加消息总线支持" class="headerlink" title="给config-client添加消息总线支持"></a>给config-client添加消息总线支持</h2><ul>
-<li>在pom.xml中添加相关依赖：</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bus-amqp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>添加配置文件bootstrap-amqp1.yml及bootstrap-amqp2.yml用于启动两个不同的config-client，两个配置文件只有端口号不同；</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">9104</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">profile:</span> <span class="string">dev</span> <span class="comment">#启用环境名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">label:</span> <span class="string">dev</span> <span class="comment">#分支名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">name:</span> <span class="string">config</span> <span class="comment">#配置文件名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">discovery:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">service-id:</span> <span class="string">config-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">rabbitmq:</span> <span class="comment">#rabbitmq相关配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">port:</span> <span class="number">5672</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">endpoints:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">web:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">exposure:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">include:</span> <span class="string">'refresh'</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li><p>修改配置 ：program arguments</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">--spring.config.location=classpath:bootstrap-amqp1.yml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">--spring.config.location=classpath:bootstrap-amqp2.yml</span></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="动态刷新配置演示"><a href="#动态刷新配置演示" class="headerlink" title="动态刷新配置演示"></a>动态刷新配置演示</h2><ul>
-<li>我们先启动相关服务，启动eureka-server，以application-amqp.yml为配置启动config-server，以bootstrap-amqp1.yml为配置启动config-client，以bootstrap-amqp2.yml为配置再启动一个config-client，启动后注册中心显示如下：</li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-09bus%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF/image-20201210112704662.png" alt="image-20201210112704662"></p>
-<ul>
-<li><p>启动所有服务后，我们登录RabbitMQ的控制台可以发现Spring Cloud Bus 创建了一个叫springCloudBus的交换机及三个以 springCloudBus.anonymous开头的队列：</p>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-09bus%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF/image-20201210112725899.png" alt="image-20201210112725899"></p>
-</li>
-<li><p>我们先修改Git仓库中dev分支下的config-dev.yml配置文件：</p>
-</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改前信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for dev(dev)"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改后信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"update config info for dev(dev)"</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li><p>调用注册中心的接口刷新所有配置(注意为post 请求)：<a href="http://localhost:8904/actuator/bus-refresh" target="_blank" rel="noopener">http://localhost:8904/actuator/bus-refresh</a></p>
-</li>
-<li><p>刷新后再分别调用<a href="http://localhost:9104/config/configInfo" target="_blank" rel="noopener">http://localhost:9104/config/configInfo</a> 和 <a href="http://localhost:9105/config/configInfo" target="_blank" rel="noopener">http://localhost:9105/config/configInfo</a> 获取配置信息，发现都已经刷新了；</p>
-</li>
-<li><p>如果只需要刷新指定实例的配置可以使用以下格式进行刷新：<a href="http://localhost:8904/actuator/bus-refresh/{destination}" target="_blank" rel="noopener">http://localhost:8904/actuator/bus-refresh/{destination}</a> ，我们这里以刷新运行在9104端口上的config-client为例<a href="http://localhost:8904/actuator/bus-refresh/config-client:9004。" target="_blank" rel="noopener">http://localhost:8904/actuator/bus-refresh/config-client:9004。</a></p>
-</li>
-</ul>
-<h1 id="使用到的模块"><a href="#使用到的模块" class="headerlink" title="使用到的模块"></a>使用到的模块</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-config/ config-client -- 获取配置的客户端服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-config/ config-server -- 配置中心服务</span></pre></td></tr></table></figure>
-
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://artisan.blog.csdn.net/article/details/89117473" target="_blank" rel="noopener">https://artisan.blog.csdn.net/article/details/89117473</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/09/springcloud-09bus%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -799,167 +792,9 @@
       
         <h1 id="Spring-Cloud-Config：外部集中化配置管理"><a href="#Spring-Cloud-Config：外部集中化配置管理" class="headerlink" title="Spring Cloud Config：外部集中化配置管理"></a>Spring Cloud Config：外部集中化配置管理</h1><p>Spring Cloud Config 可以为微服务架构中的应用提供集中化的外部配置支持，它分为服务端和客户端两个部分。</p>
 <h1 id="Spring-Cloud-Config-简介"><a href="#Spring-Cloud-Config-简介" class="headerlink" title="Spring Cloud Config 简介"></a>Spring Cloud Config 简介</h1><p>Spring Cloud Config 分为服务端和客户端两个部分。服务端被称为分布式配置中心，它是个独立的应用，可以从配置仓库获取配置信息并提供给客户端使用。客户端可以通过配置中心来获取配置信息，在启动时加载配置。Spring Cloud Config 的配置中心默认采用Git来存储配置信息，所以天然就支持配置信息的版本管理，并且可以使用Git客户端来方便地管理和访问配置信息。</p>
-<h1 id="在Git仓库中准备配置信息"><a href="#在Git仓库中准备配置信息" class="headerlink" title="在Git仓库中准备配置信息"></a>在Git仓库中准备配置信息</h1><p>由于Spring Cloud Config 需要一个存储配置信息的Git仓库，这里我们先在Git仓库中添加好配置文件再演示其功能。仓库地址：<a href="https://github.com/1363653611/config-repo.git" target="_blank" rel="noopener">https://github.com/1363653611/config-repo.git</a></p>
-<h2 id="配置仓库目录结构"><a href="#配置仓库目录结构" class="headerlink" title="配置仓库目录结构"></a>配置仓库目录结构</h2><h2 id="master分支下的配置信息"><a href="#master分支下的配置信息" class="headerlink" title="master分支下的配置信息"></a>master分支下的配置信息</h2><ul>
-<li>config-dev.yml</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for dev(master)"</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>config-test.yml:</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for test(master)"</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>config-prod.yml</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for prod(master)"</span></span></pre></td></tr></table></figure>
-
-<h2 id="dev分支下的配置信息"><a href="#dev分支下的配置信息" class="headerlink" title="dev分支下的配置信息"></a>dev分支下的配置信息</h2><ul>
-<li>config-dev.yml:</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for dev(dev)"</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>config-test.yml:</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for test(dev)"</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>config-prod.yml:</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">info:</span> <span class="string">"config info for prod(dev)"</span></span></pre></td></tr></table></figure>
-
-<h1 id="创建config-server模块"><a href="#创建config-server模块" class="headerlink" title="创建config-server模块"></a>创建config-server模块</h1><p>这里我们创建一个config-server模块来演示Spring Cloud Config 作为配置中心的功能。</p>
-<h2 id="在pom-xml中添加相关依赖"><a href="#在pom-xml中添加相关依赖" class="headerlink" title="在pom.xml中添加相关依赖"></a>在pom.xml中添加相关依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<h2 id="在application-yml中进行配置"><a href="#在application-yml中进行配置" class="headerlink" title="在application.yml中进行配置"></a>在application.yml中进行配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">8901</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">git:</span> <span class="comment">#配置存储配置信息的Git仓库</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">uri:</span> <span class="string">https://github.com/1363653611/config-repo.git</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">username:</span> <span class="string">xxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">password:</span> <span class="string">xxxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">clone-on-start:</span> <span class="literal">true</span> <span class="comment">#开启启动时直接从git获取配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr></table></figure>
-
-<h2 id="在启动类上添加-EnableConfigServer注解来启用配置中心功能"><a href="#在启动类上添加-EnableConfigServer注解来启用配置中心功能" class="headerlink" title="在启动类上添加@EnableConfigServer注解来启用配置中心功能"></a>在启动类上添加@EnableConfigServer注解来启用配置中心功能</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableConfigServer</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigServerApplication</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        SpringApplication.run(ConfigServerApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="通过config-server获取配置信息"><a href="#通过config-server获取配置信息" class="headerlink" title="通过config-server获取配置信息"></a>通过config-server获取配置信息</h2><p>这里我们通过config-server来演示下如何获取配置信息。</p>
-<h3 id="获取配置文件信息的URI访问格式"><a href="#获取配置文件信息的URI访问格式" class="headerlink" title="获取配置文件信息的URI访问格式"></a>获取配置文件信息的URI访问格式</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取配置信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">/&#123;label&#125;/&#123;application&#125;-&#123;profile&#125;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取配置文件信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">/&#123;label&#125;/&#123;application&#125;-&#123;profile&#125;.yml</span></span></pre></td></tr></table></figure>
-
-<h4 id="占位符相关解释"><a href="#占位符相关解释" class="headerlink" title="占位符相关解释"></a>占位符相关解释</h4><ul>
-<li>application：代表应用名称，默认为配置文件中的spring.application.name，如果配置了spring.cloud.config.name，则为该名称；</li>
-<li>label：代表分支名称，对应配置文件中的spring.cloud.config.label；</li>
-<li>profile：代表环境名称，对应配置文件中的spring.cloud.config.profile。</li>
-</ul>
-<h2 id="获取配置信息演示"><a href="#获取配置信息演示" class="headerlink" title="获取配置信息演示"></a>获取配置信息演示</h2><p>启动eureka-server、config-server服务；</p>
-<ul>
-<li>访问<a href="http://localhost:8901/master/config-dev来获取master分支上dev环境的配置信息；" target="_blank" rel="noopener">http://localhost:8901/master/config-dev来获取master分支上dev环境的配置信息；</a></li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191544134.png" alt="image-20201208191544134"></p>
-<ul>
-<li><p>访问<a href="http://localhost:8901/master/config-dev.yml来获取master分支上dev环境的配置文件信息，对比上面信息，可以看出配置信息和配置文件信息并不是同一个概念；" target="_blank" rel="noopener">http://localhost:8901/master/config-dev.yml来获取master分支上dev环境的配置文件信息，对比上面信息，可以看出配置信息和配置文件信息并不是同一个概念；</a></p>
-</li>
-<li><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191611153.png" alt="image-20201208191611153"></p>
-</li>
-<li><p>访问<a href="http://localhost:8901/dev/config-dev.yml" target="_blank" rel="noopener">http://localhost:8901/master/config-test.yml</a>来获取master分支上test环境的配置文件信息:</p>
-</li>
-<li><p>访问<a href="http://localhost:8901/dev/config-dev.yml来获取dev分支上dev环境的配置文件信息" target="_blank" rel="noopener">http://localhost:8901/dev/config-dev.yml来获取dev分支上dev环境的配置文件信息</a>:</p>
-</li>
-</ul>
-<h1 id="创建config-client模块"><a href="#创建config-client模块" class="headerlink" title="创建config-client模块"></a>创建config-client模块</h1><p>我们创建一个config-client模块来从config-server获取配置。</p>
-<h2 id="在pom-xml中添加相关依赖-1"><a href="#在pom-xml中添加相关依赖-1" class="headerlink" title="在pom.xml中添加相关依赖"></a>在pom.xml中添加相关依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<h2 id="在bootstrap-yml中进行配置"><a href="#在bootstrap-yml中进行配置" class="headerlink" title="在bootstrap.yml中进行配置"></a>在bootstrap.yml中进行配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">9101</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span> <span class="comment">#Config客户端配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">profile:</span> <span class="string">dev</span> <span class="comment">#启用配置后缀名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">label:</span> <span class="string">dev</span> <span class="comment">#分支名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">uri:</span> <span class="string">http://localhost:8901</span> <span class="comment">#配置中心地址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">name:</span> <span class="string">config</span> <span class="comment">#配置文件名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr></table></figure>
-
-<h2 id="添加ConfigClientController类用于获取配置"><a href="#添加ConfigClientController类用于获取配置" class="headerlink" title="添加ConfigClientController类用于获取配置"></a>添加ConfigClientController类用于获取配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/config"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigClientController</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;config.info&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> String configInfo;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/configInfo"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getConfigInfo</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> configInfo;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="测试从配置中心获取配置"><a href="#测试从配置中心获取配置" class="headerlink" title="测试从配置中心获取配置"></a>测试从配置中心获取配置</h2><ul>
-<li>启动config-client服务；</li>
-<li>访问<a href="http://localhost:9101/config/configInfo，可以获取到dev分支下dev环境的配置；" target="_blank" rel="noopener">http://localhost:9101/config/configInfo，可以获取到dev分支下dev环境的配置；</a></li>
-</ul>
-<h1 id="获取子目录下的配置"><a href="#获取子目录下的配置" class="headerlink" title="获取子目录下的配置"></a>获取子目录下的配置</h1><p>我们不仅可以把每个项目的配置放在不同的Git仓库存储，也可以在一个Git仓库中存储多个项目的配置，此时就会用到在子目录中搜索配置信息的配置。</p>
-<ul>
-<li>首先我们需要在config-server中添加相关配置，用于搜索子目录中的配置，这里我们用到了application占位符，表示对于不同的应用，我们从对应应用名称的子目录中搜索配置，比如config子目录中的配置对应config应用；</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">git:</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">search-paths:</span> <span class="string">'&#123;application&#125;'</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>访问<a href="http://localhost:9101/config/configInfo进行测试，可以发现获取的是config子目录下的配置信息。" target="_blank" rel="noopener">http://localhost:9101/config/configInfo进行测试，可以发现获取的是config子目录下的配置信息。</a></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">config info for config dir dev(dev)</span></pre></td></tr></table></figure>
-
-<h2 id="刷新配置"><a href="#刷新配置" class="headerlink" title="刷新配置"></a>刷新配置</h2><p>当Git仓库中的配置信息更改后，我们可以通过SpringBoot Actuator的refresh端点来刷新客户端配置信息，以下更改都需要在config-client中进行。</p>
-<ul>
-<li>在pom.xml中添加Actuator的依赖：</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>在bootstrap.yml中开启refresh端点：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">endpoints:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">web:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">exposure:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">include:</span> <span class="string">'refresh'</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>在ConfigClientController类添加<code>@RefreshScope</code>注解用于刷新配置：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigClientController</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;config.info&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> String configInfo;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/configInfo"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getConfigInfo</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> configInfo;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<ul>
-<li>重新启动config-client后，调用refresh端点进行配置刷新：</li>
-</ul>
-<blockquote>
-<p>请求方式 post： <a href="http://localhost:9101/actuator/refresh" target="_blank" rel="noopener">http://localhost:9101/actuator/refresh</a></p>
-</blockquote>
-<ul>
-<li>访问<a href="http://localhost:9101/config/configInfo" target="_blank" rel="noopener">http://localhost:9101/config/configInfo</a> 进行测试，可以发现配置信息已经刷新。</li>
-</ul>
-<h2 id="使用到的模块"><a href="#使用到的模块" class="headerlink" title="使用到的模块"></a>使用到的模块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-config/ config-client -- 获取配置的客户端服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-config/ zbcn-config/ config-server -- 配置中心服务</span></pre></td></tr></table></figure>
-
-
-
-<h1 id="配置中心添加安全认证"><a href="#配置中心添加安全认证" class="headerlink" title="配置中心添加安全认证"></a>配置中心添加安全认证</h1><h2 id="创建config-security-server模块"><a href="#创建config-security-server模块" class="headerlink" title="创建config-security-server模块"></a>创建config-security-server模块</h2><ul>
-<li>添加pom依赖</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>在application.yml中进行配置：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">8905</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-security-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">git:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">         <span class="attr">uri:</span> <span class="string">https://github.com/1363653611/config-repo.git</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">username:</span> <span class="string">xxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">password:</span> <span class="string">xxxx</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">clone-on-start:</span> <span class="literal">true</span> <span class="comment">#开启启动时直接从git获取配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">security:</span> <span class="comment">#配置用户名和密码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">user:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">name:</span> <span class="string">zbcn</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">password:</span> <span class="number">123456</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>启动config-security-server服务。</li>
-</ul>
-<h2 id="修改config-client的配置"><a href="#修改config-client的配置" class="headerlink" title="修改config-client的配置"></a>修改config-client的配置</h2><ul>
-<li>添加bootstrap-security.yml配置文件，主要是配置了配置中心的用户名和密码：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">9002</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">profile:</span> <span class="string">dev</span> <span class="comment">#启用配置后缀名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">label:</span> <span class="string">dev</span> <span class="comment">#分支名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">uri:</span> <span class="string">http://localhost:8905</span> <span class="comment">#配置中心地址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">name:</span> <span class="string">config</span> <span class="comment">#配置文件名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">username:</span> <span class="string">zbcn</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">password:</span> <span class="number">123456</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li><p>使用bootstrap-security.yml启动config-client服务；</p>
-<p><code>--spring.config.location=classpath:bootstrap-security.yml</code></p>
-</li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201209101857577.png" alt="image-20201209101857577"></p>
-<ul>
-<li>访问<a href="http://localhost:9102/config/configInfo" target="_blank" rel="noopener">http://localhost:9102/config/configInfo</a> 进行测试，发现可以获取到配置信息。</li>
-</ul>
-<h2 id="使用到的模块-1"><a href="#使用到的模块-1" class="headerlink" title="使用到的模块"></a>使用到的模块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-config/ config-client -- 获取配置的客户端服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-config/ config-security-server -- 带安全认证的配置中心服务</span></pre></td></tr></table></figure>
-
-
-
-<h1 id="config-sever集群搭建"><a href="#config-sever集群搭建" class="headerlink" title="config-sever集群搭建"></a>config-sever集群搭建</h1><blockquote>
-<p>在微服务架构中，所有服务都从配置中心获取配置，配置中心一旦宕机，会发生很严重的问题，下面我们搭建一个双节点的配置中心集群来解决该问题。</p>
-</blockquote>
-<ul>
-<li>启动两个config-server分别运行在8902和8903端口上；</li>
-<li>添加config-client的配置文件bootstrap-cluster.yml，主要是添加了从注册中心获取配置中心地址的配置并去除了配置中心uri的配置：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cloud:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">config:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">profile:</span> <span class="string">dev</span> <span class="comment">#启用环境名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">label:</span> <span class="string">dev</span> <span class="comment">#分支名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">name:</span> <span class="string">config</span> <span class="comment">#配置文件名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">discovery:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">service-id:</span> <span class="string">config-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li><p>以bootstrap-cluster.yml启动config-client服务，注册中心显示信息如下：</p>
-</li>
-<li><p>访问<a href="http://localhost:9103/config/configInfo，发现config-client可以获取到配置信息。" target="_blank" rel="noopener">http://localhost:9103/config/configInfo，发现config-client可以获取到配置信息。</a></p>
-</li>
-</ul>
-<h2 id="使用到的模块-2"><a href="#使用到的模块-2" class="headerlink" title="使用到的模块"></a>使用到的模块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-config/ config-client -- 获取配置的客户端服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-config/ config-server -- 配置中心服务</span></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/08/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1199,162 +1034,9 @@
 <li>服务聚合</li>
 <li>。。。。</li>
 </ul>
-<h2 id="整合方式"><a href="#整合方式" class="headerlink" title="整合方式"></a>整合方式</h2><p>spring-zuul 与eureka 整合</p>
-<ul>
-<li><p>将自身注册为eureka 的服务治理下的应用，同时从eureka 中 获取其他服务的实例信息。</p>
-</li>
-<li><p>维护服务实例的工作交给 eureka。</p>
-</li>
-<li><p>zuul 只负责路由规则的维护</p>
-</li>
-<li><p>zuul 默认会将通过服务名作为 contextPath 的方式来创建路由映射。</p>
-</li>
-</ul>
-<h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="新建-zuul-gateway-项目"><a href="#新建-zuul-gateway-项目" class="headerlink" title="新建 zuul-gateway 项目"></a>新建 zuul-gateway 项目</h2><h2 id="引入-maven依赖"><a href="#引入-maven依赖" class="headerlink" title="引入 maven依赖"></a>引入 maven依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注册eureka 客户端--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--网关核心依赖--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加actuator ，查看路由信息--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ul>
-<li><code>spring-cloud-starter-netflix-eureka-client</code> 用来将其整合 eureka。<br>在 配置文件中添加 注册 为 eureka 客户端的配置<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">instance:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># hostname: demo.server # 主机名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">instance-id:</span> <span class="string">zuul.server</span> <span class="comment"># eureka 服务列表显示名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">register-with-eureka:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">fetch-registry:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8000/eureka/</span></span></pre></td></tr></table></figure></li>
-<li><code>spring-cloud-starter-netflix-zuul</code> 用来集成 zuul 网关功能<br>在配置文件中添加 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">host:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">connect-timeout-millis:</span> <span class="number">3000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">socket-timeout-millis:</span> <span class="number">3000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">routes:</span> <span class="comment">#给服务配置路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 这里可以自定义</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">demo-server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="comment"># 匹配的路由规则: 表示以demo 开头的访问，都将进入 demo-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">path:</span> <span class="string">/demo/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="comment"># 路由的目标地址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">#url: http://localhost:9000/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">sericeId:</span> <span class="string">demo-server</span> <span class="comment"># 路由的目标服务名</span></span></pre></td></tr></table></figure>
-遇到的坑：</li>
-</ul>
-<ol>
-<li><p><code>Load balancer does not have available server for client: xxx</code><br>原因是 sericeId 配置不对，此处配置的为服务 的名称。即： <code>spring.application.name</code> 对应的名称</p>
-</li>
-<li><p>访问路径 404：<br>原因：是对路由有误解、 path 对应的路径是用来寻找 指定服务的，即 通过：<code>/demo/..</code> 就能找到对应的demo-server服务，而资源路径是全模式匹配<br>eg：访问： <code>http://localhost:8080/demo/api-demo-url/index</code> 可以访问到 demo-server 服务下的 <code>/api-demo-url/index</code> 资源。</p>
-</li>
-<li><p>spring-boot 和 spring-cloud 对应的版本问题。</p>
-</li>
-<li><p>spring-cloud 对应的 zuul-starter 名称修改问题</p>
-</li>
-</ol>
-<ul>
-<li><code>spring-boot-starter-actuator</code> 用来集成actuator 监控功能<br>配置文件中添加如下信息，可以监控路由信息<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#路由的端点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">endpoints:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">web:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">exposure:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">include:</span> <span class="string">'routes'</span></span></pre></td></tr></table></figure>
-通过url 路径： <code>http://localhost:8080/actuator/routes</code> 可以查看路由信息</li>
-</ul>
-<h1 id="开启网关-EnableZuulProxy"><a href="#开启网关-EnableZuulProxy" class="headerlink" title="开启网关 @EnableZuulProxy"></a>开启网关 <code>@EnableZuulProxy</code></h1><p>在启动类上添加@EnableZuulProxy注解来启用Zuul的API网关功能</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableZuulProxy</span> <span class="comment">//启用Zuul的API网关功能</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableEurekaClient</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZuulGatewayApplication</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        SpringApplication.run(ZuulGatewayApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="默认路由规则"><a href="#默认路由规则" class="headerlink" title="默认路由规则"></a>默认路由规则</h2><p>Zuul和Eureka结合使用，可以实现路由的自动配置，自动配置的路由以服务名称为匹配路径，相当于如下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">host:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">connect-timeout-millis:</span> <span class="number">3000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">socket-timeout-millis:</span> <span class="number">3000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">routes:</span> <span class="comment">#给服务配置路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 这里可以自定义</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">demo-server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="comment"># 匹配的路由规则: 表示以demo 开头的访问，都将进入 demo-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">path:</span> <span class="string">/demo/**</span></span></pre></td></tr></table></figure>
-<ul>
-<li>访问： <code>http://localhost:8080/demo/api-demo-url/index</code> 可以访问到 demo-server 服务下的 <code>/api-demo-url/index</code> 资源</li>
-</ul>
-<h2 id="负载均衡功能"><a href="#负载均衡功能" class="headerlink" title="负载均衡功能"></a>负载均衡功能</h2><p>如果有两个 demo-server 服务，多次调用<code>http://localhost:8080/demo/api-demo-url/index</code>，将会在两个服务之间切换调用</p>
-<h2 id="配置访问前缀"><a href="#配置访问前缀" class="headerlink" title="配置访问前缀"></a>配置访问前缀</h2><p>我们可以通过以下配置来给网关路径添加前缀，此处添加了/proxy前缀，</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">prefix:</span> <span class="string">/proxy</span> <span class="comment">#给网关路由添加前缀</span></span></pre></td></tr></table></figure>
-<p>访问路径变更为：<code>http://localhost:8080/proxy/demo/api-demo-url/index</code></p>
-<h2 id="Header过滤及重定向添加Host"><a href="#Header过滤及重定向添加Host" class="headerlink" title="Header过滤及重定向添加Host"></a>Header过滤及重定向添加Host</h2><ul>
-<li>Zuul在请求路由时，默认会过滤掉一些敏感的头信息，以下配置可以防止路由时的Cookie及Authorization的丢失：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">sensitive-headers:</span> <span class="string">Cookie,Set-Cookie,Authorization</span> <span class="comment">#配置过滤敏感的请求头信息，设置为空就不会过滤</span></span></pre></td></tr></table></figure></li>
-<li>Zuul在请求路由时，不会设置最初的host头信息，以下配置可以解决：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">add-host-header:</span> <span class="literal">true</span> <span class="comment">#设置为true重定向是会添加host请求头</span></span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>路由与过滤是Zuul的两大核心功能，路由功能负责将外部请求转发到具体的服务实例上去，是实现统一访问入口的基础，过滤功能负责对请求过程进行额外的处理，是请求校验过滤及服务聚合的基础。</p>
-<h2 id="过滤器类型"><a href="#过滤器类型" class="headerlink" title="过滤器类型"></a>过滤器类型</h2><p>Zuul中有以下几种典型的过滤器类型。</p>
-<ul>
-<li>pre：在请求被路由到目标服务前执行，比如权限校验、打印日志等功能；</li>
-<li>routing：在请求被路由到目标服务时执行，这是使用Apache HttpClient或Netflix Ribbon构建和发送原始HTTP请求的地方；</li>
-<li>post：在请求被路由到目标服务后执行，比如给目标服务的响应添加头信息，收集统计数据等功能；</li>
-<li>error：请求在其他阶段发生错误时执行。<h2 id="过滤器的生命周期"><a href="#过滤器的生命周期" class="headerlink" title="过滤器的生命周期"></a>过滤器的生命周期</h2></li>
-<li>下图描述了一个HTTP请求到达API网关后，如何在各种不同类型的过滤器中流转的过程。</li>
-</ul>
-<p>![image-20201205203953087](/zbcn.github.io/assets/postImg/springCloud/springcloud-07ZUUL 集成/image-20201205203953087.png)</p>
-<h2 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h2><h3 id="添加PreLogFilter类继承ZuulFilter"><a href="#添加PreLogFilter类继承ZuulFilter" class="headerlink" title="添加PreLogFilter类继承ZuulFilter"></a>添加PreLogFilter类继承ZuulFilter</h3><p>这是一个前置过滤器，用于在请求路由到目标服务前打印请求日志</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * 日志记录过滤器</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreLogFilter</span>  <span class="keyword">extends</span> <span class="title">ZuulFilter</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> Logger log = LoggerFactory.getLogger(PreLogFilter<span class="class">.<span class="keyword">class</span>)</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 过滤器类型，有pre、routing、post、error四种。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filterType</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="string">"pre"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 过滤器执行顺序，数值越小优先级越高。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 是否进行过滤，返回true会执行过滤。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 自定义的过滤器逻辑，当shouldFilter()返回true时会执行</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ZuulException</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> ZuulException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">        RequestContext requestContext = RequestContext.getCurrentContext();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">        HttpServletRequest request = requestContext.getRequest();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        String host = request.getRemoteHost();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">        String method = request.getMethod();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">        String uri = request.getRequestURI();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">        log.info(<span class="string">"Remote host:&#123;&#125;,method:&#123;&#125;,uri:&#123;&#125;"</span>, host, method, uri);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="核心过滤器"><a href="#核心过滤器" class="headerlink" title="核心过滤器"></a>核心过滤器</h2><table>
-<thead>
-<tr>
-<th align="left">过滤器名称</th>
-<th align="left">过滤类型</th>
-<th align="left">优先级</th>
-<th align="left">过滤器的作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ServletDetectionFilter</td>
-<td align="left">pre</td>
-<td align="left">-3</td>
-<td align="left">检测当前请求是通过DispatcherServlet处理运行的还是ZuulServlet运行处理的</td>
-</tr>
-<tr>
-<td align="left">Servlet30WrapperFilter</td>
-<td align="left">pre</td>
-<td align="left">-2</td>
-<td align="left">对原始的HttpServletRequest进行包装</td>
-</tr>
-<tr>
-<td align="left">FormBodyWrapperFilter</td>
-<td align="left">pre</td>
-<td align="left">-1</td>
-<td align="left">将Content-Type为application/x-www-form-urlencoded或multipart/form-data的请求包装成FormBodyRequestWrapper对象</td>
-</tr>
-<tr>
-<td align="left">DebugFilter</td>
-<td align="left">route</td>
-<td align="left">1</td>
-<td align="left">根据zuul.debug.request的配置来决定是否打印debug日志</td>
-</tr>
-<tr>
-<td align="left">PreDecorationFilter</td>
-<td align="left">route</td>
-<td align="left">5</td>
-<td align="left">对当前请求进行预处理以便执行后续操作</td>
-</tr>
-<tr>
-<td align="left">RibbonRoutingFilter</td>
-<td align="left">route</td>
-<td align="left">10</td>
-<td align="left">通过Ribbon和Hystrix来向服务实例发起请求，并将请求结果进行返回。</td>
-</tr>
-<tr>
-<td align="left">SimpleHostRoutingFilter</td>
-<td align="left">route</td>
-<td align="left">100</td>
-<td align="left">只对请求上下文中有routeHost参数的进行处理，直接使用HttpClient向routeHost对应的物理地址进行转发。</td>
-</tr>
-<tr>
-<td align="left">SendForwardFilter</td>
-<td align="left">route</td>
-<td align="left">500</td>
-<td align="left">只对请求上下文中有forward.to参数的进行处理，进行本地跳转。</td>
-</tr>
-<tr>
-<td align="left">SendErrorFilter</td>
-<td align="left">post</td>
-<td align="left">0</td>
-<td align="left">当其他过滤器内部发生异常时的会由它来进行处理，产生错误响应。</td>
-</tr>
-<tr>
-<td align="left">SendResponseFilter</td>
-<td align="left">post</td>
-<td align="left">1000</td>
-<td align="left">利用请求上下文的响应信息来组织请求成功的响应内容</td>
-</tr>
-</tbody></table>
-<h2 id="禁用过滤器"><a href="#禁用过滤器" class="headerlink" title="禁用过滤器"></a>禁用过滤器</h2><ul>
-<li>我们可以对过滤器进行禁用的配置，配置格式如下：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">filterClassName:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">filter:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">disable:</span> <span class="literal">true</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>以下是禁用PreLogFilter的示例配置：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">PreLogFilter:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">pre:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">disable:</span> <span class="literal">true</span></span></pre></td></tr></table></figure>
-
-<h1 id="Ribbon和Hystrix的支持"><a href="#Ribbon和Hystrix的支持" class="headerlink" title="Ribbon和Hystrix的支持"></a>Ribbon和Hystrix的支持</h1><p>由于Zuul自动集成了Ribbon和Hystrix，所以Zuul天生就有负载均衡和服务容错能力，我们可以通过Ribbon和Hystrix的配置来配置Zuul中的相应功能。</p>
-<ul>
-<li>可以使用Hystrix的配置来设置路由转发时HystrixCommand的执行超时时间：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">hystrix:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">command:</span> <span class="comment">#用于控制HystrixCommand的行为</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">default:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">execution:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">isolation:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">thread:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">timeoutInMilliseconds:</span> <span class="number">1000</span> <span class="comment">#配置HystrixCommand执行的超时时间，执行超过该时间会进行服务降级处理</span></span></pre></td></tr></table></figure>
-
-<ul>
-<li>可以使用Ribbon的配置来设置路由转发时请求连接及处理的超时时间：</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">ribbon:</span> <span class="comment">#全局配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">ConnectTimeout:</span> <span class="number">1000</span> <span class="comment">#服务请求连接超时时间（毫秒）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">ReadTimeout:</span> <span class="number">3000</span> <span class="comment">#服务请求处理超时时间（毫秒）</span></span></pre></td></tr></table></figure>
-
-<h1 id="常用的配置"><a href="#常用的配置" class="headerlink" title="常用的配置"></a>常用的配置</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">routes:</span> <span class="comment">#给服务配置路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">user-service:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">path:</span> <span class="string">/userService/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">feign-service:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">path:</span> <span class="string">/feignService/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">ignored-services:</span> <span class="string">user-service,feign-service</span> <span class="comment">#关闭默认路由配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">prefix:</span> <span class="string">/proxy</span> <span class="comment">#给网关路由添加前缀</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">sensitive-headers:</span> <span class="string">Cookie,Set-Cookie,Authorization</span> <span class="comment">#配置过滤敏感的请求头信息，设置为空就不会过滤</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">add-host-header:</span> <span class="literal">true</span> <span class="comment">#设置为true重定向是会添加host请求头</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">retryable:</span> <span class="literal">true</span> <span class="comment"># 关闭重试机制</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">PreLogFilter:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">pre:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">disable:</span> <span class="literal">false</span> <span class="comment">#控制是否启用过滤器</span></span></pre></td></tr></table></figure>
-
-<h1 id="对应的项目"><a href="#对应的项目" class="headerlink" title="对应的项目"></a>对应的项目</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-gateway/zuul-gateway -- zuul网关</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── /zbcn-business/zbcn-demo-server -- 业务服务</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/07/springcloud-07ZUUL%20%E9%9B%86%E6%88%90/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1582,59 +1264,9 @@
       
         <h1 id="Spring-Cloud-OpenFeign：基于Ribbon和Hystrix的声明式服务调用"><a href="#Spring-Cloud-OpenFeign：基于Ribbon和Hystrix的声明式服务调用" class="headerlink" title="Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用"></a>Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用</h1><p>Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能，本文将对其用法进行详细介绍。</p>
 <h1 id="Feign-简介"><a href="#Feign-简介" class="headerlink" title="Feign 简介"></a>Feign 简介</h1><p>Feign是声明式的服务调用工具，我们只需创建一个接口并用注解的方式来配置它，就可以实现对某个服务接口的调用，简化了直接使用RestTemplate来调用服务接口的开发量。Feign具备可插拔的注解支持，同时支持Feign注解、JAX-RS注解及SpringMvc注解。当使用Feign时，Spring Cloud集成了Ribbon和Eureka以提供负载均衡的服务调用及基于Hystrix的服务容错保护功能。</p>
-<h2 id="创建一个feign-service模块"><a href="#创建一个feign-service模块" class="headerlink" title="创建一个feign-service模块"></a>创建一个feign-service模块</h2><p>这里我们创建一个feign-service模块来演示feign的常用功能。</p>
-<h2 id="在pom文件中添加依赖"><a href="#在pom文件中添加依赖" class="headerlink" title="在pom文件中添加依赖"></a>在pom文件中添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
-
-<h2 id="在application-yml中进行配置"><a href="#在application-yml中进行配置" class="headerlink" title="在application.yml中进行配置"></a>在application.yml中进行配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">port:</span> <span class="number">8701</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">application:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">name:</span> <span class="string">feign-server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">client:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">register-with-eureka:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">fetch-registry:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">service-url:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8001/eureka/</span></span></pre></td></tr></table></figure>
-
-<h2 id="在启动类上添加-EnableFeignClients注解来启用Feign的客户端功能"><a href="#在启动类上添加-EnableFeignClients注解来启用Feign的客户端功能" class="headerlink" title="在启动类上添加@EnableFeignClients注解来启用Feign的客户端功能"></a>在启动类上添加@EnableFeignClients注解来启用Feign的客户端功能</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableFeignClients</span> <span class="comment">//开启声明式服务调用功能</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeignServerApplication</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        SpringApplication.run(FeignServerApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="添加UserService接口完成对user-service服务的接口绑定"><a href="#添加UserService接口完成对user-service服务的接口绑定" class="headerlink" title="添加UserService接口完成对user-service服务的接口绑定"></a>添加UserService接口完成对user-service服务的接口绑定</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient</span>(value = <span class="string">"user-service"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/user/create"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function">ResponseResult <span class="title">create</span><span class="params">(@RequestBody User user)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;id&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function">ResponseResult&lt;User&gt; <span class="title">getUser</span><span class="params">(@PathVariable Long id)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/getByUsername"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="function">ResponseResult&lt;User&gt; <span class="title">getByUsername</span><span class="params">(@RequestParam String username)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/user/update"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="function">ResponseResult <span class="title">update</span><span class="params">(@RequestBody User user)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/user/delete/&#123;id&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="function">ResponseResult <span class="title">delete</span><span class="params">(@PathVariable Long id)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="添加UserFeignController调用UserService实现服务调用"><a href="#添加UserFeignController调用UserService实现服务调用" class="headerlink" title="添加UserFeignController调用UserService实现服务调用"></a>添加UserFeignController调用UserService实现服务调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserFeignController</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Autowired</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> UserService userService;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult&lt;User&gt; <span class="title">getUser</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> userService.getUser(id);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/getByUsername"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">getByUsername</span><span class="params">(@RequestParam String username)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> userService.getByUsername(username);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/create"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">create</span><span class="params">(@RequestBody User user)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> userService.create(user);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/update"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">update</span><span class="params">(@RequestBody User user)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> userService.update(user);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/delete/&#123;id&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">delete</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> userService.delete(id);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="负载均衡功能演示"><a href="#负载均衡功能演示" class="headerlink" title="负载均衡功能演示"></a>负载均衡功能演示</h2><ul>
-<li><p>启动eureka-service，两个user-service，feign-service服务.</p>
-</li>
-<li><p>多次调用<a href="http://localhost:8701/user/1进行测试，可以发现运行在8201和8202的user-service服务交替打印" target="_blank" rel="noopener">http://localhost:8701/user/1进行测试，可以发现运行在8201和8202的user-service服务交替打印</a></p>
-</li>
-</ul>
-<h2 id="Feign中的服务降级"><a href="#Feign中的服务降级" class="headerlink" title="Feign中的服务降级"></a>Feign中的服务降级</h2><p>Feign中的服务降级使用起来非常方便，只需要为Feign客户端定义的接口添加一个服务降级处理的实现类即可，下面我们为UserService接口添加一个服务降级实现类。</p>
-<h3 id="添加服务降级实现类UserFallbackService"><a href="#添加服务降级实现类UserFallbackService" class="headerlink" title="添加服务降级实现类UserFallbackService"></a>添加服务降级实现类UserFallbackService</h3><p>需要注意的是它实现了UserService接口，并且对接口中的每个实现方法进行了服务降级逻辑的实现。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserFallbackService</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">create</span><span class="params">(User user)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult&lt;User&gt; <span class="title">getUser</span><span class="params">(Long id)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        User defaultUser = <span class="keyword">new</span> User(-<span class="number">1L</span>, <span class="string">"defaultUser"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> ResponseResult.success(defaultUser);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult&lt;User&gt; <span class="title">getByUsername</span><span class="params">(String username)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        User defaultUser = <span class="keyword">new</span> User(-<span class="number">1L</span>, <span class="string">"defaultUser"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> ResponseResult.success(defaultUser);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">update</span><span class="params">(User user)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> ResponseResult.fail(<span class="string">"服务调用失败。。。"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> ResponseResult <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span>  ResponseResult.fail(<span class="string">"服务调用失败。。。"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="修改UserService接口，设置服务降级处理类为UserFallbackService"><a href="#修改UserService接口，设置服务降级处理类为UserFallbackService" class="headerlink" title="修改UserService接口，设置服务降级处理类为UserFallbackService"></a>修改UserService接口，设置服务降级处理类为UserFallbackService</h3><p>修改@FeignClient注解中的参数，设置fallback为UserFallbackService.class即可。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient</span>(value = <span class="string">"user-service"</span>,fallback = UserFallbackService<span class="class">.<span class="keyword">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">UserService</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="修改application-yml，开启Hystrix功能"><a href="#修改application-yml，开启Hystrix功能" class="headerlink" title="修改application.yml，开启Hystrix功能"></a>修改application.yml，开启Hystrix功能</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">feign:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  hystrix:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    enabled: true #在Feign中开启Hystrix</span></pre></td></tr></table></figure>
-
-
-
-<h2 id="服务降级功能测试"><a href="#服务降级功能测试" class="headerlink" title="服务降级功能测试"></a>服务降级功能测试</h2><ul>
-<li>关闭两个user-service服务，重新启动feign-service;</li>
-<li>调用<a href="http://localhost:8701/user/1进行测试，可以发现返回了服务降级信息。" target="_blank" rel="noopener">http://localhost:8701/user/1进行测试，可以发现返回了服务降级信息。</a></li>
-</ul>
-<h2 id="日志打印功能"><a href="#日志打印功能" class="headerlink" title="日志打印功能"></a>日志打印功能</h2><p>Feign提供了日志打印功能，我们可以通过配置来调整日志级别，从而了解Feign中Http请求的细节。</p>
-<h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><ul>
-<li>NONE：默认的，不显示任何日志；</li>
-<li>BASIC：仅记录请求方法、URL、响应状态码及执行时间；</li>
-<li>HEADERS：除了BASIC中定义的信息之外，还有请求和响应的头信息；</li>
-<li>FULL：除了HEADERS中定义的信息之外，还有请求和响应的正文及元数据。</li>
-</ul>
-<h3 id="通过配置开启更为详细的日志"><a href="#通过配置开启更为详细的日志" class="headerlink" title="通过配置开启更为详细的日志"></a>通过配置开启更为详细的日志</h3><p>我们通过java配置来使Feign打印最详细的Http请求日志信息。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeignConfig</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Bean</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    Logger.<span class="function">Level <span class="title">feignLoggerLevel</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> Logger.Level.FULL;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="在application-yml中配置需要开启日志的Feign客户端"><a href="#在application-yml中配置需要开启日志的Feign客户端" class="headerlink" title="在application.yml中配置需要开启日志的Feign客户端"></a>在application.yml中配置需要开启日志的Feign客户端</h3><p>配置UserService的日志级别为debug。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">level:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">com.macro.cloud.service.UserService:</span> <span class="string">debug</span></span></pre></td></tr></table></figure>
-
-<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-06OpenFeign/image-20201208154022400.png" alt="image-20201208154022400"></p>
-<h2 id="Feign的常用配置"><a href="#Feign的常用配置" class="headerlink" title="Feign的常用配置"></a>Feign的常用配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">feign:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">hystrix:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#在Feign中开启Hystrix</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">compression:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">request:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">enabled:</span> <span class="literal">false</span> <span class="comment">#是否对请求进行GZIP压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">mime-types:</span> <span class="string">text/xml,application/xml,application/json</span> <span class="comment">#指定压缩的请求数据类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">min-request-size:</span> <span class="number">2048</span> <span class="comment">#超过该大小的请求会被压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">response:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">enabled:</span> <span class="literal">false</span> <span class="comment">#是否对响应进行GZIP压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">level:</span> <span class="comment">#修改日志级别</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">com.zbcn.feignserver.api.UserService:</span> <span class="string">debug</span></span></pre></td></tr></table></figure>
-
-<h3 id="Feign中的Ribbon配置"><a href="#Feign中的Ribbon配置" class="headerlink" title="Feign中的Ribbon配置"></a>Feign中的Ribbon配置</h3><p>在Feign中配置Ribbon可以直接使用Ribbon的配置，具体可以参考：Spring Cloud Ribbon：负载均衡的服务调用</p>
-<h3 id="Feign中的Hystrix配置"><a href="#Feign中的Hystrix配置" class="headerlink" title="Feign中的Hystrix配置"></a>Feign中的Hystrix配置</h3><p>在Feign中配置Hystrix可以直接使用Hystrix的配置，具体可以参考：Spring Cloud Hystrix：服务容错保护</p>
-<h1 id="使用到的模块"><a href="#使用到的模块" class="headerlink" title="使用到的模块"></a>使用到的模块</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── zbcn-register/eureka-server -- eureka注册中心</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── zbcn-business/user-service -- 提供User对象CRUD接口的服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── zbcn-common/ feign-server  -- feign服务调用测试服务</span></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/01/06/springcloud-06OpenFeign/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -1675,124 +1307,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2021/01/06/springcloud-06OpenFeign/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-HTTP01_简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/06/HTTP01_%E7%AE%80%E4%BB%8B/">HTTP 简介</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/06/HTTP01_%E7%AE%80%E4%BB%8B/" class="archive-article-date">
-  	<time datetime="2021-01-06T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="HTTP-简介"><a href="#HTTP-简介" class="headerlink" title="HTTP 简介"></a>HTTP 简介</h1><h1 id="http-历史背景"><a href="#http-历史背景" class="headerlink" title="http 历史背景"></a>http 历史背景</h1><ul>
-<li>HTTP（hypertext transport protocol）： 超文本传输协议</li>
-</ul>
-<h2 id="web-网络"><a href="#web-网络" class="headerlink" title="web 网络"></a>web 网络</h2><ul>
-<li>www(world wide web) 顾名思义就是全世界都在一个网络</li>
-<li>Web 网络方便了我们的信息传递，背后依托的就是 Http 这项协议。</li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/web/HTTP_%E7%AE%80%E4%BB%8B/image-20201201094953553.png" alt="image-20201201094953553"></p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/06/HTTP01_%E7%AE%80%E4%BB%8B/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/06/HTTP01_%E7%AE%80%E4%BB%8B/">展开全文 >></a>
         </p>
       
 
@@ -1937,11 +1451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1981,19 +1495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2001,11 +1507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2014,6 +1516,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2037,15 +1551,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2054,10 +1572,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
