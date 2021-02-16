@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Java_01并发机制的底层实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lunix_03日志查看方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">01 java 并发机制底层实现</a>
+      <a class="article-title" href="/zbcn.github.io/2020/01/14/lunix_03%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95/">03 LUNIX查看日志方法</a>
     </h1>
   
 
@@ -215,8 +215,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2019-12-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+        <a href="/zbcn.github.io/2020/01/14/lunix_03%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-01-14T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
 </a>
         
       </header>
@@ -230,14 +230,16 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><h4 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h4><ol>
-<li>单核处理器也支持多线程执行代码.</li>
-<li>cpu 通过时间分配算法来循环执行任务,当前任务执行一个时间片后会切换到一下个任务.</li>
-<li>在切换前会保存上一个任务的状态,以便于下一次切换回这个任务时,可以再加载这个任务的之前状态.</li>
-<li><strong>定义:</strong> 任务从保存到再加载的过程就是一次上下文切换.</li>
-<li><strong>注意:</strong> 多线程不一定比单线程快.数据量不超过百万次时,多线程比单线程反而慢.
+        <h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><h3 id="常规命令"><a href="#常规命令" class="headerlink" title="常规命令:"></a>常规命令:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">cat service.log</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">tail -f service.log</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">vim serivice.log</span></pre></td></tr></table></figure>
+<ul>
+<li>vim 操作文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- 打开文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">vim filename</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">- 按G跳转到文件末尾</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">- 按 ? + 关键字 指定位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">- 按 n 往上查找, 按N 往下查找</span></pre></td></tr></table></figure>
+<ul>
+<li>实时查看日志  <code>tail -f filename.log</code></li>
+</ul>
+</li>
+</ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/14/lunix_03%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -257,15 +259,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LUNIX</a>
         		</li>
       		
 		</ul>
@@ -277,11 +271,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        			<a href="/zbcn.github.io/categories/LUNIX//" class="article-tag-list-link color1">LUNIX</a>
         		</li>
       		
 		</ul>
@@ -290,7 +280,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/Java_01%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/14/lunix_03%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -321,14 +311,14 @@
 
 
   
-    <article id="post-concurrency_02-线程安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-regex_01常用正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">02 concurrency-线程安全</a>
+      <a class="article-title" href="/zbcn.github.io/2020/01/14/regex_01%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">01 常见正则表达式</a>
     </h1>
   
 
@@ -343,8 +333,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="archive-article-date">
-  	<time datetime="2019-12-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+        <a href="/zbcn.github.io/2020/01/14/regex_01%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-01-14T06:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
 </a>
         
       </header>
@@ -358,16 +348,20 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="concurrency-线程安全"><a href="#concurrency-线程安全" class="headerlink" title="concurrency-线程安全"></a>concurrency-线程安全</h3><h4 id="I-导言"><a href="#I-导言" class="headerlink" title="I . 导言"></a>I . 导言</h4><p>A . 要编写线程安全的代码，其核心在于要对状态访问操作进行管理</p>
-<ul>
-<li>A.A shared 共享的<ul>
-<li>共享意味着变量可以由多个线程同时访问<br>A.B Mutiable 可变的</li>
-</ul>
+        <h2 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h2><ul>
+<li><p>数字：<code>^[0-9]*$</code></p>
 </li>
-<li>意味着变量的值在其生命周期内可以发生变化</li>
+<li><p>n位的数字：<code>^\d{n}$</code></p>
+</li>
+<li><p>至少n位的数字：<code>^\d{n,}$</code></p>
+</li>
+<li><p>m-n位的数字：<code>^\d{m,n}$</code></p>
+</li>
+<li><p>零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></p>
+</li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/14/regex_01%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -387,15 +381,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">regex</a>
         		</li>
       		
 		</ul>
@@ -407,11 +393,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        			<a href="/zbcn.github.io/categories/regex//" class="article-tag-list-link color1">regex</a>
         		</li>
       		
 		</ul>
@@ -420,7 +402,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_02-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/14/regex_01%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
         </p>
       
 
@@ -451,14 +433,14 @@
 
 
   
-    <article id="post-rpc和http" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-redis_02常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/06/rpc%E5%92%8Chttp/">rpc 和 http 的区别</a>
+      <a class="article-title" href="/zbcn.github.io/2020/01/11/redis_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">02 redis 常见问题</a>
     </h1>
   
 
@@ -473,8 +455,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/06/rpc%E5%92%8Chttp/" class="archive-article-date">
-  	<time datetime="2019-12-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+        <a href="/zbcn.github.io/2020/01/11/redis_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-01-11T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
 </a>
         
       </header>
@@ -488,28 +470,14 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="rpc-和-http-的区别"><a href="#rpc-和-http-的区别" class="headerlink" title="rpc 和 http 的区别"></a>rpc 和 http 的区别</h3><ol>
-<li><p>rpc: (Remote Procedure Call): 远程过程调用,</p>
-<ul>
-<li><p>rpc 架构:</p>
-<ul>
-<li><p>四个核心组件:</p>
-<blockquote>
-<p>1)客户端（Client），服务的调用方<br>2)服务端（Server），真正的服务提供者<br>3)客户端存根(Client Stub)，存放服务端的地址消息，再将客户端的请求参数打包成网络消息，然后通过网络远程发送给服务方。<br>4)服务端存根(Server Stub)，接收客户端发送过来的消息，将消息解包，并调用本地的方法。</p>
-</blockquote>
-</li>
-<li><p>流行的 rpc 框架</p>
-<blockquote>
-<p>1）gRPC是Google最近公布的开源软件，基于最新的HTTP2.0协议，并支持常见的众多编程语言。<br>2）Thrift是Facebook的一个开源项目，主要是一个跨语言的服务开发框架。<br>3）Dubbo是阿里集团开源的一个极为出名的RPC框架，在很多互联网公司和企业应用中广泛使用。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+        <h2 id="使用-redis-有哪些好处？"><a href="#使用-redis-有哪些好处？" class="headerlink" title="使用 redis 有哪些好处？"></a>使用 redis 有哪些好处？</h2><ol>
+<li>速度快，因为数据存在内存中，类似于 HashMap，HashMap 的优势就是查找和操作的时间复杂度都是 O(1)</li>
+<li>支持丰富数据类型，支持 string，list，set，sorted set，hash</li>
+<li>支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行</li>
+<li>丰富的特性：可用于缓存，消息，按 key 设置过期时间，过期后将会自动删除</li>
 </ol>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/rpc%E5%92%8Chttp/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/11/redis_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -529,15 +497,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -549,7 +509,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/http//" class="article-tag-list-link color5">http</a>
+        			<a href="/zbcn.github.io/categories/redis//" class="article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -558,7 +518,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/rpc%E5%92%8Chttp/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/01/11/redis_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -589,14 +549,14 @@
 
 
   
-    <article id="post-hexo_yili_02-photos" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java_08线程池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/">yilia 实现相册功能</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/26/java_08%E7%BA%BF%E7%A8%8B%E6%B1%A0/">08 线程池技术</a>
     </h1>
   
 
@@ -611,8 +571,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/" class="archive-article-date">
-  	<time datetime="2019-12-06T01:41:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+        <a href="/zbcn.github.io/2019/12/26/java_08%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
+  	<time datetime="2019-12-26T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
@@ -626,16 +586,14 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><ul>
-<li><p>在github上新建一个仓库，主要用于存储图片，可以通过url访问到，也方便管理</p>
-</li>
-<li><p>将要放到相册的图片处理成json格式的数据，然后进行访问，这里json的格式需要配合要使用的样式，所以需要处理成特定格式的json数据，下面会给出</p>
-</li>
-<li><p>图片裁剪，因为相册显示的样式最好是正方形的的图片，这里使用脚本处理一下</p>
-</li>
-<li><p>图片压缩，相册显示的图片是压缩后的图片，提高加载的速度，打开后的图片是原图</p>
+        <p>线程池是java 应用场景最广的java 并发框架。几乎所有的异步或者并发任务的程序都可以使用线程池。在开发中，合理的使用线程池可以带来三种好处：</p>
+<ol>
+<li>降低资源消耗：通过合理的重复使用已创建的线程，降低线程创建和销毁对资源的消耗</li>
+<li>提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li>提高线程的可管性：线程是稀缺资源，如果无限制的创建，不仅会降低系统资源，而且会降低系统的稳定性。使用线程池可以进行统一分配、调优和监控。</li>
+</ol>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/26/java_08%E7%BA%BF%E7%A8%8B%E6%B1%A0/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -655,11 +613,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
@@ -671,7 +633,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
@@ -680,7 +646,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/06/hexo_yili_02-photos/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/26/java_08%E7%BA%BF%E7%A8%8B%E6%B1%A0/">展开全文 >></a>
         </p>
       
 
@@ -711,14 +677,14 @@
 
 
   
-    <article id="post-hexo_createBlog_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java_09Executor框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/">Hexo博客新建文章并发布</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/26/java_09Executor%E6%A1%86%E6%9E%B6/">09 Executor 框架</a>
     </h1>
   
 
@@ -733,8 +699,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/" class="archive-article-date">
-  	<time datetime="2019-12-05T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
+        <a href="/zbcn.github.io/2019/12/26/java_09Executor%E6%A1%86%E6%9E%B6/" class="archive-article-date">
+  	<time datetime="2019-12-26T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
@@ -748,9 +714,9 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="基于Hexo-Github-搭建个人博客"><a href="#基于Hexo-Github-搭建个人博客" class="headerlink" title="基于Hexo+Github 搭建个人博客"></a>基于Hexo+Github 搭建个人博客</h3><h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4>
+        <p>Java的线程既是工作单元，也是执行机制。从JDK 5开始，把工作单元与执行机制分离开来。工作单元包括Runnable和Callable，而执行机制由Executor框架提供。</p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/26/java_09Executor%E6%A1%86%E6%9E%B6/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -770,11 +736,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
@@ -786,7 +756,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
@@ -795,7 +769,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/05/hexo_createBlog_01/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/26/java_09Executor%E6%A1%86%E6%9E%B6/">展开全文 >></a>
         </p>
       
 
@@ -826,14 +800,14 @@
 
 
   
-    <article id="post-py3.8_01_install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java_07并发工具类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/11/05/py3.8_01_install/">1. lunix python3.8 安装</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/25/java_07%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/">07 java 中的并发工具类</a>
     </h1>
   
 
@@ -848,8 +822,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/11/05/py3.8_01_install/" class="archive-article-date">
-  	<time datetime="2019-11-05T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
+        <a href="/zbcn.github.io/2019/12/25/java_07%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2019-12-25T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
 </a>
         
       </header>
@@ -863,379 +837,12 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="lunix-python-安装"><a href="#lunix-python-安装" class="headerlink" title="lunix python 安装"></a>lunix python 安装</h3><ol>
-<li><p>先看看现有的 python2在哪里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">whereis python</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># python: &#x2F;usr&#x2F;bin&#x2F;python &#x2F;usr&#x2F;bin&#x2F;python2.7 &#x2F;usr&#x2F;bin&#x2F;python.bak &#x2F;usr&#x2F;lib&#x2F;python2.7 &#x2F;usr&#x2F;lib64&#x2F;python2.7 &#x2F;etc&#x2F;python &#x2F;usr&#x2F;include&#x2F;python2.7 &#x2F;usr&#x2F;share&#x2F;man&#x2F;man1&#x2F;python.1.gz</span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/11/05/py3.8_01_install/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python/env//" class="article-tag-list-link color4">env</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/11/05/py3.8_01_install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-myBatis_03动态sql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/10/myBatis_03%E5%8A%A8%E6%80%81sql/">03. myBatis动态sql</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/10/myBatis_03%E5%8A%A8%E6%80%81sql/" class="archive-article-date">
-  	<time datetime="2019-10-10T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a>动态sql</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findActiveBlogWithTitleLike"</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">     <span class="attr">resultType</span>=<span class="string">"Blog"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  SELECT * FROM BLOG</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  WHERE state = ‘ACTIVE’</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"title != null"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    AND title like #&#123;title&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/10/myBatis_03%E5%8A%A8%E6%80%81sql/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/动态sql//" class="article-tag-list-link color1">动态sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/10/myBatis_03%E5%8A%A8%E6%80%81sql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-myBatis_04Java_api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/">04.MyBatis java API</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/" class="archive-article-date">
-  	<time datetime="2019-10-09T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="MyBatis-java-API"><a href="#MyBatis-java-API" class="headerlink" title="MyBatis java API"></a>MyBatis java API</h3><h4 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a>SqlSession</h4><p>SqlSession 由 SqlSessionFactory 创建. 而SqlSessionFactory 由 SqlSessionFactoryBuilder 创建.</p>
-<h4 id="SqlSessionFactoryBuilder"><a href="#SqlSessionFactoryBuilder" class="headerlink" title="SqlSessionFactoryBuilder"></a>SqlSessionFactoryBuilder</h4><p>SqlSessionFactoryBuilder 有五个 build() 方法，每一种都允许你从不同的资源中创建一个 SqlSessionFactory 实例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream)</span><span class="comment">//最常用的方法</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, String environment)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, Properties properties)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(InputStream inputStream, String env, Properties props)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="function">SqlSessionFactory <span class="title">build</span><span class="params">(Configuration config)</span></span></span></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/动态sql//" class="article-tag-list-link color1">动态sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/09/myBatis_04Java_api/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-myBatis_02映射文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">02.MyBatis 映射文件</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-10-08T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h3 id="xml-映射文件"><a href="#xml-映射文件" class="headerlink" title="xml 映射文件"></a>xml 映射文件</h3><h4 id="映射-文件的顶级元素"><a href="#映射-文件的顶级元素" class="headerlink" title="映射 文件的顶级元素"></a>映射 文件的顶级元素</h4><ul>
-<li>cache 给定命名空间的缓存配置</li>
-<li>cache-ref 对其他命名空间的缓存引用</li>
-<li>resultMap 最复杂也是最强大的.描述如合从数据库结果中加载对象</li>
-<li>sql 可被其他语句引用的可重用的语句块.</li>
-<li>insert 插入语句</li>
-<li>update 更新语句</li>
-<li>delete 删除语句</li>
-<li>select 选择语句</li>
+        <ul>
+<li>CountDownLatch、CyclicBarrier和Semaphore工具类提供了一种并发流程控制的手段</li>
+<li>Exchanger工具类则提供了在线程间交换数据的一种手段</li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_07%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1255,11 +862,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
@@ -1271,11 +882,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/动态sql//" class="article-tag-list-link color1">动态sql</a>
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
@@ -1284,7 +895,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/08/myBatis_02%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_07%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
@@ -1315,14 +926,14 @@
 
 
   
-    <article id="post-myBatis_01基本说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java_06-13种原子操作类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/">myBatis 01.基本说明</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/25/java_06-13%E7%A7%8D%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BB/">06 13种原子操作类</a>
     </h1>
   
 
@@ -1337,8 +948,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2019-10-07T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+        <a href="/zbcn.github.io/2019/12/25/java_06-13%E7%A7%8D%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2019-12-25T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
 </a>
         
       </header>
@@ -1352,15 +963,17 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="myBatis-01-基本说明"><a href="#myBatis-01-基本说明" class="headerlink" title="myBatis 01.基本说明"></a>myBatis 01.基本说明</h3><h4 id="关键类"><a href="#关键类" class="headerlink" title="关键类:"></a>关键类:</h4><ul>
-<li>SqlSessionFactoryBuilder:<ul>
-<li>作用:创建 <code>SqlSessionFactory</code>, 一旦创建后,就再不需要了 <code>SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);</code></li>
-<li>作用域: 方法作用域（也就是局部方法变量）</li>
-</ul>
-</li>
-</ul>
+        <blockquote>
+<p>java.util.concurrent.atomic包（以下简称Atomic包）的原子操作类提供了一种用法简单、性能高效、线程安全地更新一个变量的方式。</p>
+</blockquote>
+<blockquote>
+<p>在Atomic包里一共提供了13个类，属于4种类型的原子更新方式，分别是原子更新基本类型、原子更新数组、原子更新引用和原子更新属性（字段）。</p>
+</blockquote>
+<blockquote>
+<p>Atomic包里的类基本都是使用Unsafe实现的包装类</p>
+</blockquote>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_06-13%E7%A7%8D%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BB/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1380,11 +993,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
@@ -1396,11 +1013,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis/基本说明//" class="article-tag-list-link color5">基本说明</a>
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
@@ -1409,7 +1026,378 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/10/07/myBatis_01%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_06-13%E7%A7%8D%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-java_05并发容器和框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/25/java_05%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E5%92%8C%E6%A1%86%E6%9E%B6/">05 并发容器和框架</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/25/java_05%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E5%92%8C%E6%A1%86%E6%9E%B6/" class="archive-article-date">
+  	<time datetime="2019-12-25T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="ConcurrrentHashMap"><a href="#ConcurrrentHashMap" class="headerlink" title="ConcurrrentHashMap"></a>ConcurrrentHashMap</h3><p>线程安全且高效的hashMap</p>
+<h4 id="为什么要使用-ConcurrentHashMap"><a href="#为什么要使用-ConcurrentHashMap" class="headerlink" title="为什么要使用 ConcurrentHashMap"></a>为什么要使用 ConcurrentHashMap</h4><blockquote>
+<p>并发编程中，HashMap 不是线程安全的，而且容易造成 死循环， 而 HashTable 效率又特别低下，由此，并发编程中穿线了 <code>ConcurrentHashMap</code></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_05%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E5%92%8C%E6%A1%86%E6%9E%B6/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/25/java_05%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E5%92%8C%E6%A1%86%E6%9E%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-java_04锁机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/23/java_04%E9%94%81%E6%9C%BA%E5%88%B6/">04 锁机制</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/23/java_04%E9%94%81%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2019-12-23T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="Lock-接口"><a href="#Lock-接口" class="headerlink" title="Lock 接口"></a>Lock 接口</h3><blockquote>
+<p>锁是用来控制多个线程访问共享资源的一种方式。</p>
+</blockquote>
+<h4 id="锁的使用"><a href="#锁的使用" class="headerlink" title="锁的使用"></a>锁的使用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Lock lock = <span class="keyword">new</span> ReentrantLock();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">lock.lock();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;<span class="keyword">finally</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  lock.unlock();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/23/java_04%E9%94%81%E6%9C%BA%E5%88%B6/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/23/java_04%E9%94%81%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-fbs_01-互斥问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2019/12/23/fbs_01-%E4%BA%92%E6%96%A5%E9%97%AE%E9%A2%98/">01 互斥问题</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2019/12/23/fbs_01-%E4%BA%92%E6%96%A5%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-12-23T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h3 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h3><ul>
+<li>特点<ul>
+<li>可扩展性：可通过横向水平扩展提高系统的性能和吞吐量。</li>
+<li>高可靠性：高容错，即使系统中一台或几台故障，系统仍可提供服务。</li>
+<li>高并发性：各机器并行独立处理和计算。</li>
+<li>廉价高效：多台小型机而非单台高性能机。</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/23/fbs_01-%E4%BA%92%E6%96%A5%E9%97%AE%E9%A2%98/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">restful</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/restful//" class="article-tag-list-link color3">restful</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/23/fbs_01-%E4%BA%92%E6%96%A5%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -1442,7 +1430,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/14/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/13/">13</a><a class="page-number" href="/zbcn.github.io/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/zbcn.github.io/page/16/">16</a><a class="extend next" rel="next" href="/zbcn.github.io/page/16/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/14/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/13/">13</a><a class="page-number" href="/zbcn.github.io/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/zbcn.github.io/page/16/">16</a><a class="page-number" href="/zbcn.github.io/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/19/">19</a><a class="extend next" rel="next" href="/zbcn.github.io/page/16/">Next</a>
     </nav>
   
 
@@ -1546,7 +1534,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,10 +1559,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,6 +1579,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">other</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1610,11 +1622,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1626,11 +1646,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1643,6 +1659,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1666,15 +1690,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color4">security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">

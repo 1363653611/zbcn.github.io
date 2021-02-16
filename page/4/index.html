@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-springcloud-13springboot Admin微服务监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-security-03在 Web 应用间安全地传递信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/13/springcloud-13springboot%20Admin%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/">Spring Boot Admin：微服务应用监控</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">JWT 在 Web 应用间安全地传递信息</a>
     </h1>
   
 
@@ -215,8 +215,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/13/springcloud-13springboot%20Admin%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/" class="archive-article-date">
-  	<time datetime="2021-01-13T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
+        <a href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/" class="archive-article-date">
+  	<time datetime="2021-02-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
 </a>
         
       </header>
@@ -230,22 +230,376 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="Spring-Boot-Admin：微服务应用监控"><a href="#Spring-Boot-Admin：微服务应用监控" class="headerlink" title="Spring Boot Admin：微服务应用监控"></a>Spring Boot Admin：微服务应用监控</h1><p>Spring Boot Admin 可以对SpringBoot应用的各项指标进行监控，可以作为微服务架构中的监控中心来使用，本文将对其用法进行详细介绍。</p>
-<h1 id="Spring-Boot-Admin-简介"><a href="#Spring-Boot-Admin-简介" class="headerlink" title="Spring Boot Admin 简介"></a>Spring Boot Admin 简介</h1><p>SpringBoot应用可以通过Actuator来暴露应用运行过程中的各项指标，Spring Boot Admin通过这些指标来监控SpringBoot应用，然后通过图形化界面呈现出来。Spring Boot Admin不仅可以监控单体应用，还可以和Spring Cloud的注册中心相结合来监控微服务应用。</p>
-<p>Spring Boot Admin 可以提供应用的以下监控信息：</p>
+        <h1 id="JWT-在-Web-应用间安全地传递信息"><a href="#JWT-在-Web-应用间安全地传递信息" class="headerlink" title="JWT 在 Web 应用间安全地传递信息"></a>JWT 在 Web 应用间安全地传递信息</h1><p>JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息。</p>
+<p>让我们来假想一下一个场景。在A用户关注了B用户的时候，系统发邮件给B用户，并且附有一个链接“点此关注A用户”。链接的地址可以是这样的</p>
+<blockquote>
+<p><a href="https://your.awesome-app.com/make-friend/?from_user=B&amp;target_user=A" target="_blank" rel="noopener">https://your.awesome-app.com/make-friend/?from_user=B&amp;target_user=A</a></p>
+</blockquote>
+<p>上面的URL主要通过URL来描述这个当然这样做有一个弊端，那就是要求用户B用户是一定要先登录的。可不可以简化这个流程，让B用户不用登录就可以完成这个操作。JWT就允许我们做到这点。</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/security//" class="article-tag-list-link color4">security</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-security-04cookie_session_token" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/security-04cookie_session_token/">Cookie_Session_Token</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/12/security-04cookie_session_token/" class="archive-article-date">
+  	<time datetime="2021-02-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="Cookie-Session-Token"><a href="#Cookie-Session-Token" class="headerlink" title="Cookie_Session_Token"></a>Cookie_Session_Token</h1><p>在了解这三个概念之前我们先要了解HTTP是无状态的Web服务器.</p>
+<h2 id="Cookie信息"><a href="#Cookie信息" class="headerlink" title="Cookie信息"></a>Cookie信息</h2><p>由于业务需求，我们需要让服务器记住一些信息。采用如下方式：</p>
+<ol>
+<li>浏览器第一次访问服务端时，服务器此时肯定不知道他的身份，所以创建一个独特的身份标识数据，格式为key=value，放入到Set-Cookie字段里，随着响应报文发给浏览器。</li>
+<li>浏览器看到有Set-Cookie字段以后就知道这是服务器给的身份标识，于是就保存起来，下次请求时会自动将此key=value值放入到Cookie字段中发给服务端。</li>
+<li>服务端收到请求报文后，发现Cookie字段中有值，就能根据此值识别用户的身份然后提供个性化的服务。</li>
+</ol>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-04cookie_session_token/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/security//" class="article-tag-list-link color4">security</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-04cookie_session_token/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-security-05nimbus-jose-jwt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/security-05nimbus-jose-jwt/">nimbus-jose-jwt</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/12/security-05nimbus-jose-jwt/" class="archive-article-date">
+  	<time datetime="2021-02-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <p>以前一直使用的是<code>jjwt</code>这个JWT库，虽然小巧够用, 但对JWT的一些细节封装的不是很好。最近发现了一个更好用的JWT库<code>nimbus-jose-jwt</code>，简单易用，API非常易于理解，对称加密和非对称加密算法都支持。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><code>nimbus-jose-jwt</code>是最受欢迎的JWT开源库，基于Apache 2.0开源协议，支持所有标准的签名(JWS)和加密(JWE)算法。</p>
+<h1 id="JWT-概念关系"><a href="#JWT-概念关系" class="headerlink" title="JWT 概念关系"></a>JWT 概念关系</h1><ul>
+<li>JWT(JSON Web Token)指的是一种规范，这种规范允许我们使用JWT在两个组织之间传递安全可靠的信息。</li>
+<li>而JWS(JSON Web Signature)和JWE(JSON Web Encryption)是JWT规范的两种不同实现，我们平时最常使用的实现就是JWS。</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-05nimbus-jose-jwt/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/security//" class="article-tag-list-link color4">security</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-05nimbus-jose-jwt/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-redis_07功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/redis_07%E5%8A%9F%E8%83%BD/">07 redis 自身功能</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/12/redis_07%E5%8A%9F%E8%83%BD/" class="archive-article-date">
+  	<time datetime="2021-02-12T01:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="Redis-事物"><a href="#Redis-事物" class="headerlink" title="Redis 事物"></a>Redis 事物</h1><p>##　事物介绍</p>
 <ul>
-<li>监控应用运行过程中的概览信息；</li>
-<li>度量指标信息，比如JVM、Tomcat及进程信息；</li>
-<li>环境变量信息，比如系统属性、系统环境变量以及应用配置信息；</li>
-<li>查看所有创建的Bean信息；</li>
-<li>查看应用中的所有配置信息；</li>
-<li>查看应用运行日志信息；</li>
-<li>查看JVM信息；</li>
-<li>查看可以访问的Web端点；</li>
-<li>查看HTTP跟踪信息。</li>
+<li>Redis的事务是通过<strong>MULTI，EXEC，DISCARD和WATCH</strong>这四个命令来完成。</li>
+<li>Redis的单个命令都是<strong>原子性</strong>的，所以这里确保事务性的对象是<strong>命令集合</strong>。</li>
+<li>Redis将命令集合序列化并确保处于一事务的<strong>命令集合连续且不被打断</strong>的执行。</li>
+<li>Redis<strong>不支持回滚</strong>的操作。</li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/springcloud-13springboot%20Admin%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/redis_07%E5%8A%9F%E8%83%BD/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -265,7 +619,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -277,7 +631,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/redis//" class="article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -286,7 +640,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/springcloud-13springboot%20Admin%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/redis_07%E5%8A%9F%E8%83%BD/">展开全文 >></a>
         </p>
       
 
@@ -317,14 +671,14 @@
 
 
   
-    <article id="post-HTTP_HEADER_02请求首部字段" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MQ_04rabbitmq使用教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/13/HTTP_HEADER_02%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5/">请求首部字段</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/11/MQ_04rabbitmq%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">RabbitMQ 使用教程</a>
     </h1>
   
 
@@ -339,8 +693,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/13/HTTP_HEADER_02%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5/" class="archive-article-date">
-  	<time datetime="2021-01-13T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
+        <a href="/zbcn.github.io/2021/02/11/MQ_04rabbitmq%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2021-02-11T03:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-11</time>
 </a>
         
       </header>
@@ -354,15 +708,136 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="请求首部字段"><a href="#请求首部字段" class="headerlink" title="请求首部字段"></a>请求首部字段</h1><p>请求的首部字段主要是客户端用来告知服务端自己能够支持的内容，让服务端尽量根据自己满足的优先级内容来响应。<br>请求的首部字段很多都是支持多个值的，并且有下面两个常见特性：</p>
+        <h1 id="rabbitmq-使用教程"><a href="#rabbitmq-使用教程" class="headerlink" title="rabbitmq 使用教程"></a>rabbitmq 使用教程</h1><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>略</p>
+<h1 id="管理界面"><a href="#管理界面" class="headerlink" title="管理界面"></a>管理界面</h1><ul>
+<li>地址：<a href="http://localhost:15672/" target="_blank" rel="noopener">http://localhost:15672/</a></li>
+<li>用户名/密码：guest/guest</li>
+<li>管理界面</li>
+</ul>
+<p><img src="/zbcn.github.io/assets/postImg/mq/MQ_04rabbitmq%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20201024221945951.png" alt="image-20201024221945951"></p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/11/MQ_04rabbitmq%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/mq//" class="article-tag-list-link color3">mq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/11/MQ_04rabbitmq%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-redis_06redis4种部署架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/11/redis_06redis4%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84/">06 redis 四种部署结构</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/11/redis_06redis4%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2021-02-11T01:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="Redis-搭建模式"><a href="#Redis-搭建模式" class="headerlink" title="Redis 搭建模式"></a>Redis 搭建模式</h1><p>Redis 的搭建方式：</p>
 <ul>
-<li>通配符：值类型支持用通配符表示，如 <code>*</code>；</li>
-<li>添加因子权重 <code>q</code> 任何值都按照称为权重的相对质量值的优先顺序排列。</li>
+<li>单机</li>
+<li>主从</li>
+<li>哨兵</li>
+<li>集群</li>
 </ul>
-<h2 id="Accept"><a href="#Accept" class="headerlink" title="Accept"></a>Accept</h2><p>告知服务端客户侧能够处理的媒体类型，一般是 <code>类型/子类型</code>的格式，支持多种类型根据优先级排序。</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif</span> HTTP/1.1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept</span>: image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5</span></pre></td></tr></table></figure>
+<p>单机，只要一台Redis服务器，挂了就无法工作了</p>
+<p>主从，是备份关系， 数据也会同步到从库，还可以读写分离</p>
+<p>哨兵：master挂了，哨兵就行选举，选出新的master，作用是监控主从，主从切换</p>
+<p>集群：高可用，分散请求。目的是将数据分片存储，节省内存。</p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/HTTP_HEADER_02%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/11/redis_06redis4%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -382,7 +857,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -394,7 +869,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
+        			<a href="/zbcn.github.io/categories/redis//" class="article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -403,7 +878,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/HTTP_HEADER_02%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/11/redis_06redis4%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84/">展开全文 >></a>
         </p>
       
 
@@ -434,14 +909,14 @@
 
 
   
-    <article id="post-docker_03_mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Programmer-Abbreviation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/13/docker_03_mysql/">docker nysql</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/09/Programmer-Abbreviation/">软件行专业名词</a>
     </h1>
   
 
@@ -456,8 +931,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/13/docker_03_mysql/" class="archive-article-date">
-  	<time datetime="2021-01-13T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
+        <a href="/zbcn.github.io/2021/02/09/Programmer-Abbreviation/" class="archive-article-date">
+  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
 </a>
         
       </header>
@@ -471,18 +946,48 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="查看可用的-MySQL-版本"><a href="#查看可用的-MySQL-版本" class="headerlink" title="查看可用的 MySQL 版本"></a>查看可用的 MySQL 版本</h2><ul>
-<li>访问 MySQL 镜像库地址：<a href="https://hub.docker.com/_/mysql?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/mysql?tab=tags</a> 。</li>
-<li>通过 命令: <code>docker search mysql</code></li>
-</ul>
-<h2 id="拉去镜像-docker-pull-mysql-latest"><a href="#拉去镜像-docker-pull-mysql-latest" class="headerlink" title="拉去镜像 docker pull mysql:latest"></a>拉去镜像 <code>docker pull mysql:latest</code></h2><h2 id="查看本地镜像-docker-images"><a href="#查看本地镜像-docker-images" class="headerlink" title="查看本地镜像 docker images"></a>查看本地镜像 <code>docker images</code></h2><h2 id="运行容器-docker-run-itd-name-mysql-zbcn-p-3306-3306-e-MYSQL-ROOT-PASSWORD-123456-mysql"><a href="#运行容器-docker-run-itd-name-mysql-zbcn-p-3306-3306-e-MYSQL-ROOT-PASSWORD-123456-mysql" class="headerlink" title="运行容器: docker run -itd --name mysql-zbcn -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql"></a>运行容器: <code>docker run -itd --name mysql-zbcn -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</code></h2><p><code>docker run -p 3306:3306 --name mysql-zbcn -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/logs:/logs -v /usr/local/mysql/data:/mysql_data -e MYSQL_ROOT_PASSWORD=123456 -d 9228ee8bac7a --lower_case_table_names=1 --sql_mode=&#39;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION&#39;</code></p>
-<h2 id="MySql版本问题sql-mode-only-full-group-by-问题解决"><a href="#MySql版本问题sql-mode-only-full-group-by-问题解决" class="headerlink" title="MySql版本问题sql_mode=only_full_group_by 问题解决"></a>MySql版本问题sql_mode=only_full_group_by 问题解决</h2><ul>
-<li>查看sql_mode <code>select @@sql_mode</code></li>
-<li>去掉ONLY_FULL_GROUP_BY，重新设置值<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> @@sql_mode =<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode =<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">--  或者</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> sql_mode=(<span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(@@sql_mode,<span class="string">'ONLY_FULL_GROUP_BY'</span>,<span class="string">''</span>));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">SESSION</span> sql_mode=(<span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(@@sql_mode,<span class="string">'ONLY_FULL_GROUP_BY'</span>,<span class="string">''</span>));</span></pre></td></tr></table></figure>
-参数说明:</li>
-<li>-p 3306:3306 ：映射容器服务的 3306 端口到宿主机的 3306 端口，外部主机可以直接通过 宿主机ip:3306 访问到 MySQL 的服务。</li>
-<li>MYSQL_ROOT_PASSWORD=123456：设置 MySQL 服务 root 用户的密码。</li>
-</ul>
+        <h3 id="英文缩写"><a href="#英文缩写" class="headerlink" title="英文缩写"></a>英文缩写</h3><h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>应用程序接口（英语：Application Programming Interface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。由于近年来软件的规模日益庞大，常常需要把复杂的系统划分成小的组成部分，编程接口的设计十分重要。程序设计的实践中，编程接口的设计首先要使软件系统的职责得到合理划分。良好的接口设计可以降低系统各部分的相互依赖，提高组成单元的内聚性，降低组成单元间的耦合程度，从而提高系统的维护性和扩展性。</p>
+<h4 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h4><p>ACID，是指数据库管理系统（DBMS）在写入或更新资料的过程中，为保证事务（transaction）是正确可靠的，所必须具备的四个特性：原子性（atomicity，或称不可分割性）、一致性（consistency）、隔离性（isolation，又称独立性）、持久性（durability）。</p>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4><p>AJAX即“Asynchronous JavaScript and XML”（异步的 JavaScript 与 XML 技术），指的是一套综合了多项技术的浏览器端网页开发技术。</p>
+<h4 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h4><ol>
+<li>比较并交换(compare and swap, CAS)，是原子操作的一种，可用于在多线程编程中实现不被打断的数据交换操作，从而避免多线程同时改写某一数据时由于执行顺序不确定性以及中断的不可预知性产生的数据不一致问题。 该操作通过将内存中的值与指定数据进行比较，当数值一样时将内存中的数据替换为新的值。</li>
+<li>集中式认证服务（英语：Central Authentication Service，缩写CAS）是一种针对万维网的单点登录协议。它的目的是允许一个用户访问多个应用程序，而只需提供一次凭证（如用户名和密码）。它还允许web应用程序在没有获得用户的安全凭据（如密码）的情况下对用户进行身份验证。“CAS”也指实现了该协议的软件包。</li>
+</ol>
+<h4 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h4><p>JPA 是 Java Persistence API 的简称，中文名 Java 持久层 API，是 JDK 5.0 注解或 XML 描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。</p>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>JSON（JavaScript Object Notation）是一种轻量级的数据交换语言，以文字为基础，且易于让人阅读。尽管 JSON 是 Javascript 的一个子集，但JSON是独立于语言的文本格式，并且采用了类似于 C语言 家族的一些习惯。</p>
+<h4 id="POJO"><a href="#POJO" class="headerlink" title="POJO"></a>POJO</h4><p>POJO（Plain Ordinary Java Object）简单的 Java 对象，实际就是普通 Java Beans。使用 POJO 名称是为了避免和 EJB 混淆起来，而且简称比较直接。其中有一些属性及其 getter setter 方法的类，没有业务逻辑，有时可以作为VO(Value Object) 或 DTO(Data Transform Object) 来使用。当然，如果你有一个简单的运算属性也是可以的，但不允许有业务方法，也不能携带有 connection 之类的方法。</p>
+<h4 id="DSL"><a href="#DSL" class="headerlink" title="DSL"></a>DSL</h4><p>领域专用语言（Domain Specific Language/DSL），其基本思想是「求专不求全」，不像通用目的语言那样目标范围涵盖一切软件问题，而是专门针对某一特定问题的计算机语言。</p>
+<h4 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h4><p>在计算机科学中，垃圾回收（英语：Garbage Collection，缩写为GC）是一种自动的内存管理机制。当一个电脑上的动态内存不再需要时，就应该予以释放，以让出内存，这种内存资源管理，称为垃圾回收。垃圾回收器可以让程序员减轻许多负担，也减少程序员犯错的机会。垃圾回收最早起源于LISP语言。目前许多语言如 Smalltalk、Java、C# 和 D 语言都支持垃圾回收器。</p>
+<h4 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h4><p>数据操纵语言（Data Manipulation Language, DML）是 SQL 语言中，负责对数据库对象运行数据访问工作的指令集，以 INSERT、UPDATE、DELETE 三种指令为核心，分别代表插入、更新与删除，是开发以数据为中心的应用程序必定会使用到的指令，因此有很多开发人员都把加上SQL的SELECT语句的四大指令以“CRUD”来称呼。</p>
+<h4 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h4><p>数据定义语言（Data Definition Language，DDL）是 SQL 语言集中负责数据结构定义与数据库对象定义的语言，由 CREATE、ALTER 与 DROP 三个语法所组成，最早是由Codasyl（Conference on Data Systems Languages）数据模型开始，现在被纳入 SQL 指令中作为其中一个子集。</p>
+<h4 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h4><p>Dependency Injection，依赖注入。在软件工程中，依赖注入是种实现控制反转用于解决依赖性设计模式。一个依赖关系指的是可被利用的一种对象（即服务提供端） 。依赖注入是将所依赖的传递给将使用的从属对象（即客户端）。该服务是将会变成客户端的状态的一部分。 传递服务给客户端，而非允许客户端来建立或寻找服务，是本设计模式的基本要求。</p>
+<h4 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h4><p>域名系统（英文：Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用TCP和UDP端口53。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。</p>
+<h4 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h4><p>图形用户界面（Graphical User Interface）是指采用图形方式显示的计算机操作用户界面。与早期计算机使用的命令行界面相比，图形界面对于用户来说在视觉上更易于接受。</p>
+<h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>超文本传输协议（英文：HyperText Transfer ProtocolP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP是万维网的数据通信的基础。</p>
+<h4 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h4><p>控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用传递给它。也可以说，依赖被注入到对象中。</p>
+<h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4><p>JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息，特别适用于分布式站点的单点登录（SSO）场景。</p>
+<h4 id="LDAP"><a href="#LDAP" class="headerlink" title="LDAP"></a>LDAP</h4><p>轻型目录存取协定（英文：Lightweight Directory Access Protocol）是一个开放的，中立的，工业标准的应用协议，通过IP协议提供访问控制和维护分布式信息的目录信息。</p>
+<h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。MVC 模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一部分的重复利用成为可能。除此之外，此模式通过对复杂度的简化，使程序结构更加直观。</p>
+<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p>Model-view-presenter，简称MVP，是电脑软件设计工程中一种对针对MVC模式，再审议后所延伸提出的一种软件设计模式。被广范用于便捷自动化单元测试和在呈现逻辑中改良分离关注点（separation of concerns）。</p>
+<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4><p>MVVM（Model–view–viewmodel）是一种软件架构模式，有助于将图形用户界面的开发与业务逻辑或后端逻辑（数据模型）的开发分离开来，这是通过置标语言或 GUI 代码实现的。</p>
+<h4 id="OLAP"><a href="#OLAP" class="headerlink" title="OLAP"></a>OLAP</h4><p>联机分析处理（英语：On-Line Analytical Processing），是一套以多维度方式分析数据，而能弹性地提供积存（英语：Roll-up）、下钻（英语：Drill-down）、和透视分析（英语：pivot）等操作，呈现集成性决策信息的方法，多用于决策支持系统、商务智能或数据仓库。其主要的功能，在于方便大规模数据分析及统计计算，对决策提供参考和支持。与之相区别的是联机交易处理（OLTP）。</p>
+<h4 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h4><p>SQL（结构化查询语言）是一种特定目的程序语言，用于管理关系数据库管理系统（RDBMS），或在关系流数据管理系统（RDSMS）中进行流处理。</p>
+<h4 id="SPA"><a href="#SPA" class="headerlink" title="SPA"></a>SPA</h4><p>单页 Web 应用（single page web application），就是只有一张 Web 页面的应用，是加载单个 HTML 页面并在用户与应用程序交互时动态更新该页面的 Web 应用程序。</p>
+<h4 id="SOA"><a href="#SOA" class="headerlink" title="SOA"></a>SOA</h4><p>面向服务的体系结构（英语：service-oriented architecture）并不特指一种技术，而是一种分散式运算的软件设计方法。软件的部分组件(呼叫者)，可以透过网络上的通用协定呼叫另一个应用软件元件执行、运作，让呼叫者获得服务。SOA原则上采用开放标准、与软件资源进行交互并采用表示的标准方式。因此应能跨越厂商、产品与技术。一项服务应视为一个独立的功能单元，可以远端存取并独立执行与更新，例如在线上线查询信用卡账单。</p>
+<h4 id="SOAP"><a href="#SOAP" class="headerlink" title="SOAP"></a>SOAP</h4><p>SOAP（原为Simple Object Access Protocol的首字母缩写，即简单对象访问协议）是交换数据的一种协议规范，使用在计算机网络Web服务（web service）中，交换带结构信息。SOAP为了简化网页服务器（Web Server）从XML数据库中提取数据时，节省去格式化页面时间，以及不同应用程序之间按照HTTP通信协议，遵从XML格式执行资料互换，使其抽象于语言实现、平台和硬件。</p>
+<h4 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h4><p>NoSQL 是对不同于传统的关系数据库的数据库管理系统的统称。</p>
+<h4 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h4><p>可扩展标记语言（英语：eXtensible Markup Language，简称：XML），是一种标记语言。标记指计算机所能理解的信息符号，通过此种标记，计算机之间可以处理包含各种信息的文章等。如何定义这些标记，既可以选择国际通用的标记语言，比如HTML，也可以使用像XML这样由相关人士自由决定的标记语言，这就是语言的可扩展性。XML是从标准通用标记语言（SGML）中简化修改出来的。它主要用到的有可扩展标记语言、可扩展样式语言（XSL）、XBRL和XPath等。</p>
+<hr>
+<h3 id="专业名词"><a href="#专业名词" class="headerlink" title="专业名词"></a>专业名词</h3><h4 id="前端后端"><a href="#前端后端" class="headerlink" title="前端后端"></a>前端后端</h4><p>前端（英语：front-end）和后端（英语：back-end）是描述进程开始和结束的通用词汇。前端作用于采集输入信息，后端进行处理。计算机程序的界面样式，视觉呈现属于前端。</p>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><p>在关系数据库管理系统里，乐观并发控制（又名“乐观锁”，Optimistic Concurrency Control，缩写“OCC”）是一种并发控制的方法。它假设多用户并发的事务在处理时不会彼此互相影响，各事务能够在不产生锁的情况下处理各自影响的那部分数据。在提交数据更新之前，每个事务会先检查在该事务读取数据后，有没有其他事务又修改了该数据。如果其他事务有更新的话，正在提交的事务会进行回滚。</p>
+<h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>在关系数据库管理系统里，悲观并发控制（又名“悲观锁”，Pessimistic Concurrency Control，缩写“PCC”）是一种并发控制的方法。它可以阻止一个事务以影响其他用户的方式来修改数据。如果一个事务执行的操作读某行数据应用了锁，那只有当这个事务把锁释放，其他事务才能够执行与该锁冲突的操作。</p>
+<h4 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h4><p>自旋锁是计算机科学用于多线程同步的一种锁，线程反复检查锁变量是否可用。由于线程在这一过程中保持执行，因此是一种忙等待。一旦获取了自旋锁，线程会一直保持该锁，直至显式释放自旋锁。</p>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>递归（英语：Recursion），又译为递回，在数学与计算机科学中，是指在函数的定义中使用函数自身的方法。递归一词还较常用于描述以自相似方法重复事物的过程。例如，当两面镜子相互之间近似平行时，镜中嵌套的图像是以无限递归的形式出现的。也可以理解为自我复制的过程。</p>
+<h4 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h4><p>主键，又称主码（英语：primary key或unique key）。数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。</p>
+<h4 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h4><p>外键（英语：foreign key，台湾译外来键，又称外部键）。其实在关系数据库中，每个数据表都是由关系来连系彼此的关系，父数据表（Parent Entity）的主键（primary key）会放在另一个数据表，当做属性以创建彼此的关系，而这个属性就是外键。</p>
+<h4 id="B-S结构"><a href="#B-S结构" class="headerlink" title="B/S结构"></a>B/S结构</h4><p>浏览器-服务器（Browser/Server）结构，与C/S结构不同，其客户端不需要安装专门的软件，只需要浏览器即可，浏览器通过Web服务器与数据库进行交互，可以方便的在不同平台下工作；服务器端可采用高性能计算机，并安装Oracle、Sybase、Informix等大型数据库。B/S结构简化了客户端的工作，它是随着Internet技术兴起而产生的，对C/S技术的改进，但该结构下服务器端的工作较重，对服务器的性能要求更高。</p>
+<h4 id="C-S结构"><a href="#C-S结构" class="headerlink" title="C/S结构"></a>C/S结构</h4><p>主从式架构 (英语：Client–server model) 也称客户端-服务器（Client/Server）架构、C/S架构，是一种网络架构，它把客户端 (Client) （通常是一个采用图形用户界面的程序）与服务器 (Server) 区分开来。每一个客户端软件的实例都可以向一个服务器或应用程序服务器发出请求。有很多不同类型的服务器，例如文件服务器、游戏服务器等。</p>
+<h4 id="Web服务"><a href="#Web服务" class="headerlink" title="Web服务"></a>Web服务</h4><p>根据W3C的定义，Web服务（Web service）应当是一个软件系统，用以支持网络间不同机器的互动操作。网络服务通常是许多应用程序接口（API）所组成的，它们透过网络，例如国际互联网（Internet）的远程服务器端，执行客户所提交服务的请求。</p>
 
       
 	  <!-- 增加版权声明 -->
@@ -502,7 +1007,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
         		</li>
       		
 		</ul>
@@ -514,7 +1019,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/docker//" class="article-tag-list-link color2">docker</a>
+        			<a href="/zbcn.github.io/categories/other//" class="article-tag-list-link color1">other</a>
         		</li>
       		
 		</ul>
@@ -523,7 +1028,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/docker_03_mysql/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/Programmer-Abbreviation/">展开全文 >></a>
         </p>
       
 
@@ -554,14 +1059,14 @@
 
 
   
-    <article id="post-docker_04es安装和kibana 集成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-linux_04 端口号开通问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/13/docker_04es%E5%AE%89%E8%A3%85%E5%92%8Ckibana%20%E9%9B%86%E6%88%90/">elasticsearch 安装</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/09/linux_04%20%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E9%80%9A%E9%97%AE%E9%A2%98/">端口号开通问题</a>
     </h1>
   
 
@@ -576,8 +1081,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/13/docker_04es%E5%AE%89%E8%A3%85%E5%92%8Ckibana%20%E9%9B%86%E6%88%90/" class="archive-article-date">
-  	<time datetime="2021-01-13T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
+        <a href="/zbcn.github.io/2021/02/09/linux_04%20%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E9%80%9A%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
 </a>
         
       </header>
@@ -591,137 +1096,13 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="elasticsearch-安装"><a href="#elasticsearch-安装" class="headerlink" title="elasticsearch 安装"></a>elasticsearch 安装</h1><h2 id="拉去镜像"><a href="#拉去镜像" class="headerlink" title="拉去镜像"></a>拉去镜像</h2><ul>
-<li>docker pull elasticsearch</li>
-</ul>
-<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">docker image inspect nginx:latest | grep -i version</span></pre></td></tr></table></figure>
-
-<p>发现是 latest 版本是5.6 的，所以指定版本拉去<code>docker pull elasticsearch:7.6.2</code></p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/docker_04es%E5%AE%89%E8%A3%85%E5%92%8Ckibana%20%E9%9B%86%E6%88%90/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/13/docker_04es%E5%AE%89%E8%A3%85%E5%92%8Ckibana%20%E9%9B%86%E6%88%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-springcloud-12gateway网关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/12/springcloud-12gateway%E7%BD%91%E5%85%B3/">Spring Cloud Gateway：新一代API网关服务</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/12/springcloud-12gateway%E7%BD%91%E5%85%B3/" class="archive-article-date">
-  	<time datetime="2021-01-12T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="Spring-Cloud-Gateway：新一代API网关服务"><a href="#Spring-Cloud-Gateway：新一代API网关服务" class="headerlink" title="Spring Cloud Gateway：新一代API网关服务"></a>Spring Cloud Gateway：新一代API网关服务</h1><p>Spring Cloud Gateway 为 SpringBoot 应用提供了API网关支持，具有强大的智能路由与过滤器功能，本文将对其用法进行详细介绍。</p>
-<h1 id="Gateway-简介"><a href="#Gateway-简介" class="headerlink" title="Gateway 简介"></a>Gateway 简介</h1><p>Gateway是在Spring生态系统之上构建的API网关服务，基于Spring 5，Spring Boot 2和 Project Reactor等技术。Gateway旨在提供一种简单而有效的方式来对API进行路由，以及提供一些强大的过滤器功能， 例如：熔断、限流、重试等。</p>
-<p>Spring Cloud Gateway 具有如下特性：</p>
+        <p>问题： 用iptables开启防火墙报错: Failed to start  IPv4 firewall with iptables. - <code>CentOS 7 ：Failed to start IPv4 firewall with iptables.</code><br><img src="/zbcn.github.io/assets/postImg/linux/imgs/lunix_04_ipv4%E5%A4%B1%E8%B4%A5.jpg" alt="&quot;ipv4 fialed&quot;"></p>
 <ul>
-<li>基于Spring Framework 5, Project Reactor 和 Spring Boot 2.0 进行构建；</li>
-<li>动态路由：能够匹配任何请求属性；</li>
-<li>可以对路由指定 Predicate（断言）和 Filter（过滤器）；</li>
-<li>集成Hystrix的断路器功能；</li>
-<li>集成 Spring Cloud 服务发现功能；</li>
-<li>易于编写的 Predicate（断言）和 Filter（过滤器）；</li>
-<li>请求限流功能；</li>
-<li>支持路径重写。</li>
+<li><strong>错误原因</strong>：因为centos7.0默认不是使用iptables方式管理，而是firewalld方式。CentOS6.0防火墙用iptables管理。</li>
+<li><strong>解决办法有两个</strong>：使用firewalld方式。或者关闭firewalld,然后安装iptables。</li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/springcloud-12gateway%E7%BD%91%E5%85%B3/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_04%20%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E9%80%9A%E9%97%AE%E9%A2%98/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -741,7 +1122,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -753,7 +1134,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/LINUX//" class="article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -762,7 +1143,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/springcloud-12gateway%E7%BD%91%E5%85%B3/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_04%20%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E9%80%9A%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -793,14 +1174,14 @@
 
 
   
-    <article id="post-HTTP_HEADER_01请求与响应参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-linux_06top命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/12/HTTP_HEADER_01%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0/">HTTP 头请求与响应参数</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/09/linux_06top%E5%91%BD%E4%BB%A4/">top 命令</a>
     </h1>
   
 
@@ -815,8 +1196,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/12/HTTP_HEADER_01%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2021-01-12T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
+        <a href="/zbcn.github.io/2021/02/09/linux_06top%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
 </a>
         
       </header>
@@ -830,10 +1211,9 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="HTTP-头请求与响应参数"><a href="#HTTP-头请求与响应参数" class="headerlink" title="HTTP 头请求与响应参数"></a>HTTP 头请求与响应参数</h1><h1 id="HTTP-通用首部字段"><a href="#HTTP-通用首部字段" class="headerlink" title="HTTP 通用首部字段"></a>HTTP 通用首部字段</h1><p>Http 协议除了我们的请求和响应参数，还包含了很多首部字段，这些字段使 Http 在满足基本接口的请求接收参数之余，还有更多高级丰富的扩展。这些首部字段可以分为3类：通用首部字段 / 请求首部字段 / 响应首部字段。本节我们将学习的是通用首部字段。</p>
-<p><img src="/zbcn.github.io/assets/postImg/web/HTTP_HEADER_/image-20201201200212091.png" alt="image-20201201200212091"></p>
+        <h1 id="top-命令详解"><a href="#top-命令详解" class="headerlink" title="top 命令详解"></a>top 命令详解</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[root@izm5edg2s72kme0kupc888z ~]# top</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">top - 14:06:07 up 12 days,  3:31,  1 user,  load average: 0.00, 0.03, 0.05</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Tasks:  96 total,   2 running,  94 sleeping,   0 stopped,   0 zombie</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span><span class="bash">Cpu(s):  1.0 us,  0.7 sy,  0.0 ni, 98.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">KiB Mem :  1882072 total,    73188 free,   611904 used,  1196980 buff/cache</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">KiB Swap:        0 total,        0 free,        0 used.  1090732 avail Mem</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"> 1297 root      10 -10  211196  94344   5988 S  1.7  5.0 216:24.39 AliYunDun</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"> 2022 root      20   0  161888   2172   1548 R  0.3  0.1   0:00.94 top</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">25363 root      20   0   75248    680    324 S  0.3  0.0   2:08.95 getty</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    1 root      20   0  191528   3676   1760 S  0.0  0.2   2:51.49 systemd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd</span></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/HTTP_HEADER_01%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_06top%E5%91%BD%E4%BB%A4/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -853,7 +1233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -865,7 +1245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
+        			<a href="/zbcn.github.io/categories/LINUX//" class="article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -874,7 +1254,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/HTTP_HEADER_01%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E5%8F%82%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_06top%E5%91%BD%E4%BB%A4/">展开全文 >></a>
         </p>
       
 
@@ -905,14 +1285,14 @@
 
 
   
-    <article id="post-docker_01_docker安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-linux_05文本处理工具集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/12/docker_01_docker%E5%AE%89%E8%A3%85/">docker 安装</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/09/linux_05%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%9B%86/">文本处理工具集</a>
     </h1>
   
 
@@ -927,8 +1307,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/12/docker_01_docker%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2021-01-12T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
+        <a href="/zbcn.github.io/2021/02/09/linux_05%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%9B%86/" class="archive-article-date">
+  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
 </a>
         
       </header>
@@ -942,13 +1322,22 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="01-docker-安装"><a href="#01-docker-安装" class="headerlink" title="01 docker 安装"></a>01 docker 安装</h2><h3 id="查看centos-版本号-cat-etc-redhat-release"><a href="#查看centos-版本号-cat-etc-redhat-release" class="headerlink" title="查看centos 版本号 cat /etc/redhat-release"></a>查看centos 版本号 <code>cat /etc/redhat-release</code></h3><h3 id="更新yum，保证yum是最新的"><a href="#更新yum，保证yum是最新的" class="headerlink" title="更新yum，保证yum是最新的"></a>更新yum，保证yum是最新的</h3><ul>
-<li>为了方便添加软件源，支持 devicemapper 存储类型，安装如下软件包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ sudo yum install -y yum-utils \</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  device-mapper-persistent-data \</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  lvm2</span></pre></td></tr></table></figure>
+        <h2 id="Linux下使用Shell处理文本时最常用的工具"><a href="#Linux下使用Shell处理文本时最常用的工具" class="headerlink" title="Linux下使用Shell处理文本时最常用的工具"></a>Linux下使用Shell处理文本时最常用的工具</h2><h3 id="01-find-文件查找"><a href="#01-find-文件查找" class="headerlink" title="01 find 文件查找"></a>01 find 文件查找</h3><p>1 . 查找txt和pdf文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">find . ( -name "*.txt" -o -name "*.pdf" ) -print</span></pre></td></tr></table></figure>
 
-</li>
-</ul>
+<ol start="2">
+<li>正则方式查找.txt和pdf</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">find . -regex  ".*(.txt|.pdf)$"</span></pre></td></tr></table></figure>
+
+<p>-iregex：忽略大小写的正则</p>
+<ol start="3">
+<li>否定参数</li>
+</ol>
+<p>查找所有非txt文本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">find . ! -name "*.txt" -print</span></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/docker_01_docker%E5%AE%89%E8%A3%85/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_05%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%9B%86/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -968,7 +1357,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -980,7 +1369,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/docker//" class="article-tag-list-link color2">docker</a>
+        			<a href="/zbcn.github.io/categories/LINUX//" class="article-tag-list-link color1">LINUX</a>
         		</li>
       		
 		</ul>
@@ -989,350 +1378,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/12/docker_01_docker%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-springcloud-11consul服务治理与配置中心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/11/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Spring Cloud Consul：服务治理与配置中心</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/11/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" class="archive-article-date">
-  	<time datetime="2021-01-11T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="Spring-Cloud-Consul：服务治理与配置中心"><a href="#Spring-Cloud-Consul：服务治理与配置中心" class="headerlink" title="Spring Cloud Consul：服务治理与配置中心"></a>Spring Cloud Consul：服务治理与配置中心</h1><p>Spring Cloud Consul 为 SpringBoot 应用提供了 Consul的支持，Consul既可以作为注册中心使用，也可以作为配置中心使用，本文将对其用法进行详细介绍。</p>
-<h1 id="Consul-简介"><a href="#Consul-简介" class="headerlink" title="Consul 简介"></a>Consul 简介</h1><p>Consul是HashiCorp公司推出的开源软件，提供了微服务系统中的服务治理、配置中心、控制总线等功能。这些功能中的每一个都可以根据需要单独使用，也可以一起使用以构建全方位的服务网格，总之Consul提供了一种完整的服务网格解决方案。</p>
-<p>Spring Cloud Consul 具有如下特性：</p>
-<ul>
-<li>支持服务治理：Consul作为注册中心时，微服务中的应用可以向Consul注册自己，并且可以从Consul获取其他应用信息；</li>
-<li>支持客户端负责均衡：包括Ribbon和Spring Cloud LoadBalancer；</li>
-<li>支持Zuul：当Zuul作为网关时，可以从Consul中注册和发现应用；</li>
-<li>支持分布式配置管理：Consul作为配置中心时，使用键值对来存储配置信息；</li>
-<li>支持控制总线：可以在整个微服务系统中通过 Control Bus 分发事件消息。</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-HTTP06_cdn加速原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/11/HTTP06_cdn%E5%8A%A0%E9%80%9F%E5%8E%9F%E7%90%86/">CDN 加速原理</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/11/HTTP06_cdn%E5%8A%A0%E9%80%9F%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-01-11T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="CDN-加速原理"><a href="#CDN-加速原理" class="headerlink" title="CDN 加速原理"></a>CDN 加速原理</h1><p>CDN 全称 Content Delivery Network 即内容分发网络，它就类似京东的物流配送体系，通过智能分配算法，让用户最近最快速的获取到他们想要访问的资源。</p>
-<h1 id="基础原理"><a href="#基础原理" class="headerlink" title="基础原理"></a>基础原理</h1><p>八秒定律是在互联网领域存在的一个定律，即指用户访问一个网站时，如果等待网页打开的时间超过八秒，会有超过 70% 的用户放弃等待。而网络环境越来越复杂，传输数据越来越丰富，对网站的访问响应时间带来了一个比较大的挑战，CDN 就是诞生在这样一个环境中，通过负载均衡算法，为请求提供最靠近的响应资源，达到网站的内容加速。</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/HTTP06_cdn%E5%8A%A0%E9%80%9F%E5%8E%9F%E7%90%86/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/HTTP06_cdn%E5%8A%A0%E9%80%9F%E5%8E%9F%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-docker_00_学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/">Docker 学习</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-01-11T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><img src="/zbcn.github.io/assets/postImg/docker/Docker.assets/image-20200606203315597.png" alt="image-20200606203315597"></p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/11/docker_00_%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/linux_05%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%9B%86/">展开全文 >></a>
         </p>
       
 
@@ -1365,7 +1411,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/3/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><a class="page-number" href="/zbcn.github.io/page/2/">2</a><a class="page-number" href="/zbcn.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/zbcn.github.io/page/5/">5</a><a class="page-number" href="/zbcn.github.io/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/16/">16</a><a class="extend next" rel="next" href="/zbcn.github.io/page/5/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/3/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><a class="page-number" href="/zbcn.github.io/page/2/">2</a><a class="page-number" href="/zbcn.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/zbcn.github.io/page/5/">5</a><a class="page-number" href="/zbcn.github.io/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/19/">19</a><a class="extend next" rel="next" href="/zbcn.github.io/page/5/">Next</a>
     </nav>
   
 
@@ -1469,7 +1515,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1478,10 +1540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1502,6 +1560,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">other</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1533,11 +1603,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1549,11 +1627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1566,6 +1640,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1589,15 +1671,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color4">security</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
