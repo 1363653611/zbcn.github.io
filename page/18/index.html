@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-concurrency_03对象共享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-database_02_sql索引基本命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/">03 对象共享</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">02 mysql 索引基本命令</a>
     </h1>
   
 
@@ -215,7 +215,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/" class="archive-article-date">
+        <a href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="archive-article-date">
   	<time datetime="2019-12-09T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
         
@@ -230,13 +230,9 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h3 id="对象共享"><a href="#对象共享" class="headerlink" title="对象共享"></a>对象共享</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题?"></a>问题?</h4><ul>
-<li>在访问共享的可变状态时，需要进行正确的管理</li>
-<li>共享和发布对象</li>
-<li>临界区 /内存可见性</li>
-</ul>
+        <h2 id="sql-索引基本命令"><a href="#sql-索引基本命令" class="headerlink" title="sql 索引基本命令"></a>sql 索引基本命令</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看表描述</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">desc `user`</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> <span class="keyword">user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引一经创建不能修改，如果要修改索引，只能删除重建</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">INDEX</span> name_3 <span class="keyword">on</span> <span class="string">`user`</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主键索引 PRIMARY KEY：它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 唯一索引 UNIQUE：唯一索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name (<span class="string">`name`</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加唯一组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">UNIQUE</span> unique_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通索引 INDEX：这是最基本的索引，它没有任何限制</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加普通索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">INDEX</span> index_name (<span class="keyword">name</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合索引 INDEX：即一个索引包含多个列，多用于避免回表查询。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加普通组合索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> <span class="keyword">index</span> index_name_age (<span class="keyword">name</span>,age)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全文索引 FULLTEXT：也称全文检索，是目前搜索引擎使用的一种关键技术</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加全文索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> <span class="keyword">add</span> FULLTEXT index_remark (remark)</span></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -256,15 +252,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -276,11 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/concurrency//" class="article-tag-list-link color2">concurrency</a>
+        			<a href="/zbcn.github.io/categories/sql//" class="article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -289,7 +273,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/concurrency_03%E5%AF%B9%E8%B1%A1%E5%85%B1%E4%BA%AB/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2019/12/09/database_02_sql%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">展开全文 >></a>
         </p>
       
 
@@ -1385,11 +1369,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -1579,6 +1563,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
@@ -1587,23 +1583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">other</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,11 +1607,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1635,19 +1619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1656,6 +1632,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1715,15 +1699,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WEB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
             
             <div class="clearfix"></div>

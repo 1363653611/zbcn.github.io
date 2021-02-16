@@ -458,131 +458,6 @@
 
 
   
-    <article id="post-mybatis_05总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/">05.总结</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p><img src="mybatis_05%E6%80%BB%E7%BB%93/5-1ZF4130T31N.png" alt="MyBatis框架的执行流程图"></p>
-<ol>
-<li>读取 MyBatis 配置文件：mybatis-config.xml 为 MyBatis 的全局配置文件，配置了 MyBatis 的运行环境等信息，例如数据库连接信息。</li>
-<li>加载映射文件。映射文件即 SQL 映射文件，该文件中配置了操作数据库的 SQL 语句，需要在 MyBatis 配置文件 mybatis-config.xml 中加载。mybatis-config.xml 文件可以加载多个映射文件，每个文件对应数据库中的一张表。</li>
-<li>构造会话工厂：通过 MyBatis 的环境等配置信息构建会话工厂 SqlSessionFactory。</li>
-<li>创建会话对象：由会话工厂创建 SqlSession 对象，该对象中包含了执行 SQL 语句的所有方法。</li>
-<li>Executor 执行器：MyBatis 底层定义了一个 Executor 接口来操作数据库，它将根据 SqlSession 传递的参数动态地生成需要执行的 SQL 语句，同时负责查询缓存的维护。</li>
-<li>MappedStatement 对象：在 Executor 接口的执行方法中有一个 MappedStatement 类型的参数，该参数是对映射信息的封装，用于存储要映射的 SQL 语句的 id、参数等信息。</li>
-<li>输入参数映射：输入参数类型可以是 Map、List 等集合类型，也可以是基本数据类型和 POJO 类型。输入参数映射过程类似于 JDBC 对 preparedStatement 对象设置参数的过程。</li>
-<li>输出结果映射：输出结果类型可以是 Map、 List 等集合类型，也可以是基本数据类型和 POJO 类型。输出结果映射过程类似于 JDBC 对结果集的解析过程。</li>
-</ol>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
     <article id="post-netty_01 初步了解netty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1131,6 +1006,131 @@
 
 
   
+    <article id="post-mybatis_05总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/">05.总结</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p><img src="mybatis_05%E6%80%BB%E7%BB%93/5-1ZF4130T31N.png" alt="MyBatis框架的执行流程图"></p>
+<ol>
+<li>读取 MyBatis 配置文件：mybatis-config.xml 为 MyBatis 的全局配置文件，配置了 MyBatis 的运行环境等信息，例如数据库连接信息。</li>
+<li>加载映射文件。映射文件即 SQL 映射文件，该文件中配置了操作数据库的 SQL 语句，需要在 MyBatis 配置文件 mybatis-config.xml 中加载。mybatis-config.xml 文件可以加载多个映射文件，每个文件对应数据库中的一张表。</li>
+<li>构造会话工厂：通过 MyBatis 的环境等配置信息构建会话工厂 SqlSessionFactory。</li>
+<li>创建会话对象：由会话工厂创建 SqlSession 对象，该对象中包含了执行 SQL 语句的所有方法。</li>
+<li>Executor 执行器：MyBatis 底层定义了一个 Executor 接口来操作数据库，它将根据 SqlSession 传递的参数动态地生成需要执行的 SQL 语句，同时负责查询缓存的维护。</li>
+<li>MappedStatement 对象：在 Executor 接口的执行方法中有一个 MappedStatement 类型的参数，该参数是对映射信息的封装，用于存储要映射的 SQL 语句的 id、参数等信息。</li>
+<li>输入参数映射：输入参数类型可以是 Map、List 等集合类型，也可以是基本数据类型和 POJO 类型。输入参数映射过程类似于 JDBC 对 preparedStatement 对象设置参数的过程。</li>
+<li>输出结果映射：输出结果类型可以是 Map、 List 等集合类型，也可以是基本数据类型和 POJO 类型。输出结果映射过程类似于 JDBC 对结果集的解析过程。</li>
+</ol>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/mybatis//" class="article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-spring_01循环依赖问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1605,14 +1605,14 @@
 
 
   
-    <article id="post-SpringBoot02_boot-elastic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot_04初识sarter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/12/SpringBoot02_boot-elastic/">SpringBoot 整合 ElasticSearch</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/SpringBoot_04%E5%88%9D%E8%AF%86sarter/">初识starter</a>
     </h1>
   
 
@@ -1627,7 +1627,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/02/12/SpringBoot02_boot-elastic/" class="archive-article-date">
+        <a href="/zbcn.github.io/2021/02/12/SpringBoot_04%E5%88%9D%E8%AF%86sarter/" class="archive-article-date">
   	<time datetime="2021-02-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
 </a>
         
@@ -1642,50 +1642,308 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="SpringBoot-整合-ElasticSearch"><a href="#SpringBoot-整合-ElasticSearch" class="headerlink" title="SpringBoot 整合 ElasticSearch"></a>SpringBoot 整合 ElasticSearch</h1><h2 id="ElasticSearch-和-Kinaba-安装"><a href="#ElasticSearch-和-Kinaba-安装" class="headerlink" title="ElasticSearch 和 Kinaba 安装"></a>ElasticSearch 和 Kinaba 安装</h2><p>docker安装： study_notes\docker\docker_04es安装和kibana 集成.md</p>
-<h3 id="elasticSearch-安装"><a href="#elasticSearch-安装" class="headerlink" title="elasticSearch 安装"></a>elasticSearch 安装</h3><p>略</p>
-<h3 id="Kinaba-安装"><a href="#Kinaba-安装" class="headerlink" title="Kinaba 安装"></a>Kinaba 安装</h3><p>略</p>
-<h1 id="Spring-Data-Elasticsearch"><a href="#Spring-Data-Elasticsearch" class="headerlink" title="Spring Data Elasticsearch"></a>Spring Data Elasticsearch</h1><blockquote>
-<p>Spring Data Elasticsearch是Spring提供的一种以Spring Data风格来操作数据存储的方式，它可以避免编写大量的样板代码。</p>
+        <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>总体上，就是将Jar包作为项目的依赖引入工程。而现在之所以增加了难度，是因为我们引入的是Spring Boot Starter，所以我们需要去了解Spring Boot对Spring Boot Starter的Jar包是如何加载的？</p>
+<p>SpringBoot 在启动时会去依赖的 starter 包中寻找 /META-INF/spring.factories 文件，然后根据文件中配置的 Jar 包去扫描项目所依赖的 Jar 包，这类似于 Java 的 SPI 机制。</p>
+<p>细节上可以使用@Conditional 系列注解实现更加精确的配置加载Bean的条件。</p>
+<blockquote>
+<p>JavaSPI 实际上是“基于接口的编程＋策略模式＋配置文件”组合实现的动态加载机制。</p>
 </blockquote>
 <!--starter-->
 
-<h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><h3 id="Document"><a href="#Document" class="headerlink" title="@Document"></a><code>@Document</code></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//标示映射到Elasticsearch文档上的领域对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Document &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//索引库名字，mysql中数据库的概念</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function">String <span class="title">indexName</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//文档类型，mysql中表的概念</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="function">String <span class="title">type</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//默认分片数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">short</span> <span class="title">shards</span><span class="params">()</span> <span class="keyword">default</span> 5</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//默认副本数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">short</span> <span class="title">replicas</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
-<h3 id="Id"><a href="#Id" class="headerlink" title="@Id"></a><code>@Id</code></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//表示是文档的id，文档可以认为是mysql中表行的概念</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Id &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="Field"><a href="#Field" class="headerlink" title="@Field"></a><code>@Field</code></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Field &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//文档中字段的类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="function">FieldType <span class="title">type</span><span class="params">()</span> <span class="keyword">default</span> FieldType.Auto</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//是否建立倒排索引</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">index</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//是否进行存储</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">store</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//分词器名字</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function">String <span class="title">analyzer</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//为文档自动指定元数据类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> FieldType &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    Text,<span class="comment">//会进行分词并建了索引的字符类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    Integer,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    Long,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    Date,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    Float,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    Double,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    Boolean,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    Object,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    Auto,<span class="comment">//自动判断字段类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    Nested,<span class="comment">//嵌套对象类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    Ip,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    Attachment,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    Keyword<span class="comment">//不会进行分词建立索引的类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h2 id="Sping-Data方式的数据操作"><a href="#Sping-Data方式的数据操作" class="headerlink" title="Sping Data方式的数据操作"></a>Sping Data方式的数据操作</h2><h3 id="继承ElasticsearchRepository接口可以获得常用的数据操作方法"><a href="#继承ElasticsearchRepository接口可以获得常用的数据操作方法" class="headerlink" title="继承ElasticsearchRepository接口可以获得常用的数据操作方法"></a>继承ElasticsearchRepository接口可以获得常用的数据操作方法</h3><p><img src="/zbcn.github.io/assets/postImg/springBoot/SpringBoot02_boot-elastic/image-20201231140933437.png" alt="image-20201231140933437"></p>
-<h3 id="可以使用衍生查询"><a href="#可以使用衍生查询" class="headerlink" title="可以使用衍生查询"></a>可以使用衍生查询</h3><blockquote>
-<p>在接口中直接指定查询方法名称便可查询，无需进行实现，如商品表中有商品名称、标题和关键字，直接定义以下查询，就可以对这三个字段进行全文搜索。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * 搜索查询</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> *</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@param</span> name              商品名称</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@param</span> subTitle          商品标题</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@param</span> keywords          商品关键字</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@param</span> page              分页信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="function">Page&lt;EsProduct&gt; <span class="title">findByNameOrSubTitleOrKeywords</span><span class="params">(String name, String subTitle, String keywords, Pageable page)</span></span>;</span></pre></td></tr></table></figure>
+<h1 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h1><h2 id="创建一个-starter-项目-com-boot-starter-zbcn"><a href="#创建一个-starter-项目-com-boot-starter-zbcn" class="headerlink" title="创建一个 starter 项目 com-boot-starter-zbcn"></a>创建一个 starter 项目 com-boot-starter-zbcn</h2><ul>
+<li>添加 pom依赖</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--增加springboot 的自动配置包--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <ul>
-<li>在idea中直接会提示对应字段</li>
+<li>创建service 类 <code>ZbcnService</code></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springBoot/SpringBoot02_boot-elastic/arch_screen_32.png" alt="img"></p>
-<h3 id="使用-Query注解可以用Elasticsearch的DSL语句进行查询"><a href="#使用-Query注解可以用Elasticsearch的DSL语句进行查询" class="headerlink" title="使用@Query注解可以用Elasticsearch的DSL语句进行查询"></a>使用@Query注解可以用Elasticsearch的DSL语句进行查询</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(<span class="string">"&#123;"</span>bool<span class="string">" : &#123;"</span>must<span class="string">" : &#123;"</span>field<span class="string">" : &#123;"</span>name<span class="string">" : "</span>?<span class="number">0</span><span class="string">"&#125;&#125;&#125;&#125;"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function">Page&lt;EsProduct&gt; <span class="title">findByName</span><span class="params">(String name,Pageable pageable)</span></span>;</span></pre></td></tr></table></figure>
-
-<h2 id="项目使用表说明"><a href="#项目使用表说明" class="headerlink" title="项目使用表说明"></a>项目使用表说明</h2><ul>
-<li><code>pms_product</code>：商品信息表</li>
-<li><code>pms_product_attribute</code>：商品属性参数表</li>
-<li><code>pms_product_attribute_value</code>：存储产品参数值的表</li>
-</ul>
-<h2 id="整合Elasticsearch实现商品搜索"><a href="#整合Elasticsearch实现商品搜索" class="headerlink" title="整合Elasticsearch实现商品搜索"></a>整合Elasticsearch实现商品搜索</h2><ul>
-<li>在pom中引入相关依赖</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Elasticsearch相关依赖--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZbcnService</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> String msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.msg = msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="string">"hello"</span> + msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <ul>
-<li>修改SpringBoot配置文件</li>
+<li>创建 <code>ZbcnServiceProperties</code> 引入配置信息</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"zbcn"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZbcnServiceProperties</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String MSG = <span class="string">"hello"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> String msg = MSG;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getMSG</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> MSG;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.msg = msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ul>
+<li>添加 <code>ZbcnServiceAutoConfiguration</code>自动配置类，可以理解为实现自动配置功能的一个入口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span><span class="comment">//定义为配置类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConditionalOnWebApplication</span> <span class="comment">//在web工程条件下成立</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableConfigurationProperties</span>(ZbcnServiceProperties<span class="class">.<span class="keyword">class</span>)//启用<span class="title">ZbcnServiceProperties</span>配置功能，并加入到<span class="title">IOC</span>容器中</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="class">@<span class="title">ConditionalOnClass</span>(<span class="title">ZbcnService</span>.<span class="title">class</span>)//当某个类存在的时候自动配置这个类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ZbcnServiceAutoConfiguration</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Autowired</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> ZbcnServiceProperties zbcnServiceProperties;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Bean</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(ZbcnService<span class="class">.<span class="keyword">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="class">    <span class="title">public</span> <span class="title">ZbcnService</span> <span class="title">zbcnService</span>()</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        ZbcnService zbcnService = <span class="keyword">new</span> ZbcnService();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        zbcnService.setMsg(zbcnServiceProperties.getMsg());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> zbcnService;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ul>
+<li>在resources目录下新建META-INF目录，并在META-INF下新建spring.factories文件，写入：</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># \ 是为了保证换行后能继续读properties 中的属性,如果有多个属性则用,隔开</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span>=<span class="string">\</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">com.zbcn.ZbcnServiceAutoConfiguration</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li><p>项目到这里就差不多了，不过作为依赖，最好还是再做一下收尾工作。</p>
+<ol>
+<li><p>删除自动生成的启动类<code>SpringBootStarterZbcnApplication</code>。</p>
+</li>
+<li><p>删除resources下的除META-INF目录之外的所有文件目录。</p>
+</li>
+<li><p>删除spring-boot-starter-test依赖并且删除test目录</p>
+</li>
+<li><p>删除 pom.xml 中的build信息 <code>spring-boot-maven-plugin</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">       <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">           <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">               <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">           <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">       <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>执行mvn install将 <code>com-boot-starter-zbcn</code>安装到本地</p>
+</li>
+<li><p>新建 <code>bootbase</code> 工程，引入<code>com-boot-starter-zbcn</code>依赖</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--增加自定义start--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zbcn<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>com-boot-starter-zbcn<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>在新工程中调用starter 中定义的功能</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SelDefStartController</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Autowired</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> ZbcnService zbcnService;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/self_start"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">selfStart</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> zbcnService.getMsg();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ul>
+<li>在application.yaml 中添加starter 中自定的配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定义start</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">zbcn:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">msg:</span> <span class="string">zbcn</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>访问 <code>http://localhost:9001/self_start</code>，测试功能可用性。</li>
+</ul>
+<h1 id="元数据的配置"><a href="#元数据的配置" class="headerlink" title="元数据的配置"></a>元数据的配置</h1><p>在配置 <code>application.yaml</code> 文件中添加自定义 starter配置项时，想和springboot 原生的starter 一样，自带提示功能。如何做呢？</p>
+<p>在spring 官方文档中有相关说明：在starter 项目中新建META-INF/spring-configuration-metadata.json文件，进行配置。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr></table></figure>
+
+<h1 id="元数据配置说明"><a href="#元数据配置说明" class="headerlink" title="元数据配置说明"></a>元数据配置说明</h1><h2 id="Group属性"><a href="#Group属性" class="headerlink" title="Group属性"></a>Group属性</h2><p>“groups”中包含的JSON对象可以包含下表中显示的属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="left">String</td>
+<td align="left">“groups”的全名。这个属性是强制性的</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">String</td>
+<td align="left">group数据类型的类名。例如，如果group是基于一个被@ConfigurationProperties注解的类，该属性将包含该类的全限定名。如果基于一个@Bean方法，它将是该方法的返回类型。如果该类型未知，则该属性将被忽略</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">String</td>
+<td align="left">一个简短的group描述，用于展示给用户。如果没有可用描述，该属性将被忽略。推荐使用一个简短的段落描述，第一行提供一个简洁的总结，最后一行以句号结尾</td>
+</tr>
+<tr>
+<td align="left">sourceType</td>
+<td align="left">String</td>
+<td align="left">贡献该组的来源类名。例如，如果组基于一个被@ConfigurationProperties注解的@Bean方法，该属性将包含@Configuration类的全限定名，该类包含此方法。如果来源类型未知，则该属性将被忽略</td>
+</tr>
+<tr>
+<td align="left">sourceMethod</td>
+<td align="left">String</td>
+<td align="left">贡献该组的方法的全名（包含括号及参数类型）。例如，被@ConfigurationProperties注解的@Bean方法名。如果源方法未知，该属性将被忽略</td>
+</tr>
+</tbody></table>
+<h2 id="Property属性"><a href="#Property属性" class="headerlink" title="Property属性"></a>Property属性</h2><p>properties数组中包含的JSON对象可由以下属性构成：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="left">String</td>
+<td align="left">property的全名，格式为小写虚线分割的形式（比如server.servlet-path）。该属性是强制性的</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">String</td>
+<td align="left">property数据类型的类名。例如java.lang.String。该属性可以用来指导用户他们可以输入值的类型。为了保持一致，原生类型使用它们的包装类代替，比如boolean变成了java.lang.Boolean。注意，这个类可能是个从一个字符串转换而来的复杂类型。如果类型未知则该属性会被忽略</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">String</td>
+<td align="left">一个简短的组的描述，用于展示给用户。如果没有描述可用则该属性会被忽略。推荐使用一个简短的段落描述，开头提供一个简洁的总结，最后一行以句号结束</td>
+</tr>
+<tr>
+<td align="left">sourceType</td>
+<td align="left">String</td>
+<td align="left">贡献property的来源类名。例如，如果property来自一个被@ConfigurationProperties注解的类，该属性将包括该类的全限定名。如果来源类型未知则该属性会被忽略</td>
+</tr>
+<tr>
+<td align="left">defaultValue</td>
+<td align="left">Object</td>
+<td align="left">当property没有定义时使用的默认值。如果property类型是个数组则该属性也可以是个数组。如果默认值未知则该属性会被忽略</td>
+</tr>
+<tr>
+<td align="left">deprecated</td>
+<td align="left">Deprecated</td>
+<td align="left">指定该property是否过期。如果该字段没有过期或该信息未知则该属性会被忽略</td>
+</tr>
+<tr>
+<td align="left">level</td>
+<td align="left">String</td>
+<td align="left">弃用级别，可以是警告(默认)或错误。当属性具有警告弃用级别时，它仍然应该在环境中绑定。然而，当它具有错误弃用级别时，该属性不再受管理，也不受约束</td>
+</tr>
+<tr>
+<td align="left">reason</td>
+<td align="left">String</td>
+<td align="left">对属性被弃用的原因的简短描述。如果没有理由，可以省略。建议描述应是简短的段落，第一行提供简明的摘要。描述中的最后一行应该以句点(.)结束</td>
+</tr>
+<tr>
+<td align="left">replacement</td>
+<td align="left">String</td>
+<td align="left">替换这个废弃属性的属性的全名。如果该属性没有替换，则可以省略该属性。</td>
+</tr>
+</tbody></table>
+<h2 id="hints属性"><a href="#hints属性" class="headerlink" title="hints属性"></a>hints属性</h2><p>hints数组中包含的JSON对象可以包含以下属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="left">String</td>
+<td align="left">该提示引用的属性的全名。名称以小写虚构形式（例如server.servlet-path）。果属性是指地图（例如 system.contexts），则提示可以应用于map（）或values（）的键。此属性是强制性的system.context.keyssystem.context.values</td>
+</tr>
+<tr>
+<td align="left">values</td>
+<td align="left">ValueHint[]</td>
+<td align="left">由ValueHint对象定义的有效值的列表（见下文）。每个条目定义该值并且可以具有描述</td>
+</tr>
+<tr>
+<td align="left">providers</td>
+<td align="left">ValueProvider[]</td>
+<td align="left">由ValueProvider对象定义的提供者列表（见下文）。每个条目定义提供者的名称及其参数（如果有）。</td>
+</tr>
+</tbody></table>
+<p>每个”hints”元素的values属性中包含的JSON对象可以包含下表中描述的属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">value</td>
+<td align="left">Object</td>
+<td align="left">提示所指的元素的有效值。如果属性的类型是一个数组，那么它也可以是一个值数组。这个属性是强制性的</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">String</td>
+<td align="left">可以显示给用户的值的简短描述。如果没有可用的描述，可以省略。建议描述应是简短的段落，第一行提供简明的摘要。描述中的最后一行应该以句点(.)结束。</td>
+</tr>
+</tbody></table>
+<p>每个”hints”元素的providers属性中的JSON对象可以包含下表中描述的属性:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="left">String</td>
+<td align="left">用于为提示所指的元素提供额外内容帮助的提供者的名称。</td>
+</tr>
+<tr>
+<td align="left">parameters</td>
+<td align="left">JSON object</td>
+<td align="left">提供程序支持的任何其他参数(详细信息请参阅提供程序的文档)。</td>
+</tr>
+</tbody></table>
+<h2 id="自动生成-spring-configuration-metadata-json"><a href="#自动生成-spring-configuration-metadata-json" class="headerlink" title="自动生成  spring-configuration-metadata.json"></a>自动生成  spring-configuration-metadata.json</h2><p>配置上述数据是挺麻烦的，如果可以提供一种自动生成spring-configuration-metadata.json的依赖就好了。别说，还真有。<code>spring-boot-configuration-processor</code> 依赖就可以做到，它的基本原理是在编译期使用注解处理器自动生成spring-configuration-metadata.json文件。文件中的数据来源于你是如何在类中定义zbcn.msg这个属性的，它会自动采集zbcm.msg的默认值和注释信息。</p>
+<p>在 <code>com.zbcn.ZbcnServiceProperties</code> 类上添加 注解 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@PropertySource</span>(value = &#123;<span class="string">"classpath:META-INF/spring-configuration-metadata.json"</span>&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        ignoreResourceNotFound = <span class="keyword">false</span>, encoding = <span class="string">"UTF-8"</span>, name = <span class="string">"spring-configuration-metadata.json"</span>)</span></pre></td></tr></table></figure>
+
+<p>然后编译项目，在  <code>com-boot-starter-zbcn/target/classes/META-INF</code> 发现自动生成的 <code>spring-configuration-metadata.json</code>文件</p>
+<p>下面我贴出使用spring-boot-configuration-processor自动生成的spring-configuration-metadata.json文件内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  "groups": [</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      "name": "zbcn",</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">      "type": "com.zbcn.ZbcnServiceProperties",</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      "sourceType": "com.zbcn.ZbcnServiceProperties"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  ],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  "properties": [</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      "name": "zbcn.msg",</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      "type": "java.lang.String",</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      "sourceType": "com.zbcn.ZbcnServiceProperties",</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">      "defaultValue": "hello"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  ],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  "hints": []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>可以看到properties里的description属性值来源于注释信息，defaultValue值来源于代码中书写的默认值。</p>
 <blockquote>
-<p>修改application.yml文件，在spring节点下添加Elasticsearch相关配置。</p>
+<p>这一步需要在idea设置中搜索Annotation Processors，勾住Enable annonation processing。</p>
 </blockquote>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">data:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">elasticsearch:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">repositories:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">cluster-nodes:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9300</span> <span class="comment"># es的连接地址及端口号</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">cluster-name:</span> <span class="string">elasticsearch</span> <span class="comment"># es集群的名称</span></span></pre></td></tr></table></figure>
-
+<h2 id="Conditional"><a href="#Conditional" class="headerlink" title="@Conditional"></a>@Conditional</h2><p>之前提到了在细节上可以使用@Conditional 系列注解实现更加精确的配置加载Bean的条件。下面列举 SpringBoot 中的所有 @Conditional 注解及作用</p>
+<table>
+<thead>
+<tr>
+<th align="left">注解</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">@ConditionalOnBean</td>
+<td align="left">当容器中有指定的Bean的条件下</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnClass</td>
+<td align="left">当类路径下有指定的类的条件下</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnExpression</td>
+<td align="left">基于SpEL表达式作为判断条件</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnJava</td>
+<td align="left">基于JVM版本作为判断条件</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnJndi</td>
+<td align="left">在JNDI存在的条件下查找指定的位</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnMissingBean</td>
+<td align="left">当容器中没有指定Bean的情况下</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnMissingClass</td>
+<td align="left">当类路径下没有指定的类的条件下</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnNotWebApplication</td>
+<td align="left">当前项目不是Web项目的条件下</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnProperty</td>
+<td align="left">指定的属性是否有指定的值</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnResource</td>
+<td align="left">类路径下是否有指定的资源</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnSingleCandidate</td>
+<td align="left">当指定的Bean在容器中只有一个，或者在有多个Bean的情况下，用来指定首选的Bean</td>
+</tr>
+<tr>
+<td align="left">@ConditionalOnWebApplication</td>
+<td align="left">当前项目是Web项目的条件下</td>
+</tr>
+</tbody></table>
+<p>比如，注解<code>@ConditionalOnProperty(prefix = &quot;zbcn.service&quot;,value = &quot;enabled&quot;,havingValue = &quot;true&quot;)</code>的意思是当配置文件中<code>zbcn.service.enabled=true</code>时，条件才成立。</p>
 
       
 	  <!-- 增加版权声明 -->
@@ -1726,7 +1984,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/SpringBoot02_boot-elastic/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/SpringBoot_04%E5%88%9D%E8%AF%86sarter/">展开全文 >></a>
         </p>
       
 
@@ -1895,6 +2153,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
@@ -1903,23 +2173,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">other</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1939,11 +2197,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1951,19 +2209,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1972,6 +2222,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2031,15 +2289,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WEB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
             
             <div class="clearfix"></div>
