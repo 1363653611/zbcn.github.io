@@ -258,11 +258,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
         		</li>
       		
 		</ul>
@@ -314,14 +314,14 @@
 
 
   
-    <article id="post-security-03在 Web 应用间安全地传递信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-security-02Authentication" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">JWT 在 Web 应用间安全地传递信息</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/12/security-02Authentication/">security 登陆问题</a>
     </h1>
   
 
@@ -336,7 +336,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/" class="archive-article-date">
+        <a href="/zbcn.github.io/2021/02/12/security-02Authentication/" class="archive-article-date">
   	<time datetime="2021-02-12T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
 </a>
         
@@ -351,14 +351,18 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="JWT-在-Web-应用间安全地传递信息"><a href="#JWT-在-Web-应用间安全地传递信息" class="headerlink" title="JWT 在 Web 应用间安全地传递信息"></a>JWT 在 Web 应用间安全地传递信息</h1><p>JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息。</p>
-<p>让我们来假想一下一个场景。在A用户关注了B用户的时候，系统发邮件给B用户，并且附有一个链接“点此关注A用户”。链接的地址可以是这样的</p>
-<blockquote>
-<p><a href="https://your.awesome-app.com/make-friend/?from_user=B&amp;target_user=A" target="_blank" rel="noopener">https://your.awesome-app.com/make-friend/?from_user=B&amp;target_user=A</a></p>
-</blockquote>
-<p>上面的URL主要通过URL来描述这个当然这样做有一个弊端，那就是要求用户B用户是一定要先登录的。可不可以简化这个流程，让B用户不用登录就可以完成这个操作。JWT就允许我们做到这点。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>登录认证： Authentication</li>
+<li>权限授权：Authorization</li>
+</ul>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><ul>
+<li>登录认证的原理</li>
+<li>如何使用session 和jwt 分别完成权限校验</li>
+<li>如何通过过滤器和拦截器分别完成对登录认证的统一处理</li>
+<li>如何实现上下文对象</li>
+</ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-02Authentication/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -378,11 +382,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
         		</li>
       		
 		</ul>
@@ -403,7 +407,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-03%E5%9C%A8%20Web%20%E5%BA%94%E7%94%A8%E9%97%B4%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/12/security-02Authentication/">展开全文 >></a>
         </p>
       
 
@@ -498,11 +502,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">security</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jwt</a>
         		</li>
       		
 		</ul>
@@ -1523,11 +1527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1563,11 +1567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">other</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1575,7 +1579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1611,19 +1615,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,11 +1675,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">security</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
