@@ -317,7 +317,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/">01 SpringCloud 概述</a>
+      <a class="article-title" href="/zbcn.github.io/2019/12/06/SpringCloud_01%E6%A6%82%E8%BF%B0/">01 springcloud 概述</a>
     </h1>
   
 
@@ -347,7 +347,7 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><ul>
+        <h2 id="springcloud"><a href="#springcloud" class="headerlink" title="springcloud"></a>springcloud</h2><ul>
 <li><p>构建的模式工具</p>
 <pre><code>- 配置管理
 - 服务发现
@@ -382,7 +382,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -394,7 +394,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -1397,14 +1397,14 @@
 
 
   
-    <article id="post-04_string和常量池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-03_缓存雪崩_穿透_击穿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/16/04_string%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/">String 和常量池</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/">缓存雪崩_穿透_击穿</a>
     </h1>
   
 
@@ -1419,7 +1419,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/02/16/04_string%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/" class="archive-article-date">
+        <a href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/" class="archive-article-date">
   	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
 </a>
         
@@ -1434,23 +1434,12 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="String-类和常量池"><a href="#String-类和常量池" class="headerlink" title="String 类和常量池"></a>String 类和常量池</h1><ul>
-<li>String 对象的两种创建方式：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">String str1 = <span class="string">"abcd"</span>;<span class="comment">//先检查字符串常量池中有没有"abcd"，如果字符串常量池中没有，则创建一个，然后 str1 指向字符串常量池中的对象，如果有，则直接将 str1 指向"abcd""；</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">String str2 = <span class="keyword">new</span> String(<span class="string">"abcd"</span>);<span class="comment">//堆中创建一个新的对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">String str3 = <span class="keyword">new</span> String(<span class="string">"abcd"</span>);<span class="comment">//堆中创建一个新的对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">System.out.println(str1==str2);<span class="comment">//false</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">System.out.println(str2==str3);<span class="comment">//false</span></span></pre></td></tr></table></figure>
-
-<p>以上两种的区别:</p>
-<ol>
-<li>第一种直接在常量池中取</li>
-<li>二种方式是直接在堆内存空间创建一个新的对象</li>
-</ol>
-<ul>
-<li><p><strong>只要使用 new 方法，便需要创建新的对象</strong></p>
-<p><img src="/zbcn.github.io/assets/postImg/java/04_string%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/image-20200731104926601.png" alt="image-20200731104926601"></p>
-</li>
+        <h3 id="缓存一致性问题"><a href="#缓存一致性问题" class="headerlink" title="缓存一致性问题"></a>缓存一致性问题</h3><ul>
+<li>当数据时效性要求很高时，需要保证缓存中的数据与数据库中的保持一致，而且需要保证缓存节点和副本中的数据也保持一致，不能出现差异现象。</li>
+<li>这就比较依赖缓存的过期和更新策略。<strong>一般会在数据发生更改的时，主动更新缓存中的数据或者移除对应的缓存。</strong><br><img src="/zbcn.github.io/assets/postImg/java/imgs/20200117152455.jpg" alt="缓存一致"></li>
 </ul>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/04_string%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1472,10 +1461,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -1488,10 +1473,6 @@
         		<li class="article-tag-list-item">
         			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/java/String//" class="article-tag-list-link color2">String</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -1499,7 +1480,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/04_string%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/">展开全文 >></a>
         </p>
       
 
@@ -1770,7 +1751,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
+                <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1778,7 +1759,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">network</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1814,10 +1795,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">other</a>
               </li>
              
@@ -1826,7 +1803,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1854,11 +1835,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1890,6 +1871,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
@@ -1899,10 +1884,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">env</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1918,11 +1899,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
