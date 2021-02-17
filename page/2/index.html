@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-05_javabase" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-03_缓存雪崩_穿透_击穿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/16/05_javabase/">interview 面试</a>
+      <a class="article-title" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/">缓存雪崩_穿透_击穿</a>
     </h1>
   
 
@@ -215,7 +215,7 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/02/16/05_javabase/" class="archive-article-date">
+        <a href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/" class="archive-article-date">
   	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
 </a>
         
@@ -230,29 +230,13 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="String，StringBuffer和StringBuilder之间的区别是什么"><a href="#String，StringBuffer和StringBuilder之间的区别是什么" class="headerlink" title="String，StringBuffer和StringBuilder之间的区别是什么"></a>String，StringBuffer和StringBuilder之间的区别是什么</h2><ol>
-<li>可变性：String是一个不可变类，任何对String改变都是会产生一个新的String对象，所以String类是使用final来进行修饰的。而StringBuffer和StringBuilder是可变类，对应的字符串的改变不会产生新的对象。</li>
-<li>执行效率</li>
-</ol>
-<p>当频繁对字符串进行修改时，使用String会生成一些临时对象，多一些附加操作，执行效率降低。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//在对stringA进行修改时，实际上是先根据字符串创建一个StringBuffer对象，然后调用append()方法对字符串修改，再调用toString()返回一个字符串。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">stringA = StringA + <span class="string">"2"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//实际上等价于</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  StringBuffer buffer = <span class="keyword">new</span> StringBuffer(stringA)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  buffer.append(<span class="string">"2"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> buffer.toString();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>线程安全</li>
-</ol>
-<p>StringBuffer的读写方法都使用了synchronized修饰，同一时间只有一个线程进行操作，所以是线程安全的，而StringBuilder不是线程安全的。</p>
-<h2 id="Integer类会进行缓存吗"><a href="#Integer类会进行缓存吗" class="headerlink" title="Integer类会进行缓存吗"></a>Integer类会进行缓存吗</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Intger a =  <span class="keyword">new</span> Integer(<span class="number">127</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Intger b = Interger.valueOf(<span class="number">127</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Intger c = Interger.valueOf(<span class="number">127</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Intger d = Interger.valueOf(<span class="number">128</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Intger e = Interger.valueOf(<span class="number">128</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">System.out.println(a == b); <span class="comment">//输出false</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">System.out.println(b == c); <span class="comment">//输出true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">System.out.println(d == e); <span class="comment">//输出false</span></span></pre></td></tr></table></figure>
-
-<p><strong>NOTE</strong>:</p>
-<ol>
-<li>通过new Interger()创建Interger对象，每次返回全新的Integer对象</li>
-<li>通过Interger.valueOf()创建Interger对象，如果值在-128到127之间，会返回缓存的对象(初始化时)。</li>
-</ol>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>Integer类中有一个静态内部类IntegerCach，在加载Integer类时会同时加载IntegerCache类，IntegerCache类的静态代码块中会创建值为-128到127的Integer对象，缓存到cache数组中，之后调用Integer#valueOf方法时，判断使用有缓存的Integer对象，有则返回，无则调用new Integer()创建。</p>
-<p>PS: (127是默认的边界值，也可以通过设置JVM参数java.lang.Integer.IntegerCache.high来进行自定义。）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    		<span class="comment">//cache是一个Integer数组，缓存了-128到127的Integer对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//IntegerCache是Integer类中的静态内部类，Integer类在加载时会同时加载IntegerCache类，IntegerCache类的静态代码块中会</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">static</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 127是默认的边界值，也可以通过设置JVM参数java.lang.Integer.IntegerCache.high来进行自定义。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">int</span> h = <span class="number">127</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">            String integerCacheHighPropValue =            sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                    i = Math.max(i, <span class="number">127</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                    <span class="comment">// cache数组的长度不能超过Integer.MAX_VALUE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                    h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">                &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">                    <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">            high = h;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">            cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">int</span> j = low;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">                cache[k] = <span class="keyword">new</span> Integer(j++);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">          </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// high值必须大于等于127，不然会抛出异常</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
-
-
+        <h3 id="缓存一致性问题"><a href="#缓存一致性问题" class="headerlink" title="缓存一致性问题"></a>缓存一致性问题</h3><ul>
+<li>当数据时效性要求很高时，需要保证缓存中的数据与数据库中的保持一致，而且需要保证缓存节点和副本中的数据也保持一致，不能出现差异现象。</li>
+<li>这就比较依赖缓存的过期和更新策略。<strong>一般会在数据发生更改的时，主动更新缓存中的数据或者移除对应的缓存。</strong><br><img src="/zbcn.github.io/assets/postImg/java/imgs/20200117152455.jpg" alt="缓存一致"></li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -271,7 +255,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -283,7 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/interview//" class="article-tag-list-link color5">interview</a>
+        			<a href="/zbcn.github.io/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -292,7 +276,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/05_javabase/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/03_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9_%E7%A9%BF%E9%80%8F_%E5%87%BB%E7%A9%BF/">展开全文 >></a>
         </p>
       
 
@@ -553,6 +537,212 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_05%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-netty_01 初步了解netty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/">初步了解netty</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/" class="archive-article-date">
+  	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h1 id="netty-学习"><a href="#netty-学习" class="headerlink" title="netty 学习"></a>netty 学习</h1><h2 id="Netty的特点"><a href="#Netty的特点" class="headerlink" title="Netty的特点"></a>Netty的特点</h2><ul>
+<li>高并发：Netty 是一款基于 NIO（Nonblocking IO，非阻塞IO）开发的网络通信框架，对比于 BIO（Blocking I/O，阻塞IO），他的并发性能得到了很大提高。</li>
+<li>传输快：Netty 的传输依赖于零拷贝特性，尽量减少不必要的内存拷贝，实现了更高效率的传输。</li>
+<li>封装好：Netty 封装了 NIO 操作的很多细节，提供了易于使用调用接口。</li>
+</ul>
+<h2 id="Netty的优势："><a href="#Netty的优势：" class="headerlink" title="Netty的优势："></a>Netty的优势：</h2><ul>
+<li>使用简单：封装了 NIO 的很多细节，使用更简单。</li>
+<li>功能强大：预置了多种编解码功能，支持多种主流协议。</li>
+<li>定制能力强：可以通过 ChannelHandler 对通信框架进行灵活地扩展。</li>
+<li>性能高：通过与其他业界主流的 NIO 框架对比，Netty 的综合性能最优。</li>
+<li>稳定：Netty 修复了已经发现的所有 NIO 的 bug，让开发人员可以专注于业务本身。</li>
+<li>社区活跃：Netty 是活跃的开源项目，版本迭代周期短，bug 修复速度快。</li>
+</ul>
+<!--netty-->
+
+<h2 id="Netty高性能表现在哪些方面？"><a href="#Netty高性能表现在哪些方面？" class="headerlink" title="Netty高性能表现在哪些方面？"></a>Netty高性能表现在哪些方面？</h2><ul>
+<li>IO 线程模型：同步非阻塞，用最少的资源做更多的事。</li>
+<li>内存零拷贝：尽量减少不必要的内存拷贝，实现了更高效率的传输。</li>
+<li>内存池设计：申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。</li>
+<li>串形化处理读写：避免使用锁带来的性能开销。</li>
+<li>高性能序列化协议：支持 protobuf 等高性能序列化协议。</li>
+</ul>
+<h2 id="Netty能做什么"><a href="#Netty能做什么" class="headerlink" title="Netty能做什么"></a>Netty能做什么</h2><p>现在互联网系统讲究的都是高并发、分布式、微服务，各类消息满天飞，Netty在这类架构里面的应用可谓是如鱼得水，如果你对当前的各种应用服务器不爽，那么完全可以基于Netty来实现自己的HTTP服务器，FTP服务器，UDP服务器，RPC服务器，WebSocket服务器，Redis的Proxy服务器，MySQL的Proxy服务器等等。</p>
+<h2 id="基于Netty-的开源框架有哪些？"><a href="#基于Netty-的开源框架有哪些？" class="headerlink" title="基于Netty 的开源框架有哪些？"></a>基于Netty 的开源框架有哪些？</h2><ul>
+<li>阿里分布式服务框架 Dubbo 的 RPC 框架；</li>
+<li>淘宝的消息中间件 RocketMQ；</li>
+<li>Hadoop 的高性能通信和序列化组件 Avro 的 RPC 框架；</li>
+<li>开源集群运算框架 Spark；</li>
+<li>分布式计算框架 Storm；</li>
+<li>并发应用和分布式应用 Akka；</li>
+<li>。。。。</li>
+</ul>
+<h2 id="Netty的组件"><a href="#Netty的组件" class="headerlink" title="Netty的组件"></a>Netty的组件</h2><ul>
+<li>I/O：各种各样的流（文件、数组、缓冲、管道。。。）的处理（输入输出）。</li>
+<li>Channel：通道，代表一个连接，每个Client请对会对应到具体的一个Channel。</li>
+<li>ChannelPipeline：责任链，每个Channel都有且仅有一个ChannelPipeline与之对应，里面是各种各样的Handler。</li>
+<li>handler：用于处理出入站消息及相应的事件，实现我们自己要的业务逻辑。</li>
+<li>EventLoopGroup：I/O线程池，负责处理Channel对应的I/O事件。</li>
+<li>ServerBootstrap：服务器端启动辅助对象。</li>
+<li>Bootstrap：客户端启动辅助对象。</li>
+<li>ChannelInitializer：Channel初始化器。</li>
+<li>ChannelFuture：代表I/O操作的执行结果，通过事件机制，获取执行结果，通过添加监听器，执行我们想要的操作。</li>
+<li>ByteBuf：字节序列，通过ByteBuf操作基础的字节数组和缓冲区。</li>
+</ul>
+<h1 id="BIO-NIO-AIO-简单说明"><a href="#BIO-NIO-AIO-简单说明" class="headerlink" title="BIO, NIO,AIO 简单说明"></a>BIO, NIO,AIO 简单说明</h1><p>这三个概念分别对应三种通讯模型：阻塞、非阻塞、非阻塞异步。</p>
+<p>Netty既可以是NIO，也可以是AIO，就看你怎么实现</p>
+<p>三者的区别：</p>
+<h3 id="BIO："><a href="#BIO：" class="headerlink" title="BIO："></a>BIO：</h3><p>一个连接一个线程，客户端有连接请求时服务器端就需要启动一个线程进行处理,线程开销大。伪异步IO：将请求连接放入线程池，一对多，但线程还是很宝贵的资源。</p>
+<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><p>一个请求一个线程，但客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理</p>
+<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><p>一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理。</p>
+<p><strong>区别</strong></p>
+<ul>
+<li>BIO是面向流的，NIO是面向缓冲区的；BIO的各种流是阻塞的。而NIO是非阻塞的；BIO的Stream是单向的，而NIO的channel是双向的。</li>
+<li>NIO的特点：事件驱动模型、单线程处理多任务、非阻塞I/O，I/O读写不再阻塞，而是返回0、基于block的传输比基于流的传输更高效、更高级的IO函数zero-copy、IO多路复用大大提高了Java网络应用的可伸缩性和实用性。基于Reactor线程模型。</li>
+</ul>
+<h1 id="搭建实例"><a href="#搭建实例" class="headerlink" title="搭建实例"></a>搭建实例</h1><h2 id="创建-maven-项目，并且引入-Netty-包"><a href="#创建-maven-项目，并且引入-Netty-包" class="headerlink" title="创建 maven 项目，并且引入 Netty 包"></a>创建 maven 项目，并且引入 Netty 包</h2><p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163652043.png" alt="image-20200805163652043"></p>
+<h2 id="Netty开发的基本流程"><a href="#Netty开发的基本流程" class="headerlink" title="Netty开发的基本流程"></a>Netty开发的基本流程</h2><h3 id="服务器端和客户端都是这个套路"><a href="#服务器端和客户端都是这个套路" class="headerlink" title="服务器端和客户端都是这个套路"></a>服务器端和客户端都是这个套路</h3><p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163826536.png" alt="image-20200805163826536"></p>
+<p>Netty开发的实际过程，这是一个简化的过程，但已经把大概流程表达出来了，绿色的代表客户端流程、蓝色的代表服务器端流程，注意标红的部分，见下图：</p>
+<p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163922687.png" alt="image-20200805163922687"></p>
+<h2 id="创建客户端类"><a href="#创建客户端类" class="headerlink" title="创建客户端类"></a>创建客户端类</h2><h3 id="创建Handler"><a href="#创建Handler" class="headerlink" title="创建Handler"></a><strong>创建Handler</strong></h3><p>​    首先创建Handler类，该类用于接收服务器端发送的数据，这是一个简化的类，只重写了消息读取方法channelRead0、捕捉异常方法exceptionCaught。</p>
+<p>客户端的Handler一般继承的是SimpleChannelInboundHandler，该类有丰富的方法，心跳、超时检测、连接状态等等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ChannelHandler</span>.Sharable</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerClientHello</span> <span class="keyword">extends</span> <span class="title">SimpleChannelInboundHandler</span>&lt;<span class="title">ByteBuf</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">channelRead0</span><span class="params">(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"接收到的消息："</span>+byteBuf.toString(CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        cause.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        ctx.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<p><strong>代码说明：</strong></p>
+<ul>
+<li>@ChannelHandler.Sharable,这个注解是为了线程安全，如果你不在乎是否线程安全，不加也可以。</li>
+<li>SimpleChannelInboundHandler，这里的类型可以是ByteBuf，也可以是String，还可以是对象，根据实际情况来。</li>
+<li>channelRead0，消息读取方法，注意名称中有个0。</li>
+<li>ChannelHandlerContext，通道上下文，代指Channel。</li>
+<li>ByteBuf,字节序列，通过ByteBuf操作基础的字节数组和缓冲区，因为JDK原生操作字节麻烦、效率低，所以Netty对字节的操作进行了封装，实现了指数级的性能提升，同时使用更加便利。</li>
+<li>CharsetUtil.UTF_8，这个是JDK原生的方法，用于指定字节数组转换为字符串时的编码格式。</li>
+</ul>
+<h3 id="创建客户端启动类"><a href="#创建客户端启动类" class="headerlink" title="创建客户端启动类"></a><strong>创建客户端启动类</strong></h3><p>客户端启动类根据服务器端的IP和端口，建立连接，连接建立后，实现消息的双向传输。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppClientHello</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String host;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AppClientHello</span><span class="params">(String host, <span class="keyword">int</span> port)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.host = host;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.port = port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 配置相应的参数，提供连接到远端的方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//I/O线程池</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        NioEventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//客户端辅助启动类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">            Bootstrap bs = <span class="keyword">new</span> Bootstrap();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">            bs.group(group).channel(NioSocketChannel<span class="class">.<span class="keyword">class</span>)//实例化一个<span class="title">Channel</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">remoteAddress</span>(<span class="title">new</span> <span class="title">InetSocketAddress</span>(<span class="title">host</span>,<span class="title">port</span>))</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">handler</span>(<span class="title">new</span> <span class="title">ChannelInitializer</span>&lt;<span class="title">SocketChannel</span>&gt;() </span>&#123;<span class="comment">//进行通道初始化配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                        <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">                        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(SocketChannel socketChannel)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">                            <span class="comment">//添加我们自定义的Handler</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                            socketChannel.pipeline().addLast(<span class="keyword">new</span> HandlerClientHello());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">                        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">                    &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//连接到远程节点；等待连接完成</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">            ChannelFuture future=bs.connect().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//发送消息到服务器端，编码格式是utf-8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">            future.channel().writeAndFlush(Unpooled.copiedBuffer(<span class="string">"Hello World"</span>, CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//阻塞操作，closeFuture()开启了一个channel的监听器（这期间channel在进行各项工作），直到链路断开</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            future.channel().closeFuture().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">            e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">            group.shutdownGracefully().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> AppClientHello(<span class="string">"127.0.0.1"</span>,<span class="number">18080</span>).run();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>代码说明：</p>
+<ul>
+<li>ChannelInitializer，通道Channel的初始化工作，如加入多个handler，都在这里进行。</li>
+<li>bs.connect().sync()，这里的sync()表示采用的同步方法，这样连接建立成功后，才继续往下执行。</li>
+<li>pipeline()，连接建立后，都会自动创建一个管道pipeline，这个管道也被称为责任链，保证顺序执行，同时又可以灵活的配置各类Handler，这是一个很精妙的设计，既减少了线程切换带来的资源开销、避免好多麻烦事，同时性能又得到了极大增强。</li>
+</ul>
+<h2 id="创建服务器端类"><a href="#创建服务器端类" class="headerlink" title="创建服务器端类"></a>创建服务器端类</h2><h3 id="创建Handler-1"><a href="#创建Handler-1" class="headerlink" title="创建Handler"></a>创建Handler</h3><p>和客户端一样，只重写了消息读取方法channelRead(注意这里不是channelRead0)、捕捉异常方法exceptionCaught。</p>
+<p>另外服务器端Handler继承的是ChannelInboundHandlerAdapter，而不是SimpleChannelInboundHandler，至于这两者的区别，这里不赘述，大家自行百度吧。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ChannelHandler</span>.Sharable</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerServerHello</span> <span class="keyword">extends</span> <span class="title">ChannelInboundHandlerAdapter</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span>  <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//处理收到的数据，并反馈消息到到客户端</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        ByteBuf in = (ByteBuf) msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"收到客户端发过来的消息: "</span> + in.toString(CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//写入并发送信息到远端（客户端）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        ctx.writeAndFlush(Unpooled.copiedBuffer(<span class="string">"你好，我是服务端，我已经收到你发送的消息"</span>, CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//出现异常的时候执行的动作（打印并关闭通道）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        cause.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        ctx.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h3 id="创建服务器端启动类"><a href="#创建服务器端启动类" class="headerlink" title="创建服务器端启动类"></a>创建服务器端启动类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppServerHello</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AppServerHello</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.port = port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        EventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();<span class="comment">//Netty的Reactor线程池，初始化了一个NioEventLoop数组，用来处理I/O操作,如接受新的连接和读/写数据</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();<span class="comment">//用于启动NIO服务</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            b.group(group)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                    .channel(NioServerSocketChannel<span class="class">.<span class="keyword">class</span>) //通过工厂方法设计模式实例化一个<span class="title">channel</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">localAddress</span>(<span class="title">new</span> <span class="title">InetSocketAddress</span>(<span class="title">port</span>))//设置监听端口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">childHandler</span>(<span class="title">new</span> <span class="title">ChannelInitializer</span>&lt;<span class="title">SocketChannel</span>&gt;() </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                        <span class="comment">//ChannelInitializer是一个特殊的处理类，他的目的是帮助使用者配置一个新的Channel,用于把许多自定义的处理类增加到pipline上来</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">                        <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(SocketChannel ch)</span> <span class="keyword">throws</span> Exception </span>&#123;<span class="comment">//ChannelInitializer 是一个特殊的处理类，他的目的是帮助使用者配置一个新的 Channel。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">                            ch.pipeline().addLast(<span class="keyword">new</span> HandlerServerHello());<span class="comment">//配置childHandler来通知一个关于消息处理的InfoServerHandler实例</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                    &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//绑定服务器，该实例将提供有关IO操作的结果或状态的信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            ChannelFuture channelFuture= b.bind().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">            System.out.println(<span class="string">"在"</span> + channelFuture.channel().localAddress()+<span class="string">"上开启监听"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//阻塞操作，closeFuture()开启了一个channel的监听器（这期间channel在进行各项工作），直到链路断开</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">            channelFuture.channel().closeFuture().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            group.shutdownGracefully().sync();<span class="comment">//关闭EventLoopGroup并释放所有资源，包括所有创建的线程</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> AppServerHello(<span class="number">18080</span>).run();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<p>代码说明：</p>
+<ul>
+<li>EventLoopGroup，实际项目中，这里创建两个EventLoopGroup的实例，一个负责接收客户端的连接，另一个负责处理消息I/O，这里为了简单展示流程，让一个实例把这两方面的活都干了。</li>
+<li>NioServerSocketChannel，通过工厂通过工厂方法设计模式实例化一个channel，这个在大家还没有能够熟练使用Netty进行项目开发的情况下，不用去深究。</li>
+</ul>
+<p>到这里，我们就把服务器端和客户端都写完了 ，如何运行呢，先在服务器端启动类上右键，点Run ‘AppServerHello.main()’菜单运行。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://mp.weixin.qq.com/s/rmR0VZ5D7AbfZQoSN9G5Cg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/rmR0VZ5D7AbfZQoSN9G5Cg</a></p>
+
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">netty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/netty//" class="article-tag-list-link color1">netty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/">展开全文 >></a>
         </p>
       
 
@@ -895,212 +1085,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2021/02/16/mybatis_06%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-netty_01 初步了解netty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/">初步了解netty</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/" class="archive-article-date">
-  	<time datetime="2021-02-16T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="netty-学习"><a href="#netty-学习" class="headerlink" title="netty 学习"></a>netty 学习</h1><h2 id="Netty的特点"><a href="#Netty的特点" class="headerlink" title="Netty的特点"></a>Netty的特点</h2><ul>
-<li>高并发：Netty 是一款基于 NIO（Nonblocking IO，非阻塞IO）开发的网络通信框架，对比于 BIO（Blocking I/O，阻塞IO），他的并发性能得到了很大提高。</li>
-<li>传输快：Netty 的传输依赖于零拷贝特性，尽量减少不必要的内存拷贝，实现了更高效率的传输。</li>
-<li>封装好：Netty 封装了 NIO 操作的很多细节，提供了易于使用调用接口。</li>
-</ul>
-<h2 id="Netty的优势："><a href="#Netty的优势：" class="headerlink" title="Netty的优势："></a>Netty的优势：</h2><ul>
-<li>使用简单：封装了 NIO 的很多细节，使用更简单。</li>
-<li>功能强大：预置了多种编解码功能，支持多种主流协议。</li>
-<li>定制能力强：可以通过 ChannelHandler 对通信框架进行灵活地扩展。</li>
-<li>性能高：通过与其他业界主流的 NIO 框架对比，Netty 的综合性能最优。</li>
-<li>稳定：Netty 修复了已经发现的所有 NIO 的 bug，让开发人员可以专注于业务本身。</li>
-<li>社区活跃：Netty 是活跃的开源项目，版本迭代周期短，bug 修复速度快。</li>
-</ul>
-<!--netty-->
-
-<h2 id="Netty高性能表现在哪些方面？"><a href="#Netty高性能表现在哪些方面？" class="headerlink" title="Netty高性能表现在哪些方面？"></a>Netty高性能表现在哪些方面？</h2><ul>
-<li>IO 线程模型：同步非阻塞，用最少的资源做更多的事。</li>
-<li>内存零拷贝：尽量减少不必要的内存拷贝，实现了更高效率的传输。</li>
-<li>内存池设计：申请的内存可以重用，主要指直接内存。内部实现是用一颗二叉查找树管理内存分配情况。</li>
-<li>串形化处理读写：避免使用锁带来的性能开销。</li>
-<li>高性能序列化协议：支持 protobuf 等高性能序列化协议。</li>
-</ul>
-<h2 id="Netty能做什么"><a href="#Netty能做什么" class="headerlink" title="Netty能做什么"></a>Netty能做什么</h2><p>现在互联网系统讲究的都是高并发、分布式、微服务，各类消息满天飞，Netty在这类架构里面的应用可谓是如鱼得水，如果你对当前的各种应用服务器不爽，那么完全可以基于Netty来实现自己的HTTP服务器，FTP服务器，UDP服务器，RPC服务器，WebSocket服务器，Redis的Proxy服务器，MySQL的Proxy服务器等等。</p>
-<h2 id="基于Netty-的开源框架有哪些？"><a href="#基于Netty-的开源框架有哪些？" class="headerlink" title="基于Netty 的开源框架有哪些？"></a>基于Netty 的开源框架有哪些？</h2><ul>
-<li>阿里分布式服务框架 Dubbo 的 RPC 框架；</li>
-<li>淘宝的消息中间件 RocketMQ；</li>
-<li>Hadoop 的高性能通信和序列化组件 Avro 的 RPC 框架；</li>
-<li>开源集群运算框架 Spark；</li>
-<li>分布式计算框架 Storm；</li>
-<li>并发应用和分布式应用 Akka；</li>
-<li>。。。。</li>
-</ul>
-<h2 id="Netty的组件"><a href="#Netty的组件" class="headerlink" title="Netty的组件"></a>Netty的组件</h2><ul>
-<li>I/O：各种各样的流（文件、数组、缓冲、管道。。。）的处理（输入输出）。</li>
-<li>Channel：通道，代表一个连接，每个Client请对会对应到具体的一个Channel。</li>
-<li>ChannelPipeline：责任链，每个Channel都有且仅有一个ChannelPipeline与之对应，里面是各种各样的Handler。</li>
-<li>handler：用于处理出入站消息及相应的事件，实现我们自己要的业务逻辑。</li>
-<li>EventLoopGroup：I/O线程池，负责处理Channel对应的I/O事件。</li>
-<li>ServerBootstrap：服务器端启动辅助对象。</li>
-<li>Bootstrap：客户端启动辅助对象。</li>
-<li>ChannelInitializer：Channel初始化器。</li>
-<li>ChannelFuture：代表I/O操作的执行结果，通过事件机制，获取执行结果，通过添加监听器，执行我们想要的操作。</li>
-<li>ByteBuf：字节序列，通过ByteBuf操作基础的字节数组和缓冲区。</li>
-</ul>
-<h1 id="BIO-NIO-AIO-简单说明"><a href="#BIO-NIO-AIO-简单说明" class="headerlink" title="BIO, NIO,AIO 简单说明"></a>BIO, NIO,AIO 简单说明</h1><p>这三个概念分别对应三种通讯模型：阻塞、非阻塞、非阻塞异步。</p>
-<p>Netty既可以是NIO，也可以是AIO，就看你怎么实现</p>
-<p>三者的区别：</p>
-<h3 id="BIO："><a href="#BIO：" class="headerlink" title="BIO："></a>BIO：</h3><p>一个连接一个线程，客户端有连接请求时服务器端就需要启动一个线程进行处理,线程开销大。伪异步IO：将请求连接放入线程池，一对多，但线程还是很宝贵的资源。</p>
-<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><p>一个请求一个线程，但客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理</p>
-<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><p>一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理。</p>
-<p><strong>区别</strong></p>
-<ul>
-<li>BIO是面向流的，NIO是面向缓冲区的；BIO的各种流是阻塞的。而NIO是非阻塞的；BIO的Stream是单向的，而NIO的channel是双向的。</li>
-<li>NIO的特点：事件驱动模型、单线程处理多任务、非阻塞I/O，I/O读写不再阻塞，而是返回0、基于block的传输比基于流的传输更高效、更高级的IO函数zero-copy、IO多路复用大大提高了Java网络应用的可伸缩性和实用性。基于Reactor线程模型。</li>
-</ul>
-<h1 id="搭建实例"><a href="#搭建实例" class="headerlink" title="搭建实例"></a>搭建实例</h1><h2 id="创建-maven-项目，并且引入-Netty-包"><a href="#创建-maven-项目，并且引入-Netty-包" class="headerlink" title="创建 maven 项目，并且引入 Netty 包"></a>创建 maven 项目，并且引入 Netty 包</h2><p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163652043.png" alt="image-20200805163652043"></p>
-<h2 id="Netty开发的基本流程"><a href="#Netty开发的基本流程" class="headerlink" title="Netty开发的基本流程"></a>Netty开发的基本流程</h2><h3 id="服务器端和客户端都是这个套路"><a href="#服务器端和客户端都是这个套路" class="headerlink" title="服务器端和客户端都是这个套路"></a>服务器端和客户端都是这个套路</h3><p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163826536.png" alt="image-20200805163826536"></p>
-<p>Netty开发的实际过程，这是一个简化的过程，但已经把大概流程表达出来了，绿色的代表客户端流程、蓝色的代表服务器端流程，注意标红的部分，见下图：</p>
-<p><img src="/zbcn.github.io/assets/postImg/netty/Untitled/image-20200805163922687.png" alt="image-20200805163922687"></p>
-<h2 id="创建客户端类"><a href="#创建客户端类" class="headerlink" title="创建客户端类"></a>创建客户端类</h2><h3 id="创建Handler"><a href="#创建Handler" class="headerlink" title="创建Handler"></a><strong>创建Handler</strong></h3><p>​    首先创建Handler类，该类用于接收服务器端发送的数据，这是一个简化的类，只重写了消息读取方法channelRead0、捕捉异常方法exceptionCaught。</p>
-<p>客户端的Handler一般继承的是SimpleChannelInboundHandler，该类有丰富的方法，心跳、超时检测、连接状态等等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ChannelHandler</span>.Sharable</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerClientHello</span> <span class="keyword">extends</span> <span class="title">SimpleChannelInboundHandler</span>&lt;<span class="title">ByteBuf</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">channelRead0</span><span class="params">(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"接收到的消息："</span>+byteBuf.toString(CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        cause.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        ctx.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-
-
-<p><strong>代码说明：</strong></p>
-<ul>
-<li>@ChannelHandler.Sharable,这个注解是为了线程安全，如果你不在乎是否线程安全，不加也可以。</li>
-<li>SimpleChannelInboundHandler，这里的类型可以是ByteBuf，也可以是String，还可以是对象，根据实际情况来。</li>
-<li>channelRead0，消息读取方法，注意名称中有个0。</li>
-<li>ChannelHandlerContext，通道上下文，代指Channel。</li>
-<li>ByteBuf,字节序列，通过ByteBuf操作基础的字节数组和缓冲区，因为JDK原生操作字节麻烦、效率低，所以Netty对字节的操作进行了封装，实现了指数级的性能提升，同时使用更加便利。</li>
-<li>CharsetUtil.UTF_8，这个是JDK原生的方法，用于指定字节数组转换为字符串时的编码格式。</li>
-</ul>
-<h3 id="创建客户端启动类"><a href="#创建客户端启动类" class="headerlink" title="创建客户端启动类"></a><strong>创建客户端启动类</strong></h3><p>客户端启动类根据服务器端的IP和端口，建立连接，连接建立后，实现消息的双向传输。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppClientHello</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String host;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AppClientHello</span><span class="params">(String host, <span class="keyword">int</span> port)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.host = host;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.port = port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 配置相应的参数，提供连接到远端的方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//I/O线程池</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        NioEventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//客户端辅助启动类</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">            Bootstrap bs = <span class="keyword">new</span> Bootstrap();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">            bs.group(group).channel(NioSocketChannel<span class="class">.<span class="keyword">class</span>)//实例化一个<span class="title">Channel</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">remoteAddress</span>(<span class="title">new</span> <span class="title">InetSocketAddress</span>(<span class="title">host</span>,<span class="title">port</span>))</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">handler</span>(<span class="title">new</span> <span class="title">ChannelInitializer</span>&lt;<span class="title">SocketChannel</span>&gt;() </span>&#123;<span class="comment">//进行通道初始化配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                        <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">                        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(SocketChannel socketChannel)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">                            <span class="comment">//添加我们自定义的Handler</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                            socketChannel.pipeline().addLast(<span class="keyword">new</span> HandlerClientHello());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">                        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">                    &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//连接到远程节点；等待连接完成</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">            ChannelFuture future=bs.connect().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//发送消息到服务器端，编码格式是utf-8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">            future.channel().writeAndFlush(Unpooled.copiedBuffer(<span class="string">"Hello World"</span>, CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//阻塞操作，closeFuture()开启了一个channel的监听器（这期间channel在进行各项工作），直到链路断开</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            future.channel().closeFuture().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">            e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">            group.shutdownGracefully().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> AppClientHello(<span class="string">"127.0.0.1"</span>,<span class="number">18080</span>).run();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<p>代码说明：</p>
-<ul>
-<li>ChannelInitializer，通道Channel的初始化工作，如加入多个handler，都在这里进行。</li>
-<li>bs.connect().sync()，这里的sync()表示采用的同步方法，这样连接建立成功后，才继续往下执行。</li>
-<li>pipeline()，连接建立后，都会自动创建一个管道pipeline，这个管道也被称为责任链，保证顺序执行，同时又可以灵活的配置各类Handler，这是一个很精妙的设计，既减少了线程切换带来的资源开销、避免好多麻烦事，同时性能又得到了极大增强。</li>
-</ul>
-<h2 id="创建服务器端类"><a href="#创建服务器端类" class="headerlink" title="创建服务器端类"></a>创建服务器端类</h2><h3 id="创建Handler-1"><a href="#创建Handler-1" class="headerlink" title="创建Handler"></a>创建Handler</h3><p>和客户端一样，只重写了消息读取方法channelRead(注意这里不是channelRead0)、捕捉异常方法exceptionCaught。</p>
-<p>另外服务器端Handler继承的是ChannelInboundHandlerAdapter，而不是SimpleChannelInboundHandler，至于这两者的区别，这里不赘述，大家自行百度吧。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@ChannelHandler</span>.Sharable</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerServerHello</span> <span class="keyword">extends</span> <span class="title">ChannelInboundHandlerAdapter</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span>  <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//处理收到的数据，并反馈消息到到客户端</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        ByteBuf in = (ByteBuf) msg;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        System.out.println(<span class="string">"收到客户端发过来的消息: "</span> + in.toString(CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//写入并发送信息到远端（客户端）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        ctx.writeAndFlush(Unpooled.copiedBuffer(<span class="string">"你好，我是服务端，我已经收到你发送的消息"</span>, CharsetUtil.UTF_8));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//出现异常的时候执行的动作（打印并关闭通道）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        cause.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        ctx.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="创建服务器端启动类"><a href="#创建服务器端启动类" class="headerlink" title="创建服务器端启动类"></a>创建服务器端启动类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppServerHello</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AppServerHello</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.port = port;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        EventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();<span class="comment">//Netty的Reactor线程池，初始化了一个NioEventLoop数组，用来处理I/O操作,如接受新的连接和读/写数据</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();<span class="comment">//用于启动NIO服务</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            b.group(group)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                    .channel(NioServerSocketChannel<span class="class">.<span class="keyword">class</span>) //通过工厂方法设计模式实例化一个<span class="title">channel</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">localAddress</span>(<span class="title">new</span> <span class="title">InetSocketAddress</span>(<span class="title">port</span>))//设置监听端口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="class">                    .<span class="title">childHandler</span>(<span class="title">new</span> <span class="title">ChannelInitializer</span>&lt;<span class="title">SocketChannel</span>&gt;() </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                        <span class="comment">//ChannelInitializer是一个特殊的处理类，他的目的是帮助使用者配置一个新的Channel,用于把许多自定义的处理类增加到pipline上来</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">                        <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(SocketChannel ch)</span> <span class="keyword">throws</span> Exception </span>&#123;<span class="comment">//ChannelInitializer 是一个特殊的处理类，他的目的是帮助使用者配置一个新的 Channel。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">                            ch.pipeline().addLast(<span class="keyword">new</span> HandlerServerHello());<span class="comment">//配置childHandler来通知一个关于消息处理的InfoServerHandler实例</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                    &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//绑定服务器，该实例将提供有关IO操作的结果或状态的信息</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            ChannelFuture channelFuture= b.bind().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">            System.out.println(<span class="string">"在"</span> + channelFuture.channel().localAddress()+<span class="string">"上开启监听"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//阻塞操作，closeFuture()开启了一个channel的监听器（这期间channel在进行各项工作），直到链路断开</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">            channelFuture.channel().closeFuture().sync();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            group.shutdownGracefully().sync();<span class="comment">//关闭EventLoopGroup并释放所有资源，包括所有创建的线程</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> AppServerHello(<span class="number">18080</span>).run();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-
-
-<p>代码说明：</p>
-<ul>
-<li>EventLoopGroup，实际项目中，这里创建两个EventLoopGroup的实例，一个负责接收客户端的连接，另一个负责处理消息I/O，这里为了简单展示流程，让一个实例把这两方面的活都干了。</li>
-<li>NioServerSocketChannel，通过工厂通过工厂方法设计模式实例化一个channel，这个在大家还没有能够熟练使用Netty进行项目开发的情况下，不用去深究。</li>
-</ul>
-<p>到这里，我们就把服务器端和客户端都写完了 ，如何运行呢，先在服务器端启动类上右键，点Run ‘AppServerHello.main()’菜单运行。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://mp.weixin.qq.com/s/rmR0VZ5D7AbfZQoSN9G5Cg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/rmR0VZ5D7AbfZQoSN9G5Cg</a></p>
-
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/netty//" class="article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/16/netty_01%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3netty/">展开全文 >></a>
         </p>
       
 
@@ -1911,7 +1895,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1919,7 +1903,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1959,19 +1943,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1987,10 +1971,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
@@ -2000,6 +1980,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">env</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2015,15 +1999,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">security</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
