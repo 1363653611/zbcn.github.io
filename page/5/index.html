@@ -543,145 +543,6 @@
 
 
   
-    <article id="post-raab_py技术选型说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">raab_py 技术选型</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h2 id="raab-py-技术选型"><a href="#raab-py-技术选型" class="headerlink" title="raab_py 技术选型"></a>raab_py 技术选型</h2><h3 id="什么是WSGI？"><a href="#什么是WSGI？" class="headerlink" title="什么是WSGI？"></a>什么是WSGI？</h3><blockquote>
-<p>维基百科上面的定义是：web 服务网关接口（Python Web Service GateWay Interface），简写为 <code>WSGI</code>.是为python 语言定义的web服务器和web应用程序之间的一种简单而通用的接口。<br>WSGI[1] （有时发音作’wiz-gee’）</p>
-</blockquote>
-<ul>
-<li>规范说明  <ul>
-<li>WSGI区分为两个部分：<ol>
-<li>“服务器”或“网关”</li>
-<li>“应用程序”或“应用框架”</li>
-</ol>
-</li>
-<li>在处理一个WSGI请求时，服务器会为应用程序提供环境信息及一个回调函数（Callback Function）。当应用程序完成处理请求后，透过前述的回调函数，将结果回传给服务器</li>
-<li>WSGI 中间件<ul>
-<li>时实现了API的两方，因此可以在WSGI服务器和WSGI应用之间起调解作用<ul>
-<li>从Web服务器的角度来说，中间件扮演应用程序</li>
-<li>而从应用程序的角度来说，中间件扮演服务器</li>
-</ul>
-</li>
-<li>中间间提供的功能<ul>
-<li>重写环境变量后，根据目标URL，将请求消息路由到不同的应用对象。</li>
-<li>允许在一个进程中同时运行多个应用程序或应用框架。</li>
-<li>负载均衡和远程处理，通过在网络上转发请求和响应消息。</li>
-<li>进行内容后处理，例如应用XSLT样式表。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
     <article id="post-py_05python学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -792,6 +653,145 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/zbcn.github.io/2021/02/09/py_05python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-raab_py技术选型说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">raab_py 技术选型</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/" class="archive-article-date">
+  	<time datetime="2021-02-09T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="raab-py-技术选型"><a href="#raab-py-技术选型" class="headerlink" title="raab_py 技术选型"></a>raab_py 技术选型</h2><h3 id="什么是WSGI？"><a href="#什么是WSGI？" class="headerlink" title="什么是WSGI？"></a>什么是WSGI？</h3><blockquote>
+<p>维基百科上面的定义是：web 服务网关接口（Python Web Service GateWay Interface），简写为 <code>WSGI</code>.是为python 语言定义的web服务器和web应用程序之间的一种简单而通用的接口。<br>WSGI[1] （有时发音作’wiz-gee’）</p>
+</blockquote>
+<ul>
+<li>规范说明  <ul>
+<li>WSGI区分为两个部分：<ol>
+<li>“服务器”或“网关”</li>
+<li>“应用程序”或“应用框架”</li>
+</ol>
+</li>
+<li>在处理一个WSGI请求时，服务器会为应用程序提供环境信息及一个回调函数（Callback Function）。当应用程序完成处理请求后，透过前述的回调函数，将结果回传给服务器</li>
+<li>WSGI 中间件<ul>
+<li>时实现了API的两方，因此可以在WSGI服务器和WSGI应用之间起调解作用<ul>
+<li>从Web服务器的角度来说，中间件扮演应用程序</li>
+<li>而从应用程序的角度来说，中间件扮演服务器</li>
+</ul>
+</li>
+<li>中间间提供的功能<ul>
+<li>重写环境变量后，根据目标URL，将请求消息路由到不同的应用对象。</li>
+<li>允许在一个进程中同时运行多个应用程序或应用框架。</li>
+<li>负载均衡和远程处理，通过在网络上转发请求和响应消息。</li>
+<li>进行内容后处理，例如应用XSLT样式表。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2021/02/09/raab_py%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E8%AF%B4%E6%98%8E/">展开全文 >></a>
         </p>
       
 
@@ -1511,7 +1511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+                <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1519,11 +1519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">network</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1551,15 +1551,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lucene</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color2">lucene</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1567,7 +1567,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1603,15 +1603,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
