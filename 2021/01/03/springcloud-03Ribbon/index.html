@@ -14,13 +14,13 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;03&#x2F;springcloud-03Ribbon&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring-cloud-RibbonSpring Cloud Ribbon 是Spring Cloud Netflix 子项目的核心组件之一，主要给服务间调用及API网关转发提供负载均衡的功能，本文将对其用法进行详细介绍。 Ribbon 简介在微服务架构中，很多服务都会部署多个，其他服务去调用该服务的时候，如何保证负载均衡是个不得不去考虑的问题。负载均衡可以增加系统的可用性和扩展性，当我们使用R">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-03Ribbon&#x2F;springcloud_ribbon_01.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-03Ribbon&#x2F;springcloud_ribbon_01.png">
 <meta property="article:published_time" content="2021-01-03T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-17T07:58:48.937Z">
+<meta property="article:modified_time" content="2021-02-17T08:44:23.428Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-03Ribbon&#x2F;springcloud_ribbon_01.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-03Ribbon&#x2F;springcloud_ribbon_01.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -238,8 +238,6 @@
 <h1 id="RestTemplate-使用"><a href="#RestTemplate-使用" class="headerlink" title="RestTemplate 使用"></a>RestTemplate 使用</h1><blockquote>
 <p>RestTemplate是一个HTTP客户端，使用它我们可以方便的调用HTTP接口，支持GET、POST、PUT、DELETE等方法。</p>
 </blockquote>
-<a id="more"></a>
-
 <h2 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">T <span class="title">getForObject</span><span class="params">(String url, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">T <span class="title">getForObject</span><span class="params">(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">T <span class="title">getForObject</span><span class="params">(URI url, Class&lt;T&gt; responseType)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">ResponseEntity&lt;T&gt; <span class="title">getForEntity</span><span class="params">(String url, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">ResponseEntity&lt;T&gt; <span class="title">getForEntity</span><span class="params">(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&lt;T&gt; <span class="function">ResponseEntity&lt;T&gt; <span class="title">getForEntity</span><span class="params">(URI var1, Class&lt;T&gt; responseType)</span></span>;</span></pre></td></tr></table></figure>
 
 <h3 id="getForObject-方法"><a href="#getForObject-方法" class="headerlink" title="getForObject()  方法"></a>getForObject()  方法</h3><p>返回对象为响应体中数据转化成的对象，举例如下：</p>
@@ -296,7 +294,7 @@
 <li>启动user-service于8201端口；</li>
 <li>启动另一个user-service于8202端口，可以通过修改IDEA中的SpringBoot的启动配置实现：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-03Ribbon/springcloud_ribbon_01.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-03Ribbon/springcloud_ribbon_01.png" alt="img"></p>
 <ul>
 <li><p>此时运行中的服务</p>
 </li>
@@ -372,7 +370,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -384,7 +382,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -588,27 +586,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,27 +614,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +634,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,11 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,23 +674,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,6 +690,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -736,7 +702,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,15 +714,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,10 +735,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

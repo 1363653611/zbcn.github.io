@@ -14,15 +14,15 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;08&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Config：外部集中化配置管理Spring Cloud Config 可以为微服务架构中的应用提供集中化的外部配置支持，它分为服务端和客户端两个部分。 Spring Cloud Config 简介Spring Cloud Config 分为服务端和客户端两个部分。服务端被称为分布式配置中心，它是个独立的应用，可以从配置仓库获取配置信息并提供给客户端使用。客户端可以通过配">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191544134.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191611153.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201209101857577.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191544134.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191611153.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201209101857577.png">
 <meta property="article:published_time" content="2021-01-08T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-17T07:59:23.379Z">
+<meta property="article:modified_time" content="2021-02-17T08:44:23.475Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191544134.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86&#x2F;image-20201208191544134.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -237,8 +237,6 @@
       
         <h1 id="Spring-Cloud-Config：外部集中化配置管理"><a href="#Spring-Cloud-Config：外部集中化配置管理" class="headerlink" title="Spring Cloud Config：外部集中化配置管理"></a>Spring Cloud Config：外部集中化配置管理</h1><p>Spring Cloud Config 可以为微服务架构中的应用提供集中化的外部配置支持，它分为服务端和客户端两个部分。</p>
 <h1 id="Spring-Cloud-Config-简介"><a href="#Spring-Cloud-Config-简介" class="headerlink" title="Spring Cloud Config 简介"></a>Spring Cloud Config 简介</h1><p>Spring Cloud Config 分为服务端和客户端两个部分。服务端被称为分布式配置中心，它是个独立的应用，可以从配置仓库获取配置信息并提供给客户端使用。客户端可以通过配置中心来获取配置信息，在启动时加载配置。Spring Cloud Config 的配置中心默认采用Git来存储配置信息，所以天然就支持配置信息的版本管理，并且可以使用Git客户端来方便地管理和访问配置信息。</p>
-<a id="more"></a>
-
 <h1 id="在Git仓库中准备配置信息"><a href="#在Git仓库中准备配置信息" class="headerlink" title="在Git仓库中准备配置信息"></a>在Git仓库中准备配置信息</h1><p>由于Spring Cloud Config 需要一个存储配置信息的Git仓库，这里我们先在Git仓库中添加好配置文件再演示其功能。仓库地址：<a href="https://github.com/1363653611/config-repo.git" target="_blank" rel="noopener">https://github.com/1363653611/config-repo.git</a></p>
 <h2 id="配置仓库目录结构"><a href="#配置仓库目录结构" class="headerlink" title="配置仓库目录结构"></a>配置仓库目录结构</h2><h2 id="master分支下的配置信息"><a href="#master分支下的配置信息" class="headerlink" title="master分支下的配置信息"></a>master分支下的配置信息</h2><ul>
 <li>config-dev.yml</li>
@@ -289,11 +287,11 @@
 <ul>
 <li>访问<a href="http://localhost:8901/master/config-dev来获取master分支上dev环境的配置信息；" target="_blank" rel="noopener">http://localhost:8901/master/config-dev来获取master分支上dev环境的配置信息；</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191544134.png" alt="image-20201208191544134"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191544134.png" alt="image-20201208191544134"></p>
 <ul>
 <li><p>访问<a href="http://localhost:8901/master/config-dev.yml来获取master分支上dev环境的配置文件信息，对比上面信息，可以看出配置信息和配置文件信息并不是同一个概念；" target="_blank" rel="noopener">http://localhost:8901/master/config-dev.yml来获取master分支上dev环境的配置文件信息，对比上面信息，可以看出配置信息和配置文件信息并不是同一个概念；</a></p>
 </li>
-<li><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191611153.png" alt="image-20201208191611153"></p>
+<li><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201208191611153.png" alt="image-20201208191611153"></p>
 </li>
 <li><p>访问<a href="http://localhost:8901/dev/config-dev.yml" target="_blank" rel="noopener">http://localhost:8901/master/config-test.yml</a>来获取master分支上test环境的配置文件信息:</p>
 </li>
@@ -374,7 +372,7 @@
 <p><code>--spring.config.location=classpath:bootstrap-security.yml</code></p>
 </li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201209101857577.png" alt="image-20201209101857577"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-08config%E9%9B%86%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/image-20201209101857577.png" alt="image-20201209101857577"></p>
 <ul>
 <li>访问<a href="http://localhost:9102/config/configInfo" target="_blank" rel="noopener">http://localhost:9102/config/configInfo</a> 进行测试，发现可以获取到配置信息。</li>
 </ul>
@@ -449,7 +447,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -461,7 +459,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -665,27 +663,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,27 +691,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,11 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,11 +723,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,23 +751,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,6 +767,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -813,7 +779,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -821,15 +791,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,10 +812,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

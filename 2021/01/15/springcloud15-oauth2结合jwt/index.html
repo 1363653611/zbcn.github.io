@@ -14,19 +14,19 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;15&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Security：Oauth2结合JWT使用Spring Cloud Security 为构建安全的SpringBoot应用提供了一系列解决方案，结合Oauth2还可以实现更多功能，比如使用JWT令牌存储信息，刷新令牌功能，本文将对其结合JWT使用进行详细介绍。 JWT简介JWT是JSON WEB TOKEN的缩写，它是基于 RFC 7519 标准定义的一种可以安全传输的">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-sc&#x2F;image-20201215193219755.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-sc&#x2F;image-20201216092734785.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-sc&#x2F;image-20201216093007189.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-sc&#x2F;image-20201216094709226.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216140919273.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216141717890.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216113213632.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-sc&#x2F;image-20201215193219755.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-sc&#x2F;image-20201216092734785.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-sc&#x2F;image-20201216093007189.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-sc&#x2F;image-20201216094709226.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216140919273.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216141717890.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-oauth2%E7%BB%93%E5%90%88jwt&#x2F;image-20201216113213632.png">
 <meta property="article:published_time" content="2021-01-15T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-17T08:00:09.125Z">
+<meta property="article:modified_time" content="2021-02-17T08:44:23.578Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud15-sc&#x2F;image-20201215193219755.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud15-sc&#x2F;image-20201215193219755.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -241,8 +241,6 @@
       
         <h1 id="Spring-Cloud-Security：Oauth2结合JWT使用"><a href="#Spring-Cloud-Security：Oauth2结合JWT使用" class="headerlink" title="Spring Cloud Security：Oauth2结合JWT使用"></a>Spring Cloud Security：Oauth2结合JWT使用</h1><p>Spring Cloud Security 为构建安全的SpringBoot应用提供了一系列解决方案，结合Oauth2还可以实现更多功能，比如使用JWT令牌存储信息，刷新令牌功能，本文将对其结合JWT使用进行详细介绍。</p>
 <h1 id="JWT简介"><a href="#JWT简介" class="headerlink" title="JWT简介"></a>JWT简介</h1><p>JWT是JSON WEB TOKEN的缩写，它是基于 RFC 7519 标准定义的一种可以安全传输的的JSON对象，由于使用了数字签名，所以是可信任和安全的。</p>
-<a id="more"></a>
-
 <h2 id="JWT的组成"><a href="#JWT的组成" class="headerlink" title="JWT的组成"></a>JWT的组成</h2><ul>
 <li>JWT token的格式：header.payload.signature；</li>
 <li>header中用于存放签名的生成算法；</li>
@@ -263,7 +261,7 @@
 <ul>
 <li>可以在该网站上获得解析结果：<a href="https://jwt.io/" target="_blank" rel="noopener">https://jwt.io/</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-sc/image-20201215193219755.png" alt="image-20201215193219755"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-sc/image-20201215193219755.png" alt="image-20201215193219755"></p>
 <h1 id="创建oauth2-jwt-server模块"><a href="#创建oauth2-jwt-server模块" class="headerlink" title="创建oauth2-jwt-server模块"></a>创建oauth2-jwt-server模块</h1><p>该模块只是对oauth2-server模块的扩展，直接复制过来扩展下下即可。</p>
 <h2 id="oauth2中存储令牌的方式"><a href="#oauth2中存储令牌的方式" class="headerlink" title="oauth2中存储令牌的方式"></a>oauth2中存储令牌的方式</h2><p>在入门学习时，我们都是把令牌存储在内存中的，这样如果部署多个服务，就会导致无法使用令牌的问题。 Spring Cloud Security中有两种存储令牌的方式可用于解决该问题，一种是使用Redis来存储，另一种是使用JWT来存储。</p>
 <h2 id="使用Redis存储令牌"><a href="#使用Redis存储令牌" class="headerlink" title="使用Redis存储令牌"></a>使用Redis存储令牌</h2><ul>
@@ -289,11 +287,11 @@
 <ul>
 <li>运行项目后使用密码模式来获取令牌，访问如下地址：<a href="http://localhost:9401/oauth/token" target="_blank" rel="noopener">http://localhost:9401/oauth/token</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-sc/image-20201216092734785.png" alt="image-20201216092734785"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-sc/image-20201216092734785.png" alt="image-20201216092734785"></p>
 <ul>
 <li>进行获取令牌操作，可以发现令牌已经被存储到Redis中。</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-sc/image-20201216093007189.png" alt="image-20201216093007189"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-sc/image-20201216093007189.png" alt="image-20201216093007189"></p>
 <h2 id="使用JWT存储令牌"><a href="#使用JWT存储令牌" class="headerlink" title="使用JWT存储令牌"></a>使用JWT存储令牌</h2><ul>
 <li>添加使用JWT存储令牌的配置：</li>
 </ul>
@@ -307,7 +305,7 @@
 <ul>
 <li>运行项目后使用密码模式来获取令牌，访问如下地址：<a href="http://localhost:9401/oauth/token" target="_blank" rel="noopener">http://localhost:9401/oauth/token</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-sc/image-20201216094709226.png" alt="image-20201216094709226"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-sc/image-20201216094709226.png" alt="image-20201216094709226"></p>
 <ul>
 <li>发现获取到的令牌已经变成了JWT令牌，将access_token拿到<a href="https://jwt.io/" target="_blank" rel="noopener">https://jwt.io/</a> 网站上去解析下可以获得其中内容。</li>
 </ul>
@@ -353,7 +351,7 @@
 <ul>
 <li>将令牌放入<code>Authorization</code>头中，访问如下地址获取信息：<a href="http://localhost:9401/user/getCurrentUser" target="_blank" rel="noopener">http://localhost:9401/user/getCurrentUser</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216140919273.png" alt="image-20201216140919273"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216140919273.png" alt="image-20201216140919273"></p>
 <p>问题：401Unauthorized 踩坑：请求后返回：</p>
 <p>访问始终返回如下信息，而且将 user 信息中的password 清空，</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"error"</span>: <span class="string">"invalid_token"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"error_description"</span>: <span class="string">"Invalid access token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ6YmNuIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTYwODEwMDQ3MiwiYXV0aG9yaXRpZXMiOlsiYWRtaW4iXSwianRpIjoiZmUzMTY1ODctYTY2NC00MDNhLWIyZWUtZTYwZDAyZjIxZTc5IiwiY2xpZW50X2lkIjoiYWRtaW4iLCJlbmhhbmNlIjoiZW5oYW5jZSBpbmZvIn0.JdvnhhAtufGc7L5IUS2HNtMBLzJsdxpDGHYAmANLrPM"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
@@ -363,7 +361,7 @@
 
 <p>导致 在程序运行时，将 redisTokenStore 默认使用了 redisTokenStore 。出现了问题。</p>
 <p>在运行 DefaultTokenServices# loadAuthentication(String accessTokenValue) 方法时，默认使用了 redisTokenStore 。报错</p>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216141717890.png" alt="image-20201216141717890"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216141717890.png" alt="image-20201216141717890"></p>
 <p>解决方案：</p>
 <ol>
 <li>将 redis 相关的令牌配置关闭。只使用 jwt的方式。 </li>
@@ -382,7 +380,7 @@
 
 <ul>
 <li><p>使用刷新令牌模式来获取新的令牌，访问如下地址：<a href="http://localhost:9401/oauth/token" target="_blank" rel="noopener">http://localhost:9401/oauth/token</a></p>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216113213632.png" alt="image-20201216113213632"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud15-oauth2%E7%BB%93%E5%90%88jwt/image-20201216113213632.png" alt="image-20201216113213632"></p>
 </li>
 </ul>
 <h1 id="使用到的模块"><a href="#使用到的模块" class="headerlink" title="使用到的模块"></a>使用到的模块</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">└── zbcn-author/oauth2-jwt-server -- 使用jwt的oauth2认证测试服务</span></pre></td></tr></table></figure>
@@ -437,7 +435,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -449,7 +447,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -653,27 +651,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,27 +679,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,11 +699,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,11 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,23 +739,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,6 +755,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -801,7 +767,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,15 +779,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,10 +800,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

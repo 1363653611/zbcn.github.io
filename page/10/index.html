@@ -193,14 +193,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-API_02restfulApi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring_07aop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/03/API_02restfulApi/">RESTFUL 开发设计规范</a>
+      <a class="article-title" href="/zbcn.github.io/2020/05/11/spring_07aop/">Spring_07 spring AOP</a>
     </h1>
   
 
@@ -215,8 +215,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/03/API_02restfulApi/" class="archive-article-date">
-  	<time datetime="2021-01-03T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-03</time>
+        <a href="/zbcn.github.io/2020/05/11/spring_07aop/" class="archive-article-date">
+  	<time datetime="2020-05-11T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
 </a>
         
       </header>
@@ -230,66 +230,10 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="RESTFUL-开发设计规范"><a href="#RESTFUL-开发设计规范" class="headerlink" title="RESTFUL 开发设计规范"></a>RESTFUL 开发设计规范</h1><ul>
-<li>URI : 是一种资源标识</li>
-<li>URL :  schema = Http 的子标识</li>
-</ul>
-<p>Restful 从小的讲是对 URL 格式提出了限制，对接口设计规范的倡导，大的说它是一种通信架构的指导。</p>
-<h1 id="RESTFUL-的诞生"><a href="#RESTFUL-的诞生" class="headerlink" title="RESTFUL 的诞生"></a>RESTFUL 的诞生</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Restful 是由 Roy Thomas Fielding 博士在 2000 年所著的博士论文提起的，系统全面地阐述了 REST 的架构风格和设计思想，这位作者同时是 HTTP、URI等 Web 架构标准的主要设计者，因此他提出的 REST 概念得到很多人的关注和响应。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Web 网站从最初的静态资源展示，演变成后来的动态网站，到现在大部分的软件都在往云上迁移，之前很多桌面应用现在都尽量地改造成 Web 系统，用户不需要下载安装繁琐的软件，打开浏览器输入地址即可使用。</p>
-<p>在这么一个背景下，Web 系统的通信架构变得尤为重要。Roy Thomas Fielding 在论文中提到：“我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。REST 指的是一组架构约束条件和原则。”</p>
-<h2 id="RESTFUL-的思想内容"><a href="#RESTFUL-的思想内容" class="headerlink" title="RESTFUL 的思想内容"></a>RESTFUL 的思想内容</h2><p>Rest（Representational State Transfer），从词面上来解析是 <strong>表述性状态转移</strong>。我们知道 URI 是一种标识，这个标识不管是地址还是昵称，他都只是一个名词（<strong>URL 上面最好不要用动词</strong>）.API 接口是有 <strong>增删改查</strong> 一系列动作，将 URL 与行为状态的结合就是 Restful 的核心思想。一个 API 请求我们既要知道它要操作的是哪个资源，也要知道它要对这个资源进行什么操作。</p>
-<h3 id="API-接口规范"><a href="#API-接口规范" class="headerlink" title="API 接口规范"></a>API 接口规范</h3><p>Restful 提倡将接口的行为状态放到了 Http 的头部 method 里. 对同一个资源的不同操作，接口 URL 可能是一样的。行为规约主要有下面几项：</p>
-<h4 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h4><p>查询资源，不会对资源产生变化的都用 GET.</p>
-<p>eg: 查询某网站资源</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">GET http://www.imooc.com/http</span></pre></td></tr></table></figure>
-
-<p>如果资源查询的过程需要带过滤参数，建议使用 URL 参数的形式：</p>
-<p>eg1: 查询慕课网 http 小节中作者是 rj 的文章</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">GET http://www.imooc.com/http?author=rj</span></pre></td></tr></table></figure>
-
-<p>eg2: 查询慕课网 http 里面 id = 1 的文章</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">GET http://www.imooc.com/http/1</span></pre></td></tr></table></figure>
-
-
-
-<h4 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h4><p>新增某个资源：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">POST http://www.imooc.com/http</span></pre></td></tr></table></figure>
-
-<p>具体的参数放请求体中</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"title"</span>:<span class="string">"restful"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"author"</span>:<span class="string">"rj"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"content"</span>:<span class="string">"xxxxxx"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-
-
-<h4 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h4><p>资源的修改：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">PUT http://www.imooc.com/http/&#123;articleId&#125;</span></pre></td></tr></table></figure>
-
-<p>具体参数放在请求体中：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"title"</span>:<span class="string">"restful"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"author"</span>:<span class="string">"rj"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"content"</span>:<span class="string">"xxxxxx"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-
-
-<h4 id="PATCH"><a href="#PATCH" class="headerlink" title="PATCH"></a>PATCH</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">PATCH http://www.imooc.com/http/&#123;articleId&#125;</span></pre></td></tr></table></figure>
-
-<p><code>patch</code> 跟 <code>put</code> 都是修改的意思，put 类型的修改请求体中需要包含全量的对象信息，而 patch 只需要带上要修改的某几个对象即可，没有带上的参数就代表不更新，采用原来的值。</p>
-<p>具体的参数放请求体中：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">"title"</span>:<span class="string">"aaa"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h4 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h4><p>删除资源：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">DELETE http://www.imooc.com/http/&#123;articleId&#125;</span></pre></td></tr></table></figure>
-
-<h1 id="REST-架构"><a href="#REST-架构" class="headerlink" title="REST 架构"></a>REST 架构</h1><p>大部分人认识的 REST 都是一个 API 的定义风格，但它其实定义的是一整个软件的通信架构。不过我觉得不理解这部分问题不大，因为如果要说 Web 的架构，那真的是太丰富了，主要还是要寻找适合自己业务的。本着知识拓展，我们来了解下 REST 对架构都做了哪些约束：</p>
-<ul>
-<li>Client-Server：客户端/服务端 模式的架构；</li>
-<li>Stateless：无状态，服务端不保存客户端信息；</li>
-<li>Cache：客户端可以缓存服务端数据；</li>
-<li>Uniform Interface：统一接口（包含上面讲的 API 约束）；</li>
-<li>Layered System：分层架构，职责明确，方便拓展等；</li>
-<li>Code-on-Demand：客户端从服务器获取需要的代码，在客户端处执行。这个我觉得在边缘计算的场景可以应用，客户端按需从中心拉取代码，实现不同效果的处理计算。比如我要识别天气就拉取天气相关代码，要识别花草就拉取花草的识别算法，就可以无限的赋能（可能将传感器识别的信息上传到云端分析所消耗的带宽比获取一个相应场景的算法来得大），想想还是不错的。</li>
-</ul>
-<p><strong>Tips</strong>：<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#fig_5_9" target="_blank" rel="noopener">REST 相应的论文部分</a>。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>Restful 风格一般指的是 API 的设计规范，REST 是由 Roy Thomas Fielding 教授提出来的，该作者同时是 HTTP 协议的重要参与者。REST 的论文中对 Web 系统机构提出了一些指导的理论，这些思想都非常不错，但是我们今天的软件架构正变得越来越复杂，熔断 / 限流 / 链路跟踪 等等，还有很多要考虑的。</p>
-
+        <h1 id="spring-AOP"><a href="#spring-AOP" class="headerlink" title="spring AOP"></a>spring AOP</h1><p>面向对象编程（OOP），有个局限，当需要为多个不具有继承关系的对象引入一个公共的行为时，例如log，安全检测等，我们只有在每个对象列引入公共行为，这样程序里就产生了大量的公共代码。所以，面向切面编程（AOP）技术就运用而生。AOP关注的是横向的，不同于oop的纵向。</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/11/spring_07aop/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -308,7 +252,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -320,7 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -329,7 +273,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/03/API_02restfulApi/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/11/spring_07aop/">展开全文 >></a>
         </p>
       
 
@@ -360,14 +304,14 @@
 
 
   
-    <article id="post-al_10图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring_06_容器扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/03/al_10%E5%9B%BE/">al_10 图</a>
+      <a class="article-title" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/">Spring_06 Bean 容器扩展</a>
     </h1>
   
 
@@ -382,8 +326,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/03/al_10%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-01-03T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-03</time>
+        <a href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/" class="archive-article-date">
+  	<time datetime="2020-05-10T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
         
       </header>
@@ -397,49 +341,12 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
-<li>线性表和树两类数据结构，线性表中的元素是“一对一”的关系，树中的元素是“一对多”的关系</li>
-<li>图结构中的元素则是“多对多”的关系</li>
-<li>图（Graph）是一种复杂的非线性结构，在图结构中，每个元素都可以有零个或多个前驱，也可以有零个或多个后继，也就是说，元素之间的关系是任意的。</li>
+        <h2 id="spring-06-容器扩展"><a href="#spring-06-容器扩展" class="headerlink" title="spring_06_容器扩展"></a>spring_06_容器扩展</h2><ul>
+<li>ApplicationContext 用于扩展BeanFactory现有的功能。相比于BeanFactory，ApplicationContext 提供了更多的扩展功能。因为ApplicationContext 包含了BeanFactory的所有功能，所以一般建议使用ApplicationContext。除非在一些限制场合，比如字节长度对内存有很大的影响（applet）。 绝大多数的企业应用中，就是要使用ApplicationContext， 才能完成更多的业务场景需求。</li>
 </ul>
-<h2 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h2><p>无向图是由顶点和边构成。</p>
-<h2 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h2><p>有向图是由顶点和有向边构成。</p>
-<h2 id="完全图"><a href="#完全图" class="headerlink" title="完全图"></a>完全图</h2><p>如果任意两个顶点之间都存在边叫完全图，有向的边叫有向完全图。如果无重复的边或者顶点到自身的边叫简单图。</p>
-<h1 id="图的节点表示"><a href="#图的节点表示" class="headerlink" title="图的节点表示"></a>图的节点表示</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">GraphNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">       T data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">       List&lt;GraphNode&lt;T&gt;&gt; neighborList;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">       <span class="keyword">boolean</span> visited;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">GraphNode</span><span class="params">(T data)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">this</span>.data = data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">this</span>.neighborList = Lists.newArrayList();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">this</span>.visited = <span class="keyword">false</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(GraphNode&lt;T&gt; node)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">return</span> <span class="keyword">this</span>.data.equals(node.data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        * 还原图中所有节点为未访问</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restoreVisited</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">           restoreVisited(<span class="keyword">this</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        * 还原node的图所有节点为未访问</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        * <span class="doctag">@param</span> node</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">       <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">restoreVisited</span><span class="params">(GraphNode&lt;T&gt; node)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">if</span> (node.visited) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">               node.visited = <span class="keyword">false</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">           &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">           List&lt;GraphNode&lt;T&gt;&gt; neighbors = node.neighborList;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; neighbors.size(); i++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">               restoreVisited(neighbors.get(i));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">           &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr></table></figure>
-
-<h1 id="图的深度优先和广度优先搜索"><a href="#图的深度优先和广度优先搜索" class="headerlink" title="图的深度优先和广度优先搜索"></a>图的深度优先和广度优先搜索</h1><h2 id="图的深度优先搜索-DFS-Depth-First-Search"><a href="#图的深度优先搜索-DFS-Depth-First-Search" class="headerlink" title="图的深度优先搜索 DFS (Depth First Search)"></a>图的深度优先搜索 DFS (Depth First Search)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。</p>
-<p>思路：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。显然，深度优先搜索是一个递归的过程。</p>
-<h3 id="无向图深度优先搜索图解"><a href="#无向图深度优先搜索图解" class="headerlink" title="无向图深度优先搜索图解"></a>无向图深度优先搜索图解</h3><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127142205022.png" alt="image-20210127142205022"></p>
-<ul>
-<li>对上面的图G1进行深度优先遍历，从顶点A开始。</li>
-</ul>
-<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127142308162.png" alt="image-20210127142308162"></p>
-<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><ul>
-<li>第1步：访问A。</li>
-<li>第2步：访问(A的邻接点)C。在第1步访问A之后，接下来应该访问的是A的邻接点，即”C,D,F”中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在”D和F”的前面，因此，先访问C。</li>
-<li>第3步：访问(C的邻接点)B。在第2步访问C之后，接下来应该访问C的邻接点，即”B和D”中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。</li>
-<li>第4步：访问(C的邻接点)D。</li>
-<li>第5步：访问(A的邻接点)F。</li>
-<li>第6步：访问(F的邻接点)G。</li>
-<li>第7步：访问(G的邻接点)E。</li>
-</ul>
-<p><strong>访问顺序是：A -&gt; C -&gt; B -&gt; D -&gt; F -&gt; G -&gt; E</strong></p>
-<h3 id="有向图深度优先搜索图解"><a href="#有向图深度优先搜索图解" class="headerlink" title="有向图深度优先搜索图解"></a>有向图深度优先搜索图解</h3><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127143731650.png" alt="image-20210127143731650"></p>
-<p>对上面的图G2进行深度优先遍历，从顶点A开始。</p>
-<p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127143833958.png" alt="image-20210127143833958"></p>
-<p><strong>访问顺序是：A -&gt; B -&gt; C -&gt; E -&gt; D -&gt; F -&gt; G</strong></p>
-<h2 id="广度优先-BFS-Breadth-First-Search"><a href="#广度优先-BFS-Breadth-First-Search" class="headerlink" title="广度优先 BFS (Breadth-First-Search)"></a>广度优先 BFS (Breadth-First-Search)</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远。</p>
-<h3 id="无向图广度优先搜索图解"><a href="#无向图广度优先搜索图解" class="headerlink" title="无向图广度优先搜索图解"></a>无向图广度优先搜索图解</h3><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127144513398.png" alt="image-20210127144513398"></p>
-<p><strong>访问顺序是：A -&gt; C -&gt; D -&gt; F -&gt; B -&gt; G -&gt; E</strong></p>
-<h3 id="有向图广度优先搜索图解"><a href="#有向图广度优先搜索图解" class="headerlink" title="有向图广度优先搜索图解"></a>有向图广度优先搜索图解</h3><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_10%E5%9B%BE/image-20210127144637616.png" alt="image-20210127144637616"></p>
-<p><strong>访问顺序是：A -&gt; B -&gt; C -&gt; E -&gt; F -&gt; D -&gt; G</strong></p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * 图的广度优先搜索和深度优先搜索实现</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * &lt;br/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> *</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@author</span> zbcn8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2021/1/27 11:40</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"> */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GraphSearch</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> StringBuffer searchPathDFS = <span class="keyword">new</span> StringBuffer();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> StringBuffer searchPathBFS = <span class="keyword">new</span> StringBuffer();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 深度有限搜索法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@param</span> root</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchDFS</span><span class="params">(GraphNode&lt;T&gt; root)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (searchPathDFS.length() &gt; <span class="number">0</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            searchPathDFS.append(<span class="string">"-&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">        searchPathDFS.append(root.data.toString());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        root.visited = <span class="keyword">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (GraphNode&lt;T&gt; node :root.neighborList)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (!node.visited)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">                searchDFS(node);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 广度优先搜索实现,使用队列</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@param</span> root</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchBFS</span><span class="params">(GraphNode&lt;T&gt; root)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">        Deque&lt;GraphNode&lt;T&gt;&gt; queue = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span>(searchPathBFS.length() &gt; <span class="number">0</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">            searchPathBFS.append(<span class="string">"-&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        searchPathBFS.append(root.data.toString());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">        root.visited = <span class="keyword">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 添加到队尾</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">        queue.addLast(root);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">while</span> (!queue.isEmpty())&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">            GraphNode&lt;T&gt; r = queue.pollLast();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span> (GraphNode&lt;T&gt; node : r.neighborList) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span>(!node.visited)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">                    searchPathBFS.append(<span class="string">"-&gt;"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">                    searchPathBFS.append(node.data.toString());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">                    node.visited = <span class="keyword">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">                    queue.addLast(node);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Data</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">GraphNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">        T data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">        List&lt;GraphNode&lt;T&gt;&gt; neighborList;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">boolean</span> visited;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">GraphNode</span><span class="params">(T data)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">this</span>.data = data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">this</span>.neighborList = Lists.newArrayList();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">this</span>.visited = <span class="keyword">false</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(GraphNode&lt;T&gt; node)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.data.equals(node.data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line"><span class="comment">         * 还原图中所有节点为未访问</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line"><span class="comment">         */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restoreVisited</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">81</span></pre></td><td class="code"><pre><span class="line">            restoreVisited(<span class="keyword">this</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">82</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">83</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">84</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">85</span></pre></td><td class="code"><pre><span class="line"><span class="comment">         * 还原node的图所有节点为未访问</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">86</span></pre></td><td class="code"><pre><span class="line"><span class="comment">         * <span class="doctag">@param</span> node</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">87</span></pre></td><td class="code"><pre><span class="line"><span class="comment">         */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">88</span></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">restoreVisited</span><span class="params">(GraphNode&lt;T&gt; node)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">89</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (node.visited) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">90</span></pre></td><td class="code"><pre><span class="line">                node.visited = <span class="keyword">false</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">91</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">92</span></pre></td><td class="code"><pre><span class="line">            List&lt;GraphNode&lt;T&gt;&gt; neighbors = node.neighborList;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">93</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; neighbors.size(); i++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">94</span></pre></td><td class="code"><pre><span class="line">                restoreVisited(neighbors.get(i));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">95</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">96</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">97</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">98</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">99</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">100</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node2;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">101</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node3;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">102</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node4;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">103</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node5;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">104</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node6;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">105</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node7;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">106</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node8;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">107</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node9;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">108</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">static</span> GraphNode&lt;Integer&gt; node10;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">109</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">110</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">111</span></pre></td><td class="code"><pre><span class="line">        buildGraph();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">112</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//        GraphSearch&lt;Integer&gt; graphSearch = new GraphSearch&lt;Integer&gt;();</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">113</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//        graphSearch.searchDFS(node1);</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">114</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//        System.out.println(searchPathDFS.toString());</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">115</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">116</span></pre></td><td class="code"><pre><span class="line">        GraphSearch&lt;Integer&gt; graphSearchBFS = <span class="keyword">new</span> GraphSearch&lt;Integer&gt;();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">117</span></pre></td><td class="code"><pre><span class="line">        graphSearchBFS.searchBFS(node1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">118</span></pre></td><td class="code"><pre><span class="line">        System.out.println(searchPathBFS.toString());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">119</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">120</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">121</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">buildGraph</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">122</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">123</span></pre></td><td class="code"><pre><span class="line">        node1 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">1</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">124</span></pre></td><td class="code"><pre><span class="line">        node2 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">2</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">125</span></pre></td><td class="code"><pre><span class="line">        node3 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">3</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">126</span></pre></td><td class="code"><pre><span class="line">        node4 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">4</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">127</span></pre></td><td class="code"><pre><span class="line">        node5 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">5</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">128</span></pre></td><td class="code"><pre><span class="line">        node6 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">6</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">129</span></pre></td><td class="code"><pre><span class="line">        node7 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">7</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">130</span></pre></td><td class="code"><pre><span class="line">        node8 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">8</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">131</span></pre></td><td class="code"><pre><span class="line">        node9 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">9</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">132</span></pre></td><td class="code"><pre><span class="line">        node10 = <span class="keyword">new</span> GraphNode&lt;Integer&gt;(<span class="number">10</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">133</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">134</span></pre></td><td class="code"><pre><span class="line">        node1.neighborList.add(node2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">135</span></pre></td><td class="code"><pre><span class="line">        node1.neighborList.add(node3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">136</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">137</span></pre></td><td class="code"><pre><span class="line">        node2.neighborList.add(node4);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">138</span></pre></td><td class="code"><pre><span class="line">        node2.neighborList.add(node5);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">139</span></pre></td><td class="code"><pre><span class="line">        node2.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">140</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">141</span></pre></td><td class="code"><pre><span class="line">        node3.neighborList.add(node1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">142</span></pre></td><td class="code"><pre><span class="line">        node3.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">143</span></pre></td><td class="code"><pre><span class="line">        node3.neighborList.add(node7);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">144</span></pre></td><td class="code"><pre><span class="line">        node3.neighborList.add(node8);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">145</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">146</span></pre></td><td class="code"><pre><span class="line">        node4.neighborList.add(node2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">147</span></pre></td><td class="code"><pre><span class="line">        node4.neighborList.add(node5);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">148</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">149</span></pre></td><td class="code"><pre><span class="line">        node5.neighborList.add(node2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">150</span></pre></td><td class="code"><pre><span class="line">        node5.neighborList.add(node4);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">151</span></pre></td><td class="code"><pre><span class="line">        node5.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">152</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">153</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">154</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node5);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">155</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">156</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node8);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">157</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node9);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">158</span></pre></td><td class="code"><pre><span class="line">        node6.neighborList.add(node10);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">159</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">160</span></pre></td><td class="code"><pre><span class="line">        node7.neighborList.add(node3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">161</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">162</span></pre></td><td class="code"><pre><span class="line">        node8.neighborList.add(node3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">163</span></pre></td><td class="code"><pre><span class="line">        node8.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">164</span></pre></td><td class="code"><pre><span class="line">        node8.neighborList.add(node9);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">165</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">166</span></pre></td><td class="code"><pre><span class="line">        node9.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">167</span></pre></td><td class="code"><pre><span class="line">        node9.neighborList.add(node8);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">168</span></pre></td><td class="code"><pre><span class="line">        node9.neighborList.add(node10);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">169</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">170</span></pre></td><td class="code"><pre><span class="line">        node10.neighborList.add(node6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">171</span></pre></td><td class="code"><pre><span class="line">        node10.neighborList.add(node9);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">172</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">173</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">174</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">175</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://juejin.cn/post/6844903894414262280" target="_blank" rel="noopener">https://juejin.cn/post/6844903894414262280</a></li>
-<li><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">https://www.jianshu.com/p/b086986969e6</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/#more">more >></a>
+        
       
 	  <!-- 增加版权声明 -->
 	  
@@ -458,7 +365,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -470,7 +377,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -479,7 +386,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/03/al_10%E5%9B%BE/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/spring_06_%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95/">展开全文 >></a>
         </p>
       
 
@@ -510,14 +417,14 @@
 
 
   
-    <article id="post-springcloud-02eureka" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo_03comment" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/02/springcloud-02eureka/">springcloud eureka 服务注册与发现</a>
+      <a class="article-title" href="/zbcn.github.io/2020/05/10/hexo_03comment/">Hexo博客添加 评论</a>
     </h1>
   
 
@@ -532,8 +439,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2021/01/02/springcloud-02eureka/" class="archive-article-date">
-  	<time datetime="2021-01-02T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
+        <a href="/zbcn.github.io/2020/05/10/hexo_03comment/" class="archive-article-date">
+  	<time datetime="2020-05-10T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
         
       </header>
@@ -547,10 +454,9 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="springcloud-eureka-服务注册与发现"><a href="#springcloud-eureka-服务注册与发现" class="headerlink" title="springcloud eureka 服务注册与发现"></a>springcloud eureka 服务注册与发现</h1><p>Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。</p>
-<h1 id="Eureka-简介"><a href="#Eureka-简介" class="headerlink" title="Eureka 简介"></a>Eureka 简介</h1><p>在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册自己的地址及端口信息，注册中心维护着服务名称与服务实例的对应关系。每个微服务都会定时从注册中心获取服务列表，同时汇报自己的运行情况，这样当有的服务需要调用其他服务时，就可以从自己获取到的服务列表中获取实例地址进行调用，Eureka实现了这套服务注册与发现机制。</p>
+        <p>最近打算给博客添加评论功能，看了下市面上一些评论插件，觉得gitment和Valine这两款插件比较符合我的要求：轻量而且配置简单。<br>不过gitment只支持github账号评论，虽然也没啥人看我博客，不过权衡了下，还是决定用Valine。</p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/02/springcloud-02eureka/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/hexo_03comment/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -570,751 +476,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/02/springcloud-02eureka/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-API_01统一资源标志符URI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/02/API_01%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E5%BF%97%E7%AC%A6URI/">统一资源标志符-URI</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/02/API_01%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E5%BF%97%E7%AC%A6URI/" class="archive-article-date">
-  	<time datetime="2021-01-02T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="统一资源标志符-URI"><a href="#统一资源标志符-URI" class="headerlink" title="统一资源标志符-URI"></a>统一资源标志符-URI</h1><p>URI，统一资源标志符(Uniform Resource Identifier， URI)，标识了网络中的某个对象或者集合。它可以是 Web 系统中的某个图片地址，也可以是某个人的邮箱地址。下面我们将详细了解 URI 的定义，格式，以及 URI 和 URL 的区别。</p>
-<h1 id="URI-定义"><a href="#URI-定义" class="headerlink" title="URI 定义"></a>URI 定义</h1><h2 id="什么是RFC"><a href="#什么是RFC" class="headerlink" title="什么是RFC"></a>什么是RFC</h2><p>RFC 是一个文档，这个文档有点大也足够权威，以至于有人称它是互联网界的圣经。里面收录了互联网开发中的各种协议规范，对 URI 的定义在 <code>RFC2396</code> 也有对应的记录。</p>
-<p>TIPS:RFC 文件是由 Internet Society（ISOC）赞助发行的，由一个个编号排列起来的文件。</p>
-<h2 id="RFC2396-解读"><a href="#RFC2396-解读" class="headerlink" title="RFC2396 解读"></a>RFC2396 解读</h2><p><a href="https://www.ietf.org/rfc/rfc2396.html" target="_blank" rel="noopener">RFC2396</a> 的规约中对 URI 3 个单词有如下定义：<br><strong>Uniformity</strong></p>
-<blockquote>
-<p>Uniformity provides several benefits: it allows different types of<br>resource identifiers to be used in the same context, even<br>when the mechanisms used to access those resources may differ; it allows uniform semantic interpretation of common syntactic conventions across different types of resource identifiers; it allows introduction of new types of resource identifiers without interfering with the way that existing identifiers are used; and, it allows the identifiers to be reused in many different contexts, thus permitting new applications or protocols to leverage a pre-existing, large, and widely-used set of resource identifiers.</p>
-</blockquote>
-<p>有一个统一的格式，这个格式允许我们访问不同类型的资源，即使他们有同样的上下文，并且这个格式是可扩展的，允许后面有新的协议加入。</p>
-<p><strong>Resource</strong></p>
-<blockquote>
-<p>A resource can be anything that has identity. Familiar examples include an electronic document, an image, a service (e.g., “today’s weather report for Los Angeles”), and a collection of other resources. Not all resources are network “retrievable”; e.g., human beings, corporations, and bound books in a library can also be considered resources. The resource is the conceptual mapping to an entity or set of entities, not necessarily the entity which corresponds to that mapping at any particular instance in time. Thus, a resource can remain constant even when its content—the entities to which it currently corresponds—changes over time, provided that the conceptual mapping is not changed in the process.</p>
-</blockquote>
-<p>资源是任何可标识的东西，文件图片甚至特定某天的天气等，它是一个或者一组实体的概念映射。</p>
-<p><strong>Identifier</strong></p>
-<blockquote>
-<p>An identifier is an object that can act as a reference to something that has identity. In the case of URI, the object is a sequence of characters with a restricted syntax.</p>
-</blockquote>
-<p>表示可标识的对象。也称为标识符。</p>
-<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>scheme 一般指的是协议，URI 的通用格式并没有太多限制，一般是如下，以 scheme 开头，冒号 “：” 分隔开。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;scheme&gt;:&lt;scheme-specific-part&gt;</span></pre></td></tr></table></figure>
-
-<p>虽然 URI 的格式没怎么限制，但是不同 scheme 一般会遵循下面的格式来定义。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;scheme&gt;://&lt;authority&gt;&lt;path&gt;?&lt;query&gt;</span></pre></td></tr></table></figure>
-
-<p>以 scheme = http 加以说明：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">http://www.imocc.com:80/index.htm?id=3937</span></pre></td></tr></table></figure>
-
-<p>Http 的 <code>&lt;authority&gt;</code>模块一般不会写在路径上面，即使是 Basic Authorization 也是将用户名密码 <code>base64（user:passwd）</code> 写在 head 里面。</p>
-<p>下面的例子说明 RUI 的一般用法：</p>
-<ul>
-<li><a href="ftp://ftp.is.co.za/rfc/rfc1808.txt；" target="_blank" rel="noopener">ftp://ftp.is.co.za/rfc/rfc1808.txt；</a></li>
-<li>gopher://spinaltap.micro.umn.edu/00/Weather/California/Los%20Angeles；</li>
-<li><a href="http://www.math.uio.no/faq/compression-faq/part1.html；" target="_blank" rel="noopener">http://www.math.uio.no/faq/compression-faq/part1.html；</a></li>
-<li>mailto:<a href="mailto:mduerst@ifi.unizh.ch">mduerst@ifi.unizh.ch</a>；</li>
-<li>news:comp.infosystems.<a href="http://www.servers.unix；" target="_blank" rel="noopener">www.servers.unix；</a></li>
-<li>telnet://melvyl.ucop.edu/0</li>
-</ul>
-<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><p>通过前面我们知道 URI 是网络中用于标识某个对象的规约，URI 包含了多个 <code>&lt;scheme&gt;</code>，所以 URL 是 <strong>scheme = http</strong> 的 URI。URL 是 URI 的子集，只要是 URL 一定就是 URI ，反过来不成立。</p>
-<p>URL 和 URI 只差了一个字母，Location 和 Identifier：<br><strong>Location</strong>：定位，着重强调的是位置信息；<br><strong>Identifier</strong>：标识，只是一种全局唯一的昵称。</p>
-<p><strong>举例：</strong></p>
-<p>美国是一个国家，它只是一种标识，通过美国这两个字我们无法知道这个国家在哪里。如果这个标识换成了经纬度，那我们就能知道这个经纬度对应的是美国，并且知道美国所处的位置信息。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本小节主要学习了 URI 的概念，并且区分出了大家容易误解的 URI 和 URL 的区别。在新版的 Http/2.0 文档中已经将 URL 修改成了 URI，可能也是怕大家混淆，不过在详细地了解清楚后，改不改问题都不大了。</p>
-
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/02/API_01%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E5%BF%97%E7%AC%A6URI/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_09十大排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/02/al_09%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">al_09 十大排序算法</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/02/al_09%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-01-02T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a>十大排序算法</h1><p><img src="/zbcn.github.io/assets/postImg/algorithm/al_09%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210117130713082.png" alt="image-20210117130713082"></p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/02/al_09%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/02/al_09%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-springcloud-00spring架构览" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/01/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/">springcloud 整体架构概览</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/01/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/" class="archive-article-date">
-  	<time datetime="2021-01-01T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="springcloud-整体架构概览"><a href="#springcloud-整体架构概览" class="headerlink" title="springcloud 整体架构概览"></a>springcloud 整体架构概览</h1><p>springcloud为开发人员提供了快速构建分布式系统架构的工具，例如</p>
-<ul>
-<li>配置管理，</li>
-<li>服务发现，</li>
-<li>断路器，</li>
-<li>智能路由，</li>
-<li>微代理，</li>
-<li>控制总线，</li>
-<li>一次性令牌，</li>
-<li>全局锁定，</li>
-<li>领导选举，</li>
-<li>分布式会话，</li>
-<li>集群状态</li>
-<li>。。。。等。</li>
-</ul>
-<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/image-20201205211757470.png" alt="image-20201205211757470"></p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/01/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/01/springcloud-00spring%E6%9E%B6%E6%9E%84%E8%A7%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-API_00_README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/01/API_00_README/">API_OO web readme</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/01/API_00_README/" class="archive-article-date">
-  	<time datetime="2021-01-01T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h1><h2 id="学习了http网络相关知识"><a href="#学习了http网络相关知识" class="headerlink" title="学习了http网络相关知识"></a>学习了http网络相关知识</h2><p>HTTP01~ HTTP06  </p>
-<h2 id="web容器区别"><a href="#web容器区别" class="headerlink" title="web容器区别"></a>web容器区别</h2><p>WEB01~WEB04 </p>
-<h2 id="HTTP请求与响应详细参数"><a href="#HTTP请求与响应详细参数" class="headerlink" title="HTTP请求与响应详细参数"></a>HTTP请求与响应详细参数</h2><p>httpHeader_01~ httpHeader_03</p>
-<h2 id="API-规范"><a href="#API-规范" class="headerlink" title="API 规范"></a>API 规范</h2><p>API01-API04</p>
-<h2 id="网络安全协议-HTTPS"><a href="#网络安全协议-HTTPS" class="headerlink" title="网络安全协议 HTTPS"></a>网络安全协议 HTTPS</h2><p>HTTPS_01~HTTPS_04</p>
-<h2 id="WEB安全"><a href="#WEB安全" class="headerlink" title="WEB安全"></a>WEB安全</h2><p>WEB_SAFE_01 ~ WEB_SAFE_03</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://www.imooc.com/wiki/httplesson/uri.html" target="_blank" rel="noopener">http://www.imooc.com/wiki/httplesson/uri.html</a></li>
-</ul>
-
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/network//" class="article-tag-list-link color3">network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/01/API_00_README/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-al_08时间复杂度与空间复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2021/01/01/al_08%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">al_08 时间复杂度与空间复杂度</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2021/01/01/al_08%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="archive-article-date">
-  	<time datetime="2021-01-01T04:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>时间复杂度和空间复杂度用来衡量一个算法的好坏。</p>
-<ul>
-<li>时间复杂度：指执行当前算法所消耗的时间，我们通常用「时间复杂度」来描述。</li>
-<li>空间复杂度：指执行当前算法需要占用多少内存空间，我们通常用「空间复杂度」来描述。</li>
-</ul>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/01/al_08%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2021/01/01/al_08%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-tcp学习笔记2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/12/07/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">tcp 学习笔记2</a>
-    </h1>
-  
-
-		
-		<!-- 显示阅读 -->
-		<br/>
-		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
-		<span class="icon-sort"></span>
-		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		</span>
-		</a>
-		
-        
-        <a href="/zbcn.github.io/2020/12/07/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" class="archive-article-date">
-  	<time datetime="2020-12-07T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	  
-	  <!-- 文章头增加转载声明 -->
-      
-      
-        <div class="topdeclare" hidden="hidden"></div>
-      
-      <!-- 文章头增加转载声明结束 -->
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>TCP要解决一个很大的事，那就是要在一个网络根据不同的情况来动态调整自己的发包的速度，小则让自己的连接更稳定，大则让整个网络更稳定。本篇文章有好些算法和策略，可能会引发各种思考，让你的大脑分配很多内存和计算资源。</p>
-<h1 id="TCP的RTT算法"><a href="#TCP的RTT算法" class="headerlink" title="TCP的RTT算法"></a>TCP的RTT算法</h1><p>从前面的TCP重传机制我们知道Timeout的设置对于重传非常重要。</p>
-<ul>
-<li>设长了，重发就慢，丢了老半天才重发，没有效率，性能差；</li>
-<li>短了，会导致可能并没有丢就重发。于是重发的就快，会增加网络拥塞，导致更多的超时，更多的超时导致更多的重发。</li>
-</ul>
-<p>而且，这个超时时间在不同的网络的情况下，根本没有办法设置一个死的值。只能动态地设置。 为了动态地设置，TCP引入了RTT——Round Trip Time，也就是一个数据包从发出去到回来的时间。这样发送端就大约知道需要多少的时间，从而可以方便地设置Timeout——RTO（Retransmission TimeOut），以让我们的重传机制更高效。听起来似乎很简单，好像就是在发送端发包时记下t0，然后接收端再把这个ack回来时再记一个t1，于是RTT = t1 – t0。没那么简单，这只是一个采样，不能代表普遍情况。</p>
-        
-          <a class="article-more-a" href="/zbcn.github.io/2020/12/07/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/#more">more >></a>
-        
-      
-	  <!-- 增加版权声明 -->
-	  
-	  
-	  
-		<div class="declare" hidden="hidden"></div>
-	  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tcp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -1326,7 +492,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/tcp//" class="article-tag-list-link color4">tcp</a>
+        			<a href="/zbcn.github.io/categories/hexo//" class="article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -1335,7 +501,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/12/07/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/10/hexo_03comment/">展开全文 >></a>
         </p>
       
 
@@ -1366,14 +532,14 @@
 
 
   
-    <article id="post-tcp学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring_05_bean的加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/zbcn.github.io/2020/12/06/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">tcp 学习笔记</a>
+      <a class="article-title" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/">Spring_05 Bean 的加载</a>
     </h1>
   
 
@@ -1388,8 +554,8 @@
 		</a>
 		
         
-        <a href="/zbcn.github.io/2020/12/06/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-12-06T05:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
+        <a href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2020-05-09T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
 </a>
         
       </header>
@@ -1403,17 +569,355 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="tcp-学习笔记"><a href="#tcp-学习笔记" class="headerlink" title="tcp 学习笔记"></a>tcp 学习笔记</h1><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
-<li><p>TCP在网络OSI的七层模型中的第四层——Transport层。第四层的数据叫Segment</p>
-</li>
-<li><p>IP在第三层——Network层。在第三层上的数据叫Packet</p>
-</li>
-<li><p>ARP在第二层——Data Link层,在第二层上的数据，我们叫Frame</p>
+        <h3 id="Bean-的加载"><a href="#Bean-的加载" class="headerlink" title="Bean 的加载"></a>Bean 的加载</h3><ul>
+<li>bean 的加载远比bean 的解析复杂的多。</li>
+<li>从<code>TestBean testBean = beanFactory.getBean(&quot;test&quot;, TestBean.class);</code> 分析。</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/09/spring_05_bean%E7%9A%84%E5%8A%A0%E8%BD%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_04_默认标签的解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/">Spring_04 默认标签的解析</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2020-05-08T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="默认标签的解析"><a href="#默认标签的解析" class="headerlink" title="默认标签的解析"></a>默认标签的解析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//DefaultBeanDefinitionDocumentReader</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseDefaultElement</span><span class="params">(Element ele, BeanDefinitionParserDelegate delegate)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">if</span> (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">//import 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">			importBeanDefinitionResource(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, ALIAS_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// alias 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">			processAliasRegistration(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, BEAN_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">//bean 标签解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">			processBeanDefinition(ele, delegate);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (delegate.nodeNameEquals(ele, NESTED_BEANS_ELEMENT)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// recurse</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">			<span class="comment">// beans 标签的解析</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">			doRegisterBeanDefinitions(ele);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/08/spring_04_%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE%E7%9A%84%E8%A7%A3%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_03_XmlBeanFactory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/">Spring_03 XmlBeanFactory</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/" class="archive-article-date">
+  	<time datetime="2020-05-07T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="XmlBeanFactory"><a href="#XmlBeanFactory" class="headerlink" title="XmlBeanFactory"></a>XmlBeanFactory</h2><ul>
+<li>xmlBeanFactory被表明为Deprecated. 推荐使用DefaultListableBeanFactory和XmlBeanDefinitionReader替换。</li>
+<li>XmlBeanFactory继承自DefaultListableBeanFactory，扩展了从xml文档中读取bean definition的能力。XmlBeanFactory是硬编码（hard coded）的方式，不利与扩展。从本质上讲，XmlBeanFactory等同于DefaultListableBeanFactory+XmlBeanDefinitionReader ，如果有更好的需求，可以考虑使用DefaultListableBeanFactory+XmlBeanDefinitionReader方案，因为该方案可以从多个xml文件读取资源，并且在解析xml上具有更灵活的可配置性。</li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/07/spring_03_XmlBeanFactory/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_02_容器的基本实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/">Spring_02 容器的基本实现</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2020-05-06T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="02-容器的基本实现"><a href="#02-容器的基本实现" class="headerlink" title="02_ 容器的基本实现"></a>02_ 容器的基本实现</h2><h3 id="bean-的定义-和获取"><a href="#bean-的定义-和获取" class="headerlink" title="bean 的定义 和获取"></a>bean 的定义 和获取</h3><ul>
+<li>功能分析：<ol>
+<li>读取配置文件 xxx.xml</li>
+<li>根据配置文件 xxx.xml 中的配置找到对应的类的配置，并实例化。</li>
+<li>调用实例化后的实例</li>
+</ol>
 </li>
 </ul>
-<p>我们程序的数据首先会打到TCP的Segment中，然后TCP的Segment会打到IP的Packet中，然后再打到以太网Ethernet的Frame中，传到对端后，各个层解析自己的协议，然后把数据交给更高层的协议处理。</p>
         
-          <a class="article-more-a" href="/zbcn.github.io/2020/12/06/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/#more">more >></a>
         
       
 	  <!-- 增加版权声明 -->
@@ -1433,15 +937,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tcp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -1453,7 +949,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/tcp//" class="article-tag-list-link color4">tcp</a>
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -1462,7 +958,363 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/zbcn.github.io/2020/12/06/tcp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/06/spring_02_%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-spring_01_整体架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">Spring_01 整体架构</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2020-05-05T05:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="Spring-的整体架构"><a href="#Spring-的整体架构" class="headerlink" title="Spring 的整体架构"></a>Spring 的整体架构</h2><ul>
+<li>包含一系列的元素，大概分为20个模块<br><img src="/zbcn.github.io/assets/postImg/spring/imgs/%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="整体架构图"></li>
+</ul>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/05/05/spring_01_%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-dp01_设计模式的六种原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">dp_01设计模式六种原则</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/" class="archive-article-date">
+  	<time datetime="2020-03-07T08:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="设计模式-–-6大原则"><a href="#设计模式-–-6大原则" class="headerlink" title="设计模式 – 6大原则"></a>设计模式 – 6大原则</h2><p>设计模式是一套经过反复总结,多数人认可的代码设计经验总结.设计模式使用的宗旨是:可重用代码,让代码更容易被他人理解,保证代码的可靠性.设计模式使代码编制工程化,设计模式也是软件编程的基石.</p>
+<h3 id="1-SRP-single-Responsbility-Principle-单一职责原则"><a href="#1-SRP-single-Responsbility-Principle-单一职责原则" class="headerlink" title="1. SRP- single Responsbility Principle  单一职责原则"></a>1. SRP- single Responsbility Principle  单一职责原则</h3><ol>
+<li><strong>核心思想</strong>: 一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</li>
+<li><strong>问题描述</strong>: 一个类(大到模块,小到方法)承担的职责越多,它被复用的可能性就越小,而且,一个类承担的职责过多,就相当于将这些职责耦合在一起,其中一个职责变化是,会影响其他职责的使用. 因此要将多个职责分离,将不同的职责封装在不同的类中,即:将不同的变化封装在不同的类中.如果多个职责总是同时发生改变则可将它们封装在同一类中。</li>
+<li><strong>优点</strong>: 类的复杂度降低、可读性提高、可维护性提高、扩展性提高、降低了变更引起的风险</li>
+<li><strong>注意点</strong>: <strong>单一职责</strong> 是实现 <strong>高内聚,低耦合</strong> 的指导方针, 它是最简单也是最难运用的原则,需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</li>
+</ol>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">designPattern</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/designPattern//" class="article-tag-list-link color4">designPattern</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/dp01_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E7%A7%8D%E5%8E%9F%E5%88%99/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-git_02常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">git_02 rebase 和merge 区别</a>
+    </h1>
+  
+
+		
+		<!-- 显示阅读 -->
+		<br/>
+		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;" target="_parent">
+		<span class="icon-sort"></span>
+		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+				  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		</span>
+		</a>
+		
+        
+        <a href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-07T04:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	  
+	  <!-- 文章头增加转载声明 -->
+      
+      
+        <div class="topdeclare" hidden="hidden"></div>
+      
+      <!-- 文章头增加转载声明结束 -->
+      
+        <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题:"></a>常见问题:</h2><h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><h4 id="合并冲突："><a href="#合并冲突：" class="headerlink" title="合并冲突："></a>合并冲突：</h4><ul>
+<li><p>提交的文件如果出现冲突就会出现这种提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict in readme.txt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span></pre></td></tr></table></figure></li>
+<li><p>通过 <code>git status</code> 查看冲突文件</p>
+</li>
+<li><p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容</p>
+<ol>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>标记冲突开始，后面跟的是当前分支中的内容。</li>
+<li>HEAD指向当前分支末梢的提交</li>
+<li><code>=======</code>之后，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之前是要merge过来的另一条分支上的代码。</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>之后的dev是该分支的名字。</li>
+</ol>
+</li>
+<li><p>修改文件，保存，再次提交即可</p>
+</li>
+<li><p>通过git log查看分支合并的情况</p>
+        
+          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more">more >></a>
+        
+      
+	  <!-- 增加版权声明 -->
+	  
+	  
+	  
+		<div class="declare" hidden="hidden"></div>
+	  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/zbcn.github.io/categories/git//" class="article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/zbcn.github.io/2020/03/07/git_02%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -1495,7 +1347,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/9/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/8/">8</a><a class="page-number" href="/zbcn.github.io/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/zbcn.github.io/page/11/">11</a><a class="page-number" href="/zbcn.github.io/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/19/">19</a><a class="extend next" rel="next" href="/zbcn.github.io/page/11/">Next</a>
+      <a class="extend prev" rel="prev" href="/zbcn.github.io/page/9/">Prev</a><a class="page-number" href="/zbcn.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/8/">8</a><a class="page-number" href="/zbcn.github.io/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/zbcn.github.io/page/11/">11</a><a class="page-number" href="/zbcn.github.io/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/zbcn.github.io/page/16/">16</a><a class="extend next" rel="next" href="/zbcn.github.io/page/11/">Next</a>
     </nav>
   
 
@@ -1599,27 +1451,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1639,27 +1479,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,11 +1499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1683,11 +1511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1711,23 +1539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1739,6 +1555,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -1747,7 +1567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1755,15 +1579,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1772,10 +1600,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

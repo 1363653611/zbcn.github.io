@@ -14,13 +14,13 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;06&#x2F;springcloud-06OpenFeign&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能，本文将对其用法进行详细介绍。 Feign 简介Feign是声明式的服务调用工具，我们只需创建一个接口并用注解的方式来配置它，就可以实现对某个服务接口的调用，简化了直接使用">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-06OpenFeign&#x2F;image-20201208154022400.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-06OpenFeign&#x2F;image-20201208154022400.png">
 <meta property="article:published_time" content="2021-01-06T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-17T07:59:07.051Z">
+<meta property="article:modified_time" content="2021-02-17T08:44:23.457Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-06OpenFeign&#x2F;image-20201208154022400.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-06OpenFeign&#x2F;image-20201208154022400.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -235,8 +235,6 @@
       
         <h1 id="Spring-Cloud-OpenFeign：基于Ribbon和Hystrix的声明式服务调用"><a href="#Spring-Cloud-OpenFeign：基于Ribbon和Hystrix的声明式服务调用" class="headerlink" title="Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用"></a>Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用</h1><p>Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能，本文将对其用法进行详细介绍。</p>
 <h1 id="Feign-简介"><a href="#Feign-简介" class="headerlink" title="Feign 简介"></a>Feign 简介</h1><p>Feign是声明式的服务调用工具，我们只需创建一个接口并用注解的方式来配置它，就可以实现对某个服务接口的调用，简化了直接使用RestTemplate来调用服务接口的开发量。Feign具备可插拔的注解支持，同时支持Feign注解、JAX-RS注解及SpringMvc注解。当使用Feign时，Spring Cloud集成了Ribbon和Eureka以提供负载均衡的服务调用及基于Hystrix的服务容错保护功能。</p>
-<a id="more"></a>
-
 <h2 id="创建一个feign-service模块"><a href="#创建一个feign-service模块" class="headerlink" title="创建一个feign-service模块"></a>创建一个feign-service模块</h2><p>这里我们创建一个feign-service模块来演示feign的常用功能。</p>
 <h2 id="在pom文件中添加依赖"><a href="#在pom文件中添加依赖" class="headerlink" title="在pom文件中添加依赖"></a>在pom文件中添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
 
@@ -282,7 +280,7 @@
 <h3 id="在application-yml中配置需要开启日志的Feign客户端"><a href="#在application-yml中配置需要开启日志的Feign客户端" class="headerlink" title="在application.yml中配置需要开启日志的Feign客户端"></a>在application.yml中配置需要开启日志的Feign客户端</h3><p>配置UserService的日志级别为debug。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">level:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">com.macro.cloud.service.UserService:</span> <span class="string">debug</span></span></pre></td></tr></table></figure>
 
-<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-06OpenFeign/image-20201208154022400.png" alt="image-20201208154022400"></p>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-06OpenFeign/image-20201208154022400.png" alt="image-20201208154022400"></p>
 <h2 id="Feign的常用配置"><a href="#Feign的常用配置" class="headerlink" title="Feign的常用配置"></a>Feign的常用配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">feign:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">hystrix:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#在Feign中开启Hystrix</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">compression:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">request:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">enabled:</span> <span class="literal">false</span> <span class="comment">#是否对请求进行GZIP压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">mime-types:</span> <span class="string">text/xml,application/xml,application/json</span> <span class="comment">#指定压缩的请求数据类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">min-request-size:</span> <span class="number">2048</span> <span class="comment">#超过该大小的请求会被压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">response:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">enabled:</span> <span class="literal">false</span> <span class="comment">#是否对响应进行GZIP压缩</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">level:</span> <span class="comment">#修改日志级别</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">com.zbcn.feignserver.api.UserService:</span> <span class="string">debug</span></span></pre></td></tr></table></figure>
 
 <h3 id="Feign中的Ribbon配置"><a href="#Feign中的Ribbon配置" class="headerlink" title="Feign中的Ribbon配置"></a>Feign中的Ribbon配置</h3><p>在Feign中配置Ribbon可以直接使用Ribbon的配置，具体可以参考：Spring Cloud Ribbon：负载均衡的服务调用</p>
@@ -339,7 +337,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -351,7 +349,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -555,27 +553,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,27 +581,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,11 +601,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,23 +641,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,6 +657,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -703,7 +669,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,15 +681,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,10 +702,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>

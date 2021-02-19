@@ -14,16 +14,16 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;20&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Gateway + Oauth2 实现统一认证和鉴权！一个比较好的微服务解决方案：可以通过认证服务进行统一认证，然后通过网关来统一校验认证和鉴权。此方案为目前最新方案，仅支持Spring Boot 2.2.0、Spring Cloud Hoxton 以上版本。 前置知识我们将采用Nacos作为注册中心，Gateway作为网关，使用nimbus-jose-jwtJWT库操作">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224165440518.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224181842849.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224182309169.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224183004014.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224165440518.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224181842849.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224182309169.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224183004014.png">
 <meta property="article:published_time" content="2021-01-20T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-17T08:00:40.629Z">
+<meta property="article:modified_time" content="2021-02-17T08:44:23.619Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224165440518.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;image-20201224165440518.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -240,12 +240,10 @@
 <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>我们将采用Nacos作为注册中心，Gateway作为网关，使用<code>nimbus-jose-jwt</code>JWT库操作JWT令牌。</p>
 <p>相关知识：</p>
 <ul>
-<li><a href="/zbcn.github.io/assets/postImg/springcloud/springcloud-12gateway网关.md">Spring Cloud Gateway：新一代API网关服务</a></li>
-<li><a href="/zbcn.github.io/assets/postImg/springcloud/springcloud17-Ali-nacos.md">Spring Cloud Alibaba：Nacos 作为注册中心和配置中心使用</a></li>
+<li><a href="./springcloud-12gateway网关.md">Spring Cloud Gateway：新一代API网关服务</a></li>
+<li><a href="./springcloud17-Ali-nacos.md">Spring Cloud Alibaba：Nacos 作为注册中心和配置中心使用</a></li>
 <li><a href="https://mp.weixin.qq.com/s/Jo3PZoa7nL99c8UCxPiTTA" target="_blank" rel="noopener">听说你的JWT库用起来特别扭，推荐这款贼好用的！</a></li>
 </ul>
-<a id="more"></a>
-
 <h2 id="应用架构"><a href="#应用架构" class="headerlink" title="应用架构"></a>应用架构</h2><blockquote>
 <p>我们理想的解决方案应该是这样的，认证服务负责认证，网关负责校验认证和鉴权，其他API服务负责处理自己的业务逻辑。安全相关的逻辑只存在于认证服务和网关服务中，其他服务只是单纯地提供服务而没有任何安全相关逻辑。</p>
 </blockquote>
@@ -383,7 +381,7 @@
 <li><p>使用密码模式获取JWT令牌，访问地址：<a href="http://localhost:9201/auth/oauth/token。**注意请求方式：post" target="_blank" rel="noopener">http://localhost:9201/auth/oauth/token。**注意请求方式：post</a>**</p>
 </li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224165440518.png" alt="image-20201224165440518"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224165440518.png" alt="image-20201224165440518"></p>
 <ul>
 <li>使用获取到的JWT令牌访问需要权限的接口，访问地址：<a href="http://localhost:9201/api/hello" target="_blank" rel="noopener">http://localhost:9201/api/hello</a></li>
 </ul>
@@ -391,11 +389,11 @@
 
 
 
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224181842849.png" alt="image-20201224181842849"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224181842849.png" alt="image-20201224181842849"></p>
 <ul>
 <li>使用获取到的JWT令牌访问获取当前登录用户信息的接口，访问地址：<a href="http://localhost:9201/api/user/currentUser" target="_blank" rel="noopener">http://localhost:9201/api/user/currentUser</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224182309169.png" alt="image-20201224182309169"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224182309169.png" alt="image-20201224182309169"></p>
 <ul>
 <li>当JWT令牌过期时，使用refresh_token获取新的JWT令牌，访问地址：<a href="http://localhost:9201/auth/oauth/token" target="_blank" rel="noopener">http://localhost:9201/auth/oauth/token</a></li>
 </ul>
@@ -403,7 +401,7 @@
 <p>请求参数：（注意 refresh_token: 后边没有 Bearer ）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">grant_type:refresh_token</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">client_id:client-app</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">client_secret:123456</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">refresh_token:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiIyOTJiNzhmZS05Njk5LTQxOWMtYjJiYy1mNWE0ZTU0MWM4MjciLCJpZCI6MSwiZXhwIjoxNjA4ODkxMzYwLCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiIyYzhjYzYyOS02Njc2LTRmNGUtOGExYy0yMjdhZmM1MWE5YjIiLCJjbGllbnRfaWQiOiJjbGllbnQtYXBwIn0.kMDRSxX7L50sxncZIk-uezin2QlNScdO6LE8FPULXH0ceynEnHTf4AWIflK8CLVK6SSRd6dEdP_Q2ZjWJS2dldfQwfP71ajOKJKwTMnzIFZsW-RExQLqaysXH1RUv5-gOLHiV8F5YYyFVRl45qBT8gPo8Hsxt72ZLl-wdGyQ0gGa5s8SIuYO3UxgzZ6OFKryPolWuHdM6LeXdis3KyoCzu2hno6Pm4-fg8p1JmU9ddsXw3F5iKz2z5u5YkoHgBT-g2us1bVS3hgEpqfmoYQ5c7oOG3SDSUSvNSQzZZro1fsHN1fLyLv1ZM0wbzCOBxkXMwoQD9TGj6FgvJRm_n-kyw</span></pre></td></tr></table></figure>
 
-<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224183004014.png" alt="image-20201224183004014"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud20-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20201224183004014.png" alt="image-20201224183004014"></p>
 <ul>
 <li>使用没有访问权限的<code>test</code>账号登录，访问接口时会返回如下信息，访问地址：<a href="http://localhost:9201/api/hello" target="_blank" rel="noopener">http://localhost:9201/api/hello</a></li>
 </ul>
@@ -459,7 +457,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -471,7 +469,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
         		</li>
       		
 		</ul>
@@ -675,27 +673,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,27 +701,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">other</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">springCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,11 +721,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,11 +733,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">restful</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">restful</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,23 +761,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LINUX</a>
+                <a href="javascript:void(0)" class="js-tag color1">LUNIX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">logback</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,6 +777,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">logback</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
               </li>
              
@@ -823,7 +789,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,15 +801,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
+                <a href="javascript:void(0)" class="js-tag color1">regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,10 +822,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">uml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WEB</a>
               </li>
             
             <div class="clearfix"></div>
