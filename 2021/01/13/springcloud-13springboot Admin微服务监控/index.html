@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Boot Admin：微服务应用监控Spring Boot Admin 可以对SpringBoot应用的各项指标进行监控，可以作为微服务架构中的监控中心来使用，本文将对其用法进行详细介绍。 Spring Boot Admin 简介SpringBoot应用可以通过Actuator来暴露应用运行过程中的各项指标，Spring Boot Admin通过这些指标来监控SpringBoot应用">
 <meta property="article:published_time" content="2021-01-13T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:37:51.789Z">
+<meta property="article:modified_time" content="2021-02-22T02:07:54.064Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
@@ -275,46 +275,46 @@
 <h1 id="监控信息演示"><a href="#监控信息演示" class="headerlink" title="监控信息演示"></a>监控信息演示</h1><ul>
 <li>访问如下地址打开Spring Boot Admin的主页：<a href="http://localhost:9301" target="_blank" rel="noopener">http://localhost:9301</a></li>
 </ul>
-<p>![image-20201215144158022](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/image-20201215144158022.png)</p>
+<p>![image-20201215144158022](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/image-20201215144158022.png)</p>
 <ul>
 <li>点击wallboard按钮，选择admin-client查看监控信息；</li>
 <li>监控信息概览；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_02.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_02.png)</p>
 <ul>
 <li>度量指标信息，比如JVM、Tomcat及进程信息；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_03.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_03.png)</p>
 <ul>
 <li>环境变量信息，比如系统属性、系统环境变量以及应用配置信息；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_04.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_04.png)</p>
 <ul>
 <li>查看所有创建的Bean信息；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_05.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_05.png)</p>
 <ul>
 <li>查看应用中的所有配置信息；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_06-1608014982826.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_06-1608014982826.png)</p>
 <ul>
 <li>查看日志信息，需要添加以下配置才能开启；</li>
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">file:</span> <span class="string">admin-client.log</span> <span class="comment">#添加开启admin的日志监控</span></span></pre></td></tr></table></figure>
 
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_07.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_07.png)</p>
 <ul>
 <li>查看JVM信息；</li>
 </ul>
-<p>![image-20201215145320044](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/image-20201215145320044.png)</p>
+<p>![image-20201215145320044](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/image-20201215145320044.png)</p>
 <ul>
 <li>查看可以访问的Web端点；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_09.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_09.png)</p>
 <ul>
 <li>查看HTTP跟踪信息；</li>
 </ul>
-<p>![img](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/springcloud_admin_10.png)</p>
+<p>![img](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/springcloud_admin_10.png)</p>
 <h1 id="结合注册中心使用"><a href="#结合注册中心使用" class="headerlink" title="结合注册中心使用"></a>结合注册中心使用</h1><p>Spring Boot Admin结合Spring Cloud 注册中心使用，只需将admin-server和注册中心整合即可，admin-server 会自动从注册中心获取服务列表，然后挨个获取监控信息。这里以Eureka注册中心为例来介绍下该功能。</p>
 <h2 id="修改admin-server"><a href="#修改admin-server" class="headerlink" title="修改admin-server"></a>修改admin-server</h2><ul>
 <li>在pom.xml中添加相关依赖：</li>
@@ -356,12 +356,12 @@
 
 <ul>
 <li><p>查看注册中心发现服务均已注册：<a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a></p>
-<p>![image-20201215162142442](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/image-20201215162142442.png)</p>
+<p>![image-20201215162142442](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/image-20201215162142442.png)</p>
 </li>
 <li><p>查看Spring Boot Admin 主页发现可以看到服务信息：<a href="http://localhost:9301" target="_blank" rel="noopener">http://localhost:9301</a></p>
 </li>
 </ul>
-<p>![image-20201215162219737](/zbcn.github.io/assets/postImg/springCloud/springcloud-13springboot Admin微服务监控/image-20201215162219737.png)</p>
+<p>![image-20201215162219737](/zbcn.github.io/assets/postImg/springcloud/springcloud-13springboot Admin微服务监控/image-20201215162219737.png)</p>
 <h1 id="添加登录认证"><a href="#添加登录认证" class="headerlink" title="添加登录认证"></a>添加登录认证</h1><ul>
 <li>我们可以通过给admin-server添加Spring Security支持来获得登录认证功能。</li>
 </ul>
@@ -440,7 +440,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -452,7 +452,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -664,19 +664,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,7 +688,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,15 +708,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,23 +764,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,7 +788,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">

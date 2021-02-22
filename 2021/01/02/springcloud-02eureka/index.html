@@ -6,26 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>Springcloud eureka 服务注册与发现 | zbcn</title>
+  <title>springcloud eureka 服务注册与发现 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Springcloud eureka 服务注册与发现Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。 Eureka 简介在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册">
+  <meta name="description" content="springcloud eureka 服务注册与发现Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。 Eureka 简介在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Springcloud eureka 服务注册与发现">
+<meta property="og:title" content="springcloud eureka 服务注册与发现">
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;02&#x2F;springcloud-02eureka&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="Springcloud eureka 服务注册与发现Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。 Eureka 简介在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_01.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_03.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_09.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_10.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_11.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_13.png">
+<meta property="og:description" content="springcloud eureka 服务注册与发现Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。 Eureka 简介在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_01.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_03.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_09.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_13.png">
 <meta property="article:published_time" content="2021-01-02T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:36:33.915Z">
+<meta property="article:modified_time" content="2021-02-22T02:09:53.664Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_01.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-02eureka&#x2F;springcloud_eureka_01.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -188,7 +188,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Springcloud eureka 服务注册与发现
+      springcloud eureka 服务注册与发现
     </h1>
   
 
@@ -238,21 +238,21 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="Springcloud-eureka-服务注册与发现"><a href="#Springcloud-eureka-服务注册与发现" class="headerlink" title="Springcloud eureka 服务注册与发现"></a>Springcloud eureka 服务注册与发现</h1><p>Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。</p>
+        <h1 id="springcloud-eureka-服务注册与发现"><a href="#springcloud-eureka-服务注册与发现" class="headerlink" title="springcloud eureka 服务注册与发现"></a>springcloud eureka 服务注册与发现</h1><p>Spring Cloud Eureka是Spring Cloud Netflix 子项目的核心组件之一，主要用于微服务架构中的服务治理。 本文将对搭建Eureka注册中心，搭建Eureka客户端，搭建Eureka集群及给Eureka注册中心添加登录认证进行介绍。</p>
 <h1 id="Eureka-简介"><a href="#Eureka-简介" class="headerlink" title="Eureka 简介"></a>Eureka 简介</h1><p>在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册自己的地址及端口信息，注册中心维护着服务名称与服务实例的对应关系。每个微服务都会定时从注册中心获取服务列表，同时汇报自己的运行情况，这样当有的服务需要调用其他服务时，就可以从自己获取到的服务列表中获取实例地址进行调用，Eureka实现了这套服务注册与发现机制。</p>
 <a id="more"></a>
 
-<h1 id="搭建-Eureka-注册中心"><a href="#搭建-Eureka-注册中心" class="headerlink" title="搭建 Eureka 注册中心"></a>搭建 Eureka 注册中心</h1><h2 id="使用-idea-来创建SpringCloud-应用"><a href="#使用-idea-来创建SpringCloud-应用" class="headerlink" title="使用 idea 来创建SpringCloud 应用"></a>使用 idea 来创建SpringCloud 应用</h2><ul>
+<h1 id="搭建-Eureka-注册中心"><a href="#搭建-Eureka-注册中心" class="headerlink" title="搭建 Eureka 注册中心"></a>搭建 Eureka 注册中心</h1><h2 id="使用-idea-来创建springcloud-应用"><a href="#使用-idea-来创建springcloud-应用" class="headerlink" title="使用 idea 来创建springcloud 应用"></a>使用 idea 来创建springcloud 应用</h2><ul>
 <li>创建一个eureka-server模块，并使用Spring Initializer初始化一个SpringBoot项目</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_01.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_01.png" alt="img"></p>
 <ul>
 <li><p>填写应用信息</p>
 </li>
-<li><p>选择你需要的SpringCloud组件进行创建</p>
+<li><p>选择你需要的springcloud组件进行创建</p>
 </li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_03.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_03.png" alt="img"></p>
 <ul>
 <li>创建完成后会发现pom.xml文件中已经有了eureka-server的依赖</li>
 </ul>
@@ -311,13 +311,13 @@
 <li>添加两个配置，分别以application-replica1.yml和application-replica2.yml来启动eureka-server</li>
 </ul>
 <p>从原启动配置中复制一个出来</p>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_09.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_09.png" alt="img"></p>
 <p>配置启动的配置文件</p>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_10.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_10.png" alt="img"></p>
 <ul>
 <li>启动两个eureka-server，访问其中一个注册中心<a href="http://replica1:8002/发现另一个已经成为其备份" target="_blank" rel="noopener">http://replica1:8002/发现另一个已经成为其备份</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_11.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_11.png" alt="img"></p>
 <ul>
 <li>修改Eureka-client，让其连接到集群</li>
 </ul>
@@ -338,7 +338,7 @@
 <h2 id="添加Java-配置WebSecurityConfig"><a href="#添加Java-配置WebSecurityConfig" class="headerlink" title="添加Java 配置WebSecurityConfig"></a>添加Java 配置WebSecurityConfig</h2><p>默认情况下添加SpringSecurity依赖的应用每个请求都需要添加CSRF token才能访问，Eureka客户端注册时并不会添加，所以需要配置/eureka/**路径不需要CSRF token。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableWebSecurity</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfig</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        http.csrf().ignoringAntMatchers(<span class="string">"/eureka/**"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">super</span>.configure(http);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
-<h2 id="运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录"><a href="#运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录" class="headerlink" title="运行Eureka-Security-Server ，访问 http://localhost:8084 发现需要登录"></a>运行Eureka-Security-Server ，访问 <a href="http://localhost:8084" target="_blank" rel="noopener">http://localhost:8084</a> 发现需要登录</h2><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-02eureka/springcloud_eureka_13.png" alt="img"></p>
+<h2 id="运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录"><a href="#运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录" class="headerlink" title="运行Eureka-Security-Server ，访问 http://localhost:8084 发现需要登录"></a>运行Eureka-Security-Server ，访问 <a href="http://localhost:8084" target="_blank" rel="noopener">http://localhost:8084</a> 发现需要登录</h2><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-02eureka/springcloud_eureka_13.png" alt="img"></p>
 <h2 id="eureka-client注册到有登录认证的注册中心"><a href="#eureka-client注册到有登录认证的注册中心" class="headerlink" title="eureka-client注册到有登录认证的注册中心"></a>eureka-client注册到有登录认证的注册中心</h2><ul>
 <li>配置文件中需要修改注册中心地址格式</li>
 </ul>
@@ -406,7 +406,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -418,7 +418,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -474,7 +474,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Springcloud-eureka-服务注册与发现"><span class="toc-number">1.</span> <span class="toc-text">Springcloud eureka 服务注册与发现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Eureka-简介"><span class="toc-number">2.</span> <span class="toc-text">Eureka 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建-Eureka-注册中心"><span class="toc-number">3.</span> <span class="toc-text">搭建 Eureka 注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-idea-来创建SpringCloud-应用"><span class="toc-number">3.1.</span> <span class="toc-text">使用 idea 来创建SpringCloud 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#然后可以启动服务"><span class="toc-number">3.2.</span> <span class="toc-text">然后可以启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Eureka-客户端"><span class="toc-number">4.</span> <span class="toc-text">搭建Eureka 客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Eureka注册中心集群"><span class="toc-number">5.</span> <span class="toc-text">搭建Eureka注册中心集群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建两个注册中心"><span class="toc-number">5.1.</span> <span class="toc-text">搭建两个注册中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行eureka-注册中心集群"><span class="toc-number">5.2.</span> <span class="toc-text">运行eureka 注册中心集群</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#给eureka-注册中心添加认证"><span class="toc-number">6.</span> <span class="toc-text">给eureka 注册中心添加认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个-eureka-security-server-模块，在pom-xml-文件中添加以下依赖"><span class="toc-number">6.1.</span> <span class="toc-text">创建一个 eureka-security-server 模块，在pom.xml 文件中添加以下依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加-application-yml-配置文件"><span class="toc-number">6.2.</span> <span class="toc-text">添加 application.yml 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加Java-配置WebSecurityConfig"><span class="toc-number">6.3.</span> <span class="toc-text">添加Java 配置WebSecurityConfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录"><span class="toc-number">6.4.</span> <span class="toc-text">运行Eureka-Security-Server ，访问 http:&#x2F;&#x2F;localhost:8084 发现需要登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eureka-client注册到有登录认证的注册中心"><span class="toc-number">6.5.</span> <span class="toc-text">eureka-client注册到有登录认证的注册中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eureka-常用配置"><span class="toc-number">6.6.</span> <span class="toc-text">eureka 常用配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用到的模块"><span class="toc-number">6.7.</span> <span class="toc-text">使用到的模块</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springcloud-eureka-服务注册与发现"><span class="toc-number">1.</span> <span class="toc-text">springcloud eureka 服务注册与发现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Eureka-简介"><span class="toc-number">2.</span> <span class="toc-text">Eureka 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建-Eureka-注册中心"><span class="toc-number">3.</span> <span class="toc-text">搭建 Eureka 注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-idea-来创建springcloud-应用"><span class="toc-number">3.1.</span> <span class="toc-text">使用 idea 来创建springcloud 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#然后可以启动服务"><span class="toc-number">3.2.</span> <span class="toc-text">然后可以启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Eureka-客户端"><span class="toc-number">4.</span> <span class="toc-text">搭建Eureka 客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Eureka注册中心集群"><span class="toc-number">5.</span> <span class="toc-text">搭建Eureka注册中心集群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建两个注册中心"><span class="toc-number">5.1.</span> <span class="toc-text">搭建两个注册中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行eureka-注册中心集群"><span class="toc-number">5.2.</span> <span class="toc-text">运行eureka 注册中心集群</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#给eureka-注册中心添加认证"><span class="toc-number">6.</span> <span class="toc-text">给eureka 注册中心添加认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个-eureka-security-server-模块，在pom-xml-文件中添加以下依赖"><span class="toc-number">6.1.</span> <span class="toc-text">创建一个 eureka-security-server 模块，在pom.xml 文件中添加以下依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加-application-yml-配置文件"><span class="toc-number">6.2.</span> <span class="toc-text">添加 application.yml 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加Java-配置WebSecurityConfig"><span class="toc-number">6.3.</span> <span class="toc-text">添加Java 配置WebSecurityConfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行Eureka-Security-Server-，访问-http-localhost-8084-发现需要登录"><span class="toc-number">6.4.</span> <span class="toc-text">运行Eureka-Security-Server ，访问 http:&#x2F;&#x2F;localhost:8084 发现需要登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eureka-client注册到有登录认证的注册中心"><span class="toc-number">6.5.</span> <span class="toc-text">eureka-client注册到有登录认证的注册中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eureka-常用配置"><span class="toc-number">6.6.</span> <span class="toc-text">eureka 常用配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用到的模块"><span class="toc-number">6.7.</span> <span class="toc-text">使用到的模块</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -630,19 +630,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,7 +654,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,15 +674,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,23 +730,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,7 +754,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">

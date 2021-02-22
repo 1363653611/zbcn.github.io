@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://1363653611.github.io/zbcn.github.io">
-  <title>SpringCloud Hystrix 容器容错保护 | zbcn</title>
+  <title>springcloud Hystrix 容器容错保护 | zbcn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringCloud Hystrix 容器容错保护Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。 Hystrix 简介在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致">
+  <meta name="description" content="springcloud Hystrix 容器容错保护Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。 Hystrix 简介在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud Hystrix 容器容错保护">
+<meta property="og:title" content="springcloud Hystrix 容器容错保护">
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;04&#x2F;springcloud-04Hystrix&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
-<meta property="og:description" content="SpringCloud Hystrix 容器容错保护Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。 Hystrix 简介在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-04Hystrix&#x2F;image-20201208101756939.png">
+<meta property="og:description" content="springcloud Hystrix 容器容错保护Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。 Hystrix 简介在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-04Hystrix&#x2F;image-20201208101756939.png">
 <meta property="article:published_time" content="2021-01-04T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:36:48.885Z">
+<meta property="article:modified_time" content="2021-02-22T02:09:39.983Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-04Hystrix&#x2F;image-20201208101756939.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-04Hystrix&#x2F;image-20201208101756939.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -183,7 +183,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SpringCloud Hystrix 容器容错保护
+      springcloud Hystrix 容器容错保护
     </h1>
   
 
@@ -233,7 +233,7 @@
       
       <!-- 文章头增加转载声明结束 -->
       
-        <h1 id="SpringCloud-Hystrix-容器容错保护"><a href="#SpringCloud-Hystrix-容器容错保护" class="headerlink" title="SpringCloud Hystrix 容器容错保护"></a>SpringCloud Hystrix 容器容错保护</h1><p>Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。</p>
+        <h1 id="springcloud-Hystrix-容器容错保护"><a href="#springcloud-Hystrix-容器容错保护" class="headerlink" title="springcloud Hystrix 容器容错保护"></a>springcloud Hystrix 容器容错保护</h1><p>Spring Cloud Hystrix 是Spring Cloud Netflix 子项目的核心组件之一，具有服务容错及线程隔离等一系列服务保护功能，本文将对其用法进行详细介绍。</p>
 <h1 id="Hystrix-简介"><a href="#Hystrix-简介" class="headerlink" title="Hystrix 简介"></a>Hystrix 简介</h1><p>在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致系统瘫痪。Hystrix实现了断路器模式，当某个服务发生故障时，通过断路器的监控，给调用方返回一个错误响应，而不是长时间的等待，这样就不会使得调用方由于长时间得不到响应而占用线程，从而防止故障的蔓延。</p>
 <a id="more"></a>
 
@@ -360,7 +360,7 @@
 
 <ul>
 <li>访问接口测试<a href="http://localhost:8401/user/testCollapser，由于我们设置了100毫秒进行一次请求合并，前两次被合并，最后一次自己单独合并了。" target="_blank" rel="noopener">http://localhost:8401/user/testCollapser，由于我们设置了100毫秒进行一次请求合并，前两次被合并，最后一次自己单独合并了。</a></li>
-<li><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-04Hystrix/image-20201208101756939.png" alt="image-20201208101756939"></li>
+<li><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-04Hystrix/image-20201208101756939.png" alt="image-20201208101756939"></li>
 </ul>
 <h1 id="Hystrix的常用配置"><a href="#Hystrix的常用配置" class="headerlink" title="Hystrix的常用配置"></a>Hystrix的常用配置</h1><h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">hystrix:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">command:</span> <span class="comment">#用于控制HystrixCommand的行为</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">default:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">execution:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">isolation:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">strategy:</span> <span class="string">THREAD</span> <span class="comment">#控制HystrixCommand的隔离策略，THREAD-&gt;线程池隔离策略(默认)，SEMAPHORE-&gt;信号量隔离策略</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">thread:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">timeoutInMilliseconds:</span> <span class="number">1000</span> <span class="comment">#配置HystrixCommand执行的超时时间，执行超过该时间会进行服务降级处理</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">interruptOnTimeout:</span> <span class="literal">true</span> <span class="comment">#配置HystrixCommand执行超时的时候是否要中断</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">interruptOnCancel:</span> <span class="literal">true</span> <span class="comment">#配置HystrixCommand执行被取消的时候是否要中断</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">timeout:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#配置HystrixCommand的执行是否启用超时时间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          <span class="attr">semaphore:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">maxConcurrentRequests:</span> <span class="number">10</span> <span class="comment">#当使用信号量隔离策略时，用来控制并发量的大小，超过该并发量的请求会被拒绝</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">fallback:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#用于控制是否启用服务降级</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">circuitBreaker:</span> <span class="comment">#用于控制HystrixCircuitBreaker的行为</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#用于控制断路器是否跟踪健康状况以及熔断请求</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">requestVolumeThreshold:</span> <span class="number">20</span> <span class="comment">#超过该请求数的请求会被拒绝</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">forceOpen:</span> <span class="literal">false</span> <span class="comment">#强制打开断路器，拒绝所有请求</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">forceClosed:</span> <span class="literal">false</span> <span class="comment">#强制关闭断路器，接收所有请求</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">requestCache:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#用于控制是否开启请求缓存</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">collapser:</span> <span class="comment">#用于控制HystrixCollapser的执行行为</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">default:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">maxRequestsInBatch:</span> <span class="number">100</span> <span class="comment">#控制一次合并请求合并的最大请求数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">timerDelayinMilliseconds:</span> <span class="number">10</span> <span class="comment">#控制多少毫秒内的请求会被合并成一个</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">requestCache:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#控制合并请求是否开启缓存</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">threadpool:</span> <span class="comment">#用于控制HystrixCommand执行所在线程池的行为</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">default:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">coreSize:</span> <span class="number">10</span> <span class="comment">#线程池的核心线程数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">maximumSize:</span> <span class="number">10</span> <span class="comment">#线程池的最大线程数，超过该线程数的请求会被拒绝</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">maxQueueSize:</span> <span class="number">-1</span> <span class="comment">#用于设置线程池的最大队列大小，-1采用SynchronousQueue，其他正数采用LinkedBlockingQueue</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">      <span class="attr">queueSizeRejectionThreshold:</span> <span class="number">5</span> <span class="comment">#用于设置线程池队列的拒绝阀值，由于LinkedBlockingQueue不能动态改版大小，使用时需要用该参数来控制线程数</span></span></pre></td></tr></table></figure>
 
@@ -425,7 +425,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -437,7 +437,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -493,7 +493,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud-Hystrix-容器容错保护"><span class="toc-number">1.</span> <span class="toc-text">SpringCloud Hystrix 容器容错保护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix-简介"><span class="toc-number">2.</span> <span class="toc-text">Hystrix 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建-一个Hystrix-service-模块"><span class="toc-number">3.</span> <span class="toc-text">创建 一个Hystrix-service 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在pom-中添加相关依赖"><span class="toc-number">3.1.</span> <span class="toc-text">在pom 中添加相关依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-application-yml-中添加配置"><span class="toc-number">3.2.</span> <span class="toc-text">在 application.yml 中添加配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在启动类上添加-EnableCircuitBreaker来开启Hystrix的断路器功能"><span class="toc-number">3.3.</span> <span class="toc-text">在启动类上添加 @EnableCircuitBreaker来开启Hystrix的断路器功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建UserHystrixController接口用于调用user-service服务"><span class="toc-number">3.4.</span> <span class="toc-text">创建UserHystrixController接口用于调用user-service服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务降级演示"><span class="toc-number">4.</span> <span class="toc-text">服务降级演示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HystrixCommand详解"><span class="toc-number">5.</span> <span class="toc-text">@HystrixCommand详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HystrixCommand-常用参数"><span class="toc-number">5.1.</span> <span class="toc-text">@HystrixCommand 常用参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置命令、分组及线程池名称"><span class="toc-number">5.2.</span> <span class="toc-text">设置命令、分组及线程池名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用ignoreExceptions忽略某些异常降级"><span class="toc-number">5.3.</span> <span class="toc-text">使用ignoreExceptions忽略某些异常降级</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix的请求缓存"><span class="toc-number">6.</span> <span class="toc-text">Hystrix的请求缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关注解"><span class="toc-number">6.1.</span> <span class="toc-text">相关注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试缓存"><span class="toc-number">6.2.</span> <span class="toc-text">测试缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试移除缓存"><span class="toc-number">6.3.</span> <span class="toc-text">测试移除缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存使用过程中的问题"><span class="toc-number">6.4.</span> <span class="toc-text">缓存使用过程中的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#请求合并"><span class="toc-number">7.</span> <span class="toc-text">请求合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HystrixCollapser的常用属性"><span class="toc-number">7.0.1.</span> <span class="toc-text">@HystrixCollapser的常用属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能实现"><span class="toc-number">7.1.</span> <span class="toc-text">功能实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix的常用配置"><span class="toc-number">8.</span> <span class="toc-text">Hystrix的常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局配置"><span class="toc-number">8.1.</span> <span class="toc-text">全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件中相关key的说明"><span class="toc-number">8.1.1.</span> <span class="toc-text">配置文件中相关key的说明</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用到的模块"><span class="toc-number">9.</span> <span class="toc-text">使用到的模块</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springcloud-Hystrix-容器容错保护"><span class="toc-number">1.</span> <span class="toc-text">springcloud Hystrix 容器容错保护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix-简介"><span class="toc-number">2.</span> <span class="toc-text">Hystrix 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建-一个Hystrix-service-模块"><span class="toc-number">3.</span> <span class="toc-text">创建 一个Hystrix-service 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在pom-中添加相关依赖"><span class="toc-number">3.1.</span> <span class="toc-text">在pom 中添加相关依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-application-yml-中添加配置"><span class="toc-number">3.2.</span> <span class="toc-text">在 application.yml 中添加配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在启动类上添加-EnableCircuitBreaker来开启Hystrix的断路器功能"><span class="toc-number">3.3.</span> <span class="toc-text">在启动类上添加 @EnableCircuitBreaker来开启Hystrix的断路器功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建UserHystrixController接口用于调用user-service服务"><span class="toc-number">3.4.</span> <span class="toc-text">创建UserHystrixController接口用于调用user-service服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务降级演示"><span class="toc-number">4.</span> <span class="toc-text">服务降级演示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HystrixCommand详解"><span class="toc-number">5.</span> <span class="toc-text">@HystrixCommand详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HystrixCommand-常用参数"><span class="toc-number">5.1.</span> <span class="toc-text">@HystrixCommand 常用参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置命令、分组及线程池名称"><span class="toc-number">5.2.</span> <span class="toc-text">设置命令、分组及线程池名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用ignoreExceptions忽略某些异常降级"><span class="toc-number">5.3.</span> <span class="toc-text">使用ignoreExceptions忽略某些异常降级</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix的请求缓存"><span class="toc-number">6.</span> <span class="toc-text">Hystrix的请求缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关注解"><span class="toc-number">6.1.</span> <span class="toc-text">相关注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试缓存"><span class="toc-number">6.2.</span> <span class="toc-text">测试缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试移除缓存"><span class="toc-number">6.3.</span> <span class="toc-text">测试移除缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存使用过程中的问题"><span class="toc-number">6.4.</span> <span class="toc-text">缓存使用过程中的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#请求合并"><span class="toc-number">7.</span> <span class="toc-text">请求合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HystrixCollapser的常用属性"><span class="toc-number">7.0.1.</span> <span class="toc-text">@HystrixCollapser的常用属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能实现"><span class="toc-number">7.1.</span> <span class="toc-text">功能实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix的常用配置"><span class="toc-number">8.</span> <span class="toc-text">Hystrix的常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局配置"><span class="toc-number">8.1.</span> <span class="toc-text">全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件中相关key的说明"><span class="toc-number">8.1.1.</span> <span class="toc-text">配置文件中相关key的说明</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用到的模块"><span class="toc-number">9.</span> <span class="toc-text">使用到的模块</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -649,19 +649,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,7 +673,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,15 +693,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,23 +749,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,7 +773,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">

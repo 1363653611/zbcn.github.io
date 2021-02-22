@@ -14,20 +14,20 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;18&#x2F;springcloud18-Ali-Sentinel&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Alibaba：Sentinel实现熔断与限流Spring Cloud Alibaba 致力于提供微服务开发的一站式解决方案，Sentinel 作为其核心组件之一，具有熔断与限流等一系列服务保护功能，本文将对其用法进行详细介绍。 Sentinel简介随着微服务的流行，服务和服务之间的稳定性变得越来越重要。 Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217094603050.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217111049366.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217111307819.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217112139406.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217114812120.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;spingcloud_sentinel_08.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217143428508.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217143728874.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217094603050.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217111049366.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217111307819.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217112139406.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217114812120.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;spingcloud_sentinel_08.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217143428508.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217143728874.png">
 <meta property="article:published_time" content="2021-01-18T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:38:41.133Z">
+<meta property="article:modified_time" content="2021-02-22T02:06:08.092Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217094603050.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud18-Ali-Sentine&#x2F;image-20201217094603050.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
 <ul>
 <li>Sentinel控制台默认运行在8080端口上，登录账号密码均为<code>sentinel</code>，通过如下地址可以进行访问：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217094603050.png" alt="image-20201217094603050"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217094603050.png" alt="image-20201217094603050"></p>
 <ul>
 <li>Sentinel控制台可以查看单台机器的实时监控数据。</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217111049366.png" alt="image-20201217111049366"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217111049366.png" alt="image-20201217111049366"></p>
 <h1 id="创建sentinel-service模块"><a href="#创建sentinel-service模块" class="headerlink" title="创建sentinel-service模块"></a>创建sentinel-service模块</h1><p>这里我们创建一个sentinel-service模块，用于演示Sentinel的熔断与限流功能。</p>
 <ul>
 <li>在pom.xml中添加相关依赖，这里我们使用Nacos作为注册中心，所以需要同时添加Nacos的依赖：</li>
@@ -291,7 +291,7 @@
 <li>由于Sentinel采用的懒加载规则，需要我们先访问下接口，Sentinel控制台中才会有对应服务信息，我们先访问下该接口：<a href="http://localhost:8401/rateLimit/byResource" target="_blank" rel="noopener">http://localhost:8401/rateLimit/byResource</a></li>
 <li>在Sentinel控制台配置流控规则，根据@SentinelResource注解的value值：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217111307819.png" alt="image-20201217111307819"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217111307819.png" alt="image-20201217111307819"></p>
 <ul>
 <li>快速访问上面的接口，可以发现返回了自己定义的限流处理信息：</li>
 </ul>
@@ -303,7 +303,7 @@
 <ul>
 <li>在Sentinel控制台配置流控规则，使用访问的URL：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217112139406.png" alt="image-20201217112139406"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217112139406.png" alt="image-20201217112139406"></p>
 <ul>
 <li>多次访问该接口，会返回默认的限流处理结果：<a href="http://localhost:8401/rateLimit/byUrl" target="_blank" rel="noopener">http://localhost:8401/rateLimit/byUrl</a></li>
 </ul>
@@ -325,7 +325,7 @@
 <ul>
 <li>在Sentinel控制台配置流控规则，使用访问的URL：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217114812120.png" alt="image-20201217114812120"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217114812120.png" alt="image-20201217114812120"></p>
 <ul>
 <li>访问可以产生限流规则： <a href="http://localhost:8401/rateLimit/customBlockHandler" target="_blank" rel="noopener">http://localhost:8401/rateLimit/customBlockHandler</a></li>
 </ul>
@@ -390,7 +390,7 @@
 <li>关闭 nacos-user-server 服务后，调用如下接口会发生服务降级，返回服务降级处理信息：<a href="http://localhost:8401/user/1" target="_blank" rel="noopener">http://localhost:8401/user/1</a></li>
 </ul>
 <h1 id="使用Nacos存储规则"><a href="#使用Nacos存储规则" class="headerlink" title="使用Nacos存储规则"></a>使用Nacos存储规则</h1><p>默认情况下，当我们在Sentinel控制台中配置规则时，控制台推送规则方式是通过API将规则推送至客户端并直接更新到内存中。一旦我们重启应用，规则将消失。下面我们介绍下如何将配置规则进行持久化，以存储到Nacos为例。</p>
-<h2 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h2><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/spingcloud_sentinel_08.png" alt="img"></p>
+<h2 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h2><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/spingcloud_sentinel_08.png" alt="img"></p>
 <ul>
 <li>首先我们直接在配置中心创建规则，配置中心将规则推送到客户端；</li>
 <li>Sentinel控制台也从配置中心去获取配置信息。</li>
@@ -422,9 +422,9 @@
 <li>controlBehavior：流控效果，0表示快速失败，1表示Warm Up，2表示排队等待；</li>
 <li>clusterMode：是否集群。</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217143428508.png" alt="image-20201217143428508"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217143428508.png" alt="image-20201217143428508"></p>
 <p>发现Sentinel控制台已经有了如下限流规则：</p>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud18-Ali-Sentine/image-20201217143728874.png" alt="image-20201217143728874"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud18-Ali-Sentine/image-20201217143728874.png" alt="image-20201217143728874"></p>
 <ul>
 <li>快速访问测试接口： <a href="http://localhost:8401/rateLimit/byUrl，可以发现返回了限流处理信息：`Blocked" target="_blank" rel="noopener">http://localhost:8401/rateLimit/byUrl，可以发现返回了限流处理信息：`Blocked</a> by Sentinel (flow limiting)`</li>
 </ul>
@@ -481,7 +481,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -493,7 +493,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -705,19 +705,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,7 +729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,15 +749,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,23 +805,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,7 +829,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">

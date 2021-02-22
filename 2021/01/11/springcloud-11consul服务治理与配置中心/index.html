@@ -14,15 +14,15 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;11&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Consul：服务治理与配置中心Spring Cloud Consul 为 SpringBoot 应用提供了 Consul的支持，Consul既可以作为注册中心使用，也可以作为配置中心使用，本文将对其用法进行详细介绍。 Consul 简介Consul是HashiCorp公司推出的开源软件，提供了微服务系统中的服务治理、配置中心、控制总线等功能。这些功能中的每一个都可以根据">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_02.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_03.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_04.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_02.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_03.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_04.png">
 <meta property="article:published_time" content="2021-01-11T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:37:40.057Z">
+<meta property="article:modified_time" content="2021-02-22T02:08:56.808Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_02.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;springcloud_consul_02.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -254,7 +254,7 @@
 <li>查看版本号信息如下：</li>
 <li>使用开发模式启动：<code>consul agent -dev</code></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_02.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_02.png" alt="img"></p>
 <ul>
 <li>通过以下地址可以访问Consul的首页：<a href="http://localhost:8500" target="_blank" rel="noopener">http://localhost:8500</a></li>
 </ul>
@@ -287,7 +287,7 @@
 <ul>
 <li>运行两个consul-user-service和一个consul-ribbon-service，在Consul页面上可以看到如下信息：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_03.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_03.png" alt="img"></p>
 <h1 id="负载均衡功能"><a href="#负载均衡功能" class="headerlink" title="负载均衡功能"></a>负载均衡功能</h1><p>由于我们运行了两个consul-user-service，而consul-ribbon-service默认会去调用它的接口，我们调用consul-ribbon-service的接口来演示下负载均衡功能。</p>
 <p>多次调用接口：<a href="http://localhost:8308/user/1" target="_blank" rel="noopener">http://localhost:8308/user/1</a> ，可以发现两个consul-user-service的控制台交替打印如下信息。</p>
 <h1 id="使用Consul作为配置中心"><a href="#使用Consul作为配置中心" class="headerlink" title="使用Consul作为配置中心"></a>使用Consul作为配置中心</h1><p>我们通过创建consul-config-client模块，并在Consul中添加配置信息来演示下配置管理的功能。</p>
@@ -324,7 +324,7 @@
 <ul>
 <li>存储信息截图如下：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_04.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud-11consul%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/springcloud_consul_04.png" alt="img"></p>
 <ul>
 <li>启动consul-config-client，调用接口查看配置信息：<a href="http://localhost:9101/consul/configInfo" target="_blank" rel="noopener">http://localhost:9101/consul/configInfo</a></li>
 </ul>
@@ -385,7 +385,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -397,7 +397,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -609,19 +609,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +633,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,15 +653,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,23 +709,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,7 +733,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">

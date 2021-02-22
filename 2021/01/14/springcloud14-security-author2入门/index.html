@@ -14,22 +14,22 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;2021&#x2F;01&#x2F;14&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="zbcn">
 <meta property="og:description" content="Spring Cloud Security：Oauth2使用入门Spring Cloud Security 为构建安全的SpringBoot应用提供了一系列解决方案，结合Oauth2可以实现单点登录、令牌中继、令牌交换等功能，本文将对其结合Oauth2入门使用进行详细介绍。 OAuth2 简介OAuth 2.0是用于授权的行业标准协议。OAuth 2.0为简化客户端开发提供了特定的授权流，包括We">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_01.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_02.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;image-20201215184440703.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_04.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;image-20201215185006190.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_05.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_06.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_07.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_05.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_08.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_01.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_02.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;image-20201215184440703.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_04.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;image-20201215185006190.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_05.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_06.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_07.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_05.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_08.png">
 <meta property="article:published_time" content="2021-01-14T05:14:10.000Z">
-<meta property="article:modified_time" content="2021-02-20T01:38:05.358Z">
+<meta property="article:modified_time" content="2021-02-22T02:06:48.960Z">
 <meta property="article:author" content="执笔成念">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springCloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_01.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;1363653611.github.io&#x2F;zbcn.github.io&#x2F;assets&#x2F;postImg&#x2F;springcloud&#x2F;springcloud14-security-author2%E5%85%A5%E9%97%A8&#x2F;spingcloud_security_01.png">
   
     <link rel="alternative" href="/atom.xml" title="zbcn" type="application/atom+xml">
   
@@ -258,7 +258,7 @@
 <li>Resource Owner Password Credentials（密码模式）：客户端直接向用户获取用户名和密码，之后向认证服务器获取访问令牌；</li>
 <li>Client Credentials（客户端模式）：客户端直接通过客户端认证（比如client_id和client_secret）从认证服务器获取访问令牌。</li>
 </ul>
-<h1 id="两种常用的授权模式"><a href="#两种常用的授权模式" class="headerlink" title="两种常用的授权模式"></a>两种常用的授权模式</h1><h2 id="授权码模式"><a href="#授权码模式" class="headerlink" title="授权码模式"></a>授权码模式</h2><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_01.png" alt="img"></p>
+<h1 id="两种常用的授权模式"><a href="#两种常用的授权模式" class="headerlink" title="两种常用的授权模式"></a>两种常用的授权模式</h1><h2 id="授权码模式"><a href="#授权码模式" class="headerlink" title="授权码模式"></a>授权码模式</h2><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_01.png" alt="img"></p>
 <ul>
 <li>(A)客户端将用户导向认证服务器；</li>
 <li>(B)用户在认证服务器进行登录并授权；</li>
@@ -266,7 +266,7 @@
 <li>(D)客户端通过授权码和跳转地址向认证服务器获取访问令牌；</li>
 <li>(E)认证服务器发放访问令牌（有需要带上刷新令牌）。</li>
 </ul>
-<h2 id="密码模式"><a href="#密码模式" class="headerlink" title="密码模式"></a>密码模式</h2><p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_02.png" alt="img"></p>
+<h2 id="密码模式"><a href="#密码模式" class="headerlink" title="密码模式"></a>密码模式</h2><p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_02.png" alt="img"></p>
 <ul>
 <li>(A)客户端从用户获取用户名和密码；</li>
 <li>(B)客户端通过用户的用户名和密码访问认证服务器；</li>
@@ -313,40 +313,40 @@
 <li>在浏览器访问该地址进行登录授权：<a href="http://localhost:9401/oauth/authorize?response_type=code&amp;client_id=admin&amp;redirect_uri=http://www.baidu.com&amp;scope=all&amp;state=normal" target="_blank" rel="noopener">http://localhost:9401/oauth/authorize?response_type=code&amp;client_id=admin&amp;redirect_uri=http://www.baidu.com&amp;scope=all&amp;state=normal</a></li>
 <li>输入账号密码进行登录操作：</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/image-20201215184440703.png" alt="image-20201215184440703"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/image-20201215184440703.png" alt="image-20201215184440703"></p>
 <ul>
 <li>登陆后授权操作</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_04.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_04.png" alt="img"></p>
 <ul>
 <li>之后会浏览器会带着授权码跳转到我们指定的路径：</li>
 </ul>
 <p><a href="https://www.baidu.com/?code=xFHehO&amp;state=normal" target="_blank" rel="noopener">https://www.baidu.com/?code=xFHehO&amp;state=normal</a></p>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/image-20201215185006190.png" alt="image-20201215185006190"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/image-20201215185006190.png" alt="image-20201215185006190"></p>
 <ul>
 <li>使用授权码请求该地址获取访问令牌：<a href="http://localhost:9401/oauth/token" target="_blank" rel="noopener">http://localhost:9401/oauth/token</a></li>
 <li>使用Basic认证通过client_id和client_secret构造一个Authorization头信息；</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_05.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_05.png" alt="img"></p>
 <ul>
 <li>在body中添加以下参数信息，通过POST请求获取访问令牌；</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_06.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_06.png" alt="img"></p>
 <ul>
 <li>在请求头中添加访问令牌，访问需要登录认证的接口进行测试，发现已经可以成功访问：<a href="http://localhost:9401/user/getCurrentUser" target="_blank" rel="noopener">http://localhost:9401/user/getCurrentUser</a></li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_07.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_07.png" alt="img"></p>
 <h2 id="密码模式使用"><a href="#密码模式使用" class="headerlink" title="密码模式使用"></a>密码模式使用</h2><ul>
 <li><p>使用密码请求该地址获取访问令牌：<a href="http://localhost:9401/oauth/token" target="_blank" rel="noopener">http://localhost:9401/oauth/token</a></p>
 </li>
 <li><p>使用Basic认证通过client_id和client_secret构造一个Authorization头信息；</p>
 </li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_05.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_05.png" alt="img"></p>
 <ul>
 <li>在body中添加以下参数信息，通过POST请求获取访问令牌；</li>
 </ul>
-<p><img src="/zbcn.github.io/assets/postImg/springCloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_08.png" alt="img"></p>
+<p><img src="/zbcn.github.io/assets/postImg/springcloud/springcloud14-security-author2%E5%85%A5%E9%97%A8/spingcloud_security_08.png" alt="img"></p>
 <h1 id="使用到的模块"><a href="#使用到的模块" class="headerlink" title="使用到的模块"></a>使用到的模块</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ZBCN-SERVER</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">└── zbcn-author/oauth2-server -- oauth2认证测试服务</span></pre></td></tr></table></figure>
 
 
@@ -399,7 +399,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -411,7 +411,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/zbcn.github.io/categories/SpringCloud//" class="article-tag-list-link color2">SpringCloud</a>
+        			<a href="/zbcn.github.io/categories/springcloud//" class="article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -623,19 +623,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color4">JCF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,15 +667,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">restful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">designPattern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -723,23 +723,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,7 +747,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">
